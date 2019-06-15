@@ -1,39 +1,28 @@
 # Site
-name: 'Mundana'
-description: 'Mundana is a free Jekyll theme for awesome people like you, Medium like.'
+name: "Testing Excellence"
+title: "Testing Excellence"
+description: "Site for Developers and QAs"
 logo: 'assets/images/logo.png'
-favicon: 'assets/images/favicon.ico'
-baseurl: '/mundana-theme-jekyll'
+favicon: 'assets/images/logo.png'
+#url: 'https://devqa.io'
+url: 'localhost:4000'
+baseurl: ''
+google_analytics: 'UA-141585211-1'
 disqus: 'demowebsite'
-email: 'wowthemesnet@gmail.com'
-mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
-
+mailchimp-list: 'https://mailchi.mp/3b7a1f21f2f7/devqa'
 include: ["_pages"]
 permalink: /:title/
 
-# Plugins
-plugins: 
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-seo-tag
-  
+# Authors
 authors:
-    sal:
-      name:           Sal
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar1.jpg
-      bio:            "Hi, I am Sal, the author of Mundana, the theme you're currently previewing. I hope you like it!"
-      email:          wowthemesnet@gmail.com
-      twitter:        https://twitter.com/wowthemesnet
-
-    jane:
-      name:           Jane
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar2.jpg
-      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
-      email:          fakemail@gmail.com
-      twitter:        https://twitter.com/wowthemesnet
+  Amir:
+    name: Amir Ghahrai
+    display_name: Amir
+    gravatar: e56154546cf4be74e393c62d1ae9f9d4
+    email: aghahrai@gmail.com
+    web: https://www.devqa.io
+    twitter: https://twitter.com/testingexcel
+    description: ""
  
 # Defaults
 defaults:
@@ -53,8 +42,12 @@ defaults:
       layout: page
       
 # Syntax
-markdown: kramdown
-highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
 
 # Paginate
 paginate: 10
