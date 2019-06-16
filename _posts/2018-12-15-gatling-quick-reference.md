@@ -4,7 +4,7 @@ title:  "Gatling Quick Reference - Common Gatling Functions"
 author: Amir
 categories: [ performance ]
 tags: [ gatling ]
-image: assets/images/java-override-tostring-example.jpg
+image: assets/images/gatling-quick-reference-guide.jpg
 ---
 
 This post serves as a quick reference guide for Gatling tool for performance testing.
