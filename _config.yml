@@ -12,6 +12,7 @@ disqus: 'demowebsite'
 mailchimp-list: 'https://mailchi.mp/3b7a1f21f2f7/devqa'
 include: ["_pages"]
 permalink: /:title/
+lazyimages: "enabled"
 
 # Authors
 authors:

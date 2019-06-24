@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Boundary Value Analysis"
+title: "State Transition Testing"
 author: Amir
 categories: [ software testing ]
 tags: [ testing fundamentals ]

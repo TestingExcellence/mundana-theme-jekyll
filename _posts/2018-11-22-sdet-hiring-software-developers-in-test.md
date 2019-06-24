@@ -3,7 +3,7 @@ layout: post
 title: "SDET Unicorns - Why is it so Hard to Hire SDETs?"
 author: Amir
 categories: [ software testing ]
-tags: [ modern testing, featured ]
+tags: [ modern testing, test automation, featured ]
 image: assets/images/sdet.png
 ---
 
