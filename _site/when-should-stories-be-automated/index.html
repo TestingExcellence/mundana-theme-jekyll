@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>When to Automate User Stories | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>When to Automate User Stories | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="When to Automate User Stories" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If you have worked in an agile environment as a QA role, most probably you would have come across some sort of test automation. I don’t mean unit test automation which is typically a developer centric activity, but functional acceptance test automation which is normally done by QA or the new fancy role of Software Developer in Test." />
+<meta property="og:description" content="If you have worked in an agile environment as a QA role, most probably you would have come across some sort of test automation. I don’t mean unit test automation which is typically a developer centric activity, but functional acceptance test automation which is normally done by QA or the new fancy role of Software Developer in Test." />
+<link rel="canonical" href="localhost:4000/when-should-stories-be-automated/" />
+<meta property="og:url" content="localhost:4000/when-should-stories-be-automated/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-23T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"If you have worked in an agile environment as a QA role, most probably you would have come across some sort of test automation. I don’t mean unit test automation which is typically a developer centric activity, but functional acceptance test automation which is normally done by QA or the new fancy role of Software Developer in Test.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/when-should-stories-be-automated/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"When to Automate User Stories","dateModified":"2016-11-23T00:00:00+00:00","datePublished":"2016-11-23T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/when-should-stories-be-automated/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=When to Automate User Stories&url=localhost:4000/when-should-stories-be-automated/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/when-should-stories-be-automated/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/when-should-stories-be-automated/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Nov 23, 2016 · <span class="reading-time">
+  
+  
+    4 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">When to Automate User Stories</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="When to Automate User Stories">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>If you have worked in an agile environment as a QA role, most probably you would have come across some sort of test automation. I don’t mean unit test automation which is typically a developer centric activity, but functional acceptance test automation which is normally done by QA or the new fancy role of Software Developer in Test.</p>
+
+<p>First, lets take a look at some criteria and reasons for having test automation which should answer the question of “Why Tests Should/Should Not be Automated”</p>
+
+<h5 id="repeatability">Repeatability:</h5>
+
+<p>the automated tests should be repeatable and the output should be consistent in each run so that developers can rely on the outcome of the tests. This also means that we would not normally automate a test if it’s going to be run only once; the only exception to this is if you are running a test against a very large number of data, such as checking a link redirection script with many links.</p>
+
+<h5 id="reliability">Reliability:</h5>
+
+<p>the automated tests should really be checking verifications correctly and be able to determine actual results against valid expected results. This also means that if the results cannot be determined easily or automated tests are subject to environment issues which can cause false positives in the test results, then the tests cannot be reliable.</p>
+
+<h5 id="time">Time:</h5>
+
+<p>the automated tests should also save us time. If a simple test takes 10 minutes to complete but the same result can be determined in 1 minute manually, then it is best to not automate such tests.</p>
+
+<h5 id="safety-net">Safety net:</h5>
+
+<p>the automated tests should provide a safety net for developers so that any deviation from a good working code, as a result of changes to the code base, is quickly highlighted and reported to the developers.</p>
+
+<h5 id="when-should-stories-be-automated">When Should Stories be Automated?</h5>
+
+<p>In a typical sprint, say there are 7 stories that are committed to a sprint out of which 5 are good candidates to be automated based on the above criteria. But when is the best time to automate these stories? Should we write the automated tests as the features are being developed? Should we wait till a feature is developed and then write the automated tests? Shall we wait till the end of the sprint and then automate the stories?</p>
+
+<p>In some cases when stories are bug fixes or slight modification or enhancement to an existing feature, then it makes all the sense to write the automated tests as the feature is being modified by developers. There may even be an existing automated test for the feature being modified in which you just need to tweak the script to accommodate the new changes.</p>
+
+<p>In other cases, when the story is about implementing a new feature to the application, how do we know what the end product will look like to be able to write tests in advance? Here, I’m not talking about feature files which describe the acceptance tests in advance, but the actual fixtures or selenium tests (the implementation of tests) that run against the delivered code.</p>
+
+<p>The bottom line is - any test which is going to be done more than once should be automated. And which tests are we going to execute more than once? Regression Tests. And what are regression tests? Tests that determine whether the application has regressed in functionality as a result of the new modifications and features.</p>
+
+<p>But, you can only write good automated regression tests against a system which is stable, well understood and deterministic in terms of behaviour with known inputs and outputs.</p>
+
+<p>The problem with trying to write automated tests against a feature as it is being developed is you could potentially spend a long time and a lot of effort writing automated scripts against something which is volatile and subject to constant change during the sprint. Moreover, how many times have we seen a story being committed to a sprint and then later being pulled out of sprint? Then we have wasted time scripting something which didn’t make it into the system.</p>
+
+<p>Some organizations even impose a strict rule that a story is not “done” until it is fully automated! Are we going to stop an important feature to be released because the QA didn’t or couldn’t provide automation in time due to various reasons? Or a story is not “done” because we don’t have an automated script to check the existence of a button on a page. Seriously?</p>
+
+<p>The best purpose of automation testing is regression testing and regression tests are always run against a known state and deterministic system to be able to detect changes in the baseline, and to get a meaningful result from an automated test, is only when the test has run and passed manually at least once, so you can compare the results of the automated run against the manual execution.</p>
+
+<p>By this definition, the stories should be automated (the implementation) within sprint and only when the feature is fully verified manually. Once the story is complete and it is verified manually first, then it is a reliable feature and a stable system which you can then design and write automate tests against. Once the automated test is implemented, it is then added to the regression test suite to monitor and detect regression defects as next features are being developed.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/how-to-capture-network-traffic-and-http-requests-from-webdriver/"> &laquo; How to Capture Network Traffic and Http Requests From WebDriver</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/agile-test-plan-do-we-really-need-one/">Agile Test Plan - Do We Really Need One? &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agile Test Plan - Do We Really Need One? | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Agile Test Plan - Do We Really Need One? | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Agile Test Plan - Do We Really Need One?" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Agile Test Plan Document" />
+<meta property="og:description" content="Agile Test Plan Document" />
+<link rel="canonical" href="localhost:4000/agile-test-plan-do-we-really-need-one/" />
+<meta property="og:url" content="localhost:4000/agile-test-plan-do-we-really-need-one/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-24T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"Agile Test Plan Document","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/agile-test-plan-do-we-really-need-one/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Agile Test Plan - Do We Really Need One?","dateModified":"2016-11-24T00:00:00+00:00","datePublished":"2016-11-24T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/agile-test-plan-do-we-really-need-one/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Agile Test Plan - Do We Really Need One?&url=localhost:4000/agile-test-plan-do-we-really-need-one/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/agile-test-plan-do-we-really-need-one/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/agile-test-plan-do-we-really-need-one/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Nov 24, 2016 · <span class="reading-time">
+  
+  
+    3 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Agile Test Plan - Do We Really Need One?</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Agile Test Plan - Do We Really Need One?">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h2 id="agile-test-plan-document">Agile Test Plan Document</h2>
+
+<p><img src="http://69.164.212.71/wp-content/uploads/2012/10/Agile-Test-Plan-Do-We-Really-Need-One-2-e1430310555825.jpg" alt="Agile Test Plan - Do We Really Need One 2" /></p>
+
+<p>Do we need an Agile Test Plan Document?</p>
+
+<p>Test Planning is an important activity of a testing process and one that requires careful thoughts and decisions from not just the test manager (who is usually responsible for creating the test plan) but all members of the testing team and product development manager.</p>
+
+<p>Some people believe that it is the most important part of the testing process (I personally think test designing and abstract thinking is the most important) and spend many hours and effort coming up with a great test plan.</p>
+
+<p>Text books dedicate a whole section related to test planning, how to write one and what to include in a test plan while some governing bodies and regulatory organizations such as FDA require a comprehensive test plan in order to approve a product.</p>
+
+<p>In the real world, in a waterfall environment, quite often the test plan document is one that is hardly ever looked at during the life-cycle of the product. The activity of “Test Planning and Monitoring” should be an ongoing activity during the project life-cycle, it should be updated as per changes to the project, but in most cases this is not the case; test plan is either not updated or changes are retrospective, making the test plan document the least valuable by-product.</p>
+
+<p>Whilst test planning is almost always considered as a must-have product in a waterfall project, do we really need a test plan for an agile project? i.e. does it really add any value to what the whole team is trying to achieve?</p>
+
+<p>The agile manifesto clearly favours <strong>working software</strong> over comprehensive documentation and <strong>responding to change</strong> over following a plan.</p>
+
+<p>In an agile environment, the contents of a release (the items) are discussed before the sprint so the testing team know in advance what is the scope and what should be tested.</p>
+
+<p>In the “planning poker game” the estimates are discussed through so the testing team know how long it will take to test a feature (this is inclusive of environment setup, scenarios, automation, exploratory, performance, etc).</p>
+
+<p>In “story writing session” where details of each feature is thought through, the test team are already beginning to write scenarios to cover the many ways stories can be tested - this is the most valuable activity of the team.</p>
+
+<p>During the sprint, QA are continuously testing new code/feature. Test planning becomes a dynamic activity as the priorities for the day change. Testing is based on what is the activity for the day and the outcome of the day before.</p>
+
+<p>It is clearly evident that test plan doesn’t reveal defects but test scenarios will. The effort needs to be shifted on creating better scenarios than creating a test plan.</p>
+
+<p>What is really needed is a short <a href="http://www.testingexcellence.com/agile-test-strategy-example-template/"><strong>agile test strategy document outlining the processes applicable across sprints</strong></a>, i.e. sections about Sprint Planning, Specifications Workshops, Manual QA, Automation, Test Coverage, Test Reporting, Test Environments, Staging, etc… These are processes and activities applicable to every sprint but of course derived by the company’s vision.</p>
+
+<p>So, with all this in mind, is the Test Plan document or extensive Test Strategies really a thing of the past? Do we really need an Agile Test Plan?</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/when-should-stories-be-automated/"> &laquo; When to Automate User Stories</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/how-to-capture-screenshots-using-webdriver-in-java/">How to Capture Screenshots Using WebDriver in Java &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

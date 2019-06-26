@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exploratory Testing: Tips and Best Practices | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Exploratory Testing: Tips and Best Practices | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Exploratory Testing: Tips and Best Practices" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In a previous post we discussed Why Exploratory Testing is Important in Agile Projects." />
+<meta property="og:description" content="In a previous post we discussed Why Exploratory Testing is Important in Agile Projects." />
+<link rel="canonical" href="localhost:4000/exploratory-testing-tips-best-practices/" />
+<meta property="og:url" content="localhost:4000/exploratory-testing-tips-best-practices/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-05T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"In a previous post we discussed Why Exploratory Testing is Important in Agile Projects.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/exploratory-testing-tips-best-practices/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Exploratory Testing: Tips and Best Practices","dateModified":"2016-11-05T00:00:00+00:00","datePublished":"2016-11-05T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/exploratory-testing-tips-best-practices/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Exploratory Testing: Tips and Best Practices&url=localhost:4000/exploratory-testing-tips-best-practices/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/exploratory-testing-tips-best-practices/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/exploratory-testing-tips-best-practices/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Nov 05, 2016 · <span class="reading-time">
+  
+  
+    5 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Exploratory Testing: Tips and Best Practices</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Exploratory Testing: Tips and Best Practices">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>In a previous post we discussed <strong><a href="http://www.testingexcellence.com/exploratory-testing-important-agile-projects/" title="exploratory testing in agile">Why Exploratory Testing is Important in Agile Projects</a></strong>.</p>
+
+<p>In this article, Neil Fletcher provides his top 10 tips to exploratory testing.</p>
+
+<p>Key questions that come up are: what is exploratory testing and how should we do it?</p>
+
+<p>Exploratory testing helps quality analysts and others involved in the testing field ensure systems and applications work for their users. Exploratory testing is often misunderstood as an approach but there a number of pointers you can follow to ensure you’re on the right track. Here are my top 10.</p>
+
+<h3 id="1-focus-on-goals">1) Focus on goals</h3>
+
+<p>Exploratory testing helps you exercise a system like a user while actively looking to identify bugs. Focus on these goals to maximise the value of your tests. Remember that exploratory testing can complement other testing methods that examine systems in different ways.</p>
+
+<h3 id="2-plan-your-tests-but-dont-script-them">2) Plan your tests but don’t script them</h3>
+
+<p>You are not exploratory testing if you are following a script.  However, exploratory testing doesn’t mean testing without control or good practice. You do need to plan your testing in advance.</p>
+
+<p>Planning helps you clarify specific aspects of a system you want to examine including special data requirements or system needs.</p>
+
+<h3 id="3-dont-aim-to-test-too-much">3) Don’t aim to test too much</h3>
+
+<p>The aim of exploratory testing is not coverage – it’s to find the defects and issues in a system that you won’t find through other forms of testing. Typically these defects arise through edge cases of testing, but that doesn’t mean they are low impact.</p>
+
+<p>Quite often edge case defects will have a high level of severity even if they are less likely to arise. This is due to the nature of exploratory testing – it focuses on the parts of a system that are away from the normal usage pattern and are less likely to be well tested.</p>
+
+<h3 id="4-exploratory-testing-is-a-skilled-activity">4) Exploratory testing is a skilled activity</h3>
+
+<p>Typically, exploratory testing needs a greater level of testing skill and experience than other testing techniques. You are explicitly using and relying on the skill of the person doing the testing, so make sure they are the best you can get.</p>
+
+<h3 id="5-keep-a-clear-record-of-what-you-did">5) Keep a clear record of what you did</h3>
+
+<p>Don’t document something if there’s no value in doing so but do keep a clear record of what you did, how you did it and what you found out. This will give you an indication of how effective the session was, allowing you to optimise the process in the future.</p>
+
+<p>When you need to formally document the outcome of a session, your report may include:</p>
+
+<ul>
+  <li>a test charter outlining the scope and goals of your test</li>
+  <li>a list of features tested</li>
+  <li>notes on how the testing was conducted</li>
+  <li>notes on any bugs found</li>
+  <li>a list of issues (questions and concerns about the product or project that have arisen during testing)</li>
+  <li>extra materials used to support testing</li>
+</ul>
+
+<p>You can also report how much of the Exploratory Testing session you spent on each different activity, including:</p>
+
+<ul>
+  <li>creating and executing tests</li>
+  <li>investigating and reporting bugs</li>
+  <li>setting up the session</li>
+</ul>
+
+<h3 id="6-use-exploratory-testing-alongside-automated-testing">6) Use exploratory testing alongside automated testing</h3>
+
+<p>Automated testing checks a system performs as the development team thinks it should, according to the identified needs. Exploratory testing checks the system performs as a user might expect.</p>
+
+<p>It’s important to coordinate both testing types to ensure the values of both exploratory testing and automated testing are realised, e.g. when exploratory testing finds a defect, you can add an automated test to stop the issue from happening again.</p>
+
+<h3 id="7-performance-and-non-functional-testing-can-be-exploratory">7) Performance and non-functional testing can be exploratory</h3>
+
+<p>Performance and non-functional testing can also be exploratory, e.g. tracking an increasing load on a system, or measuring the time it takes a use case to fully complete from start to finish.</p>
+
+<p>While performance and other non-functional testing hold a limited scope, they can still be exploratory. Whether you are tracking an increasing load on a system or measuring the time it takes an application to complete from start to finish, you can do so with the mindset of a user. You outline the scope of your testing in your test charter.</p>
+
+<h3 id="8-choose-the-exploratory-testing-techniques-that-meet-your-needs">8) Choose the Exploratory Testing techniques that meet your needs</h3>
+
+<p>You’ll need to:</p>
+
+<ul>
+  <li>research current <strong><a href="http://en.wikipedia.org/wiki/Exploratory_testing">exploratory testing</a></strong> techniques</li>
+  <li>establish a common understanding of the techniques  you’ll use and share this with all stakeholders</li>
+  <li>decide on your scope (including timescales, process, and when exploratory testing  will be used)</li>
+  <li>ensure that the system is built to support exploratory testing, e.g. build functionality in slices that can be tested from start to finish as early as possible.</li>
+</ul>
+
+<h3 id="9-dont-confuse-exploratory-testing-with-user-acceptance-testing">9) Don’t confuse exploratory testing with user acceptance testing</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Acceptance_testing" title="Acceptance Testing"><strong>User acceptance</strong> </a>is a testing activity that can (and probably should) be performed in an exploratory testing way. Don’t confuse the way of working with the type of test required.</p>
+
+<p>Exploratory testing isn’t a phase of the development lifecycle; it’s an approach and technique that you should use throughout the life of the project.  As soon as your bits of a system under development have a testable flow through them, you must test that flow.  Exploratory techniques are a good way of doing that quickly and with high value output.</p>
+
+<h3 id="10-dont-go-mad-on-tools">10) Don’t go mad on tools</h3>
+
+<p>There are many different tools you can use to do exploratory testing, from fully automated video capture and logging tools, to planning tools, to walls full of process diagrams and feature descriptions with accompanying timebox plans. However, the only tool you really need to do exploratory testing is a pen and some paper.</p>
+
+<p>Tools are nice to have, but don’t put off starting exploratory testing if you don’t have access to them.</p>
+
+<p>Do you have any tips around exploratory testing you would like to share?  Add them in the comments box and let everyone know.</p>
+
+<p>Source: <strong><a href="https://governmenttechnology.blog.gov.uk/2014/11/28/top-10-tips-to-exploratory-testing/">https://governmenttechnology.blog.gov.uk/2014/11/28/top-10-tips-to-exploratory-testing/</a></strong></p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/10-characteristics-bad-software-tester/"> &laquo; 10 Characteristics of a Bad Software Tester</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/acceptance-criteria-vs-acceptance-tests/">Acceptance Criteria vs. Acceptance Tests &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

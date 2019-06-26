@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Application Testing Techniques | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Web Application Testing Techniques | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Web Application Testing Techniques" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Web Application Testing" />
+<meta property="og:description" content="Web Application Testing" />
+<link rel="canonical" href="localhost:4000/web-application-testing-techniques/" />
+<meta property="og:url" content="localhost:4000/web-application-testing-techniques/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-12-05T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"Web Application Testing","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/web-application-testing-techniques/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Web Application Testing Techniques","dateModified":"2016-12-05T00:00:00+00:00","datePublished":"2016-12-05T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/web-application-testing-techniques/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Web Application Testing Techniques&url=localhost:4000/web-application-testing-techniques/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/web-application-testing-techniques/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/web-application-testing-techniques/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Dec 05, 2016 · <span class="reading-time">
+  
+  
+    3 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Web Application Testing Techniques</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Web Application Testing Techniques">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h2 id="web-application-testing">Web Application Testing</h2>
+
+<p><img src="http://69.164.212.71/wp-content/uploads/2009/11/web-application-testing.png" alt="web-application-testing" /></p>
+
+<p>In today’s ever-changing and competitive web-based business scenario, organizations always need to <strong><a href="http://www.testingexcellence.com/web-testing-tips-how-to-test-web-applications/">test their web based applications</a></strong> before the launch of their website.</p>
+
+<p>By web application testing, any organization can be sure that the web application will work perfectly and will be easily accepted by the end-users. The web application testing techniques also check the web application’s browser compatibility; load testing, scalability testing, stress testing and resolution testing.</p>
+
+<h3 id="testing-methods-for-web-application-testing">Testing Methods for Web Application Testing</h3>
+
+<p>Here are few of the basic testing techniques for web application testing:</p>
+
+<p><strong>1. Functional Testing:</strong> This testing is used for checking all the links of the web pages; form testing, cookie testing and database connection.</p>
+
+<p><strong>2. Usability Testing:</strong> This testing checks the navigation and user friendliness of the web pages. Through this testing it is ensured whether the content is properly checked and is easily understandable to the users. It also checks whether the anchor text links are working properly, whether sitemaps and help files are having proper information and all the links are working.</p>
+
+<p><strong>3. Interface Testing:</strong> This checks if the web server and application server interface, application server and database server interface have proper interaction or not. This test ensures that the users do not see any error messages.</p>
+
+<p><strong>4. Compatibility Testing:</strong> Compatibility Testing is very important as it checks browser compatibility, operating system compatibility, mobile browsing and printing options.</p>
+
+<p><strong>5. Performance Testing:</strong> Performance testing includes web load testing and web stress testing. Web load testing technique checks if many users can access the same page at the same time and whether a web page can handle heavy load on any specific page. Web stress testing is done on the site to see that how will the site react and recover during the stress time.</p>
+
+<p><strong>6. Security Testing:</strong> This checks the security of the web applications. For security purposes, internal pages should not open if you are not logged into the website. Other statistics should not be seen even if the user is logged in. The files should only be given the option for downloading and it should not be accessed without downloading. CAPTCHA for automates scripts logins should be tested. SSL should be tested for security measures.</p>
+
+<p>After completing all the web application testing, a live testing is necessary for web based applications and web sites. Then upload the site and complete testing should be done. These days, web applications are accessed from different kinds of devices like desktops, PDAs, iPhones, etc. It is very important to check whether the web application is compatible to these devices.</p>
+
+<p>Web applications can be provided to a large and diverse audience but there is a risk of being exposed to a large set of probable loopholes as far as successful software testing results is concerned:</p>
+
+<ul>
+  <li>
+    <p>Numerous Application Usage (Entry – Exit) Paths are possible</p>
+  </li>
+  <li>
+    <p>People with varying backgrounds &amp; technical skills may use the application. Also, differences may rise from cross-platform issues to difference in browsers, network types or network speeds, Intranet and Internet application differences, etc. – resulting in issues concerning the software.</p>
+  </li>
+  <li>
+    <p>Even on the same browser, applications may be executed differently based on local issues such as screen resolution/ hardware/ software configuration of the system</p>
+  </li>
+  <li>
+    <p>The applications may require testing for disability compliance and usability</p>
+  </li>
+  <li>
+    <p>Firewalls or allied security threats</p>
+  </li>
+</ul>
+
+<p>To conclude, the entire process of Web Application testing includes some really important and critical steps so as to ensure that end users are satisfied with the applications.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/software-testing-jokes/"> &laquo; Software Testing Jokes</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/what-software-testing-methodology/">What is Software Testing Methodology? &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

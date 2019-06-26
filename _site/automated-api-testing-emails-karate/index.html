@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Automated Testing of Emails Using Karate | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Automated Testing of Emails Using Karate | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Automated Testing of Emails Using Karate" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Site for Developers and QAs" />
+<meta property="og:description" content="Site for Developers and QAs" />
+<link rel="canonical" href="localhost:4000/automated-api-testing-emails-karate/" />
+<meta property="og:url" content="localhost:4000/automated-api-testing-emails-karate/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-28T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"Site for Developers and QAs","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/automated-api-testing-emails-karate/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Automated Testing of Emails Using Karate","dateModified":"2017-11-28T00:00:00+00:00","datePublished":"2017-11-28T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/automated-api-testing-emails-karate/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Automated Testing of Emails Using Karate&url=localhost:4000/automated-api-testing-emails-karate/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/automated-api-testing-emails-karate/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/automated-api-testing-emails-karate/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Nov 28, 2017 · <span class="reading-time">
+  
+  
+    3 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Automated Testing of Emails Using Karate</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Automated Testing of Emails Using Karate">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <div class="columnLayout single" data-layout="single">
+
+<div class="cell normal" data-type="normal">
+
+<div class="innerCell">
+
+Automated Testing of emails can be a bit daunting as the majority of email providers are not built for testing purposes.
+
+In the past, people have used Gmail and mailinator to create email addresses, send and read emails but they tend to have limitations and can block a user.
+
+There is a web application [qamail.ala.se](http://qamail.ala.se/) which is very lightweight and is specifically built for testing purposes.
+
+You can create email accounts (email addresses), list emails for an account, read an email and delete emails.
+
+One of the great things about this is that you can use both the UI and/or its API which comes very handy for UI and API automated testing. For example, you can either use Selenium WebDriver or Rest-Assured or Karate to fetch emails.
+
+In this page, I list examples of how to work with the API of the qamail application. The given examples are in **[Karate](https://www.testingexcellence.com/automated-api-testing-made-easy-karate/)**, but equally any API testing library can be used.
+
+### Create Session
+
+<pre class="EnlighterJSRAW" data-enlighter-language="null">#create-session-key.feature
+
+Feature: Create a session key to use for email fetching
+
+  Background:
+    * def host = 'http://qamail.ala.se'
+    * configure followRedirects = false
+
+    Scenario: test session creation
+      Given url host
+      When method get
+      * def redirect_address = responseHeaders['Location'][0]
+
+      Given url redirect_address
+      When method get
+      * string cookies = responseHeaders['Set-Cookie']
+      * string session_cookie = Java.type('com.testingexcellence.StringUtil').getCookieValue(cookies, 'session_key')</pre>
+
+The above feature file calls a Java method to parse the cookies and extract the session_key cookie
+
+<pre class="EnlighterJSRAW" data-enlighter-language="java">public static String getCookieValue(String cookieString, String cookieKey) {
+    Pattern p = Pattern.compile("(\\w+)=\"*((?&lt;=\")[^\"]+(?=\")|([^\\s]+))\"*");
+    Matcher m = p.matcher(cookieString);
+    String cookieValue = "";
+    while(m.find()){
+        if(m.group(1).contains(cookieKey)) {
+            cookieValue = m.group(2);
+        }
+    }
+    return cookieValue.replaceAll(";", "");
+}</pre>
+
+Once we obtain a session key, we can use it for various operations
+
+### Create MailBox
+
+<pre class="EnlighterJSRAW" data-enlighter-language="null">#create-mailbox.feature
+
+Feature: create mailbox feature
+
+  Background:
+    * def create_session = callonce read('create-session-key.feature')
+    * def session = create_session.session_cookie
+    * def host = create_session.host
+
+  Scenario: Create a mailbox
+    * def create_mailbox_path = '/api/create_mailbox'
+    Given url host + create_mailbox_path + '?session_key=' + session
+    And request ''
+    When method PUT
+    Then status 200
+
+    * def email_address = get response.mailbox.address</pre>
+
+**Response**
+
+<pre class="EnlighterJSRAW" data-enlighter-language="xml"><?xml version="1.0" encoding="UTF-8"?>
+<mailbox>
+ <address>zxe45oy@qamail.ala.se</address>
+</mailbox></pre>
+
+### List Email Boxes
+
+<pre class="EnlighterJSRAW" data-enlighter-language="null">#list-mailboxes.feature
+
+Feature: list mailboxes
+
+  Background:
+    * def create_session = callonce read('create-session-key.feature')
+    * def session = create_session.session_cookie
+    * def host = create_session.host
+
+  Scenario: list mailoxes
+    * def list_mailboxes_path = '/api/list_mailboxes'
+    * def endpoint = host + list_mailboxes_path + '?session_key=' + session
+
+    Given url endpoint
+    When method GET
+    Then status 200
+
+    * def email_address = get response.session.mailbox.address</pre>
+
+**Response**
+
+<pre class="EnlighterJSRAW" data-enlighter-language="xml"><?xml version="1.0" encoding="UTF-8"?>
+<session>
+ <session_key>8ZFmjSmdI6tf496dGrsK5sN6</session_key>
+ <mailbox>
+ <address>t971kzb@qamail.ala.se</address>
+ </mailbox>
+</session></pre>
+
+### List Emails for an Email Address
+
+N.B: (only works when you send an email to the address) Values hardcoded for demo
+
+<pre class="EnlighterJSRAW" data-enlighter-language="null">#show-emails.feature
+
+Feature: show emails for an email address
+
+  Background:
+    * def result = call read('list-mailboxes.feature')
+    * def email_address = result.email_address
+    * def session = result.response.session.session_key
+    * def host = result.host
+
+  Scenario: show emails for a specific email address
+    * def show_emails_path = '/api/show_mailbox_content'
+    * def session = 'LFB2Ii0GT4NuZB7nqLljNT0W'
+    * def email_address = 'h0qr0xd@qamail.ala.se'
+    Given url host + show_emails_path + '?session_key=' + session + '&amp;address=' + email_address
+    When method GET
+    Then status 200
+
+    * def email_id = get response.mailbox.letter.id
+    * def subject = get response.mailbox.letter.subject
+    * def from = get response.mailbox.letter.from
+    * def date = response.mailbox.letter.date</pre>
+
+**Response**
+
+<pre class="EnlighterJSRAW" data-enlighter-language="null"><?xml version="1.0" encoding="UTF-8"?>
+<mailbox>
+ <address>h0qr0xd@qamail.ala.se</address>
+ <letter>
+ <id>38989</id>
+ <subject>Test mail</subject>
+ <from>test@test.com</from>
+ <date>2017-11-27 18:07:52 UTC</date>
+ </letter>
+</mailbox></pre>
+
+### Show Email Content for a Specific Email
+
+N.B: (only works when you send an email to the address) Values hardcoded for demo
+
+<pre class="EnlighterJSRAW" data-enlighter-language="null">#read-email.feature
+
+Feature: read an email
+
+  Background:
+    * def result = call read('show-emails.feature')
+    * def email_address = result.email_address
+    * def session = result.session
+    * def host = result.host
+    * def letter_id = result.letter_id
+
+  Scenario: show emails for a specific email address
+    * def show_email_content_path = '/api/show_rendered_letter'
+    * def session = 'LFB2Ii0GT4NuZB7nqLljNT0W'
+    * def email_address = 'h0qr0xd@qamail.ala.se'
+    * def letter_id = 38989
+    Given url host + show_email_content_path + '?session_key=' + session + '&amp;address=' + email_address + '&amp;letter_id=' + letter_id
+    When method GET
+    Then status 200</pre>
+
+**Response**
+
+The response is a dump of the body of an email. You have to use Regexp to extract what you want from the text of the email.
+
+</div>
+
+</div>
+
+</div>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/parse-json-response-rest-assured/"> &laquo; How to Parse JSON Response with REST-assured</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/performance-testing-gatling-maven-scala/">Performance Testing with Gatling, Maven and Scala &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

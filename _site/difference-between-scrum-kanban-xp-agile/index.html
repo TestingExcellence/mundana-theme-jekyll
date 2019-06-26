@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What is the Difference Between Scrum, Kanban and XP? | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>What is the Difference Between Scrum, Kanban and XP? | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="What is the Difference Between Scrum, Kanban and XP?" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In Agile Software Development Methodology, software is developed incrementally and iteratively and delivered bit by bit, rather than everything at once. Each iteration is time-boxed, around 2-4 weeks, and at the end of each iteration, a version of software is ready to be shipped." />
+<meta property="og:description" content="In Agile Software Development Methodology, software is developed incrementally and iteratively and delivered bit by bit, rather than everything at once. Each iteration is time-boxed, around 2-4 weeks, and at the end of each iteration, a version of software is ready to be shipped." />
+<link rel="canonical" href="localhost:4000/difference-between-scrum-kanban-xp-agile/" />
+<meta property="og:url" content="localhost:4000/difference-between-scrum-kanban-xp-agile/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-11T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"In Agile Software Development Methodology, software is developed incrementally and iteratively and delivered bit by bit, rather than everything at once. Each iteration is time-boxed, around 2-4 weeks, and at the end of each iteration, a version of software is ready to be shipped.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/difference-between-scrum-kanban-xp-agile/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"What is the Difference Between Scrum, Kanban and XP?","dateModified":"2017-01-11T00:00:00+00:00","datePublished":"2017-01-11T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/difference-between-scrum-kanban-xp-agile/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=What is the Difference Between Scrum, Kanban and XP?&url=localhost:4000/difference-between-scrum-kanban-xp-agile/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/difference-between-scrum-kanban-xp-agile/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/difference-between-scrum-kanban-xp-agile/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Jan 11, 2017 · <span class="reading-time">
+  
+  
+    6 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">What is the Difference Between Scrum, Kanban and XP?</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="What is the Difference Between Scrum, Kanban and XP?">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>In Agile Software Development Methodology, software is developed incrementally and iteratively and delivered bit by bit, rather than everything at once. Each iteration is time-boxed, around 2-4 weeks, and at the end of each iteration, a version of software is ready to be shipped.</p>
+
+<p>In Agile Methodology, projects are broken down into chunks or little bits of user functionality called user stories. A <strong><a href="http://www.testingexcellence.com/roles-responsibilities-product-owner-agile/">Product Owner</a></strong> is responsible for prioritizing these user stories in the backlog which are then continuously delivered in short two week cycles called Sprints or iterations.</p>
+
+<p>In this article, we review the differences between Scrum, Kanban and XP.</p>
+
+<p>At the high level, there are three flavours of Agile Methodology:</p>
+
+<p>https://www.testingexcellence.com/testing-in-devops/</p>
+
+<h2 id="scrum">Scrum</h2>
+
+<p><img src="http://69.164.212.71/wp-content/uploads/2016/05/scrum-Process-300x160.png" alt="Scrum Process" /></p>
+
+<ul>
+  <li>
+    <p>A prioritized wish list called a product backlog is created. A placeholder for all the future development stories.</p>
+  </li>
+  <li>
+    <p>During the planning phase, the team selects a small chunk from the top of that wish list and create what is called a sprint backlog, and decides how to implement those pieces.</p>
+  </li>
+  <li>
+    <p>The team is given a certain amount of time, called a sprint, to complete its work.</p>
+  </li>
+  <li>
+    <p>The team meet each day on a stand-up meeting to assess the progress.</p>
+  </li>
+  <li>
+    <p>At the end of the sprint—usually two to four weeks—the work should be ready to hand to a customer.</p>
+  </li>
+  <li>
+    <p>The sprint ends with a sprint review and a retrospective.</p>
+  </li>
+  <li>
+    <p>The next sprint then begins.</p>
+  </li>
+</ul>
+
+<h2 id="kanban">Kanban</h2>
+
+<p><img src="http://69.164.212.71/wp-content/uploads/2016/05/kanban-board-300x173.png" alt="kanban board" /></p>
+
+<p><em>Kanban</em> was first pioneered by Toyota engineers and the word Kanban in Japanese stands for “visual signal” or “card.” Kanban is adaptable to software and non-software development projects and its  principles are:</p>
+
+<ul>
+  <li><strong>**Visualize the workflow.</strong>**</li>
+</ul>
+
+<p>This can be done by using a card wall, or a Kanban Board, with the columns on the board representing the states or steps in the workflow and the cards representing the work items.</p>
+
+<ul>
+  <li><strong>**Limit the works in progress.</strong>**</li>
+</ul>
+
+<p>Limiting work in progress or WIP is the cornerstone of Kanban. For example, If the team was working on five items at a time and not making progress, then we should reduce that number to two or three so work can be managed and progress made. Select the most important, most valuable work items. Always be working on the next most important thing.</p>
+
+<ul>
+  <li><strong>**Manage flow.</strong>**</li>
+</ul>
+
+<p>The whole point of implementing a Kanban system is to create positive change. Before you can create that change you have to know what to change. You figure that out by looking at how value is currently flowing through the system, analyzing problem areas in which value flow is stalled and defining, then implementing, changes. The flow of work through each state or step should be actively monitored, measured and reported in order to evaluate positive or negative effects of incremental and evolutionary changes.</p>
+
+<ul>
+  <li><strong>**Make process policies explicit.</strong>**</li>
+</ul>
+
+<p>Ensure an explicit understanding of the mechanism of a process to achieve a rational, objective discussion of issues—and facilitate consensus around improvement suggestions. An example of a policy that you can make explicit is a definition of done. In fact, you can have a definition of done for each step in your workflow, meaning that before an item can be ready to pull forward, it has to meet certain criteria.</p>
+
+<ul>
+  <li><strong>**Improve collaboratively.</strong>**</li>
+</ul>
+
+<p>To truly leverage Kanban, teams must collaborate. We should not forget that Kanban is like any other agile method in that the team can meet as a team to plan, meet daily for a stand-up, and can choose to do retrospectives to inspect and adapt their process. Aim for constant collaboration and continuous improvement. If you are not continually improving, but you are doing all of the other parts of the Kanban method, you are missing the point. Its a little like the concept of “doing” Agile but not being agile.</p>
+
+<h2 id="extreme-programming-xp">Extreme Programming (XP)</h2>
+
+<p><img src="http://69.164.212.71/wp-content/uploads/2016/05/extreme-programming-300x300.jpg" alt="extreme programming" /></p>
+
+<p>XP has five values that can be emphasized in non-software development projects: simplicity, communication, feedback, respect and courage. It focuses on test-driven development (TDD), small releases and a team structure that includes the customer.</p>
+
+<p>Many of the rules for this agile methodology are designed specifically to address coding, designing and testing. Take planning, for example: A traditional project does planning up front; XP says to plan the release at a high level, but plan each iteration at its start (or every two weeks).</p>
+
+<p>Extreme Programming is based on 12 principles:</p>
+
+<ul>
+  <li><strong>The Planning Process</strong></li>
+</ul>
+
+<p>The desired features of the software, which are communicated by the customer, are combined with cost estimates provided by the programmers to determine what the most important factors of the software are. This stage is sometimes called the <em>Planning Game</em>.</p>
+
+<ul>
+  <li><strong>Small Releases</strong></li>
+</ul>
+
+<p>The software is developed in small stages that are updated frequently, typically every two weeks.</p>
+
+<ul>
+  <li><strong>Metaphor</strong></li>
+</ul>
+
+<p>All members on an XP team use common names and descriptions to guide development and communicate on common terms.</p>
+
+<ul>
+  <li><strong>Simple Design</strong></li>
+</ul>
+
+<p>The software should include only the code that is necessary to achieve the desired results communicated by the customer at each stage in the process. The emphasis is not on building for future versions of the product.</p>
+
+<ul>
+  <li><strong>Testing</strong></li>
+</ul>
+
+<p>Testing is done consistently throughout the process. Programmers design the tests first and then write the software to fulfill the requirements of the test. The customer also provides acceptance tests at each stage to ensure the desired results are achieved.</p>
+
+<ul>
+  <li><strong>Refactoring</strong></li>
+</ul>
+
+<p>XP programmers improve the design of the software through every stage of development instead of waiting until the end of the development and going back to correct flaws.</p>
+
+<ul>
+  <li><strong>Pair Programming</strong></li>
+</ul>
+
+<p>All code is written by a pair of programmers working at the same machine.</p>
+
+<ul>
+  <li><strong>Collective Ownership</strong></li>
+</ul>
+
+<p>Every line of code belongs to every programmer working on the project, so there are no issues of proprietary authorship to slow the project down. Code is changed when it needs to be changed without delay.</p>
+
+<ul>
+  <li><strong>Continuous Integration</strong></li>
+</ul>
+
+<p>The XP team integrates and builds the software system multiple times per day to keep all the programmers at the same stage of the development process at once.</p>
+
+<ul>
+  <li><strong>40-Hour Week</strong></li>
+</ul>
+
+<p>The XP team does not work excessive overtime to ensure that the team remains well-rested, alert and effective.</p>
+
+<ul>
+  <li><strong>On-Site Customer</strong></li>
+</ul>
+
+<p>The XP project is directed by the customer who is available all the time to answer questions, set priorities and determine requirements of the project.</p>
+
+<ul>
+  <li><strong>Coding Standard</strong></li>
+</ul>
+
+<p>The programmers all write code in the same way. This allows them to work in pairs and to share ownership of the code.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/can-testers-add-value-agile-projects/"> &laquo; How Can Testers Add Value in Agile Projects?</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/definitive-guide-writing-good-agile-user-stories/">Definitive Guide to Writing Good Agile User Stories &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How to Test Responsive Web Design | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>How to Test Responsive Web Design | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="How to Test Responsive Web Design" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Testing Responsive Web Design" />
+<meta property="og:description" content="Testing Responsive Web Design" />
+<link rel="canonical" href="localhost:4000/how-to-test-responsive-web-design/" />
+<meta property="og:url" content="localhost:4000/how-to-test-responsive-web-design/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-10-21T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"Testing Responsive Web Design","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/how-to-test-responsive-web-design/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"How to Test Responsive Web Design","dateModified":"2016-10-21T00:00:00+01:00","datePublished":"2016-10-21T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/how-to-test-responsive-web-design/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=How to Test Responsive Web Design&url=localhost:4000/how-to-test-responsive-web-design/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/how-to-test-responsive-web-design/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/how-to-test-responsive-web-design/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Oct 21, 2016 · <span class="reading-time">
+  
+  
+    5 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">How to Test Responsive Web Design</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="How to Test Responsive Web Design">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h2 id="testing-responsive-web-design">Testing Responsive Web Design</h2>
+
+<p>[caption id=”attachment_10607” align=”aligncenter” width=”550”]<img src="https://www.testingexcellence.com/wp-content/uploads/2015/03/testing-responsive-design.png" alt="testing-responsive-design" /> testing-responsive-design[/caption]</p>
+
+<p>How do you test a responsive website? What are the challenges involved in testing websites in different devices? How is testing a website on a desktop monitor different from testing on a handheld device such as a mobile phone? What tools can we use to test responsive websites?</p>
+
+<h3 id="what-is-responsive-web-design"><span style="color: #000000;">What is responsive web design?</span></h3>
+
+<p>Responsive web design (RWD) is an approach to web design aimed at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from desktop computer monitors to mobile phones).</p>
+
+<p>A site designed with RWD adapts the layout to the viewing environment by using fluid, proportion-based grids, flexible images, and CSS3 media queries, an extension of the @media rule, in the following ways:</p>
+
+<ul>
+  <li>
+    <p>The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.</p>
+  </li>
+  <li>
+    <p>Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element.</p>
+  </li>
+  <li>
+    <p>Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, most commonly the width of the browser.</p>
+  </li>
+</ul>
+
+<h3 id="challenges-in-testing-responsive-web-design"><span style="color: #000000;">Challenges in testing responsive web design</span></h3>
+
+<p>Many people nowadays use their mobile phones or tablets to access websites, so testing a responsive web design is important because the user experience on mobile devices is quite different from desktops.</p>
+
+<p>Possibly the most challenging part of testing a responsive website is making sure the website works as expected on multiple devices and platforms, but actual testing on all the mobile devices in the market isn’t practical for most of us.</p>
+
+<p>Many testers who start testing responsive web design, they usually start by resizing the browser’s window to fit the viewport or breakpoints sizes of a mobile phone, tablet, and desktop.</p>
+
+<p>This technique is usually adequate for a quick visual check of the website in different viewports and helps us to identify major rendering issues as we shrink or enlarge the browser window.</p>
+
+<p>However, testing on real mobile devices is a totally different experience as you now have gestures like finger swipes, tapping, pinch-to-zoom, portrait or landscape. Likewise, on desktops, you have hovering, right-clicking, mouse scrolls, etc.</p>
+
+<p>Responsive design should take into consideration all these variances.</p>
+
+<h3 id="using-emulators">Using Emulators</h3>
+
+<p><img src="https://www.testingexcellence.com/wp-content/uploads/2015/03/testing-responsive-design-emulators.png" alt="testing-responsive-design-emulators" /></p>
+
+<p>A mobile emulator is a web-based simulation of how websites and applications will appear and function in a mobile environment.</p>
+
+<p><strong><a href="http://developer.android.com/tools/help/emulator.html" title="Android Emulator">You can download an Android Emulator from Google</a></strong></p>
+
+<p>We all want to support as many devices as possible so, buying or using third-party services to gain access to real devices can be useful for seeing how a web application functions in “real world” conditions, but is significantly more expensive and more difficult to scale than using emulators.</p>
+
+<p>While emulators can’t give you the exact testing facilities that you might need they are still powerful and a cost-effective solution to test a website’s functionality on a high-level, i.e. what works, and how the components squeeze, expand and adjust with varying screen size.</p>
+
+<h3 id="google-devtools---device-mode">Google DevTools - Device Mode</h3>
+
+<p><img src="https://www.testingexcellence.com/wp-content/uploads/2015/03/google-device-mode-e1427733356213.png" alt="google-device-mode" /></p>
+
+<p>Google Chrome’s <strong><a href="http://sixrevisions.com/tutorials/devtools-tutorials/" title="Google Chrome DevTools Tutorials">DevTools</a></strong> has a feature called <strong>device mode</strong> that’s loaded with helpful tools for testing and debugging responsive designs.</p>
+
+<p>Unlike most other responsive design testing tools which simply resize your viewport, device mode actually emulates the mobile device experience, particularly touchscreen interactions like tapping and swiping, right in your web browser.</p>
+
+<p>The tools features are:</p>
+
+<ul>
+  <li>
+    <p>Test your responsive designs by <strong>emulating different screen sizes and resolutions</strong>, including Retina displays.</p>
+  </li>
+  <li>
+    <p>Evaluate your site’s performance using the <strong>network emulator</strong>, without affecting traffic to other tabs.</p>
+  </li>
+  <li>
+    <p>Visualize and <strong>inspect CSS media queries</strong>.</p>
+  </li>
+  <li>
+    <p>Accurately <strong>simulate device input</strong> for touch events, geolocation, and device orientation.</p>
+  </li>
+  <li>
+    <p>Enhance your current debugging workflow by combining device mode with the existing DevTools.</p>
+  </li>
+</ul>
+
+<p><strong><a href="https://developer.chrome.com/devtools/docs/device-mode" title="device-mode">Get started with Device Mode.</a> </strong></p>
+
+<h3 id="some-general-rules-for-testing-responsive-web-design">Some General Rules for Testing Responsive Web Design</h3>
+
+<ul>
+  <li>
+    <p>Text, controls and images are aligned properly</p>
+  </li>
+  <li>
+    <p>Hover and selection states highlight and color changes</p>
+  </li>
+  <li>
+    <p>Suitable clickable area</p>
+  </li>
+  <li>
+    <p>Color, shading, and gradient are consistent</p>
+  </li>
+  <li>
+    <p>Check for correct padding around the edges</p>
+  </li>
+  <li>
+    <p>Text, images, controls, and frames do not run into the edges of the screen</p>
+  </li>
+  <li>
+    <p>Font size, style and color are consistent for each type of text</p>
+  </li>
+  <li>
+    <p>Typed text (data entry) scrolls and displays properly</p>
+  </li>
+  <li>
+    <p>Pages should be readable on all resolutions.</p>
+  </li>
+  <li>
+    <p>Never visualize the horizontal bar in the page.</p>
+  </li>
+  <li>
+    <p>Content deﬁned ‘important’ need to be visible in all breakpoints.</p>
+  </li>
+</ul>
+
+<p><strong>Breakpoints</strong></p>
+
+<p>Each breakpoint requires an adaptation of the layout, with modules that change their position and rules. Another possibility is to have a ﬂuid layout, with text and images that ﬁt proportionately in relation to the width of the page.</p>
+
+<p><strong>Modules</strong></p>
+
+<p>Check for location of modules as you shrink and expand the browser window or as you rotate a mobile device. Different modules may disappear as you go from desktop to mobile, but make sure you know exactly which modules should be displayed in which viewport.</p>
+
+<h3 id="finally">Finally</h3>
+
+<ul>
+  <li>
+    <p>Decide how your web application is used. You can get a great wealth of information from Google Analytics tool to see which devices your customers use to reach your website</p>
+  </li>
+  <li>
+    <p>From the analytics, narrow down your choice of device testing to target the majority, i.e. make sure your website works for majority of people as there is no practical way to test on every device combination.</p>
+  </li>
+  <li>
+    <p>Know exactly the breakpoints and what should appear as you go from one breakpoint to another</p>
+  </li>
+  <li>
+    <p>Utilize automated tools and emulators to do the basic checks and high-level functional testing and combine that with real device manual testing</p>
+  </li>
+</ul>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/role-of-qa-manager-in-agile-project/"> &laquo; Role of QA Manager in Agile Project</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/best-open-source-test-management-tools/">Best Open Source Test Management Tools &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

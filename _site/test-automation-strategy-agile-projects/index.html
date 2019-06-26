@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Automation Strategy For Agile Projects | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Test Automation Strategy For Agile Projects | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Test Automation Strategy For Agile Projects" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This Test Automation Strategy example assumes a continuous delivery model with multiple agile teams." />
+<meta property="og:description" content="This Test Automation Strategy example assumes a continuous delivery model with multiple agile teams." />
+<link rel="canonical" href="localhost:4000/test-automation-strategy-agile-projects/" />
+<meta property="og:url" content="localhost:4000/test-automation-strategy-agile-projects/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-09-12T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"This Test Automation Strategy example assumes a continuous delivery model with multiple agile teams.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/test-automation-strategy-agile-projects/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Test Automation Strategy For Agile Projects","dateModified":"2016-09-12T00:00:00+01:00","datePublished":"2016-09-12T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/test-automation-strategy-agile-projects/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Test Automation Strategy For Agile Projects&url=localhost:4000/test-automation-strategy-agile-projects/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/test-automation-strategy-agile-projects/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/test-automation-strategy-agile-projects/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Sep 12, 2016 · <span class="reading-time">
+  
+  
+    9 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Test Automation Strategy For Agile Projects</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Test Automation Strategy For Agile Projects">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>This Test Automation Strategy example assumes a continuous delivery model with multiple agile teams.</p>
+
+<p>In previous articles, an overarching <strong><a href="http://www.testingexcellence.com/agile-test-strategy-example-template/">Agile Test Strategy</a></strong> document as well as <a href="http://www.testingexcellence.com/how-to-setup-a-qa-function-from-scratch-for-agile-projects/"><strong>how to set up a QA function from scratch for an agile</strong> <strong>project</strong></a> and how automated testing is one of the key items in the initial setup.</p>
+
+<p>In this Test Automation Strategy example, I list down the key points to consider to get the most out of the test automation endeavor.</p>
+
+<h3 id="executive-summary">Executive Summary</h3>
+
+<p>Automated Testing is a core activity of any agile development methodology. As we move towards continuous deployment, test automation becomes ever more important due to the quick feedback response that it provides to the development team about the health of the application.</p>
+
+<p>In order to get this quick feedback, automated tests need to be executed continuously, should be fast and test results should be consistent and reliable.</p>
+
+<p>In order to achieve these, the majority of the verifications should be done as part of the development of new features. In other words, development and testing should be a coherent activity, and quality should be “baked in” right from the start by ensuring that what is being developed works and that it hasn’t broken existing functionality.</p>
+
+<p>This requires “inverting the test automation pyramid” by pushing down GUI tests that take a long time to execute, to lower levels e.g. API layer that can run straight after unit tests as part of the build to provide the initial level of confidence.</p>
+
+<p><strong>Related:</strong></p>
+
+<ul>
+  <li><strong><a href="https://www.testingexcellence.com/choose-tests-automate/">How to choose which tests to automate?</a></strong></li>
+  <li><strong><a href="https://www.testingexcellence.com/start-test-automation-existing-website/">Where to start test automation for existing website</a></strong></li>
+  <li><strong><a href="https://www.testingexcellence.com/test-automation-done-separate-dedicated-team/">Should Test Automation be Done by Separate Dedicated Team?</a></strong></li>
+</ul>
+
+<h3 id="test-automation-strategy-overview">Test Automation Strategy Overview</h3>
+
+<p>Prevention rather than detection – while every effort should be spent on preventing the introduction of defects in the application in the first place, the techniques and methods for that are outside of the scope of this post. Here, the methodologies are defined to allow for quick detection of bugs when they are introduced into the system and feedback to development.</p>
+
+<p>Quality should be favored over quantity. In most cases, it is better to release with one feature that is rock solid rather than multiple features that are flaky. As a minimum release criterion, any newly developed feature should not have introduced any <strong><a href="http://www.testingexcellence.com/best-practices-for-regression-testing/">regression defects</a></strong>.</p>
+
+<p>As already mentioned, quick feedback on the health of the application is of huge importance to support continuous delivery, therefore, a process and a mechanism by which we can obtain feedback quickly is formulated.</p>
+
+<p>One way of getting quick feedback is by increasing the number of unit tests, integration tests, and API tests. These low-level tests will provide a safety net to ensure the code is working as intended and helps prevent defects escaping in other layers of testing.</p>
+
+<p>Unit Tests form the foundations for test automation at higher levels.</p>
+
+<p>The second element of improvement is running the regression tests more frequently and aligned with the process of Continuous Integration, see later. Automation Testing should not be seen as an isolated task, but rather as a coherent activity embedded in the <strong><a href="http://www.testingexcellence.com/software-development-life-cycle-sdlc-phases/">SDLC</a></strong>.</p>
+
+<h3 id="definition-of-regression-packs">Definition of Regression Packs</h3>
+
+<p>Automated regression tests are the core of the Test Automation Strategy.</p>
+
+<p><strong>Smoke Regression Pack</strong>, which is a sanity check that the application can be loaded and accessed. Also, just a few key scenarios should also be run to make sure application is still functional.</p>
+
+<p>The aim of the smoke test pack is to catch the most obvious issues, such as application not loading, or a common user flow cannot be executed; for this reason, the smoke tests should last no longer than <strong>5 minutes</strong> to give quick feedback in case something major is not working.</p>
+
+<p>The smoke test pack runs on every deploy and can be a mixture of API and/or GUI tests.</p>
+
+<p><strong>Functional Regression Packs</strong>, which is meant to check the functionality of the application in more detail than the smoke test.</p>
+
+<p>Multiple regression packs shall exist for different purposes. If there are multiple teams working on different sections of the application, then ideally there should be different regression packs that can be focused on the area the team is working on.</p>
+
+<p>These packs should be able to run in any environment as and when required, provided the behavior of the features remain consistent throughout the environments. They are executed multiple times a day and should last no longer than 15 to 30 minutes.</p>
+
+<p>As these functional tests are more detailed, then they will take longer to run therefore, it is important to have the majority of functional tests at API layer where tests can be executed faster so we could be within the <strong>15 to 30 minutes</strong> time limit.</p>
+
+<p><strong>End-to-End Regression Pack,</strong> which tests the whole application as a whole. The aim of these tests is to ensure that various parts of the application which connect to various databases and third-party applications work properly.</p>
+
+<p>The End-to-End tests are not meant to test all of the functionalities as those are already tested in the functional regression packs, however, these tests are “light-weight” which just check the transitions from one state to another and a handful of the most important scenarios or user journeys.</p>
+
+<p>These tests are mainly executed through the GUI, as they are checking how users would use the system. The time taken to execute these can vary from one application to another but they are usually run once a day or night.</p>
+
+<h3 id="test-automation-strategy-for-multiple-agile-teams">Test Automation Strategy for Multiple Agile Teams</h3>
+
+<p><img src="http://69.164.212.71/wp-content/uploads/2016/02/Screen-Shot-2016-02-14-at-20.11.05-e1455481231673.png" alt="test_automation_strategy_agile" title="test_automation_strategy_agile" /></p>
+
+<p><strong> Automated Unit Tests</strong></p>
+
+<p>Test Automation starts at the unit level. Unit tests should be written by developers for any new feature that is developed. These Unit Tests form the foundation of a larger automation practice that spans all the way up to the System GUI Tests.</p>
+
+<p>It is the responsibility of the developers to ensure that for every new feature that is developed, a set of coherent and solid Unit Tests are written to prove that the code works as intended and meets the requirements.</p>
+
+<p>Unit Tests provide the most ROI to the team as they are very quick to run, easy to maintain and modify (as there are no dependencies) and when there are errors in code, it is quickly fed back to the developer.</p>
+
+<p>Unit tests are run on the developer’s machine as well as the CI environment.</p>
+
+<p><strong>Automated Integration / API or Service Tests</strong></p>
+
+<p>While Unit Tests are based on testing the functions within a class, Integration Tests form the next level up from Unit Tests to test the classes that collectively make up the component to deliver a piece of functionality. These tests are executed only when the Unit Tests have run and passed.</p>
+
+<p>Service Tests are naturally run at API layer without the intervention of the GUI web interface; hence tests would be able to verify functionality in a pure form and because the tests talk directly to the components, they are fast to execute and will be part of the build.</p>
+
+<p>Where necessary, mocks such as <strong><a href="http://www.wiremock.org">wiremock</a></strong> will be used to factor out the dependence of other 3<sup>rd</sup> party systems and when the downstream systems are not available to provide the data required for testing.</p>
+
+<p>Integration Tests and/or Service Tests can be run on the developer’s machine as well and be part of the build, but if they start to take a long time, then it is best to run on the CI environment.</p>
+
+<p>Tools such as SoapUI can be used for Service Tests.</p>
+
+<p><strong>Application Testing</strong></p>
+
+<p>A typical e-commerce application can be split into different applications or “apps” that provide different functionalities. The concept of “App Testing” is where a group of tests that test the functionality of an App are organized together and run against the desired App. This pack will be useful in cases when a team wishes to release an individual App and would like to know whether it is functioning correctly.</p>
+
+<p>Application Tests typically require an interface to interact with the different components, therefore it is anticipated that these tests are run via a browser on the GUI.</p>
+
+<p>The purpose of App Testing is to ensure that features of the application are functionally correct. Because the tests are organized in a manner to provide confidence in the health of a particular app, these tests are normally referred to as Vertical Tests, since they execute “down” a particular app. The tests are very thorough and coverage is large.</p>
+
+<p><strong><a href="http://www.seleniumhq.org/">Selenium WebDriver</a></strong> could be used to run these automated tests against the browser. This tool is the most popular for browser automation tests and provides a rich API to allow for complex verifications.</p>
+
+<p><strong>End-to-End Scenario Tests</strong></p>
+
+<p>The GUI automated tests which are run against the system, serve as typical user flows, journeys or end-to-end scenarios. Due to issues with this type of tests (discussed below), these will be kept to a minimum. The end-to-end scenarios are included in the nightly regression pack.</p>
+
+<h3 id="inverting-the-test-automation-pyramid">Inverting the Test Automation Pyramid</h3>
+
+<p>As part of the Test Automation Strategy, we need to ensure to minimize the number of automated tests that are run at GUI layer.</p>
+
+<p>Whilst running automated tests through the GUI provides good and meaningful tests in terms of simulating a user’s interaction with the application, it is prone to many issues as listed below:</p>
+
+<p><strong>Brittle</strong> – Because the tests rely on the HTML locators to identify web elements to interact with, as soon as an id is changed the tests fail, therefore they bear a lot of maintainability costs.</p>
+
+<p><strong>Limited Testing</strong> – The GUI could confine the tester’s ability to fully verify a feature as the GUI may not contain all the details from the web response to allow verification.</p>
+
+<p><strong>Slow</strong> – Because tests are executed through the GUI, the page load times can substantially increase the overall testing time and as such the feedback to the developers is relatively slow.</p>
+
+<p><strong>Least ROI</strong> – Because of the above-mentioned issues, the GUI automated tests provide the least ROI.</p>
+
+<p>The Browser Automation Tests will be kept to a minimum and will be used to simulate a user’s behavior incorporating common user flows and end-to-end scenarios where the system as a whole is exercised.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/delivery-pipeline-agile-project/"> &laquo; Delivery Pipeline For Agile Projects</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/agile-terminologies-definitions-complete-glossary/">Agile Terminologies and Definitions - Complete Glossary &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

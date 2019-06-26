@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Git Commands Every Tester Should Know | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Git Commands Every Tester Should Know | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Git Commands Every Tester Should Know" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This post is a Git Cheat Sheet with the most common Git commands you will likely use on a daily basis." />
+<meta property="og:description" content="This post is a Git Cheat Sheet with the most common Git commands you will likely use on a daily basis." />
+<link rel="canonical" href="localhost:4000/git-cheat-sheet-for-testers/" />
+<meta property="og:url" content="localhost:4000/git-cheat-sheet-for-testers/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/git-commands.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-02T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"This post is a Git Cheat Sheet with the most common Git commands you will likely use on a daily basis.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/git-cheat-sheet-for-testers/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/git-commands.jpg","headline":"Git Commands Every Tester Should Know","dateModified":"2018-11-02T00:00:00+00:00","datePublished":"2018-11-02T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/git-cheat-sheet-for-testers/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Git Commands Every Tester Should Know&url=localhost:4000/git-cheat-sheet-for-testers/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/git-cheat-sheet-for-testers/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/git-cheat-sheet-for-testers/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Nov 02, 2018 · <span class="reading-time">
+  
+  
+    7 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Git Commands Every Tester Should Know</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/git-commands.jpg" alt="Git Commands Every Tester Should Know">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>This post is a Git Cheat Sheet with the most common Git commands you will likely use on a daily basis.</p>
+
+<p>If you are a technical tester working alongside developers, you should be familiar with the basic Git commands.</p>
+
+<p>This post contains enough Git knowledge to get you going on a day to day basis as a QA.</p>
+
+<p>If you haven’t got Git installed on your machine, you can follow the steps in <a href="https://www.testingexcellence.com/install-git-mac-generate-ssh-keys/">How to Install Git on Mac and Generate SSH Keys</a>.</p>
+
+<h2 id="initial-git-setup">Initial Git Setup</h2>
+
+<h3 id="initialize-a-repo">Initialize a repo</h3>
+
+<p>Create an empty git repo or re-initialize an existing one</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>git init
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="clone-a-repo">Clone a repo</h3>
+
+<p>Clone the foo repo into a new directory called foo:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git clone https://github.com/&lt;username&gt;/foo.git foo
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="git-branch">Git Branch</h2>
+
+<h3 id="how-to-create-a-new-branch-in-git">How to Create a New Branch in Git</h3>
+
+<p>When you want to work on a new feature, you typically create a new branch in Git. As such, you generally want to stay off the master branch and work on your own feature branches so that master is always clean and you can create new branches from it.</p>
+
+<p>To create a new branch use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git checkout -b &lt;new_branch_name&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="how-to-list-branches-in-git">How to List Branches in Git</h3>
+
+<p>If you want to know what branches are available in your working directory, then use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git branch
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Example output</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>develop
+my_feature
+master
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="how-to-switch-branches-in-git">How to Switch Branches in Git</h3>
+
+<p>When you create a new branch then Git automatically switches to the new branch.</p>
+
+<p>If you have multiple branches, then you can easily switch between branches with git checkout:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>$ git checkout master
+$ git checkout develop
+$ git checkout my_feature
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="how-to-delete-branches-in-git">How to Delete Branches in Git</h3>
+
+<p>To delete a local branch:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git branch -d &lt;local_branch&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Use the <code class="highlighter-rouge">-D</code> option flag to force it.</p>
+
+<p>To delete a remote branch on origin:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git push origin :&lt;remote_branch&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="git-staging">Git Staging</h2>
+
+<p>To <em>stage</em> a file is simply to prepare it for a commit. When you add or modify some files, you need to stage those changes into “the staging area.” Think of staging as a box where you put things in before shoving it under your bed, where your bed is a repository of boxes you’ve previously have shoved in.</p>
+
+<h3 id="git-stage-files">Git Stage Files</h3>
+
+<p>To stage or simply add files, you need to use git add command. You can stage individual files:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git add foo.js
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>or all files at once:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git add .
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="git-unstage-changes">Git Unstage Changes</h3>
+
+<p>If you want to remove a certain file from the stage:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git reset HEAD foo.js
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Or remove all staged files:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git reset HEAD .
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>You can also create an alias for a command and then use it with Git:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>$ git config --global alias.unstage 'reset HEAD'
+$ git unstage .
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="git-status">Git Status</h2>
+
+<p>If you want to see what files have been created, modified or deleted, Git status will show you a report.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git status
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="git-commits">Git Commits</h2>
+
+<p>It is a good practice to commit often. You can always squash down your commits before a push. Before you commit your changes, you need to stage them.</p>
+
+<p>The commit command requires a -m option which specifies the commit message.</p>
+
+<p>You can commit your changes like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git commit -m "Updated README"
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="undoing-commits">Undoing Commits</h3>
+
+<p>The following command will undo your most recent commit and put those changes back into staging, so you don’t lose any work:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git reset --soft HEAD~1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>To completely delete the commit and throw away any changes use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git reset --hard HEAD~1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="squashing-commits">Squashing Commits</h3>
+
+<p>Let’s say you have 4 commits, but you haven’t pushed anything yet and you want to put everything into one commit, then you can use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git rebase -i HEAD~4
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">HEAD~4</code> refers to the last four commits.</p>
+
+<p>The <code class="highlighter-rouge">-i</code> option opens an interactive text file.</p>
+
+<p>You’ll see the word “pick” to the left of each commit. Leave the one at the top alone and replace all the others with “s” for squash, save and close the file.</p>
+
+<p>Then another interactive window opens where you can update your commit messages into one new commit message.</p>
+
+<h2 id="git-push"><a href="https://gist.github.com/jedmao/5053440#pushing"></a>Git Push</h2>
+
+<p>After you have committed your changes, next is to push to a remote repository.</p>
+
+<h3 id="first-push">First Push</h3>
+
+<p>Push a local branch for the first time:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git push --set-upstream origin &lt;branch&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>After that, then you can just use</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git push
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="push-local-branch-to-different-remote-branch">Push local branch to different remote branch</h3>
+
+<p>To push a local branch to a different remote branch, you can use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git push origin &lt;local_branch&gt;:&lt;remote_branch&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="undo-last-push">Undo Last Push</h3>
+
+<p>If you have to undo your last push, you can use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git reset --hard HEAD~1 &amp;&amp; git push -f origin master
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="git-fetch">Git Fetch</h2>
+
+<p>When you use <code class="highlighter-rouge">git fetch</code>, Git doesn’t merge other commits them with your current branch. This is particularly useful if you need to keep your repository up to date, but are working on something that might break if you update your files.</p>
+
+<p>To integrate the commits into your master branch, you use <code class="highlighter-rouge">merge</code>.</p>
+
+<h3 id="fetch-changes-from-upstream">Fetch changes from upstream:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git fetch upstream
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="git-pull">Git Pull</h2>
+
+<p>Pulling is just doing a fetch followed by a merge. When you use <code class="highlighter-rouge">git pull</code>, Git automatically merges other commits without letting you review them first. If you don’t closely manage your branches, you may run into frequent conflicts.</p>
+
+<h3 id="pull-a-branch">Pull a branch</h3>
+
+<p>If you have a branch called <code class="highlighter-rouge">my_feature</code> and you want to pull that branch, you can use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git pull origin/my_feature
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="pull-everything">Pull everything</h3>
+
+<p>Or, if you want to pull everything and all other branches</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git pull
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="git-merging-and-rebasing">Git Merging and Rebasing</h2>
+
+<p>When you run <code class="highlighter-rouge">git merge</code>, your HEAD branch will generate a <strong>new commit</strong>, preserving the ancestry of each commit history.</p>
+
+<p>The <strong>rebase</strong> re-writes the changes of one branch onto another <em>without</em> creating a new commit.</p>
+
+<h3 id="merge-master-branch-to-feature-branch">Merge Master Branch to Feature Branch</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>$ git checkout my_feature
+$ git merge master
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Or with rebase option, you use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>$ git checkout my_feature
+$ git rebase master
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="merge-feature-branch-to-master-branch">Merge Feature Branch to Master Branch</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>$ git checkout master
+$ git merge my_feature
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="git-stash">Git Stash</h2>
+
+<p>Sometimes you make changes on a branch, and you want to switch to another branch, but you don’t want to lose your changes.</p>
+
+<p>You can stash your changes. Here’s how you do a stash in Git:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git stash
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Now, if you want to unstash those changes and bring them back into your working directory use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git stash pop
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#technical-testing">technical testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#git">#git</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/junit-5-annotations/"> &laquo; JUnit 5 Annotations With Examples</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/java-loop-arraylist/">How to Loop Over ArrayList in Java &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

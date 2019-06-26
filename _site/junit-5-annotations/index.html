@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JUnit 5 Annotations With Examples | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>JUnit 5 Annotations With Examples | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="JUnit 5 Annotations With Examples" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This tutorial explains the Junit 5’s most common annotations with examples." />
+<meta property="og:description" content="This tutorial explains the Junit 5’s most common annotations with examples." />
+<link rel="canonical" href="localhost:4000/junit-5-annotations/" />
+<meta property="og:url" content="localhost:4000/junit-5-annotations/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/junit-5-tutorial.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-25T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"This tutorial explains the Junit 5’s most common annotations with examples.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/junit-5-annotations/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/junit-5-tutorial.jpg","headline":"JUnit 5 Annotations With Examples","dateModified":"2018-10-25T00:00:00+01:00","datePublished":"2018-10-25T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/junit-5-annotations/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=JUnit 5 Annotations With Examples&url=localhost:4000/junit-5-annotations/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/junit-5-annotations/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/junit-5-annotations/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Oct 25, 2018 · <span class="reading-time">
+  
+  
+    10 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">JUnit 5 Annotations With Examples</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/junit-5-tutorial.jpg" alt="JUnit 5 Annotations With Examples">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>This tutorial explains the Junit 5’s most common annotations with examples.</p>
+
+<p><em>JUnit 5</em> is the next generation of JUnit.The goal is to create an up-to-date foundation for developer-side testing on the JVM. This includes focusing on Java 8 and above, as well as enabling many different styles of testing.</p>
+
+<p>You can use both Maven and Gradle.</p>
+
+<p>If you are using Maven, you need to add the following dependency to your <code class="highlighter-rouge">pom.xml</code> file:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>junit-jupiter-api<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>5.3.1<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>junit-jupiter-params<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>5.3.1<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="junit-5-annotations">@JUnit 5 Annotations</h2>
+
+<p>You will notice that in Junit 5, one of the most obvious changes is that test classes and methods do not have to be public anymore.</p>
+
+<p>Now, let’s go through the list of most common JUnit 5 Annotations.</p>
+
+<h3 id="test">@Test</h3>
+
+<p>This annotation denotes that a method is a test method. Note this annotation does not take any attributes.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">JUnit5Test</span> <span class="o">{</span>
+        
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">helloJUnit5</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">5</span><span class="o">+</span><span class="mi">5</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="parameterizedtest">@ParameterizedTest</h3>
+
+<p>Parameterized tests make it possible to run a test multiple times with different arguments. They are declared just like regular <code class="highlighter-rouge">@Test</code> methods but use the <code class="highlighter-rouge">@ParameterizedTest</code> annotation instead.</p>
+
+<p>In addition, you must declare at least one source that will provide the arguments for each invocation and then consume the arguments in the test method.</p>
+
+<p>For example, the following example demonstrates a parameterized test that uses the <code class="highlighter-rouge">@ValueSource</code> annotation to specify a String array as the source of arguments.</p>
+
+<p>Example:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.params.ParameterizedTest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.params.provider.ValueSource</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">JUnit5Test</span> <span class="o">{</span>
+
+    <span class="nd">@ParameterizedTest</span>
+    <span class="nd">@ValueSource</span><span class="o">(</span><span class="n">strings</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"cali"</span><span class="o">,</span> <span class="s">"bali"</span><span class="o">,</span> <span class="s">"dani"</span> <span class="o">})</span>
+    <span class="kt">void</span> <span class="nf">endsWithI</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">assertTrue</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">"i"</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="repeatedtest">@RepeatedTest</h3>
+
+<p>JUnit 5 has the ability to repeat a test a specified number of times simply by annotating a method with <code class="highlighter-rouge">@RepeatedTest</code> and specifying the total number of repetitions desired.</p>
+
+<p>Each invocation of a repeated test behaves like the execution of a regular <code class="highlighter-rouge">@Test</code> method.</p>
+
+<p>This is particularly useful in UI testing with Selenium.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.DisplayName</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.RepeatedTest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.RepetitionInfo</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.TestInfo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">JUnit5Test</span> <span class="o">{</span>
+    
+    <span class="nd">@RepeatedTest</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="mi">5</span><span class="o">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"{displayName} {currentRepetition}/{totalRepetitions}"</span><span class="o">)</span>
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"RepeatingTest"</span><span class="o">)</span>
+    <span class="kt">void</span> <span class="nf">customDisplayName</span><span class="o">(</span><span class="n">RepetitionInfo</span> <span class="n">repInfo</span><span class="o">,</span> <span class="n">TestInfo</span> <span class="n">testInfo</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">testInfo</span><span class="o">.</span><span class="na">getDisplayName</span><span class="o">()</span> <span class="o">+</span> 
+            <span class="s">"--&gt;"</span> <span class="o">+</span> <span class="n">repInfo</span><span class="o">.</span><span class="na">getCurrentRepetition</span><span class="o">()</span>
+        <span class="o">);</span>
+        
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">repInfo</span><span class="o">.</span><span class="na">getCurrentRepetition</span><span class="o">(),</span> <span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3><a href="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screenshot-2018-10-25-at-00.49.01.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screenshot-2018-10-25-at-00.49.01.png" alt="junit-5 tutorial annotations example" /></a></h3>
+
+<p>As you can see from the result of the test, when <code class="highlighter-rouge">i==3</code>, the test passes, otherwise it fails.</p>
+
+<h3 id="displayname">@DisplayName</h3>
+
+<p>Test classes and test methods can declare custom display names that will be displayed by test runners and test reports.</p>
+
+<p>Example:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.DisplayName</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.TestInfo</span><span class="o">;</span>
+
+<span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"DisplayName Demo"</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">JUnit5Test</span> <span class="o">{</span>
+    <span class="nd">@Test</span>
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"Custom test name"</span><span class="o">)</span>
+    <span class="kt">void</span> <span class="nf">testWithDisplayName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"Print test name"</span><span class="o">)</span>
+    <span class="kt">void</span> <span class="nf">printDisplayName</span><span class="o">(</span><span class="n">TestInfo</span> <span class="n">testInfo</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">testInfo</span><span class="o">.</span><span class="na">getDisplayName</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="beforeeach">@BeforeEach</h3>
+
+<p>The <code class="highlighter-rouge">@BeforeEach</code> annotation denotes that the annotated method should be executed before each test method, analogous to JUnit 4’s <code class="highlighter-rouge">@Before</code>.</p>
+
+<p>Example:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">JUnit5Test</span> <span class="o">{</span>
+    <span class="nd">@BeforeEach</span>
+    <span class="kt">void</span> <span class="nf">init</span><span class="o">(</span><span class="n">TestInfo</span> <span class="n">testInfo</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">callingTest</span> <span class="o">=</span> <span class="n">testInfo</span><span class="o">.</span><span class="na">getTestMethod</span><span class="o">().</span><span class="na">get</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">callingTest</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">firstTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">secondTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Output</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>firstTest
+1
+secondTest
+2
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h3 id="aftereach">@AfterEach</h3>
+
+<p>This annotation denotes that the annotated method should be executed after each test method, analogous to JUnit 4’s <code class="highlighter-rouge">@After</code>. For example, if the tests need to reset a property after each test, we can annotate a method with <code class="highlighter-rouge">@AfterEach</code> for that task.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">JUnit5Test</span> <span class="o">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">firstTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">secondTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@AfterEach</span>
+    <span class="kt">void</span> <span class="nf">after</span><span class="o">(</span><span class="n">TestInfo</span> <span class="n">testInfo</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">callingTest</span> <span class="o">=</span> <span class="n">testInfo</span><span class="o">.</span><span class="na">getTestMethod</span><span class="o">().</span><span class="na">get</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">callingTest</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Output:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>1
+firstTest
+2
+secondTest
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="beforeall">@BeforeAll</h3>
+
+<p>This annotation executes a method before all tests. This is analogous to JUnit 4’s <code class="highlighter-rouge">@BeforeClass</code>. The <code class="highlighter-rouge">@BeforeAll</code> annotation is typically used to initialize various things for the tests.</p>
+
+<p>Example:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">JUnit5Test</span> <span class="o">{</span>
+
+    <span class="nd">@BeforeAll</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Only run once before all tests"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">firstTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">secondTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Output:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>Only run once before all tests
+1
+2
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h3 id="afterall">@AfterAll</h3>
+
+<p>The <code class="highlighter-rouge">@AfterAll</code> annotation is used to execute the annotated method, only after all tests have been executed. This is analogous to JUnit 4’s <code class="highlighter-rouge">@AfterClass</code><em>.</em> We use this annotation to tear down or terminate all processes at the end of all tests.</p>
+
+<p>Example:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">JUnit5Test</span> <span class="o">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">firstTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">secondTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@AfterAll</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">after</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Only run once after all tests"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Output:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>1
+2
+Only run once after all tests
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h3 id="tag">@Tag</h3>
+
+<p>We can use this annotation to declare tags for filtering tests, either at the class or method level.</p>
+
+<p>The <code class="highlighter-rouge">@Tag</code> annotation is useful when we want to create a test pack with selected tests.</p>
+
+<p>Example:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Tag</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+
+<span class="nd">@Tag</span><span class="o">(</span><span class="s">"smoke"</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">JUnit5Test</span> <span class="o">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@Tag</span><span class="o">(</span><span class="s">"login"</span><span class="o">)</span>
+    <span class="kt">void</span> <span class="nf">validLoginTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@Tag</span><span class="o">(</span><span class="s">"search"</span><span class="o">)</span>
+    <span class="kt">void</span> <span class="nf">searchTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="disabled">@Disabled</h3>
+
+<p>The <code class="highlighter-rouge">@Disabled</code> annotation is used to disable or skip tests at class or method level. This is analogous to JUnit 4’s <code class="highlighter-rouge">@Ignore</code>.</p>
+
+<p>When declared at class level, all <code class="highlighter-rouge">@test</code> methods are skipped. When we use <code class="highlighter-rouge">@Disabled</code> at the method level, only the annotated method is disabled.</p>
+
+<p>Example:</p>
+
+<p><code class="highlighter-rouge">@Disabled</code> used to disable a test class:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Disabled</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+
+<span class="nd">@Disabled</span>
+<span class="kd">class</span> <span class="nc">DisabledClassDemo</span> <span class="o">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testWillBeSkipped</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Example:</p>
+
+<p><code class="highlighter-rouge">@Disabled</code> annotation used to disable test method:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Disabled</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">DisabledTestsDemo</span> <span class="o">{</span>
+
+    <span class="nd">@Disabled</span>
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testWillBeSkipped</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testWillBeExecuted</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><strong>Further reading:</strong></p>
+
+<p><a href="https://www.testingexcellence.com/testng-run-all-test-classes-package-testngxml-suite/">Run All Test Classes in a Package from testng.xml Suite</a></p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#java">java</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/rest-assured-post-request/"> &laquo; How to Submit Form Data With REST-assured Post Request</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/git-cheat-sheet-for-testers/">Git Commands Every Tester Should Know &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

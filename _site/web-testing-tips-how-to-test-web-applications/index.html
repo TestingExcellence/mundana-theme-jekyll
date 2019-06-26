@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Testing Tips - How to Test Web Applications | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Web Testing Tips - How to Test Web Applications | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Web Testing Tips - How to Test Web Applications" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Web Testing Guidelines" />
+<meta property="og:description" content="Web Testing Guidelines" />
+<link rel="canonical" href="localhost:4000/web-testing-tips-how-to-test-web-applications/" />
+<meta property="og:url" content="localhost:4000/web-testing-tips-how-to-test-web-applications/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-10-13T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"Web Testing Guidelines","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/web-testing-tips-how-to-test-web-applications/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Web Testing Tips - How to Test Web Applications","dateModified":"2016-10-13T00:00:00+01:00","datePublished":"2016-10-13T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/web-testing-tips-how-to-test-web-applications/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Web Testing Tips - How to Test Web Applications&url=localhost:4000/web-testing-tips-how-to-test-web-applications/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/web-testing-tips-how-to-test-web-applications/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/web-testing-tips-how-to-test-web-applications/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Oct 13, 2016 · <span class="reading-time">
+  
+  
+    7 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Web Testing Tips - How to Test Web Applications</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Web Testing Tips - How to Test Web Applications">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h2 id="web-testing-guidelines">Web Testing Guidelines</h2>
+
+<p><img src="http://69.164.212.71/wp-content/uploads/2015/05/web-testing-guidelines.jpg" alt="web-testing-guidelines" /></p>
+
+<p><strong>Web Testing</strong> is different to desktop application testing. In Web Application Testing, we are typically using a browser (the client) to request a website from a web server by communicating with the server over HTTP or HTTPS.</p>
+
+<p>It is important that, as testers, when we are involved in Web Testing, we should be familiar with the basics of HTTP to get a good understanding of how web applications work.</p>
+
+<p>In Web Testing, apart from functional testing of individual and integrated components, some of the testing types such as Performance, Security, Cross-browser and Responsiveness which are not necessarily needed in desktop application testing, become of high importance in Web Application Testing. This is because Web Applications are open to a lot of audience so performance has to be accounted for.</p>
+
+<p>In addition Web Applications are more susceptible to security attacks such as DDos and SQL Injection, and if a website is targeted, the downtime can be very costly, so great emphasis should also be put on security testing.</p>
+
+<h3 id="web-services-testing">Web Services Testing</h3>
+
+<p>More websites are being built using web services. These provide an opportunity for testers to test the web application in isolated components rather than a full blown integrated web application.</p>
+
+<p>The benefits of testing web services in isolation are:</p>
+
+<ul>
+  <li>
+    <p><strong>No browser involved</strong> - We can directly communicate with a web service as long as we know its end-point and what parameters to send.</p>
+  </li>
+  <li>
+    <p><strong>Much faster</strong> - As we are targeting isolated web service, there is no images, javascript or css to load, so the response is much quicker.</p>
+  </li>
+  <li>
+    <p><strong>Easier debugging</strong> - when testing a web service, if we encounter an issue, it is much easier to locate the cause of the issue and so debugging becomes less of a pain.</p>
+  </li>
+  <li>
+    <p><strong>More control</strong> - we have direct control over what request we submit to the web service, so we can use all sorts of data for <strong><a href="http://www.testingexcellence.com/no-thing-negative-testing/">negative testing</a></strong> of web services</p>
+  </li>
+</ul>
+
+<p>We can use <a href="http://www.soapui.org/about-soapui/what-is-soapui-.html"><strong>SopaUI tool</strong></a> to test a web service or a browser plugin such as <strong><a href="https://addons.mozilla.org/en-US/firefox/addon/restclient/">REST Client for Firefox</a></strong> or <strong><a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo">Advanced REST Client for Chrome</a></strong></p>
+
+<h3 id="performance-testing">Performance Testing</h3>
+
+<p>Performance Testing is particularly important in Web Testing as the web application is exposed to potentially large number of audience.</p>
+
+<p>When testing web applications, not only do we have to ensure functionally the website is stable, we also have to make sure the application doesn’t crash when subjected to a large load on the server.</p>
+
+<p>Unfortunately, most people forget about performance testing of the web application, or postpone the testing just before release which is too late. If there is something fundamentally wrong in the design or code that could impact performance, we would not know about it till it’s too late.</p>
+
+<p>Best approach is to run a performance check as often as the functional regression tests so we have confidence that the performance has not regressed as part of the changes to the code base.</p>
+
+<p><strong><a href="http://jmeter.apache.org/">Jmeter</a></strong> is a popular opensource load testing tool that can be used to check for a site’s performance. It can also be integrated in a CI server.</p>
+
+<h3 id="cross-browser-web-testing">Cross-browser Web Testing</h3>
+
+<p>As there are different number of browsers, we need to ensure our web application works as expected on all of them (at least the major ones, i.e. Google Chrome, Mozilla Firefox and Microsoft Internet Explorer), not to forget Opera and Safari.</p>
+
+<p>As with all testing, we need to know which browsers and their versions the application supports and then plan the testing accordingly.</p>
+
+<p>Testing everything on every browser can be very time consuming, hence we can use automated tools to verify functionality on different browsers.</p>
+
+<p>Moreover, there are online cross browser testing tools which make life easier for testers to execute their tests on different browsers.</p>
+
+<p>Speaking from personal experience, the number of browser-related issues are very few and mostly related to very old versions of browsers or the CSS doesn’t render properly giving layout issues.</p>
+
+<p>Therefore it may not be necessary to run all test cases in all browsers as it can be very time consuming (even when automated) for very little gain, and chance of something not working in very low.</p>
+
+<p>The best approach is to run all the test cases in one major browser, and then select a handful of most important scenarios and run them on the rest of the browsers.</p>
+
+<h3 id="test-automation">Test Automation</h3>
+
+<p>Majority of companies developing Web Applications work in an agile development model with frequent releases, hence a need for frequent testing. In Web Testing, Test Automation can be of great benefit because it removes the burden of repetitive work.</p>
+
+<p>As well as verifying functionality, we can also use automated scripts to generate test data that we need during Web Testing.</p>
+
+<p>Another way automation can help in manual testing is tools such as <strong><a href="http://www.seleniumhq.org/download/">Selenium WebDriver</a></strong> can take screenshots of the actual browser page. If we need to visually check for a large number of pages, e.g. we want to know how the localized text renders on different webpages, we can use the tool to go through the pages and take screenshots and then quickly verify visually.</p>
+
+<p>For more information, please refer to <strong><a href="http://www.testingexcellence.com/test-automation-tips-best-practices/">Test Automation Tips and Best Practices</a></strong></p>
+
+<h3 id="analyzinghttp-traffic">Analyzing HTTP Traffic</h3>
+
+<p>Quite often there is a need to analyse the HTTP traffic from the browser to the downstream servers. By analyzing the web traffic we can dig down to the details of each request and response.</p>
+
+<p>In Web Testing, analyzing HTTP traffic  is particularly useful when testing third party tracking tags, such as Google Analytics tags or omniture tags on webpages.</p>
+
+<p>Not only can we verify the tags hold correct values, we can actually test that the requests are fired off to the appropriate third party systems and that we get a valid response, usually 200 OK response code.</p>
+
+<p>In order to be able to visualize and record HTTP traffic we have to use an appropriate tool that acts as a proxy and can listen to the requests and responses between the client, usually a browser, and the servers.</p>
+
+<p>Here are some of the most popular tools we can use to analyze HTTP traffic:</p>
+
+<p><strong><a href="http://www.wireshark.org/">Wireshark</a></strong> if you want to see everything going on in the network.</p>
+
+<p><strong><a href="http://fiddler2.com/">Fiddler</a></strong> if you want to just monitor HTTP/s traffic.</p>
+
+<p><strong><a href="https://addons.mozilla.org/en-US/firefox/addon/live-http-headers/">Live HTTP Headers</a></strong> if you’re in Firefox and want a quick plugin just to see the headers.</p>
+
+<p><strong><a href="http://getfirebug.com/">FireBug</a></strong> can get you that information too and provides a nice interface when your working on a single page during development. I’ve used it to monitor AJAX transactions.</p>
+
+<p><strong><a href="http://www.testingexcellence.com/how-to-capture-network-traffic-and-http-requests-from-webdriver/">BrowserMob Proxy</a></strong> is also a very nice tool that can hook with Selenium WebDriver when running automated tests.</p>
+
+<h3 id="responsive-websites-and-mobile-testing">Responsive Websites and Mobile Testing</h3>
+
+<p>More people are <strong><a href="http://www.smartinsights.com/mobile-marketing/mobile-marketing-analytics/mobile-marketing-statistics/">accessing websites from their mobile phones</a></strong> than their desktop computers. This means that Web Testing is no longer restricted to browsers on desktops. We now have to test web applications on mobile platforms as well as desktops.</p>
+
+<p>There are two types of web applications for mobile devices, ones which are purposely developed for mobile platforms, and ones which are “responsive”, i.e. there is only one version of the web application built for desktop and mobile devices but the application renders and is displayed differently depending on the size of the device.</p>
+
+<p>Both types require testing on mobile devices and/or simulators.</p>
+
+<p>For more information on Web Testing on Mobiles read <strong><a href="http://www.testingexcellence.com/how-to-test-responsive-web-design/">How to Test Responsive Web Design</a></strong></p>
+
+<h3 id="other-important-elementsfor-web-testing">Other Important elements for Web Testing</h3>
+
+<p>During Web Testing, as well as functional testing, we also need to check for and not limited to:</p>
+
+<ul>
+  <li>Javascript</li>
+  <li>CSS</li>
+  <li>Cookies</li>
+  <li>Accessibility</li>
+  <li>Dead-links</li>
+  <li>UX and Layout</li>
+  <li>HTML Validity</li>
+  <li>Security</li>
+  <li>Browser Refresh</li>
+  <li>Window Resizing</li>
+</ul>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/testing-e-commerce-websites/"> &laquo; Testing E-commerce Websites</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/how-to-create-update-and-delete-cookies-in-webdriver/">How to Create, Update and Delete Cookies in WebDriver &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ethical Hacking and Penetration Testing Fundamentals | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Ethical Hacking and Penetration Testing Fundamentals | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Ethical Hacking and Penetration Testing Fundamentals" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This blog post is an introduction to Penetration Testing and Ethical Hacking. We’ll cover the basics of Pen testing and explain why penetration testing is important to organizations." />
+<meta property="og:description" content="This blog post is an introduction to Penetration Testing and Ethical Hacking. We’ll cover the basics of Pen testing and explain why penetration testing is important to organizations." />
+<link rel="canonical" href="localhost:4000/penetration-testing-ethical-hacking-fundamentals/" />
+<meta property="og:url" content="localhost:4000/penetration-testing-ethical-hacking-fundamentals/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/ethical-hacking-penetration-testing.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-02T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"This blog post is an introduction to Penetration Testing and Ethical Hacking. We’ll cover the basics of Pen testing and explain why penetration testing is important to organizations.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/penetration-testing-ethical-hacking-fundamentals/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/ethical-hacking-penetration-testing.jpg","headline":"Ethical Hacking and Penetration Testing Fundamentals","dateModified":"2019-04-02T00:00:00+01:00","datePublished":"2019-04-02T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/penetration-testing-ethical-hacking-fundamentals/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Ethical Hacking and Penetration Testing Fundamentals&url=localhost:4000/penetration-testing-ethical-hacking-fundamentals/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/penetration-testing-ethical-hacking-fundamentals/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/penetration-testing-ethical-hacking-fundamentals/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Apr 02, 2019 · <span class="reading-time">
+  
+  
+    7 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Ethical Hacking and Penetration Testing Fundamentals</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/ethical-hacking-penetration-testing.jpg" alt="Ethical Hacking and Penetration Testing Fundamentals">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>This blog post is an introduction to Penetration Testing and Ethical Hacking. We’ll cover the basics of Pen testing and explain why penetration testing is important to organizations.</p>
+
+<p>We will also cover the stages of penetration testing and explain what happens at each phase.</p>
+
+<p>Finally, we’ll take a look at some of the tools commonly used in Penetration Testing.</p>
+
+<h2 id="penetration-testing---ethical-hacking-basics">Penetration Testing - Ethical Hacking Basics</h2>
+
+<h3 id="what-is-ethical-hacking">What is Ethical Hacking?</h3>
+
+<p>When we think of Hacking, we often associate it with illegal or criminal activity. When a hacker attacks a system, they do so without the knowledge and consent of the owner of the system. Put simply, it is like entering someone’s house without the owner’s full permission and prior agreement.</p>
+
+<p>Ethical hacking, on the other hand, is still hacking. It involves gathering information about a system, finding loopholes and gaining access. However, in ethical hacking, the pen tester has_<strong> the full consent and permission</strong>_ of the system owner. Therefore, the activity becomes ethical, i.e. done with good intentions.</p>
+
+<p>Customers employ ethical hackers to improve security.</p>
+
+<h3 id="what-is-penetration-testing">What is Penetration Testing?</h3>
+
+<p>Penetration testing involves simulating real attacks to assess the risk associated with potential security breaches.</p>
+
+<p>During pen testing, testers use various tools and methodologies to find vulnerabilities. They will then try to exploit the vulnerabilities to assess what attackers might gain after successful exploitation.</p>
+
+<h3 id="why-penetration-testing-is-necessary">Why Penetration Testing is Necessary?</h3>
+
+<p>Over the years, there has been a constant rise in the number of cyber threats and criminal activities involving Information Technology. Businesses need to undertake regular vulnerability assessment and penetration testing to identify weaknesses in their systems. They can then use effective measures to protect their systems against malicious hackers.</p>
+
+<h3 id="who-performs-a-pen-test">Who Performs a Pen Test?</h3>
+
+<p>Ethical hackers are the people who normally carry out Penetration Testing.</p>
+
+<p>In order to catch a thief, you have to think like one.</p>
+
+<p>The same is true in Ethical hacking.</p>
+
+<p>In order to find and fix security holes in a computer system, you have to think like a malicious hacker. You would use the same tactics, tools, and processes they might employ.</p>
+
+<p>An ethical hacker employs the same tools and techniques a criminal might use. <em><strong>But</strong></em> they do so with the customer’s full support and approval, in order to help secure a network or system.</p>
+
+<h3 id="penetration-testing-vs-vulnerability-assessment">Penetration Testing vs Vulnerability Assessment</h3>
+
+<p>Vulnerability assessment examines the exposed assets (network, server, applications) for vulnerabilities. The downside of a vulnerability scan is that it frequently reports false positives. False positives may be a sign that an existing control is not fully effective.</p>
+
+<p>Penetration testing goes one step further and looks at vulnerabilities and will try and exploit them.</p>
+
+<h2 id="types-of-penetration-testing">Types of Penetration Testing</h2>
+
+<h3 id="black-box-penetration-testing">Black Box Penetration Testing</h3>
+
+<p>In black-box penetration testing, the tester has no prior knowledge about the target. This closely simulates the real-world attacks and reduces false positives.</p>
+
+<p>This type of testing requires extensive research and information gathering on the target system/network. It typically consumes more time, effort, and cost to perform a black box penetration test.</p>
+
+<h3 id="gray-box-penetration-testing">Gray-Box Penetration Testing</h3>
+
+<p>In gray-box penetration testing, the tester has limited or partial knowledge about the target infrastructure. They have some knowledge of security mechanisms in place.</p>
+
+<p>This simulates an attack by an insider or an external hacker who has <strong><em>some</em></strong> knowledge or privileges on the target system.</p>
+
+<h3 id="white-box-penetration-testing">White-Box Penetration Testing</h3>
+
+<p>In white-box penetration testing, the testers have complete in-depth knowledge about the target infrastructure. They know about the security mechanisms in place.
+This makes the test much quicker, easier, and less expensive.</p>
+
+<p>This simulates an attack which could happen by an insider who has full knowledge and privileges on the target system.</p>
+
+<h3 id="announced-testing">Announced Testing</h3>
+
+<p>In this type of testing, everyone is aware when the testing will be initiated. The IT staff the network team, and the management team all have prior knowledge of the pen testing activity.</p>
+
+<h3 id="unannounced-testing">Unannounced Testing</h3>
+
+<p>In this type of testing, IT staff and support teams don’t have the prior knowledge of the pen testing activity.</p>
+
+<p>Only the top management is aware of the test schedule. Such testing helps determine the responsiveness of the IT and support staff in case of a security attack.</p>
+
+<h3 id="automated-penetration-testing">Automated Penetration Testing</h3>
+
+<p>Because penetration testing involves many tasks and the attack surface area is also complex at times, it is sometimes necessary to use tools to automate many of the tasks.</p>
+
+<p>The tool will run against an infrastructure at regular intervals and then share the reports with concerned teams to address the issues.</p>
+
+<p>The downside of using automated tools is that they will only check for predefined vulnerabilities thus reporting false positives.</p>
+
+<p>It also cannot review architecture and system integration from a security perspective. However, it is suitable for scanning multiple targets repeatedly and to complement manual testing.</p>
+
+<h3 id="manual-penetration-testing">Manual Penetration Testing</h3>
+
+<p>In manual testing, the tester uses his own expertise and skills in order to penetrate the target system. The tester can also perform reviews of architecture and other procedural aspects in consultation with respective teams. For holistic security testing, it is best to use a combination of automated and manual testing.</p>
+
+<h2 id="stages-of-penetration-testing">Stages of Penetration Testing</h2>
+
+<p>Pen testing begins with the pre-engagement phase. This involves talking to the client about their goals for the pen test and mapping out the scope of the test.</p>
+
+<p>The client and the pen tester as questions and set expectations.</p>
+
+<p>Some clients put boundaries on the scope of activities.</p>
+
+<p>For example, the client grants permission to the tester to find vulnerabilities of a database, but not to fetch sensitive data.</p>
+
+<p>The pre-engagement phase also covers other details, such as the testing window, contact information, and payment terms.</p>
+
+<h3 id="information-gathering">Information Gathering</h3>
+
+<p>In the information-gathering phase, the pen testers search for publicly available information about the client and identify potential ways to connect to the client’s systems.</p>
+
+<p>The testers begin to use tools such as port scanners to get an idea of what systems are out there on the internal network as well as what software is running.</p>
+
+<h3 id="threat-modelling">Threat Modelling</h3>
+
+<p>In the threat-modeling phase, the testers use information gathered in the previous phase to determine the value of each finding and the impact on the client if the finding permitted an attacker to break into a system.</p>
+
+<p>This evaluation allows the pentester to develop an action plan and methods of attack.</p>
+
+<h3 id="vulnerability-analysis">Vulnerability Analysis</h3>
+
+<p>Before the Pen Testers can start attacking a system, they perform a vulnerability analysis. Here, Pen Testers attempt to discover weaknesses in the systems that can be taken advantage of in the next phase.</p>
+
+<h3 id="exploitation">Exploitation</h3>
+
+<p>In the exploitation phase, Pen Testers begin their exploit against the target system. They use previously discovered vulnerabilities in an attempt to access a client’s systems. They will try various tools and method in order to penetrate the system.</p>
+
+<h3 id="post-exploitation">Post Exploitation</h3>
+
+<p>In post-exploitation, testers evaluate the extent of damage that can be done via a particular exploit. In other words, they assess the risks.</p>
+
+<p>For example, during the pen test, the testers compromised the client’s system. Does that intrusion really mean anything to the client?</p>
+
+<p>If you broke into a system that doesn’t reveal any vital information of interest to an attacker, then so what? That vulnerability’s risk is significantly lower than if you were able to exploit a client’s development system.</p>
+
+<h3 id="reporting">Reporting</h3>
+
+<p>The final phase of penetration testing is reporting. In this phase, the Pen Testers convey their findings to the customer in a meaningful way. The report informs the client what they’re doing correctly and where they need to improve their security posture.</p>
+
+<p>The report may include details of each exploit and measures to correct them.</p>
+
+<h2 id="common-tools-used-for-penetration-testing">Common Tools Used for Penetration Testing</h2>
+
+<p>Two of the most common tools used during pen testing are <a href="https://nmap.org/">Nmap</a> and <a href="https://www.metasploit.com/">Metasploit</a>.</p>
+
+<p>Both tools can provide a wealth of information on a target system.</p>
+
+<p>Kali Linux from offensive security includes many other <a href="https://tools.kali.org/tools-listing">tools</a> used in various stages of testing.</p>
+
+<p><strong>Further reading</strong></p>
+
+<p><a href="https://www.testingexcellence.com/confidentiality-integrity-availability/">Confidentiality, Integrity, and Availability</a></p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#cybersecurity">cybersecurity</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#ceh">#ceh</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#featured">#featured</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#hacking">#hacking</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/java-random-number/"> &laquo; Java Random Number Generation</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/java-create-file-examples/">Java Create File Examples &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

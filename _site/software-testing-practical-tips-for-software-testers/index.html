@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Software Testing - Practical Tips for Software Testers | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Software Testing - Practical Tips for Software Testers | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Software Testing - Practical Tips for Software Testers" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Site for Developers and QAs" />
+<meta property="og:description" content="Site for Developers and QAs" />
+<link rel="canonical" href="localhost:4000/software-testing-practical-tips-for-software-testers/" />
+<meta property="og:url" content="localhost:4000/software-testing-practical-tips-for-software-testers/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-10-16T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"Site for Developers and QAs","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/software-testing-practical-tips-for-software-testers/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Software Testing - Practical Tips for Software Testers","dateModified":"2016-10-16T00:00:00+01:00","datePublished":"2016-10-16T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/software-testing-practical-tips-for-software-testers/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Software Testing - Practical Tips for Software Testers&url=localhost:4000/software-testing-practical-tips-for-software-testers/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/software-testing-practical-tips-for-software-testers/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/software-testing-practical-tips-for-software-testers/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Oct 16, 2016 · <span class="reading-time">
+  
+  
+    4 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Software Testing - Practical Tips for Software Testers</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Software Testing - Practical Tips for Software Testers">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p><img src="http://69.164.212.71/wp-content/uploads/2015/04/software-testing-tips-guidelines-e1430217537934.jpg" alt="software-testing-tips-guidelines" title="software-testing-tips-guidelines" /></p>
+
+<p>Below are a list of guidelines and tips for software testers and QA professionals when involved in testing applications. These software testing tips are collected from many years of experience in testing web applications in an agile environment. If you want to share your testing tips, then add it in the comments field.</p>
+
+<h3 id="some-guidelines-for-qas-when-testing-for-storybug"><strong>Some guidelines for QAs when testing for story/bug</strong></h3>
+
+<ul>
+  <li>
+    <p>Don’t leave any questions unanswered. The acceptance criteria must be complete in order to ensure you fully understand what the feature/story wants to achieve.</p>
+  </li>
+  <li>
+    <p>Ensure you know how to test the feature/story.</p>
+  </li>
+  <li>
+    <p><strong><a href="http://www.testingexcellence.com/can-you-really-automate-a-user-journey/">Consider the full end-to-end flows when thinking about test cases.</a></strong></p>
+  </li>
+  <li>
+    <p>Consider all related error scenarios, e.g. web service connection down, invalid inputs, etc.</p>
+  </li>
+  <li>
+    <p>Consider different browsers – as per the supported browsers.</p>
+  </li>
+  <li>
+    <p>Consider mobile impact – mobile web and tablet – should any of the features behave differently when used on a touch device, compared to using a keyboard to navigate?</p>
+  </li>
+  <li>
+    <p>Consider basics of security testing, such as https both URL and resources for protected areas of the site.</p>
+  </li>
+  <li>
+    <p>Consider whether this story warrants being included in the automation test suite.<br />
+As a rough guide: only scenarios where its failure would result in a P1 or P2 in production will be automated. This also includes scenarios with a lot of data to be checked through, which would be very repetitive to do manually.</p>
+  </li>
+  <li>
+    <p>When you find bugs related to a story, raise them as bug-subtasks, to ensure the link to the story is kept.</p>
+  </li>
+  <li>
+    <p>When signing a story or bug off as testing complete, ensure a comment is added in Jira which includes the test environment and code version on which the tests were signed off.</p>
+  </li>
+  <li>
+    <p>If the story or bug can’t, or won’t be tested by a QA and will be tested by a developer instead, ensure you review the test approach and add a note in Jira that you approve of the dev’s test approach, ideally with a short description.  Ensure the dev adds which version is being signed off.</p>
+  </li>
+</ul>
+
+<h3 id="on-daily-tasks"><strong>On Daily Tasks</strong></h3>
+
+<ul>
+  <li>
+    <p>Understand the area of the application being modified by developers</p>
+  </li>
+  <li>
+    <p>What unit tests have been written by developers</p>
+  </li>
+  <li>
+    <p>What are the high priority stories and prioritise work depending on day of sprint</p>
+  </li>
+  <li>
+    <p>Get clarifications on stories that are vague</p>
+  </li>
+  <li>
+    <p>Review of the automated checks to see if there were any failures</p>
+  </li>
+</ul>
+
+<h3 id="on-sprint-planning"><strong>On Sprint Planning</strong></h3>
+
+<ul>
+  <li>
+    <p>Estimate testing for each story</p>
+  </li>
+  <li>
+    <p>Talk with PO to resolve any misunderstandings on new stories</p>
+  </li>
+  <li>
+    <p>Ensure the stories are testable</p>
+  </li>
+  <li>
+    <p>Be very proactive in the meeting by asking questions to get ideas for test</p>
+  </li>
+  <li>
+    <p>Start thinking about high level test scenarios</p>
+  </li>
+</ul>
+
+<h3 id="on-test-design-in-collaboration-with-dev-and-po"><strong>On Test Design in collaboration with Dev and PO</strong></h3>
+
+<ul>
+  <li>
+    <p>Thinking of test cases to validate features, applying various test techniques, positive, negative, Boundary Values, Equivalent Partitions, etc</p>
+  </li>
+  <li>
+    <p>Use Mindmaps to assist with test scenarios and user journeys</p>
+  </li>
+  <li>
+    <p>Consider risks - provide more test conditions around a feature of high risk</p>
+  </li>
+  <li>
+    <p>Always think about “What if”, “what else”, “how else” when designing test cases</p>
+  </li>
+  <li>
+    <p>Think about integration tests, how is this feature affecting nearest-neighbour features</p>
+  </li>
+  <li>
+    <p>Really understand what is going on when interacting with a feature rather than just looking at if from a surface. Think about what back-end systems / DB / Web services are being touched</p>
+  </li>
+  <li>
+    <p><strong><a href="http://www.testingexcellence.com/test-automation-tips-best-practices/">Candidates for automation - what test cases are best to be automated</a></strong></p>
+  </li>
+  <li>
+    <p>When there are a lot of combinations of data to test, how can the permutations be reduced without compromising quality / testing - e.g. using pair-wise test technique</p>
+  </li>
+  <li>
+    <p>Peer reviews of test conditions - discussing with developers what test cases have been designed</p>
+  </li>
+</ul>
+
+<h3 id="on-test-execution--completion"><strong>On Test Execution / Completion</strong></h3>
+
+<ul>
+  <li>
+    <p>Test Environments / Prerequisite setup before execution</p>
+  </li>
+  <li>
+    <p>Test as soon as a feature is ready and available</p>
+  </li>
+  <li>
+    <p>Ensure quick feedback is provided to the developers</p>
+  </li>
+  <li>
+    <p>Review of the automated checks to see if there were an failures</p>
+  </li>
+  <li>
+    <p>Does the new developed feature make business sense</p>
+  </li>
+  <li>
+    <p>Talk to developers to improve testability of a feature</p>
+  </li>
+  <li>
+    <p>Ensure existing tests are updated if there is a change in the workflow</p>
+  </li>
+  <li>
+    <p>Maintain the test packs and ensure all tests are up to date</p>
+  </li>
+</ul>
+
+<h3 id="on-process-improvement--self-development"><strong>On Process Improvement / Self Development</strong></h3>
+
+<ul>
+  <li>
+    <p>Learn about new developments in software testing</p>
+  </li>
+  <li>
+    <p>What are current issues with the QA process / How can current issues be solved, improved</p>
+  </li>
+  <li>
+    <p>Learn technical skills such as Databases, Coding, Web technologies to get a better understanding of what is happening when testing</p>
+  </li>
+  <li>
+    <p>Discuss with the team their thoughts about process improvements</p>
+  </li>
+</ul>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/what-if-there-isnt-enough-time-for-thorough-testing/"> &laquo; What to Test When There is Not Enough Time to Test</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/top-ten-myths-agile-testing/">Top 10 QA Myths of Agile Testing &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agile Test Strategy Example Template | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Agile Test Strategy Example Template | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Agile Test Strategy Example Template" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Agile Test Strategy" />
+<meta property="og:description" content="Agile Test Strategy" />
+<link rel="canonical" href="localhost:4000/agile-test-strategy-example-template/" />
+<meta property="og:url" content="localhost:4000/agile-test-strategy-example-template/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-10-24T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"Agile Test Strategy","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/agile-test-strategy-example-template/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Agile Test Strategy Example Template","dateModified":"2016-10-24T00:00:00+01:00","datePublished":"2016-10-24T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/agile-test-strategy-example-template/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Agile Test Strategy Example Template&url=localhost:4000/agile-test-strategy-example-template/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/agile-test-strategy-example-template/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/agile-test-strategy-example-template/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Oct 24, 2016 · <span class="reading-time">
+  
+  
+    9 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Agile Test Strategy Example Template</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Agile Test Strategy Example Template">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h2 id="agile-test-strategy">Agile Test Strategy</h2>
+
+<p>In an agile environment, where we work in short sprints or iterations, each sprint is focused on only a few requirements or user stories, so it is natural that documentation may not be as extensive, in terms of both number and content.</p>
+
+<p>Previously we concluded that we may not need to have an <strong><a href="http://www.testingexcellence.com/agile-test-plan-do-we-really-need-one/" title="Agile Test Plan – Do We Really Need One?">extensive test plan in agile projects</a></strong> for each sprint due to time constraints, but we do require a high-level agile test strategy as a guideline for the agile teams.</p>
+
+<p>The purpose of the agile test strategy document is to list best practices and some form of structure that the teams can follow. Remember, agile does not mean unstructured.</p>
+
+<p>Here, we take a look at a sample Agile Test Strategy and what to include in the document.</p>
+
+<p><strong>Related:</strong></p>
+
+<p><a href="https://www.testingexcellence.com/testing-in-devops/"><strong>Testing in DevOps</strong></a></p>
+
+<p>A test strategy usually has a mission statement which could be related to the wider business goals and objectives.</p>
+
+<p><strong>A typical mission statement could be:</strong></p>
+
+<blockquote>
+  <p>To Constantly Deliver Working Software that Meets Customer’s Requirements _by means of _Providing Fast Feedback _and _Defect Prevention, rather than Defect Detection.</p>
+</blockquote>
+
+<p>Supported by:</p>
+
+<blockquote>
+  <ul>
+    <li>No code may be written for a story until we first define its acceptance criteria/tests</li>
+    <li>A story may not be considered complete until all its acceptance tests pass</li>
+  </ul>
+</blockquote>
+
+<p>In the Agile Test Strategy document, I would also include a reminder to everyone about Quality Assurance</p>
+
+<ul>
+  <li>
+    <p>QA is a set of activities intended to ensure that products satisfy customer requirements in a systematic, reliable fashion.</p>
+  </li>
+  <li>
+    <p>In SCRUM (agile) QA is the responsibility of everyone, not only the testers. QA is all the activities we do to ensure correct quality during the development of new products.</p>
+  </li>
+</ul>
+
+<h2 id="test-levels"><strong>Test Levels</strong></h2>
+
+<p>[caption id=”attachment_10412” align=”aligncenter” width=”590”]<img src="http://69.164.212.71/wp-content/uploads/2015/03/Agile-Testing-Quadrants.png" alt="Agile-Testing-Quadrants" /> Agile-Testing-Quadrants[/caption]</p>
+
+<h3 id="unit-testing"> Unit Testing</h3>
+
+<p><strong>WHY: </strong>To ensure code is developed correctly</p>
+
+<p><strong>WHO:</strong>  Developers / Technical Architects</p>
+
+<p><strong>WHAT:</strong> All new code + re-factoring of legacy code as well as Javascript unit Testing</p>
+
+<p><strong>WHEN:</strong> As soon as new code is written</p>
+
+<p><strong>WHERE: </strong>Local Dev + CI (part of the build)</p>
+
+<p><strong>HOW:</strong> Automated, Junit, TestNG, PHPUnit</p>
+
+<h3 id="api--service-testing">API / Service Testing</h3>
+
+<p><strong>WHY:</strong> To ensure communication between components are working</p>
+
+<p><strong>WHO:</strong>  Developers / Technical Architects</p>
+
+<p><strong>WHAT:</strong> New web services, components, controllers, etc</p>
+
+<p><strong>WHEN:</strong> As soon as new API is developed and ready</p>
+
+<p><strong>WHERE:</strong> Local Dev + CI (part of the build)</p>
+
+<p><strong>HOW:</strong> Automated, Soap UI, Rest Client</p>
+
+<h3 id="acceptance-testing">Acceptance Testing</h3>
+
+<p><strong>WHY:</strong> To ensure customer’s expectations are met</p>
+
+<p><strong>WHO:</strong>  Developer / SDET / Manual QA</p>
+
+<p><strong>WHAT:</strong> Verifying acceptance tests on the stories, verification of features</p>
+
+<p><strong>WHEN:</strong> When the feature is ready and unit tested</p>
+
+<p><strong>WHERE:</strong> CI / Test Environment</p>
+
+<p><strong>HOW:</strong> Automated (Cucumber)</p>
+
+<h3 id="system-testing--regression-testing--uat">System Testing / Regression Testing / UAT</h3>
+
+<p><strong>WHY:</strong> To ensure the whole system works when integrated</p>
+
+<p><strong>WHO:</strong>  SDET / Manual QA / Business Analyst / Product Owner</p>
+
+<p><strong>WHAT:</strong> Scenario Testing, User flows and typical User Journeys, Performance and security testing</p>
+
+<p><strong>WHEN:</strong> When Acceptance Testing is completed</p>
+
+<p><strong>WHERE:</strong> Staging Environment</p>
+
+<p><strong>HOW:</strong> Automated (Webdriver) Exploratory Testing</p>
+
+<h2 id="product-backlog"><strong>Product Backlog</strong></h2>
+
+<p>Most common cause of software development failure is due to unclear requirements and different interpretation of requirements by different members of the team.</p>
+
+<p>User stories should be simple, concise and unambiguous. As a good guideline, it is best to follow the INVEST model for writing user stories.</p>
+
+<p><strong>A good user story should be:</strong></p>
+
+<p><strong>I</strong>ndependent (of all others)</p>
+
+<p><strong>N</strong>egotiable (not a specific contract for features)</p>
+
+<p><strong>V</strong>aluable (or <a href="http://guide.agilealliance.org/guide/incremental.html">vertical</a>)</p>
+
+<p><strong>E</strong>stimable (to a good approximation)</p>
+
+<p><strong>S</strong>mall (so as to fit within an iteration)</p>
+
+<p><strong>T</strong>estable (in principle, even if there isn’t a test for it yet)</p>
+
+<p><strong>The following format should be used to write user stories</strong></p>
+
+<p><code class="highlighter-rouge">As a [role]</code></p>
+
+<p><code class="highlighter-rouge">I want [feature]</code></p>
+
+<p><code class="highlighter-rouge">So that [benefit]</code></p>
+
+<p>It is important not to forget the “Benefit” part, as everyone should be aware of what value they are adding by developing the story.</p>
+
+<p><strong>Acceptance Criteria</strong></p>
+
+<p>Each of the User stories must contain acceptance criteria. This is possibly the most important element which encourages communication with different members of the team.</p>
+
+<p>Acceptance criteria should be written at the same time the user story is created and should be embedded within the body of the story. All acceptance criteria should be testable.</p>
+
+<p>Each Acceptance Criteria should have a number of Acceptance Tests presented as scenarios written in Gherkin format, e.g.</p>
+
+<p><code class="highlighter-rouge">Scenario 1: Title</code></p>
+
+<p><code class="highlighter-rouge">Given [context]</code></p>
+
+<p><code class="highlighter-rouge">And [some more context]...</code></p>
+
+<p><code class="highlighter-rouge">When  [event]</code></p>
+
+<p><code class="highlighter-rouge">Then  [outcome]</code></p>
+
+<p><code class="highlighter-rouge">And [another outcome]...</code></p>
+
+<h2 id="story-workshops--sprint-planning"><strong>Story Workshops / Sprint Planning</strong></h2>
+
+<p>In each story workshop, everyone in the team learns about the details of the stories so developers and QA know the scope of the work. Everybody should have the same understanding of what the story is about.</p>
+
+<p>Developers should have a good understanding of the technical details that are involved in delivering the story, and QA should know how the story will be tested and if there are any impediments to test the stories.</p>
+
+<p><strong>Related:</strong></p>
+
+<ul>
+  <li><strong><a href="https://www.testingexcellence.com/automated-ui-testing-worth/">Is Automated Testing on the UI Worth the Effort?</a></strong></li>
+  <li><strong><a href="https://www.testingexcellence.com/test-automation-strategy-agile-projects/">Test Automation Strategy For Agile Projects</a></strong></li>
+</ul>
+
+<p><strong>Preventing Defects</strong></p>
+
+<p>In story workshops, <strong>PO, BA, Dev, and QA must be involved.</strong></p>
+
+<p>Scenarios (valid, invalid and edge cases) should be thought of (QA can add huge value here by thinking abstractly about the story) and written down in feature files.</p>
+
+<p>It is important to note that it is the scenarios (more than anything else) that will reveal defects when testing the product, so the more effort and time spent on this activity, the best results at the end.</p>
+
+<p>Because the majority of defects are due to unclear and vague requirements, this activity will also help prevent implementation of incorrect behavior as everyone should have the same understanding of the story.</p>
+
+<p>Likewise, in the sprint planning meetings, the estimates given for a story should include the testing effort as well and not just coding effort. <strong>QA (manual and automation) must also be present</strong> in the sprint planning meetings to provide an estimate for testing of the story.</p>
+
+<h2 id="development"><strong>Development</strong></h2>
+
+<p>[caption id=”attachment_10414” align=”aligncenter” width=”590”]<img src="http://69.164.212.71/wp-content/uploads/2015/03/test-automation-pyramid.png" alt="test-automation-pyramid" /> test-automation-pyramid[/caption]</p>
+
+<p>When development starts, new production code and/or modification to legacy code should be backed by <strong>unit tests written by developers</strong> and peer-reviewed by another developer or a skilled SDET.</p>
+
+<p>Any commit to the code repository should trigger an execution of the unit tests from the CI server. This provides a fast feedback mechanism to the development team.</p>
+
+<p>Unit tests ensure that the system works at a technical level and that there are no errors in the logic.</p>
+
+<h2 id="developer-testing"><strong>Developer Testing</strong></h2>
+
+<p>As a developer, behave as if you don’t have any QA in the team or organization. It is true that QAs have different mindset but you should test to the best of your ability.</p>
+
+<p>You think you are saving time by quickly moving on to the next story, but in reality, when a defect is found and reported, it takes longer to rectify the issue than spending few minutes making sure the feature works well.</p>
+
+<p>Any new code and/or refactoring of legacy code should have appropriate unit tests that will be part of the unit regression test.</p>
+
+<h2 id="automated-acceptance-tests-and-non-functional-testing"><strong>Automated Acceptance Tests and Non-functional Testing</strong></h2>
+
+<p>The automated acceptance tests include Integration Tests and Service Tests and UI tests which aim to prove the software works at a functional level and that it meets user’s requirements and specifications.</p>
+
+<p>Automated acceptance tests are usually written in Gherkin language and executed using a BDD tool such as cucumber.</p>
+
+<p><strong><a href="http://www.testingexcellence.com/test-automation-tips-best-practices/" title="Test Automation Tips and Best Practices">Remember: Not all tests need to be automated!</a></strong></p>
+
+<p>Because these tests typically require communication over <code class="highlighter-rouge">HTTP</code>, they need to be executed on a deployed application, rather than run as part of the build.</p>
+
+<p><strong>Non-functional tests</strong> <strong>(Performance and Security)</strong> tests are as equally important as functional tests, therefore need to be executed on each deploy.</p>
+
+<p>Performance Tests should check performance metrics on each deploy to ensure no performance degradation.</p>
+
+<p>Security Tests should check for basic security vulnerabilities derived from <strong><a href="https://www.owasp.org/index.php/Main_Page">OWASP</a></strong></p>
+
+<p>It is vital that this should be a completely automated process with very little maintenance to get the most benefit out of automated deployments. This means there should be no intermittent test failures, test script issues, and broken environment.</p>
+
+<p>Failures should only be due to genuine code defects rather than script issues, therefore any failing test which is not due to genuine failures should be fixed immediately or removed from the automation pack, to be able to get consistent results.</p>
+
+<h2 id="regression-testing"><strong>Regression Testing</strong></h2>
+
+<p>Not expecting to find many defects. Their purpose is only to provide feedback that we haven’t broken major functionality. There should be a very little amount of manual regression testing.</p>
+
+<p><strong>Smoke pack – Should be no more than 15 mins</strong></p>
+
+<p>This pack contains only high-level functionality to make sure the application is stable enough for further development or testing.</p>
+
+<p>For example, for an eCommerce website, tests included in this pack could be:</p>
+
+<ul>
+  <li>Product Search,</li>
+  <li>Product Review</li>
+  <li>Purchase Item</li>
+  <li>Account Creation / Account Login</li>
+</ul>
+
+<p><strong>Full regression pack – should be no more than 1 hour</strong></p>
+
+<p>This pack contains the full regression suite of tests and contains everything else which is not included in the smoke pack.</p>
+
+<p>Here, the goal is to get a quick feedback with a larger set of tests. If the feedback takes more than 1 hour, it is not quick. Either reduce the number of tests by using pairwise test technique, create test packs based on risk or run the tests in parallel.</p>
+
+<p><strong><a href="http://www.testingexcellence.com/best-practices-for-regression-testing/" title="Regression Testing Best Practices"> Read more on best practices for regression testing</a></strong></p>
+
+<h2 id="uat-and-exploratory-testing"><strong>UAT and Exploratory Testing</strong></h2>
+
+<p>There is no reason why UAT and exploratory testing cannot run in parallel with the automated acceptance tests. After all, they are different activities and aim to find different issues. The aim of UAT is to ensure that the developed features make business sense and helpful to customers.</p>
+
+<p><strong>PO (Product Owner) should run User Acceptance Tests</strong> or Business Acceptance Tests to confirm the built product is what was expected and that it meets user’s expectations.</p>
+
+<p>Exploratory testing should focus on user scenarios and should find bugs that automation misses. Exploratory testing should not find trivial bugs, rather it should find subtle issues.</p>
+
+<h2 id="done-criteria"><strong>Done Criteria</strong></h2>
+
+<p>Once all the above activities are completed and no issues found, the story is <strong>Done!</strong></p>
+
+<p>The above are some guidelines on what can be included in an Agile Test Strategy Document. Obviously this needs to be tailored to your organization’s needs, but hopefully, this template would assist you in creating your own Agile Test Strategy document.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/what-is-daily-stand-up-in-scrum/"> &laquo; What is Daily Stand-up in Scrum?</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/overview-of-scrum-agile-development-methodology/">Overview of Scrum Agile Development Methodology &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

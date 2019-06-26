@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Performance Testing Framework with Gatling and Maven | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Performance Testing Framework with Gatling and Maven | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Performance Testing Framework with Gatling and Maven" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="What is the best way to organize and structure a Gatling project for performance testing?" />
+<meta property="og:description" content="What is the best way to organize and structure a Gatling project for performance testing?" />
+<link rel="canonical" href="localhost:4000/gatling-maven-performance-test-framework/" />
+<meta property="og:url" content="localhost:4000/gatling-maven-performance-test-framework/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/gatling-maven-framework.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-15T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"What is the best way to organize and structure a Gatling project for performance testing?","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/gatling-maven-performance-test-framework/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/gatling-maven-framework.png","headline":"Performance Testing Framework with Gatling and Maven","dateModified":"2018-10-15T00:00:00+01:00","datePublished":"2018-10-15T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/gatling-maven-performance-test-framework/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Performance Testing Framework with Gatling and Maven&url=localhost:4000/gatling-maven-performance-test-framework/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/gatling-maven-performance-test-framework/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/gatling-maven-performance-test-framework/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Oct 15, 2018 · <span class="reading-time">
+  
+  
+    6 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Performance Testing Framework with Gatling and Maven</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/gatling-maven-framework.png" alt="Performance Testing Framework with Gatling and Maven">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>What is the best way to organize and structure a Gatling project for performance testing?</p>
+
+<p>When designing a framework, we should think about maintainability and extendability, thus how we organize the components is very important.</p>
+
+<p>In this tutorial, we will show how to create a performance testing framework from scratch using Gatling and maven.</p>
+
+<h2 id="gatling-maven-test-framework">Gatling Maven Test Framework</h2>
+
+<p><strong>Pre-requisites:</strong></p>
+
+<p>For this tutorial you need to have the following installed:</p>
+
+<ul>
+  <li>Java 1.8</li>
+  <li>Maven 3.5</li>
+  <li>IntelliJ with Scala Plugin installed</li>
+</ul>
+
+<p>First, we create a base project by running the maven Gatling archetype:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>mvn archetype:generate <span class="nt">-DarchetypeGroupId</span><span class="o">=</span>io.gatling.highcharts <span class="nt">-DarchetypeArtifactId</span><span class="o">=</span>gatling-highcharts-maven-archetype
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>When you execute the above command, it will start downloading the dependencies.</p>
+
+<p>When prompted, provide values for ‘groupId’, ‘artifactId’, and ‘version’.</p>
+
+<p>My setup looks like the following:</p>
+
+<p><a href="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-15-at-22.33.33.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-15-at-22.33.33-1024x529.png" alt="gatling-maven-project-structure" /></a></p>
+
+<p><a href="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-15-at-22.42.42.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-15-at-22.42.42-1024x771.png" alt="gatling project structure" /></a></p>
+
+<p>When you open the project, you will notice there are some default files and folders.</p>
+
+<p>Under the resources, we have</p>
+
+<p><strong>bodies</strong> this package holds the request payloads. For example, you can have requests templates for various requests.</p>
+
+<p><strong>data</strong> this package holds the data you need to feed to your tests, such as CSVs.</p>
+
+<p>In addition to the above two folders, there are Gatling.conf, logback.xml and recorder.conf files. We won’t be discussing these in this tutorial.</p>
+
+<p>The Gatling maven archetype also creates three base Scala object, but we won’t be using them, so go ahead and delete the objects.</p>
+
+<p>In addition, we will create four packages, <strong>config</strong>, <strong>requests</strong>, <strong>scenarios</strong>, and <strong>simulations</strong>:</p>
+
+<p><a href="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-15-at-23.20.37.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-15-at-23.20.37-1024x832.png" alt="gatling scenarios simulations" /></a></p>
+
+<h3 id="config-package">Config Package</h3>
+
+<p>In the config package, create a Scala object called Config. This will hold various configurations for our project such as application URLs, default users, etc…</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="nn">com.testingexcellence.config</span>
+
+<span class="k">object</span> <span class="nc">Config</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">app_url</span> <span class="k">=</span> <span class="s">"http://example-app.com"</span>
+
+    <span class="k">val</span> <span class="n">users</span> <span class="k">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="n">getInteger</span><span class="o">(</span><span class="s">"users"</span><span class="o">,</span> <span class="mi">10</span><span class="o">).</span><span class="n">toInt</span>
+    <span class="k">val</span> <span class="n">rampUp</span> <span class="k">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="n">getInteger</span><span class="o">(</span><span class="s">"rampup"</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">toInt</span>
+    <span class="k">val</span> <span class="n">throughput</span> <span class="k">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="n">getInteger</span><span class="o">(</span><span class="s">"throughput"</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="n">toInt</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h3 id="requests-package">Requests Package</h3>
+
+<p>The requests package holds different operation requests. For example, we could have a request that gets an authorization token. Another request can use the token from the previous request to create a user and so on.</p>
+
+<p>These are individual and isolated requests sent to different endpoints.</p>
+
+<p>GetTokenRequest</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="nn">com.testingexcellence.requests</span>
+
+<span class="k">import</span> <span class="nn">io.gatling.core.Predef._</span>
+<span class="k">import</span> <span class="nn">io.gatling.http.Predef._</span>
+<span class="k">import</span> <span class="nn">com.testingexcellence.config.Config.app_url</span>
+
+<span class="k">object</span> <span class="nc">GetTokenRequest</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">get_token</span> <span class="k">=</span> <span class="n">http</span><span class="o">(</span><span class="s">"RequestName"</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="n">app_url</span> <span class="o">+</span> <span class="s">"/token"</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">check</span><span class="o">(</span><span class="n">status</span> <span class="n">is</span> <span class="mi">200</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">check</span><span class="o">(</span><span class="n">jsonPath</span><span class="o">(</span><span class="s">"$..token"</span><span class="o">).</span><span class="n">saveAs</span><span class="o">(</span><span class="s">"token"</span><span class="o">))</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>CreateUserRequest</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="nn">com.testingexcellence.requests</span>
+
+<span class="k">import</span> <span class="nn">com.testingexcellence.config.Config.app_url</span>
+<span class="k">import</span> <span class="nn">io.gatling.core.Predef._</span>
+<span class="k">import</span> <span class="nn">io.gatling.http.Predef._</span>
+
+<span class="k">object</span> <span class="nc">CreateUserRequest</span> <span class="o">{</span>
+
+    <span class="k">val</span> <span class="n">sentHeaders</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="s">"Authorization"</span> <span class="o">-&gt;</span> <span class="s">"bearer ${token}"</span><span class="o">)</span>
+
+    <span class="k">val</span> <span class="n">create_user</span> <span class="k">=</span> <span class="n">exec</span><span class="o">(</span><span class="n">http</span><span class="o">(</span><span class="s">"Create User Request"</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">post</span><span class="o">(</span><span class="n">app_url</span> <span class="o">+</span> <span class="s">"/users"</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">headers</span><span class="o">(</span><span class="n">sentHeaders</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">formParam</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="s">"John"</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">formParam</span><span class="o">(</span><span class="s">"password"</span><span class="o">,</span> <span class="s">"John5P4ss"</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">check</span><span class="o">(</span><span class="n">status</span> <span class="n">is</span> <span class="mi">201</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">check</span><span class="o">(</span><span class="n">regex</span><span class="o">(</span><span class="s">"Created"</span><span class="o">).</span><span class="n">exists</span><span class="o">))</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h3 id="scenarios-package">Scenarios Package</h3>
+
+<p>The scenario package holds the business scenarios. For example, to create a user, we first have to get an auth token and then send the token as a header along with form parameters to create a user. i.e. we use the response of the first request to feed to the second request. This “chaining of requests” is quite common in API testing.</p>
+
+<p>CreateUserScenario</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="nn">com.testingexcellence.scenarios</span>
+
+<span class="k">import</span> <span class="nn">com.testingexcellence.requests.</span><span class="o">{</span><span class="nc">CreateUserRequest</span><span class="o">,</span> <span class="nc">GetTokenRequest</span><span class="o">}</span>
+<span class="k">import</span> <span class="nn">io.gatling.core.Predef.scenario</span>
+
+<span class="k">object</span> <span class="nc">CreateUserScenario</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">createUserScenario</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">"Create User Scenario"</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="nc">GetTokenRequest</span><span class="o">.</span><span class="n">get_token</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="nc">CreateUserRequest</span><span class="o">.</span><span class="n">create_user</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="simulationspackage">Simulations Package</h3>
+
+<p>Finally, we have the Simulations in the simulations package. You can think of simulations as different load profiles. For example, we can have a normal load simulation or a spike simulation.</p>
+
+<p>The simulations need to be Scala classes and they must extend the Gatling Simulation class.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="nn">com.testingexcellence.simulations</span>
+
+<span class="k">import</span> <span class="nn">com.testingexcellence.scenarios.CreateUserScenario</span>
+<span class="k">import</span> <span class="nn">io.gatling.core.Predef.Simulation</span>
+<span class="k">import</span> <span class="nn">io.gatling.core.Predef._</span>
+<span class="k">import</span> <span class="nn">com.testingexcellence.config.Config._</span>
+
+<span class="k">class</span> <span class="nc">CreateUserSimulation</span> <span class="k">extends</span> <span class="nc">Simulation</span> <span class="o">{</span>
+    <span class="k">private</span> <span class="k">val</span> <span class="n">createUserExec</span> <span class="k">=</span> <span class="nc">CreateUserScenario</span><span class="o">.</span><span class="n">createUserScenario</span>
+    <span class="o">.</span><span class="n">inject</span><span class="o">(</span><span class="n">atOnceUsers</span><span class="o">(</span><span class="n">users</span><span class="o">))</span>
+
+    <span class="n">setUp</span><span class="o">(</span><span class="n">createUserExec</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Your project should look like the following:</p>
+
+<p><a href="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-15-at-23.56.09.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-15-at-23.56.09-1024x474.png" alt="gatling maven project structure" /></a></p>
+
+<p>We also need to modify our pom.xml file to be able to pass parameters, such as users and throughput to our performance tests at runtime.</p>
+
+<h3 id="pomxml-file">pom.xml file</h3>
+
+<p>The pom.xml file should look like:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+</pre></td><td class="rouge-code"><pre><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+            <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>testing-excellence<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>gatling-framework<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+    <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+    <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+    <span class="nt">&lt;encoding&gt;</span>UTF-8<span class="nt">&lt;/encoding&gt;</span>
+    <span class="nt">&lt;gatling.version&gt;</span>2.3.0<span class="nt">&lt;/gatling.version&gt;</span>
+    <span class="nt">&lt;gatling-plugin.version&gt;</span>2.2.4<span class="nt">&lt;/gatling-plugin.version&gt;</span>
+    <span class="nt">&lt;typesafe-config.version&gt;</span>1.3.2<span class="nt">&lt;/typesafe-config.version&gt;</span>
+    <span class="nt">&lt;simulation&gt;</span>CreateUserSimulation<span class="nt">&lt;/simulation&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.gatling.highcharts<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>gatling-charts-highcharts<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${gatling.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.typesafe<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>config<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${typesafe-config.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.gatling<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>gatling-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${gatling-plugin.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;configuration&gt;</span>
+            <span class="nt">&lt;simulationClass&gt;</span>com.testingexcellence.simulations.${simulation}<span class="nt">&lt;/simulationClass&gt;</span>
+            <span class="nt">&lt;jvmArgs&gt;</span>
+            <span class="nt">&lt;jvmArg&gt;</span>-Denv=${env}<span class="nt">&lt;/jvmArg&gt;</span>
+            <span class="nt">&lt;jvmArg&gt;</span>-Dusers=${users}<span class="nt">&lt;/jvmArg&gt;</span>
+            <span class="nt">&lt;jvmArg&gt;</span>-Drampup=${rampup}<span class="nt">&lt;/jvmArg&gt;</span>
+            <span class="nt">&lt;jvmArg&gt;</span>-Dduration=${duration}<span class="nt">&lt;/jvmArg&gt;</span>
+            <span class="nt">&lt;jvmArg&gt;</span>-Dthroughput=${throughput}<span class="nt">&lt;/jvmArg&gt;</span>
+            <span class="nt">&lt;/jvmArgs&gt;</span>
+            <span class="nt">&lt;propagateSystemProperties&gt;</span>true<span class="nt">&lt;/propagateSystemProperties&gt;</span>
+        <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Finally, to execute the simulation class, we run the following command</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>mvn clean gatling:execute <span class="nt">-Dusers</span><span class="o">=</span>1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The above command will run the CreateUserSimulation with 1 user.</p>
+
+<p><strong>Further Reading:</strong></p>
+
+<ul>
+  <li><a href="https://www.testingexcellence.com/parameterize-gatling-variables/">How to Parameterize Gatling Variables</a></li>
+  <li><a href="https://www.testingexcellence.com/develop-test-automation-framework-scratch/">Develop a Test Automation Framework From Scratch</a></li>
+  <li><a href="https://www.testingexcellence.com/gatling-save-response-data/">How to Save Response Data in Gatling</a></li>
+</ul>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#performance">performance</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#gatling">#gatling</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/problems-test-automation-modern-qa/"> &laquo; Problems with Test Automation and Modern QA</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/convert-list-to-array-in-java/">Convert List to Array in Java &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

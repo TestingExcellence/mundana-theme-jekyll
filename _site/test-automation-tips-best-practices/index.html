@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Automation Tips and Best Practices | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Test Automation Tips and Best Practices | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Test Automation Tips and Best Practices" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Top Tips for Test Automation" />
+<meta property="og:description" content="Top Tips for Test Automation" />
+<link rel="canonical" href="localhost:4000/test-automation-tips-best-practices/" />
+<meta property="og:url" content="localhost:4000/test-automation-tips-best-practices/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-16T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"Top Tips for Test Automation","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/test-automation-tips-best-practices/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Test Automation Tips and Best Practices","dateModified":"2016-11-16T00:00:00+00:00","datePublished":"2016-11-16T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/test-automation-tips-best-practices/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Test Automation Tips and Best Practices&url=localhost:4000/test-automation-tips-best-practices/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/test-automation-tips-best-practices/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/test-automation-tips-best-practices/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Nov 16, 2016 · <span class="reading-time">
+  
+  
+    8 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Test Automation Tips and Best Practices</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Test Automation Tips and Best Practices">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h2 id="top-tips-for-test-automation">Top Tips for Test Automation</h2>
+
+<p><img src="http://69.164.212.71/wp-content/uploads/2014/04/automated-testing-best-practices-agile.png" alt="automated-testing-best-practices-agile" /></p>
+
+<p>Automated Testing is an important testing activity during the software development lifecycle because it can provide quick feedback to the team when a new feature has been developed. It also removes the burden from QA to repeatedly run regression tests which saves time for QA to focus on other testing activities.</p>
+
+<p>Test Automation, when done right, can be very beneficial to the team. The tips below will help you get the most value from your automated testing process and activity and highlights pitfalls to avoid when starting to automate your tests.</p>
+
+<h3 id="manual-vs-automated---testing-vs-checking"><strong>Manual vs Automated - Testing vs Checking</strong></h3>
+
+<p>Avoid comparison between manual and automated testing. They are both needed as each serves a different purpose. Automated tests are a set of instructions written by a person to do a specific task. Every time an automated test is run, it will follow exactly the same steps as instructed and only check for things that are being asked to check.</p>
+
+<p>On the other hand, during manual testing, tester’s brain is engaged and can spot other failures in the system. The test steps may not necessarily be the same every time, as the tester can alter the flows during the testing; this is especially true in case of exploratory testing.</p>
+
+<h3 id="automate-regression-tests"><strong>Automate Regression Tests</strong></h3>
+
+<p><strong><a href="http://www.testingexcellence.com/why-would-you-want-to-automate-a-test/" title="Why Would You Want To Automate a Test?">The main reason you want to automate a test</a></strong> is that you want to execute the test repeatedly on every new release. If the test is required to be executed only once, then the effort to automate the test can outweigh the benefits.</p>
+
+<p>Regression tests are required to be executed repeatedly as the software under test evolves. This can be very time consuming and a boring task for QA to have to run regression tests every day. Regression tests are good candidates for test automation.</p>
+
+<h3 id="design-tests-before-automating-them"><strong>Design Tests Before Automating Them</strong></h3>
+
+<p>It is always a good practice to create the test cases and scenarios before starting to automate the tests. It is the good test design that can help in identifying defects, automated tests only execute the test design.</p>
+
+<p>The danger in jumping straight to automation is that you’re only interested in making the script to work and usually only automate positive and happy flow scenarios rather than thinking about the other possible scenarios that can be tested.</p>
+
+<p>Also, don’t reduce the scope of testing just to make the test work or pass.</p>
+
+<h3 id="remove-uncertainty-from-automated-tests"><strong>Remove Uncertainty from Automated Tests</strong></h3>
+
+<p>One of the key points of automated testing is the ability to give consistent results so that we can be certain that something has actually gone wrong when a test fails.</p>
+
+<p>If an automated test passes in one run and fails in the next run, without any changes on the software under test, we cannot be certain if the failure is due to the application or due to other factors, such as test environment issues or problems in the test code itself.</p>
+
+<p>When there are failures, we have to analyze the results to see what had gone wrong, and when we have lots of inconsistent or false positive results, it increases analysis time.</p>
+
+<p>Don’t be afraid to remove unstable tests from regression packs; instead, aim for consistent clean results that you can rely on.</p>
+
+<h3 id="review-automated-tests-for-validity"><strong>Review Automated Tests for Validity</strong></h3>
+
+<p>You will be alarmed by the sheer number of automated tests that are outdated, just don’t check for anything or are not checking the most important verifications!</p>
+
+<p>This could be a symptom of jumping straight to automation without spending enough time beforehand planning on what needs to be done and designing good test scenarios.</p>
+
+<p>Always have a colleague to review the automated tests for validity and sanity. Make sure tests are up to date.</p>
+
+<h3 id="dont-automate-unstable-functionality"><strong>Don’t Automate Unstable Functionality</strong></h3>
+
+<p>As a new feature or functionality is being developed, many things can go wrong and even the feature may no longer be applicable because the business have changed their mind.</p>
+
+<p>If you started automating tests as the feature was being developed, the tests need to be updated many times as the feature evolves and can be quite daunting trying to keep up with all the changes. And if the feature is no longer applicable, all that effort on test automation is wasted.</p>
+
+<p>Therefore, it is always best to automate a feature once it has been stabilized and less subject to change.</p>
+
+<h3 id="dont-expect-magic-from-test-automation"><strong>Don’t Expect Magic From Test Automation</strong></h3>
+
+<p>The primary reason for test automation is to free up QA time for interesting exploratory testing and to give confidence to the team that the application is still in good order as new changes are delivered.</p>
+
+<p><strong><a href="http://www.testingexcellence.com/why-automated-tests-didnt-find-the-bug/">Don’t expect automation to find lots of bugs</a></strong>. In fact, the number of bugs found by automation is always much less than manual and exploratory testing.</p>
+
+<h3 id="dont-rely-solely-on-automation---beware-of-passing-tests"><strong>Don’t Rely Solely on Automation - Beware of Passing Tests</strong></h3>
+
+<p>Automated regression tests can give a sense of confidence for the team because regression tests should still pass as new functionality is delivered.The team starts relying on the tests and having a good set of regression tests can act as a safety net.</p>
+
+<p>However, note that not all tests are automated or can be automated, therefore always accompany automated tests with exploratory testing.</p>
+
+<p>Sometimes a change in the software should fail a test; however, if all tests are passing that means the defect is missed and because there was no call to action, the defect went unnoticed.</p>
+
+<h3 id="aim-for-fast-feedback"><strong>Aim for Fast Feedback</strong></h3>
+
+<p>Quick feedback is one of the objectives of automated tests because developers are keen to know if what they have developed works and hasn’t broken current functionality.</p>
+
+<p>In order to get this quick feedback loop, the tests need to be automated at component or API layer without relying on the UI.</p>
+
+<p>Tests run on UI are much slower and prone to error due to GUI changes. In other words, the functionality still works as expected but the tests fail due to changes in the UI. Therefore the tests can become unreliable.</p>
+
+<h3 id="understand-the-context"><strong>Understand the Context</strong></h3>
+
+<p>Tests can be automated at any layer, Unit, API, Service, GUI. Each layer serves a different purpose for testing.<br />
+Unit Tests ensure that the code works at the class level, that it compiles and the logic is as expected. Tests at this layer are more verification than validation.</p>
+
+<p>API Tests or Integration Tests ensure a set of functions and classes can work together and data can be passed from one class to another.</p>
+
+<p>GUI Tests on the other hand test user flows and journeys. Generally, we would not test for functionality from the UI. This should be done at lower layers.</p>
+
+<p>The main purpose of UI tests is to ensure the whole system works as per some common user scenarios and use cases. Testing at this layer is more Validation rather than Verification</p>
+
+<p>At UI level, we automate scenarios rather than stories.</p>
+
+<h3 id="dont-automate-every-test"><strong>Don’t Automate Every Test</strong></h3>
+
+<p>100% Test Coverage is not possible since there can be millions of combinations. We always execute a subset of possible tests. The same principle applies to automated testing.</p>
+
+<p>To create an automated script, it requires time and effort, and aiming for “Automating Every Test”, we require a lot of resource and time, which in many cases is not possible.</p>
+
+<p>Instead, use a Risk-based approach to determine which tests should be automated. To get the most value out of automation, only automate the most important business cases and scenarios.</p>
+
+<p>Also, a high number of automated tests adds maintenance cost and difficult to maintain.</p>
+
+<p>Another note to bear in mind is that not all tests can be automated. Some tests are very complex in nature and require many downstream system checking and can be inconsistent. In these cases, it is best to leave these checks for manual testing.</p>
+
+<h3 id="use-test-techniques-in-test-automation"><strong>Use Test Techniques in Test Automation</strong></h3>
+
+<p>The test techniques that you learned in ISTQB, are not just for manual testing. They are also applicable to automated testing. Techniques such as Boundary Value Analysis, Equivalence Partitioning, State Transition Testing, Pairwise Testing can provide a lot of benefits in automated testing.</p>
+
+<h3 id="dont-automate-chaos"><strong>Don’t Automate Chaos</strong></h3>
+
+<p>In order to get the most out of your automated testing, a good QA process should be in place. If the QA process is chaotic and we add automated testing to that chaos, all we get is faster chaos.</p>
+
+<p>Try to answer questions like, What to automate, <strong><a href="http://www.testingexcellence.com/when-should-stories-be-automated/" title="when should stories be automated">When to automate</a></strong>, When to execute the automated tests, Who shall automate the tests, What tools should be used for test automation, etc…</p>
+
+<p>These tips are gathered mostly from experience as an Automation Tester and some good practices followed by others.</p>
+
+<p>Do you have any Test Automation Tips to be added to this list?</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/open-new-tab-browser-using-selenium-webdriver-java/"> &laquo; How to Open a New Tab in Browser Using Selenium WebDriver with Java</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/webdriver-wait-for-ajax-complete/">WebDriver Wait for AJAX Call to Complete &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

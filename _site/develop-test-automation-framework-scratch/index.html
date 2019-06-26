@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How to Develop a Test Automation Framework From Scratch? | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>How to Develop a Test Automation Framework From Scratch? | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="How to Develop a Test Automation Framework From Scratch?" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this step-by-step guide, I will describe how to develop a modularized Test Automation Framework from scratch using Java, Selenium, TestNG and Maven." />
+<meta property="og:description" content="In this step-by-step guide, I will describe how to develop a modularized Test Automation Framework from scratch using Java, Selenium, TestNG and Maven." />
+<link rel="canonical" href="localhost:4000/develop-test-automation-framework-scratch/" />
+<meta property="og:url" content="localhost:4000/develop-test-automation-framework-scratch/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-03-15T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"In this step-by-step guide, I will describe how to develop a modularized Test Automation Framework from scratch using Java, Selenium, TestNG and Maven.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/develop-test-automation-framework-scratch/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"How to Develop a Test Automation Framework From Scratch?","dateModified":"2017-03-15T00:00:00+00:00","datePublished":"2017-03-15T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/develop-test-automation-framework-scratch/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=How to Develop a Test Automation Framework From Scratch?&url=localhost:4000/develop-test-automation-framework-scratch/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/develop-test-automation-framework-scratch/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/develop-test-automation-framework-scratch/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Mar 15, 2017 · <span class="reading-time">
+  
+  
+    4 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">How to Develop a Test Automation Framework From Scratch?</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="How to Develop a Test Automation Framework From Scratch?">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>In this step-by-step guide, I will describe how to develop a modularized Test Automation Framework from scratch using Java, Selenium, TestNG and Maven.</p>
+
+<p>To begin with, let’s see what a Test Automation Framework is and what are the benefits of creating one.</p>
+
+<h2 id="test-automation-framework">Test Automation Framework</h2>
+
+<p>What is the purpose of a Test Automation Framework? What challenges does it solve for the development team?</p>
+
+<p>In agile development, you might <strong><a href="http://www.testingexcellence.com/automate-stories-during-sprint/">not have enough time to automate</a></strong> your new features in time, so you might be creating automated scripts, duplicating a lot of code in many places.</p>
+
+<p>Refactoring code is an inherent part of software development to avoid building up a huge tech debt. This also applies to test automation; by refactoring your automated scripts, you will improve readability and maintenance in the long run.</p>
+
+<p>In this Test Automation Framework tutorial, the end product is a result of many refactorings over time. Obviously, continuous improvement is essential if we are going to get a good return on investment from test automation.</p>
+
+<p>When creating a Test Automation Framework, we should consider the following main points:</p>
+
+<ul>
+  <li>To be able to create automated tests quickly by using appropriate abstraction layers</li>
+  <li>The framework should have meaningful logging and reporting structure</li>
+  <li>Should be easily maintainable and extendable</li>
+  <li>Should be simple enough for testers to write automated tests</li>
+  <li>A retry mechanism to rerun failed tests - this is especially useful for WebDriver UI tests</li>
+</ul>
+
+<p>In this tutorial, I will be using:</p>
+
+<ul>
+  <li><strong>Java</strong> as the programming language</li>
+  <li><strong>TestNG</strong> as the assertion framework</li>
+  <li><strong>Maven</strong> as the build tool</li>
+  <li><strong>WebDriver</strong> as the browser automation tool</li>
+  <li><strong>IntelliJ</strong> as the IDE</li>
+</ul>
+
+<p>This Test Automation Framework tutorial is split into two parts:</p>
+
+<p><strong>Part 1:</strong> Creating the base project and modules and the dependencies</p>
+
+<p><strong>Part 2:</strong> Adding the code</p>
+
+<p>In part 1 of this tutorial I assume you already have Java and Maven installed on your machine.</p>
+
+<h3 id="steps-to-create-a-test-automation-framework-from-scratch">Steps to Create a Test Automation Framework From Scratch</h3>
+
+<p><img src="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-22.52.31-1024x321.png" alt="test_automation_framework_from_scratch" /></p>
+
+<p><strong>Step #1 - Create new maven project</strong></p>
+
+<p>Open IntelliJ IDE and select New Project from the menu. You are then presented with a screen to select the type of the project you are interested in.</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-04-at-23.20.55.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-04-at-23.20.55-1024x480.png" alt="test_automation_framework_step_1" /></a></p>
+
+<p><strong>Step #2 - Give your project a name</strong></p>
+
+<p>Select Maven as the project type. Provide a name for GroupId and ArtifatId - I have decided to name this Test Automation Framework, Rima.</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-04-at-23.22.00.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-04-at-23.22.00-1024x342.png" alt="test_automation_framework_step_2" /></a></p>
+
+<p><strong>Step #3 - Choose the location of your project</strong></p>
+
+<p>Now, choose a name for your project and select a directory for your workspace</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-04-at-23.23.21.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-04-at-23.23.21-1024x299.png" alt="test_automation_framework_step_3" /></a></p>
+
+<p><strong>Step #4 - Base project is created</strong></p>
+
+<p>You now have a base project created. We can start creating maven modules in this project to organize the structure of our Test Automation Framework.</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-04-at-23.24.19.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-04-at-23.24.19-1024x536.png" alt="test_automation_framework_step_4" /></a></p>
+
+<p>And this is how our pom.xml looks like</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.30.28.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.30.28-1024x392.png" alt="test_automation_framework_xml" /></a></p>
+
+<p>As this is going to be our base project with the parent pom.xml, we won’t have any code in this project. Instead, we will create maven modules for different parts of the Test Automation Framework. Go ahead and delete the <strong>src</strong> folder.</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-00.41.13.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-00.41.13-1024x515.png" alt="test_automation_framework_step_4_2" /></a></p>
+
+<p><strong>Step #5 - Create different modules</strong></p>
+
+<p>Now we are in a position to create different maven modules for our framework. We will create the following modules:</p>
+
+<p><strong>rima-framework</strong> - this module contains all the related classes and methods to facilitate creating automated tests.</p>
+
+<p><strong>rima-domain</strong> - this module contains the domain specific language (DSL) classes.</p>
+
+<p><strong>rima-page-objects</strong> - as the name suggests, this module contains the page objects.</p>
+
+<p><strong>rima-regression-tests</strong> - and finally our automated regression tests.</p>
+
+<p>We will start by creating the <strong>rima-framework</strong> module. To do this, select <strong>File &gt; New &gt; Module</strong></p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.26.07.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.26.07-1024x379.png" alt="test_automation_framework_step_5" /></a></p>
+
+<p>Select Maven module and click Next</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.27.48.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.27.48-1024x355.png" alt="test_automation_framework_step_5_2" /></a></p>
+
+<p>In next screen, you can give the artifactId of the module you are creating, in this case, <strong>rima-framework</strong></p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.32.30.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.32.30-1024x351.png" alt="test_automation_framework_module" /></a></p>
+
+<p>Note the parent module and the groupId as Rima and click Next where we can give the name of the module and click Finish.</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.38.23.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.38.23-1024x312.png" alt="test_automation_framework_module_2" /></a></p>
+
+<p>Once <strong>rima-framework</strong> module is created, it should look something like this</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.41.34.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.41.34-1024x405.png" alt="test_automation_framework_module_3" /></a></p>
+
+<p>We can then continue creating the rest of the modules in the same fashion. Once we have created all the modules, our project should look like below</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.46.57.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.46.57-1024x706.png" alt="test_automation_framework_all_modules" /></a></p>
+
+<p>And finally, all the modules have been added to the root pom.xml</p>
+
+<p><a href="http://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.55.01.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-05-at-16.55.01-1024x479.png" alt="test_automation_framework_all_modules_pom" /></a></p>
+
+<h3 id="add-dependencies">Add Dependencies</h3>
+
+<p>Next, we need to add the dependencies between the modules in the framework as well as adding the libraries and other maven projects that our Test Automation Framework is dependent on.</p>
+
+<p>I have added the dependencies in the pom.xml files. You can take a look at the pom.xml files in my GitHub repo:</p>
+
+<p><a href="https://github.com/AmirGhahrai/Rima">https://github.com/AmirGhahrai/Rima</a></p>
+
+<p>In part 2 of this tutorial, we will go through the actual Test Automation Framework code written in Java, WebDriver and TestNG.</p>
+
+<p>And, here is the link to Part 2 of this tutorial:</p>
+
+<p><strong><a href="https://www.testingexcellence.com/page-object-framework-java-webdriver/">Page Object Model Framework with Java and WebDriver</a></strong></p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/how-do-we-measure-software-quality-in-agile-projects/"> &laquo; How do we Measure Software Quality in Agile Projects?</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/install-git-mac-generate-ssh-keys/">How to Install Git on Mac and Generate SSH Keys &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

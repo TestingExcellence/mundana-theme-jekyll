@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Where to Start with Test Automation for an Existing Website? | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Where to Start with Test Automation for an Existing Website? | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Where to Start with Test Automation for an Existing Website?" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Andrew asks:" />
+<meta property="og:description" content="Andrew asks:" />
+<link rel="canonical" href="localhost:4000/start-test-automation-existing-website/" />
+<meta property="og:url" content="localhost:4000/start-test-automation-existing-website/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-31T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"Andrew asks:","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/start-test-automation-existing-website/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Where to Start with Test Automation for an Existing Website?","dateModified":"2017-01-31T00:00:00+00:00","datePublished":"2017-01-31T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/start-test-automation-existing-website/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Where to Start with Test Automation for an Existing Website?&url=localhost:4000/start-test-automation-existing-website/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/start-test-automation-existing-website/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/start-test-automation-existing-website/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Jan 31, 2017 · <span class="reading-time">
+  
+  
+    5 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Where to Start with Test Automation for an Existing Website?</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Where to Start with Test Automation for an Existing Website?">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p><strong>Andrew asks:</strong></p>
+
+<blockquote>
+  <p><em>I have recently joined a web based company as their first QA member. The website has been developed in the past five years and during this time, developers and other team members were doing the testing.</em></p>
+
+  <p><em>There is no formal QA or testing process in place, so all the testing has been largely ad-hoc.</em></p>
+
+  <p><em>Now my manager who is in charge of software delivery, wants me to create an automated regression testing pack which the team can execute whenever they develop new features.</em></p>
+
+  <p><em>My question is: where shall I start with test automation to build this regression pack for a website which has been in operation for more than five years?</em></p>
+
+  <p><em>Any ideas/suggestions would be highly appreciated.</em></p>
+</blockquote>
+
+<p><strong>My response:</strong></p>
+
+<p>Once a website has been functioning and serving live customers for a number of years, then it is in a mature state. By mature, I mean there are (hopefully) no obvious serious bugs in the system and if any, they will be the subtle or edge case issues that are not easily spotted by everyone.</p>
+
+<p>What we <em><strong>shouldn’t</strong></em> do, is to try to retrospectively write tests for all the stories that have already been developed and have become part of the system. However, what we want is a set of key scenarios that exercise the system end-to-end to ensure that future developments don’t jeopardize the existing functionality.</p>
+
+<p>Steps below are some guidelines that can be used for an existing and already established website in order to find the key scenarios and a method of expanding on these to create a functional regression pack.</p>
+
+<p><strong>Related:</strong></p>
+
+<ul>
+  <li><a href="https://www.testingexcellence.com/test-automation-done-separate-dedicated-team/"><strong>Should Test Automation be done by a separate dedicated team?</strong></a></li>
+  <li><strong><a href="https://www.testingexcellence.com/pros-cons-test-driven-development/">Pros and Cons of Test Driven Development</a></strong></li>
+</ul>
+
+<h3 id="explore">Explore</h3>
+
+<p><strong>Step 1:</strong> First you need to familiarize yourself with the website and its features. Start with exploring the site and learn its behavior. While doing so, you can also create a mind map of the structure of the website, what pages there are and what features are there in each page.</p>
+
+<p>Mind maps are a great way of getting a high-level snapshot and overview of the whole website. We can always refer to the mind maps to get an understanding of how the pages are connected.</p>
+
+<h3 id="gather-metrics">Gather Metrics</h3>
+
+<p><strong>Step 2:</strong> Gather site usage metrics from the marketing and/or analytics team. Most businesses embed “tracking tags” such as Google Analytics on their website to be able to track how users use the site. There is a wealth of information about the user behavior and common <strong><a href="http://www.testingexcellence.com/can-you-really-automate-a-user-journey/">user journeys</a></strong> that can be retrieved from these tracking systems.</p>
+
+<p>The reason why we need to gather this information is to be able to prioritize what test scenarios to automate first so that we get the most value in the shortest possible time.</p>
+
+<h3 id="key-scenarios">Key Scenarios</h3>
+
+<p><strong>Step 3:</strong> Start with automating the core end-to-end scenarios through the web application. This will form the basis of our “smoke regression pack”. For example, for a typical <strong><a href="http://www.testingexcellence.com/testing-e-commerce-websites/">e-commerce web application</a></strong>, the core end-to-end scenario is</p>
+
+<p>Homepage –&gt; Search results –&gt; Product details  –&gt; Customer login / Register –&gt; Payment details –&gt; Order confirmation</p>
+
+<p>It is important to note that, to start with, we only need to ensure that we can get through the pages, starting from Homepage and reaching the order confirmation page. The aim is to check that the purchase flow is not broken, rather than checking each page’s functionality in great detail.</p>
+
+<p>Once we have the simplest and most common user flow covered, we can then look into more variations. Despite the numerous combinations of features and pages, one would notice that there are really only a handful of user journeys through the system that need to be considered.</p>
+
+<p>Scrutinizing analytics data, you will probably find 80% of users would go through the same paths but with different data. Therefore, our smoke regression pack should be built based on these scenarios.</p>
+
+<h3 id="increase-coverage">Increase Coverage</h3>
+
+<p><em>A note about coverage, here I’m not talking about test coverage; the focus is on <strong>feature coverage</strong>.</em></p>
+
+<p><strong>Step 4:</strong> Expand on the smoke regression pack to create a more extensive function regression pack by utilizing the mind maps and applying <strong><a href="http://www.testingexcellence.com/state-transition-testing/">state transition testing technique</a></strong> to build the scenarios.</p>
+
+<p><strong>Entry Points -</strong> To begin with, we first need to find the entry points into the system. These entry points could be a user landing on the home page, a product details page, or a <a href="https://en.wikipedia.org/wiki/Search_engine_marketing">SEM (Search Engine Marketing)</a> specific page.</p>
+
+<p>Once we identify a particular landing page, we need to see what features there are on that page which the user can interact with. This is where mind maps become very useful. We have a high-level overview of the page and its features.</p>
+
+<p><em>Here, the meaning of feature is either a single component like a sort option drop-down box or filling up a user details form or as simple as clicking a link.</em></p>
+
+<p><strong>Initial State -</strong> When we first land on an entry point in the application, there will be a state associated with that page. We record that as the initial state of the application. Whenever we interact with any of the features on that page, we are most likely going to alter its initial state.</p>
+
+<p><strong>Trigger -</strong> Some features, when interacted with, will either load the same page (e.g. sort options will keep the same page, but data will be sorted) or transition to another page (e.g. submitting valid user credentials). The thing that causes this transition, either to the same page or to another page, is called the trigger, such as the submit button.</p>
+
+<p><strong>Assertions -</strong> Then there are the assertions. Whenever the state of the application is changed, by interacting with a feature, we need to make assertions to check the status of the new state. For example, when we submit a login form with valid user data, we need to assert that the user is now logged in.</p>
+
+<p>We can continue with the same manner on the new transition, or go back to the initial state and interact with another feature until we cover all the important features of the mind maps.</p>
+
+<p>Over time, the level of confidence in deploying new code increases as more scenarios are automated and run on a regular basis.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/error-fault-failure-software-testing/"> &laquo; Error, Fault and Failure in Software Testing</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/pros-cons-test-driven-development/">Pros and Cons of Test Driven Development &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

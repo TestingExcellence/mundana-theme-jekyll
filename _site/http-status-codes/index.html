@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTTP Status Codes With Explanations | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>HTTP Status Codes With Explanations | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="HTTP Status Codes With Explanations" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="HTTP Status Codes or Response Codes are grouped into five categories. 1×× Informational, 2×× Success, 3×× Redirection, 4×× Client Error, 5×× Server Error." />
+<meta property="og:description" content="HTTP Status Codes or Response Codes are grouped into five categories. 1×× Informational, 2×× Success, 3×× Redirection, 4×× Client Error, 5×× Server Error." />
+<link rel="canonical" href="localhost:4000/http-status-codes/" />
+<meta property="og:url" content="localhost:4000/http-status-codes/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/http-status-codes.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-16T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"HTTP Status Codes or Response Codes are grouped into five categories. 1×× Informational, 2×× Success, 3×× Redirection, 4×× Client Error, 5×× Server Error.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/http-status-codes/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/http-status-codes.png","headline":"HTTP Status Codes With Explanations","dateModified":"2018-11-16T00:00:00+00:00","datePublished":"2018-11-16T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/http-status-codes/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=HTTP Status Codes With Explanations&url=localhost:4000/http-status-codes/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/http-status-codes/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/http-status-codes/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Nov 16, 2018 · <span class="reading-time">
+  
+  
+    4 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">HTTP Status Codes With Explanations</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/http-status-codes.png" alt="HTTP Status Codes With Explanations">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>HTTP Status Codes or Response Codes are grouped into five categories. 1×× Informational, 2×× Success, 3×× Redirection, 4×× Client Error, 5×× Server Error.</p>
+
+<p>This post contains the full list of HTTP status codes with a short description of the most common response codes.</p>
+
+<p>When we do API testing, usually the first thing that we check on the response from an API call is the status code. It is essential that we are familiar with at least the most common status codes so we can identify issues quicker.</p>
+
+<h2 id="1-informational">1×× Informational</h2>
+
+<p>The 1xx (Informational) class of status code indicates an interim response for communicating connection status or request progress prior to completing the requested action and sending a final response.</p>
+
+<ul>
+  <li><strong>100</strong> Continue</li>
+  <li><strong>101</strong> Switching Protocols</li>
+  <li><strong>102</strong> Processing</li>
+</ul>
+
+<h2 id="2-success">2×× Success</h2>
+
+<p>The 2xx (Successful) class of status code indicates that the client’s request was successfully received, understood, and accepted.</p>
+
+<p><strong>Most Common 2×× Success HTTP Status Codes</strong></p>
+
+<h3 id="200ok">200 OK</h3>
+
+<p>The 200 (OK) status code indicates that the request has succeeded. The payload sent in a 200 response depends on the request method.</p>
+
+<h3 id="201created">201 Created</h3>
+
+<p>The 201 (Created) status code indicates that the request has been fulfilled and has resulted in one or more new resources being created.</p>
+
+<h3 id="204no-content">204 No Content</h3>
+
+<p>The 204 (No Content) status code indicates that the server has successfully fulfilled the request and that there is no additional content to send in the response payload body.</p>
+
+<p><strong>Other 2××</strong></p>
+
+<ul>
+  <li>202 Accepted</li>
+  <li>203 Non-authoritative Information</li>
+  <li>205 Reset Content</li>
+  <li>206 Partial Content</li>
+  <li>207 Multi-Status</li>
+  <li>208 Already Reported</li>
+  <li>226 IM Used</li>
+</ul>
+
+<h2 id="3-redirection">3×× Redirection</h2>
+
+<p>The 3xx (Redirection) class of status code indicates that further action needs to be taken by the user agent in order to fulfill the request.</p>
+
+<p><strong>Most Common 3×× Redirection HTTP Status Codes</strong></p>
+
+<h3 id="301moved-permanently">301 Moved Permanently</h3>
+
+<p>The 301 (Moved Permanently) status code indicates that the target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.</p>
+
+<h3 id="302found">302 Found</h3>
+
+<p>The 302 (Found) status code indicates that the target resource resides temporarily under a different URI.</p>
+
+<p><strong>Other 3××</strong></p>
+
+<ul>
+  <li>304 Not Modified</li>
+  <li>300 Multiple Choices</li>
+  <li>303 See Other</li>
+  <li>305 Use Proxy</li>
+  <li>307 Temporary Redirect</li>
+  <li>308 Permanent Redirect</li>
+</ul>
+
+<h2 id="4-client-error">4×× Client Error</h2>
+
+<p>The 4xx (Client Error) class of status code indicates that the client seems to have erred.</p>
+
+<p><strong>Most Common 4×× Client Error HTTP Status Codes</strong></p>
+
+<h3 id="400bad-request">400 Bad Request</h3>
+
+<p>The 400 (Bad Request) status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax).</p>
+
+<h3 id="401unauthorized">401 Unauthorized</h3>
+
+<p>The 401 (Unauthorized) status code indicates that the request has not been applied because it lacks valid authentication credentials for the target resource.</p>
+
+<h3 id="403forbidden">403 Forbidden</h3>
+
+<p>The 403 (Forbidden) status code indicates that the server understood the request but refuses to authorize it.</p>
+
+<h3 id="404not-found">404 Not Found</h3>
+
+<p>The 404 (Not Found) status code indicates that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p>
+
+<h3 id="405method-not-allowed">405 Method Not Allowed</h3>
+
+<p>The 405 (Method Not Allowed) status code indicates that the method received in the request-line is known by the origin server but not supported by the target resource.</p>
+
+<h3 id="415unsupported-media-type">415 Unsupported Media Type</h3>
+
+<p>The 415 (Unsupported Media Type) status code indicates that the origin server is refusing to service the request because the payload is in a format not supported by this method on the target resource. The format problem might be due to the request’s indicated Content-Type or Content-Encoding, or as a result of inspecting the data directly.</p>
+
+<p><strong>Other 4××</strong></p>
+
+<ul>
+  <li>402 Payment Required</li>
+  <li>406 Not Acceptable</li>
+  <li>407 Proxy Authentication Required</li>
+  <li>408 Request Timeout</li>
+  <li>409 Conflict</li>
+  <li>410 Gone</li>
+  <li>411 Length Required</li>
+  <li>412 Precondition Failed</li>
+  <li>413 Payload Too Large</li>
+  <li>414 Request-URI Too Long</li>
+  <li>416 Requested Range Not Satisfiable</li>
+  <li>417 Expectation Failed</li>
+  <li>418 I’m a teapot</li>
+  <li>421 Misdirected Request</li>
+  <li>422 Unprocessable Entity</li>
+  <li>423 Locked</li>
+  <li>424 Failed Dependency</li>
+  <li>426 Upgrade Required</li>
+  <li>428 Precondition Required</li>
+  <li>429 Too Many Requests</li>
+  <li>431 Request Header Fields Too Large</li>
+  <li>444 Connection Closed Without Response</li>
+  <li>451 Unavailable For Legal Reasons</li>
+  <li>499 Client Closed Request</li>
+</ul>
+
+<h2 id="5-server-error">5×× Server Error</h2>
+
+<p>The 5xx (Server Error) class of status code indicates that the server is aware that it has erred or is incapable of performing the requested method.</p>
+
+<p><strong>Most Common 5×× Server Errors HTTP Status Codes</strong></p>
+
+<h3 id="500internal-server-error">500 Internal Server Error</h3>
+
+<p>The 500 (Internal Server Error) status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.</p>
+
+<h3 id="502bad-gateway">502 Bad Gateway</h3>
+
+<p>The 502 (Bad Gateway) status code indicates that the server while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.</p>
+
+<h3 id="503service-unavailable">503 Service Unavailable</h3>
+
+<p>The 503 (Service Unavailable) status code indicates that the server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay.</p>
+
+<h3 id="504gateway-timeout">504 Gateway Timeout</h3>
+
+<p>The 504 (Gateway Timeout) status code indicates that the server while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.</p>
+
+<p><strong>Other 5××</strong></p>
+
+<ul>
+  <li>501 Not Implemented</li>
+  <li>505 HTTP Version Not Supported</li>
+  <li>506 Variant Also Negotiates</li>
+  <li>507 Insufficient Storage</li>
+  <li>508 Loop Detected</li>
+  <li>510 Not Extended</li>
+  <li>511 Network Authentication Required</li>
+  <li>599 Network Connect Timeout Error</li>
+</ul>
+
+<p><strong>Related:</strong></p>
+
+<ul>
+  <li><a href="https://www.testingexcellence.com/http-basics/">HTTP Basics for Software Testers</a></li>
+  <li><a href="https://www.testingexcellence.com/difference-put-patch-requests/">Difference Between PUT and PATCH Requests</a></li>
+  <li><a href="https://www.testingexcellence.com/how-to-get-response-status-code-with-selenium-webdriver/">How to get Response Status Code with Selenium WebDriver</a></li>
+</ul>
+
+<p><strong>Reference:</strong></p>
+
+<p><a href="https://tools.ietf.org/html/rfc7231">Internet Engineering Task Force</a></p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#technical-testing">technical testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#http">#http</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/gatling-save-response-body/"> &laquo; Gatling - How to Save Response Body</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/top-10-open-source-performance-testing-tools/">Top 10 Open Source Performance Testing Tools &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

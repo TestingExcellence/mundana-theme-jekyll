@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Testing and Quality Assurance in Agile | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Testing and Quality Assurance in Agile | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Testing and Quality Assurance in Agile" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="What does testing and quality assurance look like in an agile environment? How can we ensure that during the limited time that we have in a sprint we can deliver software that is functionally correct and fit for purpose and delivers value for customers? In this article, Liz Porritt shares her experience as a QA manager." />
+<meta property="og:description" content="What does testing and quality assurance look like in an agile environment? How can we ensure that during the limited time that we have in a sprint we can deliver software that is functionally correct and fit for purpose and delivers value for customers? In this article, Liz Porritt shares her experience as a QA manager." />
+<link rel="canonical" href="localhost:4000/testing-quality-assurance-agile/" />
+<meta property="og:url" content="localhost:4000/testing-quality-assurance-agile/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-04T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"What does testing and quality assurance look like in an agile environment? How can we ensure that during the limited time that we have in a sprint we can deliver software that is functionally correct and fit for purpose and delivers value for customers? In this article, Liz Porritt shares her experience as a QA manager.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/testing-quality-assurance-agile/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Testing and Quality Assurance in Agile","dateModified":"2018-04-04T00:00:00+01:00","datePublished":"2018-04-04T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/testing-quality-assurance-agile/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Testing and Quality Assurance in Agile&url=localhost:4000/testing-quality-assurance-agile/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/testing-quality-assurance-agile/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/testing-quality-assurance-agile/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Apr 04, 2018 · <span class="reading-time">
+  
+  
+    5 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Testing and Quality Assurance in Agile</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Testing and Quality Assurance in Agile">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>What does testing and quality assurance look like in an agile environment? How can we ensure that during the limited time that we have in a sprint we can deliver software that is functionally correct and fit for purpose and delivers value for customers? In this article, <a href="https://www.linkedin.com/in/lizporritt/">Liz Porritt</a> shares her experience as a QA manager.</p>
+
+<p>Considering it has been 17 years since the Agile Manifesto was published it is surprising to me that we still haven’t quite got to grips with how we fit testers into the process. Everywhere I have worked I have seen different attitudes to testing. Some have the testers running a sprint behind, some have a testing story on the backlog, some have SDETs and some have manual only testers - and everything that fits in between. All that I have seen have had quality issues - huge bug backlogs or, worse, just chaos. Of course, I only see the not so great, otherwise, they wouldn’t be bringing me in.</p>
+
+<ul>
+  <li><strong><a href="https://www.testingexcellence.com/agile-test-strategy-example-template/">How to Write an Agile Test Strategy</a></strong></li>
+  <li><strong><a href="https://www.testingexcellence.com/how-does-testing-fit-within-agile-development/">How does Testing fit in an Agile Model? </a></strong></li>
+  <li><strong><a href="https://www.testingexcellence.com/traditional-tester-vs-agile-tester-differences/">Agile Tester vs. Traditional Tester</a></strong></li>
+</ul>
+
+<h2 id="testing-in-an-agile-world">Testing in an Agile World</h2>
+
+<p>Almost everyone agrees that quality plays an integral part in Agile, you just can’t be agile when you are dealing with bugs as often as you are building new features. When quality is an accepted and supported part of the development process the team is free to play with new ideas, to roll out a new feature and see how it feels in the wild, and to know that the user response is to the feature and not clouded by bugs or performance.</p>
+
+<p>But how do we get to that utopia of clean, efficient code that doesn’t take weeks to write and test?</p>
+
+<p>We have all the pieces in place - we know the <strong><a href="https://www.testingexcellence.com/whole-team-approach-agile-testing/">whole team is responsible for quality</a></strong> and that anyone who is able can test. We know about TDD, BDD, peer reviews, automated functional, non-functional, system and system integration tests and we know that manual testing still plays a big role too. And, we have DevOps - this is a big part of making sure we have quality code.</p>
+
+<p>So, who does all of this? SDETs, Developers, manual testers or just throw it out for the team to pick up?</p>
+
+<h2 id="technical-testing">Technical Testing</h2>
+
+<p>Testing is a profession and a <strong><a href="https://www.testingexcellence.com/what-makes-good-agile-tester/">good, experienced tester</a></strong> should be the coordinator of all of the above, much like the senior developer is holding the development process together. The two working closely together, with respect for each other’s work is a good place to start. <strong><a href="https://www.testingexcellence.com/develop-test-automation-framework-scratch/">Building test frameworks</a></strong> takes time and experience that the development team don’t always have and that test code is as valuable, if not more valuable than the application source code.</p>
+
+<p>If the company loses the source code they can rewrite it using the tests, if the company loses the tests they have lost not just the tests but a lot of the documentation for the code.</p>
+
+<p>Someone must have responsibility for the creation, maintenance and the addition to the test framework and source code. It is valuable stuff.</p>
+
+<p>Writing tests themselves should be easy, and yes, devs can do that alongside the testers, but it is only easy if the test framework is solid and the <strong><a href="https://www.testingexcellence.com/automated-ui-tests-run-ci-pipeline/">tests are run automatically in a good DevOps pipeline</a></strong>. We need a test professional to work within the DevOps team to make sure the right tests get executed at the correct points of the pipeline. The tester will be responsible for making sure that these tests are efficient and don’t hold up the process and have ideas of how to bring out the longer, more complicated test suites to run less often, overnight for example.</p>
+
+<p>There are usually many people in the team who have ideas, not just the testers, and these ideas are great, but if we try to coordinate everything without a tester and rely only on devs or ops then the work becomes too burdensome on top of everything else. For something so high on the list of priorities, surely quality needs a dedicated professional?</p>
+
+<p><a href="https://www.testingexcellence.com/wp-content/uploads/2018/04/testing-quality-assurance-agile.jpeg"><img src="https://www.testingexcellence.com/wp-content/uploads/2018/04/testing-quality-assurance-agile.jpeg" alt="testing-quality-assurance-agile" /></a></p>
+
+<p><span style="color: #666666; font-size: 1.25rem; text-align: center;">Automated and Manual Testing</span></p>
+
+<p>So far, I have only been thinking about the automated tests - manual testing can’t be forgotten. Automated tests will not tell us if we have built the right thing (only that we built it right). I am a big fan of <a href="http://www.satisfice.com/sbtm/">Jonathan Bach’s session-based exploratory testing.</a> This is an excellent way for testers to really focus on what matters and to use their expertise to sniff out trouble. I really don’t like formal script testing at all, I think that is such a terrible waste of time and resource. Writing those tests is time spent away from the application and executing them is so mindless and demoralizing. They are less likely to find issues than automated tests as we are basically turning our tester into a machine in the way we are expecting her to work and the point of manual testing is to look at the application from the eyes of a human being.</p>
+
+<p><strong><a href="https://www.testingexcellence.com/roles-responsibilities-product-owner-agile/">Product Owners</a></strong> are great people to get involved in manual testing, in fact, I would argue that their job description should include it as standard. The PO is going to see if their idea on paper really works as they expected. The professional tester is going to see if unexpected user behavior will cause problems. The PO and tester relationship is also essential when designing the requirements themselves in order to ensure that they are testable. BDD is my personal favorite approach for this - but that is for another article.</p>
+
+<p>So, yes, the whole team is involved and committed to quality, but the Quality Assurance role is a vital one, we can’t expect to deliver efficiently without an excellent, well-designed testing platform and this requires expertise and as much investment as the product itself if we want that product to thrive.</p>
+
+<p>As a side note, while Googling for images for manual testing I saw a lot that were designed around Manual v Automated testing - this makes me so very sad. I hope it is just a legacy of a passing fad that has well and truly passed. There is not a competition here - both are vital.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/http-basics/"> &laquo; HTTP Basics for Software Testers</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/parameterize-gatling-variables/">How to Parameterize Gatling Variables &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

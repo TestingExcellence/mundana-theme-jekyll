@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Difference Between Green/Blue Deployments, A/B Testing and Canary Releases | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Difference Between Green/Blue Deployments, A/B Testing and Canary Releases | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Difference Between Green/Blue Deployments, A/B Testing and Canary Releases" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This article describes the differences between Green/Blue deployments, A/B testing and Canary releases." />
+<meta property="og:description" content="This article describes the differences between Green/Blue deployments, A/B testing and Canary releases." />
+<link rel="canonical" href="localhost:4000/difference-between-greenblue-deployments-ab-testing-and-canary-releases/" />
+<meta property="og:url" content="localhost:4000/difference-between-greenblue-deployments-ab-testing-and-canary-releases/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-28T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"This article describes the differences between Green/Blue deployments, A/B testing and Canary releases.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/difference-between-greenblue-deployments-ab-testing-and-canary-releases/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Difference Between Green/Blue Deployments, A/B Testing and Canary Releases","dateModified":"2017-07-28T00:00:00+01:00","datePublished":"2017-07-28T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/difference-between-greenblue-deployments-ab-testing-and-canary-releases/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Difference Between Green/Blue Deployments, A/B Testing and Canary Releases&url=localhost:4000/difference-between-greenblue-deployments-ab-testing-and-canary-releases/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/difference-between-greenblue-deployments-ab-testing-and-canary-releases/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/difference-between-greenblue-deployments-ab-testing-and-canary-releases/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Jul 28, 2017 · <span class="reading-time">
+  
+  
+    6 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Difference Between Green/Blue Deployments, A/B Testing and Canary Releases</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Difference Between Green/Blue Deployments, A/B Testing and Canary Releases">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>This article describes the differences between Green/Blue deployments, A/B testing and Canary releases.</p>
+
+<p>Article was originally written by Christian Posta</p>
+
+<h2 id="blue-green-deployments-ab-testing-and-canary-releases">Blue-green Deployments, A/B Testing, and Canary Releases</h2>
+
+<p>A lot of teams I talk to recently are very interested in “DevOps” (whatever that means… seems to mean different things to different people?) and when we sit down and talk about what that really means, the direction of the conversation can go down many interesting paths. And some times, the path it goes down makes people feel <strong>very uncomfortable</strong>. I was talking with a team a while back about deployment best practices, hot deployments, rollbacks etc and when I mentioned <a href="http://martinfowler.com/bliki/BlueGreenDeployment.html">blue-green deployments</a>, they became a bit queasy. Another team couldn’t understand why doing something they’ve always done <a href="http://blog.christianposta.com/immutable/immutable-infrastructure-and-the-jvm-part-i/">was not such a very good thing</a>.</p>
+
+<p><a href="http://martinfowler.com/bliki/BlueGreenDeployment.html">blue-green deployments</a> have been practiced at places like Amazon for 10+ years. They’re a safe, proven, method. Now, blue-green deployments are not a silver bullet, but there’s an element of usefulness to them. But what about A/B testing then? Or even Canary testing? With all of the #microservices, DevOps, and cloud-native talk, there’s a lot of discussion about them, but I wanted to clarify their differences.</p>
+
+<p>https://www.testingexcellence.com/what-is-the-difference-between-agile-testing-and-continuous-testing/</p>
+
+<h2 id="blue-green-deployments">Blue Green Deployments</h2>
+
+<p>Please see <a href="http://martinfowler.com/bliki/BlueGreenDeployment.html">Martin Fowler’s link about blue-green deployments</a>. It gives the overall gist. It’s basically a technique for <em>releasing your application in a predictable</em> manner with a goal of <em>reducing any downtime associated with a release</em>. It’s a quick way to prime your app before releasing, and also quickly roll back if you find issues.</p>
+
+<p>Simply, you have two identical environments (infrastructure) with the “green” environment hosting the current production apps (app1 version1, app2 version1, app3 version1 for example):</p>
+
+<p><img src="http://blog.christianposta.com/images/greendeployment.png" alt="green deployment" /></p>
+
+<p>Now, when you’re ready to make a change to app2 for example and upgrade it to v2, you’d do so in the “blue environment”. In that environment you deploy the new version of the app, run smoke tests, and any other tests (including those to exercise/prime the OS, cache, CPU, etc). When things look good, you change the load-balancer/reverse proxy/router to point to the blue environment:</p>
+
+<p><img src="http://blog.christianposta.com/images/bluedeployment.png" alt="green deployment" /></p>
+
+<p>You monitor for any failures or exceptions because of the release. If everything looks good, you can eventually shut down the green environment and use it to stage any new releases. If not, you can quickly rollback to the green environment by pointing the loadbalancer back.</p>
+
+<p>Sounds good in theory. But there are things to watch out for.</p>
+
+<ul>
+  <li>Long running transactions in the green environment. When you switch over to blue, you have to gracefully handle those outstanding transactions as well as the new ones. This also can become troublesome if your DB backends cannot handle this (see below)</li>
+  <li>Enterprise deployments are not typically amenable to “microservice” style deployments – that is, you may have a hybrid of microservice style apps, and some traditional, difficult-to-change-apps working together. Coordinating between the two for a blue-green deployment can still lead to downtime</li>
+  <li>Database migrations can get really tricky and would have to be migrated/rolledback alongside the app deployments. There are good tools and techniques for doing this, but in an environment with traditional RDBMS, NoSQL, and file-system backed DBs, these things really need to be thought through ahead of time; blindly saying you’re doing Blue Green deployments doesn’t help anything – actually could hurt.</li>
+  <li>You need to have the infrastructure to do this</li>
+  <li>If you try to do this on non-isolated infrastructure (VMs, Docker, etc), you run the risk of destroying your blue AND green environments</li>
+</ul>
+
+<p>As I’ve said, there are good techniques to overcome these challenges and make this deployment style work out very nicely, including plugging into a continuous deployment pipeline, but don’t jump into it trivially.</p>
+
+<h2 id="ab-testing">A/B Testing</h2>
+
+<p>A/B testing is NOT blue-green deployments. I’ve run into groups that mistake this. A/B testing is a way of <em>testing features in your application</em> for various reasons like usability, popularity, noticeability, etc, and how those factors influence the bottom line. It’s usually associated with UI parts of the app, but of course, the backend services need to be available to do this. You can implement this with application-level switches (ie, smart logic that knows when to display certain UI controls), static switches (in the application), and also use Canary releases (as discussed below).</p>
+
+<p><img src="http://blog.christianposta.com/images/abtesting.png" alt="green deployment" /></p>
+
+<p>The difference between blue-green deployments and A/B testing is A/B testing is for measuring functionality in the app. Blue-green deployments are about releasing new software safely and rolling back predictably. You can obviously combine them: use blue-green deployments to deploy new features in an app that can be used for A/B testing.</p>
+
+<h2 id="canary-releases">Canary releases</h2>
+
+<p>Lastly, Canary releases are a way of sending out a new version of your app into production that plays the role of a “canary” to get an idea of how it will perform (integrate with other apps, CPU, memory, disk usage, etc). It’s another release strategy that can mitigate the fact that regardless of the immense level of testing you do in lower environments you will still have some bugs in production. Canary releases let you test the waters before pulling the trigger on a full release.</p>
+
+<p><img src="http://blog.christianposta.com/images/canarydeployment.png" alt="green deployment" /></p>
+
+<p>The faster feedback you get, the faster you can fail the deployment, or proceed cautiously. For some of the same reasons as the blue-green deployments, be careful of things above to watch out for; ie, database changes can still trip you up.</p>
+
+<p><strong>Further information:</strong></p>
+
+<h3 id="are-there-scenarios-where-canary-release-is-preferred-over-bluegreen-deployments-and-vice-versa">Are there scenarios where canary release is preferred over blue/green deployments, and vice versa?</h3>
+
+<p>Blue-green releasing is simpler and faster.</p>
+
+<p>You <em>can</em> do a blue-green release if you’ve tested the new version in a testing environment and are very certain that the new version will function correctly in production. Always using <a href="http://martinfowler.com/bliki/FeatureToggle.html">feature toggles</a> is a good way to increase your confidence in a new version, since the new version functions exactly like the old until someone flips a feature toggle. Breaking your application into small, independently releasable services is another since there is less to test and less that can break.</p>
+
+<p>You <em>need to</em> do a canary release if you’re not completely certain that the new version will function correctly in production. Even if you are a thorough tester, the Internet is a large and complex place and is always coming up with unexpected challenges. Even if you use feature toggles, one might be implemented incorrectly.</p>
+
+<p>Deployment automation takes effort, so most organizations will plan to use one strategy or the other every time.</p>
+
+<p>So do blue-green deployment if you’re committed to practices that allow you to be confident in doing so. Otherwise, send out the canary.</p>
+
+<p>The essence of blue-green is deploying all at once and the essence of canary deployment is deploying incrementally, so given a single pool of users I can’t think of a process that I would describe as doing both at the same time. If you had multiple independent pools of users, e.g. using different regional data centers, you could do blue-green within each data center and canary across data centers. Although if you didn’t need canary deployment within a data center, you probably wouldn’t need it across data centers.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/what-are-scrum-ceremonies/"> &laquo; What Are Scrum Ceremonies?</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/what-is-the-difference-between-agile-testing-and-continuous-testing/">What is the Difference Between Agile Testing and Continuous Testing? &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

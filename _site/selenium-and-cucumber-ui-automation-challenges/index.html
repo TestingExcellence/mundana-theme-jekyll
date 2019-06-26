@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Why Selenium and Cucumber Should Not Be Used Together | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Why Selenium and Cucumber Should Not Be Used Together | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Why Selenium and Cucumber Should Not Be Used Together" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this post, I will explain why I believe it is a bad idea to write UI automated tests with Selenium and Cucumber." />
+<meta property="og:description" content="In this post, I will explain why I believe it is a bad idea to write UI automated tests with Selenium and Cucumber." />
+<link rel="canonical" href="localhost:4000/selenium-and-cucumber-ui-automation-challenges/" />
+<meta property="og:url" content="localhost:4000/selenium-and-cucumber-ui-automation-challenges/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-09-18T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"In this post, I will explain why I believe it is a bad idea to write UI automated tests with Selenium and Cucumber.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/selenium-and-cucumber-ui-automation-challenges/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Why Selenium and Cucumber Should Not Be Used Together","dateModified":"2016-09-18T00:00:00+01:00","datePublished":"2016-09-18T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/selenium-and-cucumber-ui-automation-challenges/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Why Selenium and Cucumber Should Not Be Used Together&url=localhost:4000/selenium-and-cucumber-ui-automation-challenges/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/selenium-and-cucumber-ui-automation-challenges/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/selenium-and-cucumber-ui-automation-challenges/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Sep 18, 2016 · <span class="reading-time">
+  
+  
+    9 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Why Selenium and Cucumber Should Not Be Used Together</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Why Selenium and Cucumber Should Not Be Used Together">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>In this post, I will explain why I believe it is a bad idea to write UI automated tests with Selenium and Cucumber.</p>
+
+<p>The title of the post mentions Selenium and Cucumber because they are the most popular browser automation and BDD tools respectively, however, the context of this article applies to any UI automation tool in combination with any BDD tool.</p>
+
+<p>Before I dig deeper, let’s review some background information.</p>
+
+<h3 id="what-is-selenium">What is Selenium?</h3>
+
+<p><strong><a href="http://www.seleniumhq.org/">Selenium</a></strong> is a browser automation testing tool which is capable of interacting with the HTML elements of a web application to simulate user activity.</p>
+
+<p>In Selenium WebDriver, we can write scripts in a number of programming languages and can be a great asset for multiple OS and cross-browser testing.</p>
+
+<h3 id="what-is-cucumber">What is Cucumber?</h3>
+
+<p><strong><a href="https://cucumber.io/">Cucumber</a></strong> was created to drive Behaviour Driven Development (BDD) process, such that the customer can describe their requirements as a series of examples called scenarios, in plain text files using the Gherkin language in the Given When Then format.</p>
+
+<p>In Cucumber world, these files are called feature files which are reviewed by the <strong><a href="http://www.testingexcellence.com/overview-of-scrum-agile-development-methodology/">Scrum team</a></strong> to get a clear understanding of the requirements before starting the actual development.</p>
+
+<p>Once development is underway, the developers and/or QA will write Step Definitions which are essentially snippets of code which bind the scenarios from the feature files to the test code which execute actions against the application under test.</p>
+
+<h3 id="selenium-and-cucumber">Selenium and Cucumber</h3>
+
+<p>Both Selenium and Cucumber are great tools for their own purposes but when used together, things don’t marry up nicely! Let’s see why.</p>
+
+<p>Stories are generally written from a user’s perspective, for example:</p>
+
+<blockquote>
+  <p><strong>Feature:</strong> Login functionality</p>
+
+  <p>As a user of website abc.com</p>
+
+  <p>I want customers to be able to login to the site</p>
+
+  <p>So that they can view their account information.</p>
+</blockquote>
+
+<p>In turn, Scenarios in the feature files are written in a way which describes the behavior of the feature when a user interacts with the <em>application</em>. For example:</p>
+
+<blockquote>
+  <p><strong>Scenario 1: </strong>Valid login</p>
+
+  <p>Given I am on abc.com Login page</p>
+
+  <p>When I enter valid credentials</p>
+
+  <p>Then I am redirected to My Account page</p>
+</blockquote>
+
+<p>And so you can add more scenarios to test different data combinations.</p>
+
+<p>Because both the story and the feature file are written from a high-level point of view, and because we want to automate the scenarios, it only seems natural to start writing step definitions in Cucumber which call Selenium to drive the application, do the actions and verify the outcome.</p>
+
+<p>But, this is where the problem occurs; when we start combining Selenium with Cucumber to write automated UI tests.</p>
+
+<p>In all fairness, in simple cases like the Login scenario above, things fit nicely together and the approach seems plausible, and in fact, most examples that you see on the internet, demonstrating the use of Selenium and Cucumber, seem to limit themselves to the famous Login example.</p>
+
+<p>The readers of such blogs would assume that they can take the simple Login scenario and apply the same principle to a wider context of an application.</p>
+
+<p>Don’t be fooled though, as things can get very sour with Selenium and Cucumber when applied to a real-world large web-based application.</p>
+
+<p>Let’s take an example of a search results page of a typical <strong><a href="http://www.testingexcellence.com/testing-e-commerce-websites/">e-commerce application</a></strong> which sells products online. Normally the search results page is full of features, such as filters, sorts, list of products, ability to change search, ability to paginate or auto-load on scrolling, etc, as can be seen in the screenshot below:</p>
+
+<p><img src="http://69.164.212.71/wp-content/uploads/2016/01/Screen-Shot-2016-01-21-at-21.50.07-e1453413098934.png" alt="selenium-cucumber-example" /></p>
+
+<p>I’m going to assume that each feature on the search results page, was added to the site on an incremental basis using agile development.</p>
+
+<p>Applying the same principle of our simple Login example, as each feature is developed we would have a respective feature file filled with lots of different scenarios. For example:</p>
+
+<p>In iteration 1 of the development, “Filter by Price” is developed, so we would have a feature file for it with its own scenarios related to the price filter.</p>
+
+<p>In iteration 2 of the development, “Filter by Star Rating” is developed, so we would have a feature file for it with its own scenarios related to the star rating filter, and so on for each new feature.</p>
+
+<p><em>It is important to note that the scenarios in each feature file are only specific to their respective feature. In fact, this is why they are called <strong>feature files</strong> because the focus is on <strong>individual features</strong>.</em></p>
+
+<p>As mentioned earlier, when the application is simple, we can survive the challenge of automating the scenarios on UI with Selenium and Cucumber. However, as the application grows and new features are added, complexity arises as there could be dependencies between different features.</p>
+
+<p>For instance, I could first filter my search results by price then apply another filter for the star rating. Ah…we now have a problem!</p>
+
+<p>Which feature file should this scenario now go? In “Filter by Star Rating” file or “Filter by Price” file? How about if I now add a scenario to apply a sort to my filtered results to sort by highest votes?</p>
+
+<p>If a stakeholder wishes to see what our test coverage is, which of the feature files should he look into? Will he get the full picture of scenario coverage by reading just one of the feature files or would he need to read all feature files?</p>
+
+<p>At the time of development, when each feature is developed one by one in each iteration, the feature files would be focused on the feature itself, so at some point, when we have multiple features, we need to start thinking about testing these, not only in isolation but also creative scenarios where we combine different features.</p>
+
+<p>And in fact, this is what real users of the application will do. They will first enter their search criteria, once on the search results page, they would possibly paginate, then filter, then sort, then go back, and so on, and they can do these actions in any order. There won’t be a prescribed order of events. This is a <strong><a href="http://www.testingexcellence.com/can-you-really-automate-a-user-journey/">real user journey</a></strong> and a real test of the system!</p>
+
+<p>Majority of the bugs in an application are exposed when either a feature itself is buggy or when two features that work perfectly well in isolation, don’t work together. This is what the <strong><a href="http://www.testingexcellence.com/all-pairs-testing-technique/">Pairwise Testing Model</a></strong> is based upon.</p>
+
+<h3 id="so-whats-the-big-deal-with-using-selenium-and-cucumber-together">So, what’s the big deal with using Selenium and Cucumber together?</h3>
+
+<p>Where at all possible, we should not use the web GUI for functional verification. The functionality of a feature should be tested at the API layer by integration tests.</p>
+
+<p>UI should only be reserved for checking the user flows through the application, or end-to-end tests and making sure relevant expected modules or widgets are present on the page as the user navigates from one page to another.</p>
+
+<p>A typical user journey would entail:</p>
+
+<p>1 - Navigate to the homepage of abc.com website</p>
+
+<p>2 - Search for a product from the homepage</p>
+
+<p>3 - Browse through the list of search results</p>
+
+<p>4 - Apply filter and/or sort</p>
+
+<p>5 - Read product details</p>
+
+<p>6 - Add the product to basket</p>
+
+<p>7 - Continue to check out…</p>
+
+<p>Selenium is excellent in automating these scenarios and checking for various elements on each page and as I mentioned above, that’s what we should focus on when testing at UI layer, and testing the different <strong><a href="http://www.testingexcellence.com/state-transition-testing/">states transitions</a></strong>.</p>
+
+<p>As can be seen, each user journey through the application touches on many pages and potentially interacts with multiple features on each and every page, and we would be verifying various things at each step throughout the journey, so using a <strong>“feature file”</strong> to document these scenarios makes absolute no sense whatsoever, because we’re not testing a feature, we’re testing the integrated system.</p>
+
+<p>Things really go pear-shaped when we attempt to write the end-to-end scenarios in a Given-When-Then format. How many Givens are we going to have? How many Thens are we going to have?</p>
+
+<p>One could argue that for end-to-end tests we could just use Selenium on its own without the Cucumber and have separate automated tests for each feature using Selenium and Cucumber. Again, I don’t recommend this approach as you will possibly have duplicate tests and we know how slow and brittle UI tests are, so we should aim to have less of them not more! Moreover, you will still have to deal with feature dependencies tests.</p>
+
+<p><strong>To summarise:</strong></p>
+
+<p>Cucumber is a great tool in checking the behavior of a feature at the API layer with integration tests where each feature can be thoroughly tested. This tool should be used for Story Testing.</p>
+
+<p>Selenium is a great tool for automating user scenarios at the UI layer and checking the behavior of the system as a whole. This tool should be used for <strong><a href="http://www.testingexcellence.com/can-you-really-automate-a-user-journey/">User Journey Testing</a>, </strong>encompassing many user stories.</p>
+
+<p>When we get to System Integration Testing or UI Testing, it is best to use Selenium without the underlying Cucumber framework as trying to write Cucumber feature files for user journeys, can get very cumbersome and would not serve the purpose the tool is built for.</p>
+
+<p>My article is based on deducing facts!</p>
+
+<ul>
+  <li>If there is any value in using cucumber, it is at the feature level.</li>
+  <li>Checking functionality of a feature is best done outside of UI, e.g. API tests.</li>
+  <li>Even at API layer tests, cucumber fails miserably.</li>
+  <li>UI Tests should cover user/business scenarios and not single features.</li>
+</ul>
+
+<p>Cucumber works beautifully with a simplistic and naive view of tests and scenarios, such as everyone’s favorite login functionality.</p>
+
+<p>Given I am on the login page<br />
+When I enter valid credentials<br />
+Then I should see my account</p>
+
+<p>But any savvy tester knows that even a simple login functionality has many many checks. Try converting those checks in cucumber.</p>
+
+<p>This is just for login; try writing an end-to-end test in cucumber!</p>
+
+<p>UI tests should be covering user journeys which are typically end-to-end and exercise multiple features of an application.</p>
+
+<p>There is a lot that goes on in a single user journey across the application.</p>
+
+<p>Cucumber is definitely NOT the right tool for user/business scenario testing.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/4-different-ways-iterate-map-java/"> &laquo; Different Ways to Iterate Through a Map in Java</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/automate-stories-during-sprint/">Is it Possible to Automate Stories During the Sprint? &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

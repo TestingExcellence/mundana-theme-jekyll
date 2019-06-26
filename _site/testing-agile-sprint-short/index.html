@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Testing in Agile: The Sprint Is Too Short! | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Testing in Agile: The Sprint Is Too Short! | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Testing in Agile: The Sprint Is Too Short!" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="While many developers love Agile, testers… not so much. “It’s not possible to finish all the testing in one sprint”, “the sprint is too short, let’s add a week”, “we need two or three weeks to complete the regression”… Have you ever heard any of these? I hear them all the time." />
+<meta property="og:description" content="While many developers love Agile, testers… not so much. “It’s not possible to finish all the testing in one sprint”, “the sprint is too short, let’s add a week”, “we need two or three weeks to complete the regression”… Have you ever heard any of these? I hear them all the time." />
+<link rel="canonical" href="localhost:4000/testing-agile-sprint-short/" />
+<meta property="og:url" content="localhost:4000/testing-agile-sprint-short/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-02-16T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"While many developers love Agile, testers… not so much. “It’s not possible to finish all the testing in one sprint”, “the sprint is too short, let’s add a week”, “we need two or three weeks to complete the regression”… Have you ever heard any of these? I hear them all the time.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/testing-agile-sprint-short/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Testing in Agile: The Sprint Is Too Short!","dateModified":"2017-02-16T00:00:00+00:00","datePublished":"2017-02-16T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/testing-agile-sprint-short/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Testing in Agile: The Sprint Is Too Short!&url=localhost:4000/testing-agile-sprint-short/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/testing-agile-sprint-short/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/testing-agile-sprint-short/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Feb 16, 2017 · <span class="reading-time">
+  
+  
+    3 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Testing in Agile: The Sprint Is Too Short!</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Testing in Agile: The Sprint Is Too Short!">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>While many developers love Agile, testers… not so much. “It’s not possible to finish all the testing in one sprint”, “the sprint is too short, let’s add a week”, “we need two or three weeks to complete the regression”… Have you ever heard any of these? I hear them all the time.</p>
+
+<p>Agile changed our approach to development but testing sometimes still comes as an afterthought. In some ways testing became even more challenging. Here’s a short list, to mention just a few issues typically experienced by testers in Agile environment:</p>
+
+<ul>
+  <li>Testing in the midst of code changes makes it hard to establish a baseline.</li>
+  <li>Development drops late in the sprint cycle don’t leave enough time for testing.</li>
+  <li>Infrequent builds/deployments create delays and downtime.</li>
+  <li>Not enough testers to plan, document and execute the test cases.</li>
+  <li>Not enough time to go through functional, integration, regression, usability, security and other testing.</li>
+  <li>No time to review, fix and retest defects found late in the cycle.</li>
+  <li>Lack of knowledge and communication across testers, developers, SMEs and other specialists.</li>
+</ul>
+
+<p>But if we read this list carefully, we’ll notice that none of these issues are really caused by the length of the sprint. Three or even four weeks instead of two wouldn’t make a difference when it comes to the lack of communication or knowledge, amount of manual testing, delays caused by manual or infrequent builds, late drops, and defects found on the last day of the sprint.</p>
+
+<blockquote>
+  <p>The challenges of Agile testing are not caused by the sprint length.</p>
+</blockquote>
+
+<p>So what do we do?</p>
+
+<p>We split the testing into two parts: tests directly related to the user stories developed during the sprint, and everything else. Then we defer the “everything else” to the end of the release, which happens every several months.</p>
+
+<p>Here’s the truth: all we can do during the sprint is pretty much just the functional testing. We’re not doing much of the integration, regression or performance testing until right before the release. We call this final system test a “regression sprint” or “hardening sprint”. Sounds familiar? If you nod in agreement, don’t worry, you’re not alone. This is a very typical Agile implementation across the industry.</p>
+
+<p>Unfortunately, it’s a BAD idea.</p>
+
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width" data-imgsrc="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAjMAAAAJGY2ZjIzNGJmLTRmNjEtNGYyYi1iMjVjLWI1YzA1ZDU0MTU3Ng.jpg">![](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAjMAAAAJGY2ZjIzNGJmLTRmNjEtNGYyYi1iMjVjLWI1YzA1ZDU0MTU3Ng.jpg)</div>
+
+<p>We say we try to mitigate the issues and challenges of Agile testing, but we don’t really solve the problem. By pushing the major testing effort to the very end of the release we increase the risk, compromise quality and don’t use the main advantage of Agile - ability to deliver value to the customers often in small increments.</p>
+
+<p>So, adding the hardening sprint doesn’t really help with the problem of sprints being too short.</p>
+
+<blockquote>
+  <p>The sprint is too short only if you planned more than you could realistically deliver</p>
+</blockquote>
+
+<p>The real goal should be to eliminate the hardening sprint and to complete all types of testing during the sprint, however short or long it is. This way every sprint would end with a set of fully tested features that could potentially be deployed to Production or shipped to the customer. There would be no need for the context switch at the end of the release, no last minute defects and costly delays.</p>
+
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width" data-imgsrc="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAd_AAAAJGI5ZjQwMTUyLWQ5ZjItNGE1Ni04NWI4LTY2NTIzYmFlZDdkZQ.jpg">![](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAd_AAAAJGI5ZjQwMTUyLWQ5ZjItNGE1Ni04NWI4LTY2NTIzYmFlZDdkZQ.jpg)</div>
+
+<p>Do you still have hardening sprints? Do you feel like your sprint is too short?</p>
+
+<h2 id="then-join-me-on-this-journey-and-make-2017-a-year-of-high-quality-and-true-agility"><strong>Then join me on this journey and make 2017 a year of high quality and true agility.</strong></h2>
+
+<p>Let’s start the new year with some important decisions and pledge to make our solutions truly agile. Let’s improve our quality and deliver software updates to the customers when they need them. Let’s stop complaining about sprints being short and start being realistic about our planning. Let’s eliminate manual builds, deployments and tests where possible, automate regression tests and run them on daily basis during the sprint. Let’s update our definition of “Done” to include all types of testing.</p>
+
+<p>Let’s get rid of the “hardening” cycle.</p>
+
+<h2 id="lets-complete-all-of-our-tests-within-the-sprint">Let’s complete all of our tests within the sprint!</h2>
+
+<p>Here’s a practical guide to testing without feeling that the sprint is “too short”:</p>
+
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width" data-imgsrc="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAgzAAAAJGJhMGM1ODdmLWRjODgtNDQyNy04MWRmLWYzYTg1ZDNiNTE5Yw.jpg">![](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAgzAAAAJGJhMGM1ODdmLWRjODgtNDQyNy04MWRmLWYzYTg1ZDNiNTE5Yw.jpg)</div>
+
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width" data-imgsrc="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAgzAAAAJGJhMGM1ODdmLWRjODgtNDQyNy04MWRmLWYzYTg1ZDNiNTE5Yw.jpg">Article published by [Katy Sherman](https://www.linkedin.com/in/katy-sherman-practical-agile)</div>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/testlodge-a-test-case-management-tool/"> &laquo; TestLodge - a Test Case Management Tool</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/common-agile-development-methodologies/">Most Common Agile Development Methodologies &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

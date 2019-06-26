@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bad Requirements – A Software Tester’s Nightmare! | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Bad Requirements – A Software Tester’s Nightmare! | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Bad Requirements – A Software Tester’s Nightmare!" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The real world is never an “ideal” place, and the same applies to so many assignments that one might work on. Numerous times in the past, as a quality professional I have been caught up in testing projects that are “not so ideal” and lack the basic documents and governance. The worst form being the one’s that either “lack” documented requirements or have some “loosely written” documents. Working on such projects literally gives me jitters and at times even sleepless nights. (It isn’t an exaggeration, the thought of making sense out of disjoint pieces of information looms in your mind all the time.) But accept it or not, projects like these are a reality and mostly one has no option but to work on them." />
+<meta property="og:description" content="The real world is never an “ideal” place, and the same applies to so many assignments that one might work on. Numerous times in the past, as a quality professional I have been caught up in testing projects that are “not so ideal” and lack the basic documents and governance. The worst form being the one’s that either “lack” documented requirements or have some “loosely written” documents. Working on such projects literally gives me jitters and at times even sleepless nights. (It isn’t an exaggeration, the thought of making sense out of disjoint pieces of information looms in your mind all the time.) But accept it or not, projects like these are a reality and mostly one has no option but to work on them." />
+<link rel="canonical" href="localhost:4000/bad-requirements-software-testers-nightmare/" />
+<meta property="og:url" content="localhost:4000/bad-requirements-software-testers-nightmare/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-10-05T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"The real world is never an “ideal” place, and the same applies to so many assignments that one might work on. Numerous times in the past, as a quality professional I have been caught up in testing projects that are “not so ideal” and lack the basic documents and governance. The worst form being the one’s that either “lack” documented requirements or have some “loosely written” documents. Working on such projects literally gives me jitters and at times even sleepless nights. (It isn’t an exaggeration, the thought of making sense out of disjoint pieces of information looms in your mind all the time.) But accept it or not, projects like these are a reality and mostly one has no option but to work on them.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/bad-requirements-software-testers-nightmare/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Bad Requirements – A Software Tester’s Nightmare!","dateModified":"2016-10-05T00:00:00+01:00","datePublished":"2016-10-05T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/bad-requirements-software-testers-nightmare/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Bad Requirements – A Software Tester’s Nightmare!&url=localhost:4000/bad-requirements-software-testers-nightmare/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/bad-requirements-software-testers-nightmare/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/bad-requirements-software-testers-nightmare/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Oct 05, 2016 · <span class="reading-time">
+  
+  
+    5 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Bad Requirements – A Software Tester’s Nightmare!</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Bad Requirements – A Software Tester’s Nightmare!">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>The real world is never an “ideal” place, and the same applies to so many assignments that one might work on. Numerous times in the past, as a quality professional I have been caught up in testing projects that are “not so ideal” and lack the basic documents and governance. The worst form being the one’s that either “lack” documented requirements or have some “loosely written” documents. Working on such projects literally gives me jitters and at times even sleepless nights. (It isn’t an exaggeration, the thought of making sense out of disjoint pieces of information looms in your mind all the time.) But accept it or not, projects like these are a reality and mostly one has no option but to work on them.</p>
+
+<p>A Bad requirement itself is a very broad term and can be one of the following –</p>
+
+<ul>
+  <li>
+    <p><strong>Missing Requirements</strong> –A functionality that is totally missing from the documentation. For example, “Error messaging” in case of data validation or other forms of failure not being considered and documented or not detailing the need for a certain link available as per the access rules on an application.</p>
+  </li>
+  <li>
+    <p><strong>Conflicting Requirements</strong> – When two or more requirements expect the system to do different things that can’t possibly be done at the same time. They need to be identified as early in the lifecycle as possible to avoid rework.</p>
+  </li>
+  <li>
+    <p><strong>Incomplete/Unclear Requirements</strong> – Requirements that lack all the necessary information constitute this lot. Most of the times requirements are elicited in business terms and which is nowhere close to what it demands at a granular level. For example – “The system should have the capability to filter search results” is incomplete. The details around filter criteria is not been provided and thus raises unnecessary queries.</p>
+  </li>
+  <li>
+    <p><strong>Ambiguous Requirements</strong> – A requirement statement that can be interpreted in different ways by different people is an example of this.</p>
+  </li>
+</ul>
+
+<p>Howsoever, a test analyst might crib about the quality of requirement documentation, at the end he/she can always build a test pack by using some alternative sources of information and the following practices–</p>
+
+<ul>
+  <li>
+    <p><strong>Explore &amp; Discover</strong> – If it is an existing system that is being rebuilt or new functions are being added to it, explore its test environment. Exploratory testing comes handy when you are trying to figure out on how something works. If there is a regression test suite available it will make the task easier and even if not just try out all the links/buttons/try different things and document as much as you can. With a basic level of what the new changes are and a fair understanding of the existing system, a tester can start designing some test cases. Of course there will be doubts and queries which can then be directed to relevant teams.</p>
+  </li>
+  <li>
+    <p><strong>Use Common Sense &amp; Experience</strong> – A test analyst who has worked in the same domain as the system under test can help. A lot of missing links in the requirements can be identified through common knowledge that comes from experience For example, someone who has worked on a Travel based application testing would know the fundamental tests needed. Also, think from the user’s perspective, what is it that would matter to a user?</p>
+  </li>
+  <li>
+    <p><strong>Use HTML Designs/Wireframes</strong> – HTML Designs and wireframes can act as an alternative to a requirement specification. Make use of these as visual representation of what is expected of a system/application that you are going to test. A working wireframe can also help the tester understand a basic flow, however, with static HTMLs try to build a journey through pages. However, there will be a need to get this understanding signed off by business users and development teams.</p>
+  </li>
+  <li>
+    <p><strong>Discussions, Emails and Meeting Notes</strong> – When the requirements are flaky, notes from all of these can assist in joining the missing links. Testers should proactively involve themselves in any such discussions and meetings. They are a good platform to raise questions. But don’t forget to document the outcomes from any of these. Tools like <a href="http://www-01.ibm.com/software/uk/rational/">IBM’s Rational</a>, <a href="https://www.atlassian.com/software/confluence">Atlassian’s Confluence</a> etc can help in building a central repository for these.</p>
+  </li>
+  <li>
+    <p><strong>Query Log and Workshops with Stakeholders</strong> - Having gathered all the information that one could, it is important to collate them in a query log and share with all the stake holders. This could as well be a starting point for getting into some workshops that may help in filling the missing blanks. As a result of these workshops, it is important to update whatever documents are available. Even though the ownership of doing this does not lie with the test team, there is no harm in keeping a local copy and making changes as &amp; when some updates happen. Again various tools can be used to track the trail of queries and comments.</p>
+  </li>
+  <li>
+    <p><strong>Peer Reviews</strong> - With all of the above, a tester would definitely reach a point where he/she can start scripting the scenarios and test cases. In projects with dodgy requirements, it is good practice to get the high level scenarios reviewed by the business teams so as to ensure nothing that’s critical to the user is being missed.</p>
+  </li>
+  <li>
+    <p><strong>Change Management</strong> – Doing all of the above in parallel to writing the test scenarios would require some change management. Keeping track of any new information fed into the project or any changes in draft requirements is a key task. More importantly to implement these in the working documents (specific to testing) play an important role for an effective test plan and design.</p>
+  </li>
+</ul>
+
+<p>The not so perfect projects can be an opportunity for a tester to do something outside of their usual domain and learn. It is challenging to be testing with poorly documented requirements but it is in challenges that great things lie. So connect the loose threads and test. Happy Testing!</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/useful-tools-for-testing-websites-on-mobile-devices/"> &laquo; Useful Tools for Testing Websites on Mobile Devices</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/head-of-qa-roles-and-responsibilities/">Head of QA - Roles and Responsibilities &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

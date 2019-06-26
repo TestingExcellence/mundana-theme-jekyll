@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Automated versus Manual Testing – Make an Informed Decision! | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Automated versus Manual Testing – Make an Informed Decision! | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Automated versus Manual Testing – Make an Informed Decision!" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Being a manual software testing resource, like many others I have lived the past few years under the constant fear of my job being taken over by the hype of “Automation”. I have worked in domains ranging from telecom, hospitality and retail and have mostly followed the principles of old school manual testing for ensuring quality for a variety of software systems/applications/websites etc. Not that I haven’t had a chance to pick up a few automation skills, but I instead chose to do a rational analysis of manual versus automation rather than quickly switching roles." />
+<meta property="og:description" content="Being a manual software testing resource, like many others I have lived the past few years under the constant fear of my job being taken over by the hype of “Automation”. I have worked in domains ranging from telecom, hospitality and retail and have mostly followed the principles of old school manual testing for ensuring quality for a variety of software systems/applications/websites etc. Not that I haven’t had a chance to pick up a few automation skills, but I instead chose to do a rational analysis of manual versus automation rather than quickly switching roles." />
+<link rel="canonical" href="localhost:4000/automated-versus-manual-testing-make-informed-decision/" />
+<meta property="og:url" content="localhost:4000/automated-versus-manual-testing-make-informed-decision/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-09-10T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"Being a manual software testing resource, like many others I have lived the past few years under the constant fear of my job being taken over by the hype of “Automation”. I have worked in domains ranging from telecom, hospitality and retail and have mostly followed the principles of old school manual testing for ensuring quality for a variety of software systems/applications/websites etc. Not that I haven’t had a chance to pick up a few automation skills, but I instead chose to do a rational analysis of manual versus automation rather than quickly switching roles.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/automated-versus-manual-testing-make-informed-decision/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Automated versus Manual Testing – Make an Informed Decision!","dateModified":"2016-09-10T00:00:00+01:00","datePublished":"2016-09-10T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/automated-versus-manual-testing-make-informed-decision/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Automated versus Manual Testing – Make an Informed Decision!&url=localhost:4000/automated-versus-manual-testing-make-informed-decision/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/automated-versus-manual-testing-make-informed-decision/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/automated-versus-manual-testing-make-informed-decision/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Sep 10, 2016 · <span class="reading-time">
+  
+  
+    4 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Automated versus Manual Testing – Make an Informed Decision!</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Automated versus Manual Testing – Make an Informed Decision!">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Being a manual software testing resource, like many others I have lived the past few years under the constant fear of my job being taken over by the hype of “Automation”. I have worked in domains ranging from telecom, hospitality and retail and have mostly followed the principles of old school manual testing for ensuring quality for a variety of software systems/applications/websites etc. Not that I haven’t had a chance to pick up a few automation skills, but I instead chose to do a rational analysis of manual versus automation rather than quickly switching roles.</p>
+
+<p>After weighing the two sides against different parameters, I realized that there will always be space for both in the industry. And thus, I decided to stick to what I love best, thinking of every possible click, trying to figure out the various turns and U-turns that a software journey can take, put a system through a subjective as well objective analysis and then accordingly designing the manual test scripts. The argument that automation will eventually annihilate manual test practice, I think is way too optimistic. It’s like saying that robots might someday take over everything that a human does. I have my doubts for any of this to happen.</p>
+
+<p>Automation no doubt has its advantages and can complement manual testing. However, for any company, program or project, it is important to continuously evaluate and counter balance the two.  Automation, manual or combination of both, the decision is driven by certain key factors. Some of these are:</p>
+
+<h3 id="repeatability"><strong>Repeatability</strong></h3>
+
+<ul>
+  <li>It is one of the prime factors that drives the automation versus manual testing decision. Automation is no magic wand; it requires specific skill set, tools, time, effort and budget. Is there a good ROI for investing in so many resources? Definitely, yes if there is a high reusability of the automated test scripts. Thus, for a project that has multiple runs of the same <strong><a href="http://www.testingexcellence.com/why-would-you-want-to-automate-a-test/">test scenarios or that requires regression tests</a></strong> at regular intervals are some of the best candidates for automation.</li>
+</ul>
+
+<h3 id="cost--benefit-analysis"><strong>Cost &amp; Benefit Analysis</strong></h3>
+
+<ul>
+  <li>Automation Testers, frameworks, tools, maintenance, training all add up to contribute majorly in project costs. A Test Lead/Manager has to weigh this additional cost against possible benefits. For example, for a short term project or a minor change it does not make sense to automate. In such a scenario Manual Tests will be more cost efficient and would add equal value as automation might as well do.</li>
+</ul>
+
+<h3 id="project-type"><strong>Project Type</strong></h3>
+
+<ul>
+  <li>Another key driver when deciding between manual and automation testing is the size, scale and type of project. Automation can be helpful when there are too many data driven tests where same tests need to be run for different data, or there is a multi-browser test involved. On the contrary a project that is highly GUI oriented or lays emphasis on customer experience; manual tests would be best suited to them and would be cheaper as well. Similarly, if it’s a large project with too many testers working on it, with both front end and back end to be tested, it would be perfect ground for a mix of automation &amp; manual testing.</li>
+</ul>
+
+<h3 id="value-addition"><strong>Value Addition</strong></h3>
+
+<ul>
+  <li>And finally as a PM or test manager one needs to ask the question - does spending on automation adds value to the project and does it really saves time and effort. If it does then just go for it. If not, it’s probably not worth it. Adding value can mean different things in different projects – uncovering additional bugs, uncovering bugs earlier in the test cycle, uncovering bugs in lesser time, quicker retests, fewer resources required to test or simply making life easier for manual testers.</li>
+</ul>
+
+<p>In a good sized project with a variety of testing to be carried out, manual and automation testing should tie in together. Instead of dismissing each other, automation and manual tests should be used in a collaborative manner, so as to get the best out of both.</p>
+
+<p>Even though testing as a subject is never really taught in universities, it still can’t be termed as a job that anyone can do. One has to have a specific mindset to be a good test professional. A mindset that looks at a system at large, a mindset that always seeks the visibility to overall objective and purpose of a system under test, a mindset capable of constructive criticism so as to identify the break points of an application, to think from the perspective of not one but various types of users, to simulate a user behavior that the software is not ready to tackle. And this is why automation testing cannot take over manual testing. Automation can provide the tools to implement and execute, but it needs a manual (read human) tester to do prep work.</p>
+
+<p>Automation can be very effective and cost friendly in the implementation of some of the objective scenarios; however, for a subjective point of view there isn’t an alternative to manual testing. It is wise to automate that can be quantified but in my experience quality cannot always be judged by facts and figures. For the qualitative factors companies still need the human interface.</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#testing-fundamentals">#testing fundamentals</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/webdriver-tutorial-open-browser-extensions/"> &laquo; WebDriver Tutorial - How to Open a Browser With Extensions</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/delivery-pipeline-agile-project/">Delivery Pipeline For Agile Projects &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>

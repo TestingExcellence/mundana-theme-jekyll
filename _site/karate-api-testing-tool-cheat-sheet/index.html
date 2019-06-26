@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Karate API Testing Tool Cheat Sheet | Testing Excellence</title>
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Karate API Testing Tool Cheat Sheet | Testing Excellence</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Karate API Testing Tool Cheat Sheet" />
+<meta name="author" content="Amir" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Karate is an opensource API testing tool developed by Peter Thomas from Intuit. Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool." />
+<meta property="og:description" content="Karate is an opensource API testing tool developed by Peter Thomas from Intuit. Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool." />
+<link rel="canonical" href="localhost:4000/karate-api-testing-tool-cheat-sheet/" />
+<meta property="og:url" content="localhost:4000/karate-api-testing-tool-cheat-sheet/" />
+<meta property="og:site_name" content="Testing Excellence" />
+<meta property="og:image" content="localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-30T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"Karate is an opensource API testing tool developed by Peter Thomas from Intuit. Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"localhost:4000/karate-api-testing-tool-cheat-sheet/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"localhost:4000/assets/images/coming-soon.jpg","headline":"Karate API Testing Tool Cheat Sheet","dateModified":"2018-05-30T00:00:00+01:00","datePublished":"2018-05-30T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/karate-api-testing-tool-cheat-sheet/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Testing Excellence</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<li class="nav-item">
+<a class="nav-link" href="/index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/authors-list.html">Authors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact.html">Contact</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
+</li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Karate API Testing Tool Cheat Sheet&url=localhost:4000/karate-api-testing-tool-cheat-sheet/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=localhost:4000/karate-api-testing-tool-cheat-sheet/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=localhost:4000/karate-api-testing-tool-cheat-sheet/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="Amir">
+                        
+                    </div>
+                    <div class="d-flex align-items-center">
+                        
+                        <small class="ml-3"> Amir Ghahrai <span><a target="_blank" href="https://twitter.com/testingexcel" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">May 30, 2018 · <span class="reading-time">
+  
+  
+    11 mins read
+  
+</span>
+    </span>
+                        </small>
+                    </div>
+                </div>
+                
+
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Karate API Testing Tool Cheat Sheet</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Karate API Testing Tool Cheat Sheet">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Karate is an opensource API testing tool developed by<a href="https://github.com/intuit/karate"> Peter Thomas from Intuit.</a> Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool.</p>
+
+<p>Because Karate sits on top of cucumber, it inherits all the functionalities of cucumber, so you can write your API tests in simple Given When Then format and utilize all the cucumber keywords such as Feature, Scenario Outline, Scenario, Examples, Feature tagging.</p>
+
+<p>I’ve created this cheat sheet to help anyone who is involved in testing APIs, giving examples of how to use the Karate tool.</p>
+
+<p><strong>Please note</strong>, this cheat sheet is just the tip of the iceberg. Karate has many other features that are not mentioned here. This list is just the most common operations typically used when testing APIs.</p>
+
+<h3 id="add-the-dependencies-pomxml">Add the dependencies (pom.xml)</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="rouge-code"><pre>&lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;maven.compiler.plugin&gt;3.7.0&lt;/maven.compiler.plugin&gt;
+    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;karate.version&gt;0.8.0.RC4&lt;/karate.version&gt;
+    &lt;cucumber.reporting.version&gt;3.13.0&lt;/cucumber.reporting.version&gt;
+&lt;/properties&gt;
+
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt;
+        &lt;artifactId&gt;karate-core&lt;/artifactId&gt;
+        &lt;version&gt;${karate.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt;
+        &lt;artifactId&gt;karate-apache&lt;/artifactId&gt;
+        &lt;version&gt;${karate.version}&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt;
+        &lt;artifactId&gt;karate-testng&lt;/artifactId&gt;
+        &lt;version&gt;${karate.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;net.masterthought&lt;/groupId&gt;
+        &lt;artifactId&gt;cucumber-reporting&lt;/artifactId&gt;
+        &lt;version&gt;${cucumber.reporting.version}&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="project-structure">Project Structure</h3>
+
+<p>You can organize and structure your maven project like this:</p>
+
+<p><a href="https://www.testingexcellence.com/wp-content/uploads/2018/05/Screen-Shot-2018-05-30-at-23.34.57.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2018/05/Screen-Shot-2018-05-30-at-23.34.57.png" alt="" /></a></p>
+
+<h3 id="karate-configjs">karate-config.js</h3>
+
+<p>This is where you can create variables which have a global scope. Karate reads this file before executing any scenario. This comes in very handy when switching environments which specific variables are used for different environments</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+</pre></td><td class="rouge-code"><pre>function() {
+  var env = karate.env; // get java system property 'karate.env'
+
+  karate.log('karate.env selected environment was:', env);
+  karate.configure("ssl", true)
+
+  if (!env) {
+    env = 'dev'; //env can be anything: dev, qa, staging, etc.
+  }
+
+  var config = {
+    env: env,
+
+    AM_USERNAME: 'devuser',
+    AM_PASSWORD: 'devpass',
+    AM_HOST: 'https://am.'+env+'.example.net',
+    AM_AUTHENTICATE_PATH: '/am/json/realms/root/authenticate',
+
+    IDM_USERNAME: 'devuser',
+    IDM_PASSWORD: 'devpass',
+    IDM_HOST: 'https://idm.'+env+'.example.net',
+    IDM_MANAGED_USER_PATH: '/idm/managed/user',
+  };
+
+  if(env == 'qa') {
+    config.AM_USERNAME: 'myUserName'
+    config.AM_PASSWORD: 'myPa55word'
+  }
+
+  if(env == 'live') {
+     config.AM_USERNAME: 'admin'
+     config.AM_PASSWORD: 'secret'
+  }
+
+  karate.log('OpenAM Host:', config.AM_HOST);
+
+  karate.configure('connectTimeout', 60000);
+  karate.configure('readTimeout', 60000);
+
+  return config;
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="how-to-send-an-http-request-get-post-put-delete-patch">How to send an HTTP Request (Get, Post, Put, Delete, Patch)</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre>@FR
+Feature: AM Admin Login
+
+  Scenario: Login as Admin to AM and get token
+    Given header X-OpenAM-Username = AM_USERNAME
+    Given header X-OpenAM-Password = AM_PASSWORD
+    Given url AM_HOST + AM_AUTHENTICATE_PATH
+    And request ''
+    When method POST
+    Then status 200
+
+    * assert response.tokenId != null
+    * def tokenId = response.tokenId
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>In the above example, AM_USERNAME, AM_PASSWORD, AM_HOST, and AM_AUTHENTICATE_PATH come from the karate-config.js file.</p>
+
+<p>‘<em>****’ can be interpreted as any of Given, When, Then, And, but when an action doesn’t serve a context, we can use ‘</em>’.</p>
+
+<p>‘<strong>+</strong>’ acts as a concatenate operator</p>
+
+<p>The above example sends an empty post body request. We can just use ‘ ‘</p>
+
+<p>The method can be any valid HTTP verb (Get, Post, Put, Patch, Delete)</p>
+
+<p>‘<strong>def</strong>’ is used to store a value in a variable.</p>
+
+<p><strong>header</strong>, <strong>url</strong>, <strong>request</strong>, <strong>method</strong>, <strong>status</strong>, <strong>response</strong> are all karate’s keywords forming the DSL. For the full list of keywords, visit Intuit.</p>
+
+<p>In the above example, the response is JSON format, so we can use karate’s builtin JsonPath notation to parse the response.</p>
+
+<h3 id="request-chaining-with-multiple-api-calls">Request Chaining with multiple API calls</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="rouge-code"><pre>Feature: request chaining with multiple api calls
+
+Scenario: chain request demo
+
+    * json req = read('classpath:com/example/templates/idm/create-user-template.json')
+    * def user = req.givenName
+
+    Given header X-Username = 'anonymous'
+    Given header X-Password = 'anonymous'
+    Given url AM_HOST + '/some/endpoint
+    And request ''
+    When method POST
+
+    * def authId = response.authId
+
+    * def payload1 =
+    """
+    {"authId":"${authId}","callbacks":[{"type":"NameCallback","output":[{"name":"prompt","value":"Email Address"}],"input":[{"name":"IDToken0","value":"${user}@putsbox.com"}]}]}
+    """
+
+    * replace payload1
+    | token     | value  |
+    | ${authId} | authId |
+    | ${user}   | user   |
+
+    * json mypayload1 = payload1
+
+    Given header X-Username = 'anonymous'
+    Given header X-Password = 'anonymous'
+    Given url AM_HOST + '/openam/some-other-endpoint
+    And request mypayload1
+    When method POST
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>In the above example, the first call is made and the authId is parsed from the response and saved in a variable called authId. We then replace the second payload with the authId retrieved in the first call. We then use the new payload to send to the next API call.</p>
+
+<h3 id="how-to-read-request-templates-and-call-other-feature-files">How to read request templates and call other feature files</h3>
+
+<p>We can make our scenarios reusable and call them from other feature files. In this example, we can create a “generic” create-user.feature file where we can send the create user request but with a different request body</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>Feature: Create User in IDM
+
+  Scenario: Create user in IDM with given guid
+
+    Given header X-Requested-With = 'Swagger-UI'
+    Given header X-OpenIDM-Username = IDM_USERNAME
+    Given header X-OpenIDM-Password = IDM_PASSWORD
+    Given url IDM_HOST + IDM_MANAGED_USER_PATH
+    And request __arg
+    When method POST
+    Then status 201
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Note, in the above example, we are using ‘__arg’ as the post body request.</p>
+
+<p>We can then call the above feature file and pass in the required post body, which in turn we can read from a template</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>Feature: Create a user
+
+  Scenario: Create user in IDM 
+
+    * json myReq = read('classpath:com/example/templates/idm/idm-create-user-template.json')
+    * call read('classpath:com/example/idm/idm-create-user.feature') myReq
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The above code reads a template which is in location <code class="highlighter-rouge">com/example/templates/idm/idm-create-user-template.json</code> and stores it as a JSON variable called myReq</p>
+
+<p>Then we can send the JSON variable to the other feature file using the call method.</p>
+
+<p>The template looks like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>{
+  "mail" : "david@putsbox.com",
+  "givenName" : "david",
+  "sn" : "putsbox",
+  "jobRole" : "developer",
+  "telephoneNumber" : "91234567890",
+  "dob" : "01/02/2010",
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="how-to-read-other-feature-files---example-2">How to read other feature files - example 2</h3>
+
+<p>We can read a specific variable in the called feature file which is passed from a calling feature file</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>Feature: Create User in IDM
+
+  Scenario: Create user in IDM with given guid
+
+    Given header X-Requested-With = 'Swagger-UI'
+    Given header X-OpenIDM-Username = IDM_USERNAME
+    Given header X-OpenIDM-Password = IDM_PASSWORD
+    Given url IDM_HOST + IDM_MANAGED_USER_PATH
+    And request __arg.emailAddress
+    When method POST
+    Then status 201
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Note, in the above example, we are using ‘__arg.emailAddress’ as the post body request. We are only interested in sending the email address as the request</p>
+
+<p>We can then call the above feature file and pass in the required post body, which in turn we can read from a template</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>Feature: Create a user
+
+  Scenario: Create user in IDM 
+
+    * json myReq = read('classpath:com/example/templates/idm/idm-create-user-template.json')
+    * json emailAddress = '{"emailAddress": "' +myReq.mail+ '"}'
+    * call read('classpath:com/example/fr/idm/idm-create-user.feature') emailAddress
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The above code extracts the mail field from the JSON template. When we pass a variable to another feature file, it must be of type JSON, so the variable emailAddress must be a valid JSON.</p>
+
+<p>Then we can send the JSON variable to the other feature file using the call method and be sending the JSON variable, in this case, <code class="highlighter-rouge">emailAddress</code>.</p>
+
+<h3 id="create-a-test-runner-class">Create a Test Runner class</h3>
+
+<p>We can execute the scenarios in the feature file using maven (which is useful to run the tests in a CI environment)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="rouge-code"><pre>import com.intuit.karate.cucumber.CucumberRunner;
+import com.intuit.karate.cucumber.KarateStats;
+import cucumber.api.CucumberOptions;
+import net.masterthought.cucumber.Configuration;
+import net.masterthought.cucumber.ReportBuilder;
+import org.apache.commons.io.FileUtils;
+import org.testng.annotations.Test;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static org.testng.AssertJUnit.assertTrue;
+
+@CucumberOptions(tags = {"@FR", "~@ignore"})
+public class TestRunner_FR {
+
+    @Test
+    public void testParallel() {
+        String karateOutputPath = "target/cucumber-html-reports";
+        KarateStats stats = CucumberRunner.parallel(getClass(), 1, karateOutputPath);
+        generateReport(karateOutputPath);
+        assertTrue("there are scenario failures", stats.getFailCount() == 0);
+    }
+
+    private static void generateReport(String karateOutputPath) {
+        Collection jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);
+        List jsonPaths = new ArrayList(jsonFiles.size());
+        for (File file : jsonFiles) {
+            jsonPaths.add(file.getAbsolutePath());
+        }
+        Configuration config = new Configuration(new File("target"), "YOUR PROJECT NAME");
+        config.addClassifications("Environment", System.getProperty("karate.env"));
+        ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
+        reportBuilder.generateReports();
+    }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The above code runs all the feature files which are tagged as “@FR” but ignores all the tests which are tagged as “@ignore”.</p>
+
+<p>It also creates a cucumber report for visualizing the results of the test runs.</p>
+
+<h3 id="run-the-tests-from-a-command-line-or-ci">Run the tests from a command line or CI</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>mvn clean test -DargLine="-Dkarate.env=staging" -Dtest=TestRunner_FR
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Here, we are running the TestRunner_FR class and setting the environment as staging.</p>
+
+<h3 id="execute-javascript-in-the-feature-file">Execute JavaScript in the Feature file</h3>
+
+<p>In a feature file, we have the capability to execute javascript as well</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre>Feature: Generate a random session id
+
+  Scenario: generate random session id
+    * def random_string =
+    """
+    function(s) {
+      var text = "";
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+      for (var i = 0; i &lt; s; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      return text;
+    }
+    """
+    * def sessionId =  random_string(10)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The above code generates a random string of length 10 and saves it in a variable called sessionId.</p>
+
+<h3 id="data-driven-tests">Data Driven Tests</h3>
+
+<p>Since Karate sits on top of cucumber, data-driven testing comes as default</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre>Feature: Data driven testing example
+
+Scenario Outline: An 'Invalid input request' error is returned if required parameters have incorrect values.
+
+    * def attribute_name = '&lt;name_attribute&gt;'
+    * xml malformed_request = &lt;method_call&gt;
+    * json activate_request = malformed_request
+
+    * def activate_response = call read('activate.feature') activate_request
+
+    * match activate_response.contentType == 'text/xml;charset=ISO-8859-1'
+    * match activate_response.gas_version == '5.2.7'
+    * match activate_response.error_code == '1000'
+
+    Examples:
+      | name_attribute  | method_call                                                                        |
+      | auth_method     | Java.type('com.example.StringUtil').removeNodeByAttribute(xml_req, attribute_name) |
+      | app_url         | Java.type('com.example.StringUtil').removeNodeByAttribute(xml_req, attribute_name) |
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The example above utilizes Cucumber’s Scenario Outline and Examples keywords to create data-driven tests. To read each parameter, we use the angle brackets &lt;&gt;</p>
+
+<h3 id="call-java-from-a-feature-file">Call Java from a feature file</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="n">com</span><span class="p">.</span><span class="n">example</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="n">class</span> <span class="n">StringUtil</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="n">static</span> <span class="k">String</span> <span class="n">getNumberFromString</span><span class="p">(</span><span class="k">String</span> <span class="n">text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">return</span> <span class="n">text</span><span class="p">.</span><span class="n">replaceAll</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">D+"</span><span class="p">,</span> <span class="s2">""</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Feature</span><span class="p">:</span> <span class="n">Call</span> <span class="n">java</span> <span class="n">demo</span>
+
+<span class="n">Scenario</span><span class="p">:</span> <span class="n">Get</span> <span class="n">number</span> <span class="k">from</span> <span class="n">text</span>
+
+    <span class="n">Given</span> <span class="n">url</span> <span class="s1">'https://preview.putsbox.com/p/david/last.json'</span>
+    <span class="n">When</span> <span class="n">method</span> <span class="n">GET</span>
+    <span class="p">*</span> <span class="n">def</span> <span class="n">emailText</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="n">text</span>
+    <span class="p">*</span> <span class="n">def</span> <span class="n">otpCode</span> <span class="p">=</span> <span class="n">Java</span><span class="p">.</span><span class="n">type</span><span class="p">(</span><span class="s1">'com.example.StringUtil'</span><span class="p">).</span><span class="n">getNumberFromString</span><span class="p">(</span><span class="n">emailText</span><span class="p">)</span>
+    <span class="p">*</span> <span class="n">print</span> <span class="n">otpCode</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The above feature file calls a Java method in the class called StringUtil. Then saves the response of that call to otpCode variable.</p>
+
+<p>https://www.testingexcellence.com/set-multiple-headers-http-request-karate/</p>
+
+            </div>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+            
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="https://mailchi.mp/3b7a1f21f2f7/devqa" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            </br>
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="localhost:4000/software-testing-interview-questions-answers/"> &laquo; Software Testing Interview Questions and Answers - Ultimate List</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="localhost:4000/capture-network-traffic-xhr-cypress/">How to Capture Browser Network Traffic (XHR) with Cypress &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'demowebsite'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+                <!--  Github Repo Star Btn-->
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>
