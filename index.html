@@ -179,31 +179,19 @@ description: "A great Jekyll theme developed by Sal @wowthemesnet."
         
         <div class="mt-5">
          <!-- Pagination links -->
-            {% if paginator.total_pages > 1 %}
-            <ul class="pagination"> 
-              {% if paginator.previous_page %}
-                <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a></li>
-              {% else %}
-                <li class="page-item disabled"><span class="prev page-link">&laquo;</span></li>
-              {% endif %}
-
-              {% for page in (1..paginator.total_pages) %}
-                {% if page == paginator.page %}
-                <li class="page-item disabled"><span class="webjeda page-link">{{ page }}</span></li>
-                {% elsif page == 1 %}
-                <li class="page-item"><a class="page-link" href="{{site.baseurl}}/">{{ page }}</a></li>
-                {% else %}
-                <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
-                {% endif %}
-              {% endfor %}
-
-              {% if paginator.next_page %}
-                <li class="page-item"><a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a></li>
-              {% else %}
-                <li class="page-item disabled"><span class="next page-link">&raquo;</span></li>
-              {% endif %}
-            </ul>
-            {% endif %}      
+        <div class="pagination">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path }}" class="previous">Previous&nbsp;|&nbsp;</a>
+        {% else %}
+          <span class="previous"></span>
+        {% endif %}
+        <!-- <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span> -->
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+        {% else %}
+          <span class="next"></span>
+        {% endif %}
+      </div>      
         </div>
         
     </div>

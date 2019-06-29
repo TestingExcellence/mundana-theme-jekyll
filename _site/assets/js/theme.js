@@ -1,4 +1,15 @@
- // alertbar later
+//algolia toggle search
+$(document).ready(function() {
+    $('.search__toggle').click(function() {
+      $('#searchbox').toggle();
+      $('#powered-by').toggle();
+      $('.ais-SearchBox-input').focus();
+      $('.site-content').toggle();
+    });
+});
+
+
+// alertbar later
     $(document).scroll(function () {
         var y = $(this).scrollTop();
         if (y > 280) {

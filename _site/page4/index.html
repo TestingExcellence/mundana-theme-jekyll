@@ -13,13 +13,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A great Jekyll theme developed by Sal @wowthemesnet." />
 <meta property="og:description" content="A great Jekyll theme developed by Sal @wowthemesnet." />
-<link rel="canonical" href="localhost:4000/page4/" />
-<meta property="og:url" content="localhost:4000/page4/" />
+<link rel="canonical" href="http://localhost:4000/page4/" />
+<meta property="og:url" content="http://localhost:4000/page4/" />
 <meta property="og:site_name" content="Testing Excellence" />
-<link rel="prev" href="localhost:4000/page3" />
-<link rel="next" href="localhost:4000/page5" />
+<link rel="prev" href="http://localhost:4000/page3" />
+<link rel="next" href="http://localhost:4000/page5" />
 <script type="application/ld+json">
-{"description":"A great Jekyll theme developed by Sal @wowthemesnet.","@type":"WebPage","url":"localhost:4000/page4/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"localhost:4000/assets/images/logo.png"}},"headline":"Mundana Free Jekyll Theme","@context":"http://schema.org"}</script>
+{"description":"A great Jekyll theme developed by Sal @wowthemesnet.","@type":"WebPage","url":"http://localhost:4000/page4/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"}},"headline":"Mundana Free Jekyll Theme","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -45,6 +45,13 @@
 
     <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
 
+    <!-- Include only the reset -->
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">-->
+<!-- or include the full Algolia theme -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/algolia-min.css" integrity="sha256-HB49n/BZjuqiCtQQf49OdZn63XuKFaxcIHWf0HNKte8=" crossorigin="anonymous"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.33.0/dist/algoliasearchLite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.4.0/dist/instantsearch.production.min.js"></script>
 
 </head>
 
@@ -81,37 +88,17 @@
 </li>
 
             </ul>
-            <ul class="navbar-nav ml-auto d-flex align-items-center">
-                <script src="/assets/js/lunr.js"></script>
-
-
-<style>
-    .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
-    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-    .lunrsearchresult a:hover .title {text-decoration: underline;}
-</style>
-
-
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
-</form>
-
-<div id="lunrsearchresults">
-    <ul></ul>
-</div>
-
-<script src="/assets/js/lunrsearchengine.js"></script>
+            <button class="search__toggle" type="button">
+                <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+                  <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+                </svg>
+              </button>
             </ul>
         </div>
     </div>
     </nav>
 
-    <!-- Search Results -->
-    <div id="lunrsearchresults">
-        <ul class="mb-0"></ul>
-    </div>
+
 
     <!-- Content -->
     <main role="main" class="site-content">
@@ -434,111 +421,15 @@
         
         <div class="mt-5">
          <!-- Pagination links -->
-            
-            <ul class="pagination"> 
-              
-                <li class="page-item"><a class="page-link" href="/page3">&laquo; Prev</a></li>
-              
-
-              
-                
-                <li class="page-item"><a class="page-link" href="/">1</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page2">2</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page3">3</a></li>
-                
-              
-                
-                <li class="page-item disabled"><span class="webjeda page-link">4</span></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page5">5</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page6">6</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page7">7</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page8">8</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page9">9</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page10">10</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page11">11</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page12">12</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page13">13</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page14">14</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page15">15</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page16">16</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page17">17</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page18">18</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page19">19</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page20">20</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page21">21</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page22">22</a></li>
-                
-              
-                
-                <li class="page-item"><a class="page-link" href="/page23">23</a></li>
-                
-              
-
-              
-                <li class="page-item"><a class="page-link" href="/page5">Next &raquo;</a></li>
-              
-            </ul>
-                  
+        <div class="pagination">
+        
+          <a href="/page3" class="previous">Previous&nbsp;|&nbsp;</a>
+        
+        <!-- <span class="page_number ">Page: 4 of 23</span> -->
+        
+          <a href="/page5" class="next">Next</a>
+        
+      </div>      
         </div>
         
     </div>
@@ -642,6 +533,13 @@
 
     <script src="/assets/js/theme.js"></script>
 
+    <div class="container">
+            <div id="searchbox"></div>
+            <div id="hits"></div>
+            <div id="powered-by"></div>
+    </div>
+
+    <script src="/assets/js/search.js"></script>
 
     <!-- Footer -->
     <footer class="bg-white border-top p-3 text-muted small">
