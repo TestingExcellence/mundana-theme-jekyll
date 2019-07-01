@@ -4,7 +4,7 @@ title: "Fundamental Test Process"
 author: Amir
 categories: [ software testing ]
 tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+image: assets/images/fundamental-test-process.png
 ---
 
 ## What is the Fundamental Test Process?

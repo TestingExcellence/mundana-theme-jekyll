@@ -4,14 +4,14 @@ title: "Waterfall Model in Software Testing"
 author: Amir
 categories: [ software testing ]
 tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+image: assets/images/waterfall-model.png
 ---
 
 ## What is the Waterfall Model in Software Testing?
 
 Once upon a time, software development consisted of a programmer writing code to solve a problem or automate a procedure. Nowadays, systems are so big and complex that teams of architects, analysts, programmers, testers and users must work together to create the millions of lines of custom-written code that drive our enterprises.
 
-![waterfall](http://69.164.212.71/wp-content/uploads/2010/03/waterfall.png "waterfall")
+![waterfall](/assets/images/waterfall-model.png "waterfall")
 
 The oldest of these, and the best known, is the waterfall model: a sequence of stages in which the output of each stage becomes the input for the next. These stages can be characterized and divided up in different ways, including the following:
 

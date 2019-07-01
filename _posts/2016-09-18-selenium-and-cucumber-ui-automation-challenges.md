@@ -2,8 +2,7 @@
 layout: post
 title: "Why Selenium and Cucumber Should Not Be Used Together"
 author: Amir
-categories: [ software testing ]
-tags: [ testing fundamentals ]
+tags: [ selenium, cucumber, automation ]
 image: assets/images/coming-soon.jpg
 ---
 
@@ -23,7 +22,7 @@ In Selenium WebDriver, we can write scripts in a number of programming languages
 
 **[Cucumber](https://cucumber.io/)** was created to drive Behaviour Driven Development (BDD) process, such that the customer can describe their requirements as a series of examples called scenarios, in plain text files using the Gherkin language in the Given When Then format.
 
-In Cucumber world, these files are called feature files which are reviewed by the **[Scrum team](http://www.testingexcellence.com/overview-of-scrum-agile-development-methodology/)** to get a clear understanding of the requirements before starting the actual development.
+In Cucumber world, these files are called feature files which are reviewed by the **[Scrum team](/overview-of-scrum-agile-development-methodology/) to get a clear understanding of the requirements before starting the actual development.
 
 Once development is underway, the developers and/or QA will write Step Definitions which are essentially snippets of code which bind the scenarios from the feature files to the test code which execute actions against the application under test.
 
@@ -63,7 +62,7 @@ The readers of such blogs would assume that they can take the simple Login scena
 
 Don't be fooled though, as things can get very sour with Selenium and Cucumber when applied to a real-world large web-based application.
 
-Let's take an example of a search results page of a typical **[e-commerce application](http://www.testingexcellence.com/testing-e-commerce-websites/)** which sells products online. Normally the search results page is full of features, such as filters, sorts, list of products, ability to change search, ability to paginate or auto-load on scrolling, etc, as can be seen in the screenshot below:
+Let's take an example of a search results page of a typical [e-commerce application](/testing-e-commerce-websites/) which sells products online. Normally the search results page is full of features, such as filters, sorts, list of products, ability to change search, ability to paginate or auto-load on scrolling, etc, as can be seen in the screenshot below:
 
 ![selenium-cucumber-example](http://69.164.212.71/wp-content/uploads/2016/01/Screen-Shot-2016-01-21-at-21.50.07-e1453413098934.png)
 
@@ -87,9 +86,9 @@ If a stakeholder wishes to see what our test coverage is, which of the feature f
 
 At the time of development, when each feature is developed one by one in each iteration, the feature files would be focused on the feature itself, so at some point, when we have multiple features, we need to start thinking about testing these, not only in isolation but also creative scenarios where we combine different features.
 
-And in fact, this is what real users of the application will do. They will first enter their search criteria, once on the search results page, they would possibly paginate, then filter, then sort, then go back, and so on, and they can do these actions in any order. There won't be a prescribed order of events. This is a **[real user journey](http://www.testingexcellence.com/can-you-really-automate-a-user-journey/)** and a real test of the system!
+And in fact, this is what real users of the application will do. They will first enter their search criteria, once on the search results page, they would possibly paginate, then filter, then sort, then go back, and so on, and they can do these actions in any order. There won't be a prescribed order of events. This is a [real user journey](/can-you-really-automate-a-user-journey/) and a real test of the system!
 
-Majority of the bugs in an application are exposed when either a feature itself is buggy or when two features that work perfectly well in isolation, don't work together. This is what the **[Pairwise Testing Model](http://www.testingexcellence.com/all-pairs-testing-technique/)** is based upon.
+Majority of the bugs in an application are exposed when either a feature itself is buggy or when two features that work perfectly well in isolation, don't work together. This is what the [Pairwise Testing Model](/all-pairs-testing-technique/) is based upon.
 
 ### So, what's the big deal with using Selenium and Cucumber together?
 
@@ -113,7 +112,7 @@ A typical user journey would entail:
 
 7 - Continue to check out...
 
-Selenium is excellent in automating these scenarios and checking for various elements on each page and as I mentioned above, that's what we should focus on when testing at UI layer, and testing the different **[states transitions](http://www.testingexcellence.com/state-transition-testing/)**.
+Selenium is excellent in automating these scenarios and checking for various elements on each page and as I mentioned above, that's what we should focus on when testing at UI layer, and testing the different [states transitions](/state-transition-testing/).
 
 As can be seen, each user journey through the application touches on many pages and potentially interacts with multiple features on each and every page, and we would be verifying various things at each step throughout the journey, so using a **"feature file"** to document these scenarios makes absolute no sense whatsoever, because we're not testing a feature, we're testing the integrated system.
 
@@ -125,7 +124,7 @@ One could argue that for end-to-end tests we could just use Selenium on its own 
 
 Cucumber is a great tool in checking the behavior of a feature at the API layer with integration tests where each feature can be thoroughly tested. This tool should be used for Story Testing.
 
-Selenium is a great tool for automating user scenarios at the UI layer and checking the behavior of the system as a whole. This tool should be used for **[User Journey Testing](http://www.testingexcellence.com/can-you-really-automate-a-user-journey/), **encompassing many user stories.
+Selenium is a great tool for automating user scenarios at the UI layer and checking the behavior of the system as a whole. This tool should be used for [User Journey Testing](/can-you-really-automate-a-user-journey/), encompassing many user stories.
 
 When we get to System Integration Testing or UI Testing, it is best to use Selenium without the underlying Cucumber framework as trying to write Cucumber feature files for user journeys, can get very cumbersome and would not serve the purpose the tool is built for.
 

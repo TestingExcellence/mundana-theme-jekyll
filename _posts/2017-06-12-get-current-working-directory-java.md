@@ -2,16 +2,19 @@
 layout: post
 title: "How to Get the Current Working Directory in Java"
 author: Amir
-categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+tags: [ java ]
+image: assets/images/java-current-working-directory.jpg
 ---
 
 The current working directory means the root folder of your current Java project. We can get the current working directory in Java using the following system property function:
 
-    String cwd = System.getProperty("user.dir");
+```java
+String cwd = System.getProperty("user.dir");
+```
 
 Example:
 
+```java
     public class CurrentWorkingDirectory {
 
         public static void main (String args[]) {
@@ -21,9 +24,13 @@ Example:
 
         }
     }
+```
 
 Output:  
-`Current working directory: C:\workspace\Java4Testers`
+
+```bash
+Current working directory: C:\workspace\Java4Testers
+```
 
 **Further reading**
 

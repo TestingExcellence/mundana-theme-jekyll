@@ -2,8 +2,9 @@
 layout: post
 title: "How to Install JMeter With Extra Plugins on Mac OS Using HomeBrew"
 author: Amir
-categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+categories: [ Performance Testing ]
+tags: [ jmeter ]
+image: assets/images/install-jmeter-plugins-mac.png
 ---
 
 There are multiple approaches to installing JMeter on Mac OS. You can either do it manually just like we do in windows (i.e. downloading the binaries and executing the installer) or you can follow a more simplistic method to install JMeter via HomeBrew.
@@ -16,17 +17,23 @@ There are multiple approaches to installing JMeter on Mac OS. You can either do 
 
 **3.** If HomeBrew is not installed, run the following command to install HomeBrew on Mac
 
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```shell
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 Once HomeBrew is installed, we can continue to install JMeter.
 
 **4.** To install JMeter without the extra plugins, run the following command
 
-    brew install jmeter
+```shell
+brew install jmeter
+```
 
 **5.** To install JMeter with all the extra plugins, run the following command
 
-    brew install jmeter --with-plugins
+```shell
+brew install jmeter --with-plugins
+```
 
 **6.** Finally, verify the installation by executing `JMeter -v`
 

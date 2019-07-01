@@ -12,16 +12,16 @@
 <meta property="og:title" content="Karate API Testing Tool Cheat Sheet" />
 <meta name="author" content="Amir" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Karate is an opensource API testing tool developed by Peter Thomas from Intuit. Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool." />
-<meta property="og:description" content="Karate is an opensource API testing tool developed by Peter Thomas from Intuit. Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool." />
+<meta name="description" content="Karate is an opensource API testing tool developed by Peter Thomas from Intuit. Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool. Because Karate sits on top of cucumber, it inherits all the functionalities of cucumber, so you can write your API tests in simple Given When Then format and utilize all the cucumber keywords such as Feature, Scenario Outline, Scenario, Examples, Feature tagging. I’ve created this cheat sheet to help anyone who is involved in testing APIs, giving examples of how to use the Karate tool. Please note, this cheat sheet is just the tip of the iceberg. Karate has many other features that are not mentioned here. This list is just the most common operations typically used when testing APIs. Add the dependencies (pom.xml) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 &lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;maven.compiler.plugin&gt;3.7.0&lt;/maven.compiler.plugin&gt; &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt; &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;karate.version&gt;0.8.0.RC4&lt;/karate.version&gt; &lt;cucumber.reporting.version&gt;3.13.0&lt;/cucumber.reporting.version&gt; &lt;/properties&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt; &lt;artifactId&gt;karate-core&lt;/artifactId&gt; &lt;version&gt;${karate.version}&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt; &lt;artifactId&gt;karate-apache&lt;/artifactId&gt; &lt;version&gt;${karate.version}&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt; &lt;artifactId&gt;karate-testng&lt;/artifactId&gt; &lt;version&gt;${karate.version}&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;net.masterthought&lt;/groupId&gt; &lt;artifactId&gt;cucumber-reporting&lt;/artifactId&gt; &lt;version&gt;${cucumber.reporting.version}&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt; Project Structure You can organize and structure your maven project like this: karate-config.js This is where you can create variables which have a global scope. Karate reads this file before executing any scenario. This comes in very handy when switching environments which specific variables are used for different environments 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 function() { var env = karate.env; // get java system property &#39;karate.env&#39; karate.log(&#39;karate.env selected environment was:&#39;, env); karate.configure(&quot;ssl&quot;, true) if (!env) { env = &#39;dev&#39;; //env can be anything: dev, qa, staging, etc. } var config = { env: env, AM_USERNAME: &#39;devuser&#39;, AM_PASSWORD: &#39;devpass&#39;, AM_HOST: &#39;https://am.&#39;+env+&#39;.example.net&#39;, AM_AUTHENTICATE_PATH: &#39;/am/json/realms/root/authenticate&#39;, IDM_USERNAME: &#39;devuser&#39;, IDM_PASSWORD: &#39;devpass&#39;, IDM_HOST: &#39;https://idm.&#39;+env+&#39;.example.net&#39;, IDM_MANAGED_USER_PATH: &#39;/idm/managed/user&#39;, }; if(env == &#39;qa&#39;) { config.AM_USERNAME: &#39;myUserName&#39; config.AM_PASSWORD: &#39;myPa55word&#39; } if(env == &#39;live&#39;) { config.AM_USERNAME: &#39;admin&#39; config.AM_PASSWORD: &#39;secret&#39; } karate.log(&#39;OpenAM Host:&#39;, config.AM_HOST); karate.configure(&#39;connectTimeout&#39;, 60000); karate.configure(&#39;readTimeout&#39;, 60000); return config; } How to send an HTTP Request (Get, Post, Put, Delete, Patch) 1 2 3 4 5 6 7 8 9 10 11 12 13 @FR Feature: AM Admin Login Scenario: Login as Admin to AM and get token Given header X-OpenAM-Username = AM_USERNAME Given header X-OpenAM-Password = AM_PASSWORD Given url AM_HOST + AM_AUTHENTICATE_PATH And request &#39;&#39; When method POST Then status 200 * assert response.tokenId != null * def tokenId = response.tokenId In the above example, AM_USERNAME, AM_PASSWORD, AM_HOST, and AM_AUTHENTICATE_PATH come from the karate-config.js file. ‘’ can be interpreted as any of Given, When, Then, And, but when an action doesn’t serve a context, we can use ‘’. ’+’ acts as a concatenate operator The above example sends an empty post body request. We can just use ‘ ‘ The method can be any valid HTTP verb (Get, Post, Put, Patch, Delete) ‘def’ is used to store a value in a variable. header, url, request, method, status, response are all karate’s keywords forming the DSL. For the full list of keywords, visit Intuit. In the above example, the response is JSON format, so we can use karate’s builtin JsonPath notation to parse the response. Request Chaining with multiple API calls 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 Feature: request chaining with multiple api calls Scenario: chain request demo * json req = read(&#39;classpath:com/example/templates/idm/create-user-template.json&#39;) * def user = req.givenName Given header X-Username = &#39;anonymous&#39; Given header X-Password = &#39;anonymous&#39; Given url AM_HOST + &#39;/some/endpoint And request &#39;&#39; When method POST * def authId = response.authId * def payload1 = &quot;&quot;&quot; {&quot;authId&quot;:&quot;${authId}&quot;,&quot;callbacks&quot;:[{&quot;type&quot;:&quot;NameCallback&quot;,&quot;output&quot;:[{&quot;name&quot;:&quot;prompt&quot;,&quot;value&quot;:&quot;Email Address&quot;}],&quot;input&quot;:[{&quot;name&quot;:&quot;IDToken0&quot;,&quot;value&quot;:&quot;${user}@putsbox.com&quot;}]}]} &quot;&quot;&quot; * replace payload1 | token | value | | ${authId} | authId | | ${user} | user | * json mypayload1 = payload1 Given header X-Username = &#39;anonymous&#39; Given header X-Password = &#39;anonymous&#39; Given url AM_HOST + &#39;/openam/some-other-endpoint And request mypayload1 When method POST In the above example, the first call is made and the authId is parsed from the response and saved in a variable called authId. We then replace the second payload with the authId retrieved in the first call. We then use the new payload to send to the next API call. How to read request templates and call other feature files We can make our scenarios reusable and call them from other feature files. In this example, we can create a “generic” create-user.feature file where we can send the create user request but with a different request body 1 2 3 4 5 6 7 8 9 10 11 Feature: Create User in IDM Scenario: Create user in IDM with given guid Given header X-Requested-With = &#39;Swagger-UI&#39; Given header X-OpenIDM-Username = IDM_USERNAME Given header X-OpenIDM-Password = IDM_PASSWORD Given url IDM_HOST + IDM_MANAGED_USER_PATH And request __arg When method POST Then status 201 Note, in the above example, we are using ‘__arg’ as the post body request. We can then call the above feature file and pass in the required post body, which in turn we can read from a template 1 2 3 4 5 6 Feature: Create a user Scenario: Create user in IDM * json myReq = read(&#39;classpath:com/example/templates/idm/idm-create-user-template.json&#39;) * call read(&#39;classpath:com/example/idm/idm-create-user.feature&#39;) myReq The above code reads a template which is in location com/example/templates/idm/idm-create-user-template.json and stores it as a JSON variable called myReq Then we can send the JSON variable to the other feature file using the call method. The template looks like 1 2 3 4 5 6 7 8 { &quot;mail&quot; : &quot;david@putsbox.com&quot;, &quot;givenName&quot; : &quot;david&quot;, &quot;sn&quot; : &quot;putsbox&quot;, &quot;jobRole&quot; : &quot;developer&quot;, &quot;telephoneNumber&quot; : &quot;91234567890&quot;, &quot;dob&quot; : &quot;01/02/2010&quot;, } How to read other feature files - example 2 We can read a specific variable in the called feature file which is passed from a calling feature file 1 2 3 4 5 6 7 8 9 10 11 Feature: Create User in IDM Scenario: Create user in IDM with given guid Given header X-Requested-With = &#39;Swagger-UI&#39; Given header X-OpenIDM-Username = IDM_USERNAME Given header X-OpenIDM-Password = IDM_PASSWORD Given url IDM_HOST + IDM_MANAGED_USER_PATH And request __arg.emailAddress When method POST Then status 201 Note, in the above example, we are using ‘__arg.emailAddress’ as the post body request. We are only interested in sending the email address as the request We can then call the above feature file and pass in the required post body, which in turn we can read from a template 1 2 3 4 5 6 7 Feature: Create a user Scenario: Create user in IDM * json myReq = read(&#39;classpath:com/example/templates/idm/idm-create-user-template.json&#39;) * json emailAddress = &#39;{&quot;emailAddress&quot;: &quot;&#39; +myReq.mail+ &#39;&quot;}&#39; * call read(&#39;classpath:com/example/fr/idm/idm-create-user.feature&#39;) emailAddress The above code extracts the mail field from the JSON template. When we pass a variable to another feature file, it must be of type JSON, so the variable emailAddress must be a valid JSON. Then we can send the JSON variable to the other feature file using the call method and be sending the JSON variable, in this case, emailAddress. Create a Test Runner class We can execute the scenarios in the feature file using maven (which is useful to run the tests in a CI environment) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 import com.intuit.karate.cucumber.CucumberRunner; import com.intuit.karate.cucumber.KarateStats; import cucumber.api.CucumberOptions; import net.masterthought.cucumber.Configuration; import net.masterthought.cucumber.ReportBuilder; import org.apache.commons.io.FileUtils; import org.testng.annotations.Test; import java.io.File; import java.util.ArrayList; import java.util.Collection; import java.util.List; import static org.testng.AssertJUnit.assertTrue; @CucumberOptions(tags = {&quot;@FR&quot;, &quot;~@ignore&quot;}) public class TestRunner_FR { @Test public void testParallel() { String karateOutputPath = &quot;target/cucumber-html-reports&quot;; KarateStats stats = CucumberRunner.parallel(getClass(), 1, karateOutputPath); generateReport(karateOutputPath); assertTrue(&quot;there are scenario failures&quot;, stats.getFailCount() == 0); } private static void generateReport(String karateOutputPath) { Collection jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {&quot;json&quot;}, true); List jsonPaths = new ArrayList(jsonFiles.size()); for (File file : jsonFiles) { jsonPaths.add(file.getAbsolutePath()); } Configuration config = new Configuration(new File(&quot;target&quot;), &quot;YOUR PROJECT NAME&quot;); config.addClassifications(&quot;Environment&quot;, System.getProperty(&quot;karate.env&quot;)); ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config); reportBuilder.generateReports(); } } The above code runs all the feature files which are tagged as “@FR” but ignores all the tests which are tagged as “@ignore”. It also creates a cucumber report for visualizing the results of the test runs. Run the tests from a command line or CI 1 mvn clean test -DargLine=&quot;-Dkarate.env=staging&quot; -Dtest=TestRunner_FR Here, we are running the TestRunner_FR class and setting the environment as staging. Execute JavaScript in the Feature file In a feature file, we have the capability to execute javascript as well 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Feature: Generate a random session id Scenario: generate random session id * def random_string = &quot;&quot;&quot; function(s) { var text = &quot;&quot;; var possible = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&quot;; for (var i = 0; i &lt; s; i++) text += possible.charAt(Math.floor(Math.random() * possible.length)); return text; } &quot;&quot;&quot; * def sessionId = random_string(10) The above code generates a random string of length 10 and saves it in a variable called sessionId. Data Driven Tests Since Karate sits on top of cucumber, data-driven testing comes as default 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 Feature: Data driven testing example Scenario Outline: An &#39;Invalid input request&#39; error is returned if required parameters have incorrect values. * def attribute_name = &#39;&lt;name_attribute&gt;&#39; * xml malformed_request = &lt;method_call&gt; * json activate_request = malformed_request * def activate_response = call read(&#39;activate.feature&#39;) activate_request * match activate_response.contentType == &#39;text/xml;charset=ISO-8859-1&#39; * match activate_response.gas_version == &#39;5.2.7&#39; * match activate_response.error_code == &#39;1000&#39; Examples: | name_attribute | method_call | | auth_method | Java.type(&#39;com.example.StringUtil&#39;).removeNodeByAttribute(xml_req, attribute_name) | | app_url | Java.type(&#39;com.example.StringUtil&#39;).removeNodeByAttribute(xml_req, attribute_name) | The example above utilizes Cucumber’s Scenario Outline and Examples keywords to create data-driven tests. To read each parameter, we use the angle brackets &lt;&gt; Call Java from a feature file 1 2 3 4 5 6 7 8 package com.example; public class StringUtil { public static String getNumberFromString(String text) { return text.replaceAll(&quot;\\D+&quot;, &quot;&quot;); } } 1 2 3 4 5 6 7 8 9 Feature: Call java demo Scenario: Get number from text Given url &#39;https://preview.putsbox.com/p/david/last.json&#39; When method GET * def emailText = response.text * def otpCode = Java.type(&#39;com.example.StringUtil&#39;).getNumberFromString(emailText) * print otpCode The above feature file calls a Java method in the class called StringUtil. Then saves the response of that call to otpCode variable. https://www.testingexcellence.com/set-multiple-headers-http-request-karate/" />
+<meta property="og:description" content="Karate is an opensource API testing tool developed by Peter Thomas from Intuit. Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool. Because Karate sits on top of cucumber, it inherits all the functionalities of cucumber, so you can write your API tests in simple Given When Then format and utilize all the cucumber keywords such as Feature, Scenario Outline, Scenario, Examples, Feature tagging. I’ve created this cheat sheet to help anyone who is involved in testing APIs, giving examples of how to use the Karate tool. Please note, this cheat sheet is just the tip of the iceberg. Karate has many other features that are not mentioned here. This list is just the most common operations typically used when testing APIs. Add the dependencies (pom.xml) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 &lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;maven.compiler.plugin&gt;3.7.0&lt;/maven.compiler.plugin&gt; &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt; &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;karate.version&gt;0.8.0.RC4&lt;/karate.version&gt; &lt;cucumber.reporting.version&gt;3.13.0&lt;/cucumber.reporting.version&gt; &lt;/properties&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt; &lt;artifactId&gt;karate-core&lt;/artifactId&gt; &lt;version&gt;${karate.version}&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt; &lt;artifactId&gt;karate-apache&lt;/artifactId&gt; &lt;version&gt;${karate.version}&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt; &lt;artifactId&gt;karate-testng&lt;/artifactId&gt; &lt;version&gt;${karate.version}&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;net.masterthought&lt;/groupId&gt; &lt;artifactId&gt;cucumber-reporting&lt;/artifactId&gt; &lt;version&gt;${cucumber.reporting.version}&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt; Project Structure You can organize and structure your maven project like this: karate-config.js This is where you can create variables which have a global scope. Karate reads this file before executing any scenario. This comes in very handy when switching environments which specific variables are used for different environments 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 function() { var env = karate.env; // get java system property &#39;karate.env&#39; karate.log(&#39;karate.env selected environment was:&#39;, env); karate.configure(&quot;ssl&quot;, true) if (!env) { env = &#39;dev&#39;; //env can be anything: dev, qa, staging, etc. } var config = { env: env, AM_USERNAME: &#39;devuser&#39;, AM_PASSWORD: &#39;devpass&#39;, AM_HOST: &#39;https://am.&#39;+env+&#39;.example.net&#39;, AM_AUTHENTICATE_PATH: &#39;/am/json/realms/root/authenticate&#39;, IDM_USERNAME: &#39;devuser&#39;, IDM_PASSWORD: &#39;devpass&#39;, IDM_HOST: &#39;https://idm.&#39;+env+&#39;.example.net&#39;, IDM_MANAGED_USER_PATH: &#39;/idm/managed/user&#39;, }; if(env == &#39;qa&#39;) { config.AM_USERNAME: &#39;myUserName&#39; config.AM_PASSWORD: &#39;myPa55word&#39; } if(env == &#39;live&#39;) { config.AM_USERNAME: &#39;admin&#39; config.AM_PASSWORD: &#39;secret&#39; } karate.log(&#39;OpenAM Host:&#39;, config.AM_HOST); karate.configure(&#39;connectTimeout&#39;, 60000); karate.configure(&#39;readTimeout&#39;, 60000); return config; } How to send an HTTP Request (Get, Post, Put, Delete, Patch) 1 2 3 4 5 6 7 8 9 10 11 12 13 @FR Feature: AM Admin Login Scenario: Login as Admin to AM and get token Given header X-OpenAM-Username = AM_USERNAME Given header X-OpenAM-Password = AM_PASSWORD Given url AM_HOST + AM_AUTHENTICATE_PATH And request &#39;&#39; When method POST Then status 200 * assert response.tokenId != null * def tokenId = response.tokenId In the above example, AM_USERNAME, AM_PASSWORD, AM_HOST, and AM_AUTHENTICATE_PATH come from the karate-config.js file. ‘’ can be interpreted as any of Given, When, Then, And, but when an action doesn’t serve a context, we can use ‘’. ’+’ acts as a concatenate operator The above example sends an empty post body request. We can just use ‘ ‘ The method can be any valid HTTP verb (Get, Post, Put, Patch, Delete) ‘def’ is used to store a value in a variable. header, url, request, method, status, response are all karate’s keywords forming the DSL. For the full list of keywords, visit Intuit. In the above example, the response is JSON format, so we can use karate’s builtin JsonPath notation to parse the response. Request Chaining with multiple API calls 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 Feature: request chaining with multiple api calls Scenario: chain request demo * json req = read(&#39;classpath:com/example/templates/idm/create-user-template.json&#39;) * def user = req.givenName Given header X-Username = &#39;anonymous&#39; Given header X-Password = &#39;anonymous&#39; Given url AM_HOST + &#39;/some/endpoint And request &#39;&#39; When method POST * def authId = response.authId * def payload1 = &quot;&quot;&quot; {&quot;authId&quot;:&quot;${authId}&quot;,&quot;callbacks&quot;:[{&quot;type&quot;:&quot;NameCallback&quot;,&quot;output&quot;:[{&quot;name&quot;:&quot;prompt&quot;,&quot;value&quot;:&quot;Email Address&quot;}],&quot;input&quot;:[{&quot;name&quot;:&quot;IDToken0&quot;,&quot;value&quot;:&quot;${user}@putsbox.com&quot;}]}]} &quot;&quot;&quot; * replace payload1 | token | value | | ${authId} | authId | | ${user} | user | * json mypayload1 = payload1 Given header X-Username = &#39;anonymous&#39; Given header X-Password = &#39;anonymous&#39; Given url AM_HOST + &#39;/openam/some-other-endpoint And request mypayload1 When method POST In the above example, the first call is made and the authId is parsed from the response and saved in a variable called authId. We then replace the second payload with the authId retrieved in the first call. We then use the new payload to send to the next API call. How to read request templates and call other feature files We can make our scenarios reusable and call them from other feature files. In this example, we can create a “generic” create-user.feature file where we can send the create user request but with a different request body 1 2 3 4 5 6 7 8 9 10 11 Feature: Create User in IDM Scenario: Create user in IDM with given guid Given header X-Requested-With = &#39;Swagger-UI&#39; Given header X-OpenIDM-Username = IDM_USERNAME Given header X-OpenIDM-Password = IDM_PASSWORD Given url IDM_HOST + IDM_MANAGED_USER_PATH And request __arg When method POST Then status 201 Note, in the above example, we are using ‘__arg’ as the post body request. We can then call the above feature file and pass in the required post body, which in turn we can read from a template 1 2 3 4 5 6 Feature: Create a user Scenario: Create user in IDM * json myReq = read(&#39;classpath:com/example/templates/idm/idm-create-user-template.json&#39;) * call read(&#39;classpath:com/example/idm/idm-create-user.feature&#39;) myReq The above code reads a template which is in location com/example/templates/idm/idm-create-user-template.json and stores it as a JSON variable called myReq Then we can send the JSON variable to the other feature file using the call method. The template looks like 1 2 3 4 5 6 7 8 { &quot;mail&quot; : &quot;david@putsbox.com&quot;, &quot;givenName&quot; : &quot;david&quot;, &quot;sn&quot; : &quot;putsbox&quot;, &quot;jobRole&quot; : &quot;developer&quot;, &quot;telephoneNumber&quot; : &quot;91234567890&quot;, &quot;dob&quot; : &quot;01/02/2010&quot;, } How to read other feature files - example 2 We can read a specific variable in the called feature file which is passed from a calling feature file 1 2 3 4 5 6 7 8 9 10 11 Feature: Create User in IDM Scenario: Create user in IDM with given guid Given header X-Requested-With = &#39;Swagger-UI&#39; Given header X-OpenIDM-Username = IDM_USERNAME Given header X-OpenIDM-Password = IDM_PASSWORD Given url IDM_HOST + IDM_MANAGED_USER_PATH And request __arg.emailAddress When method POST Then status 201 Note, in the above example, we are using ‘__arg.emailAddress’ as the post body request. We are only interested in sending the email address as the request We can then call the above feature file and pass in the required post body, which in turn we can read from a template 1 2 3 4 5 6 7 Feature: Create a user Scenario: Create user in IDM * json myReq = read(&#39;classpath:com/example/templates/idm/idm-create-user-template.json&#39;) * json emailAddress = &#39;{&quot;emailAddress&quot;: &quot;&#39; +myReq.mail+ &#39;&quot;}&#39; * call read(&#39;classpath:com/example/fr/idm/idm-create-user.feature&#39;) emailAddress The above code extracts the mail field from the JSON template. When we pass a variable to another feature file, it must be of type JSON, so the variable emailAddress must be a valid JSON. Then we can send the JSON variable to the other feature file using the call method and be sending the JSON variable, in this case, emailAddress. Create a Test Runner class We can execute the scenarios in the feature file using maven (which is useful to run the tests in a CI environment) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 import com.intuit.karate.cucumber.CucumberRunner; import com.intuit.karate.cucumber.KarateStats; import cucumber.api.CucumberOptions; import net.masterthought.cucumber.Configuration; import net.masterthought.cucumber.ReportBuilder; import org.apache.commons.io.FileUtils; import org.testng.annotations.Test; import java.io.File; import java.util.ArrayList; import java.util.Collection; import java.util.List; import static org.testng.AssertJUnit.assertTrue; @CucumberOptions(tags = {&quot;@FR&quot;, &quot;~@ignore&quot;}) public class TestRunner_FR { @Test public void testParallel() { String karateOutputPath = &quot;target/cucumber-html-reports&quot;; KarateStats stats = CucumberRunner.parallel(getClass(), 1, karateOutputPath); generateReport(karateOutputPath); assertTrue(&quot;there are scenario failures&quot;, stats.getFailCount() == 0); } private static void generateReport(String karateOutputPath) { Collection jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {&quot;json&quot;}, true); List jsonPaths = new ArrayList(jsonFiles.size()); for (File file : jsonFiles) { jsonPaths.add(file.getAbsolutePath()); } Configuration config = new Configuration(new File(&quot;target&quot;), &quot;YOUR PROJECT NAME&quot;); config.addClassifications(&quot;Environment&quot;, System.getProperty(&quot;karate.env&quot;)); ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config); reportBuilder.generateReports(); } } The above code runs all the feature files which are tagged as “@FR” but ignores all the tests which are tagged as “@ignore”. It also creates a cucumber report for visualizing the results of the test runs. Run the tests from a command line or CI 1 mvn clean test -DargLine=&quot;-Dkarate.env=staging&quot; -Dtest=TestRunner_FR Here, we are running the TestRunner_FR class and setting the environment as staging. Execute JavaScript in the Feature file In a feature file, we have the capability to execute javascript as well 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Feature: Generate a random session id Scenario: generate random session id * def random_string = &quot;&quot;&quot; function(s) { var text = &quot;&quot;; var possible = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&quot;; for (var i = 0; i &lt; s; i++) text += possible.charAt(Math.floor(Math.random() * possible.length)); return text; } &quot;&quot;&quot; * def sessionId = random_string(10) The above code generates a random string of length 10 and saves it in a variable called sessionId. Data Driven Tests Since Karate sits on top of cucumber, data-driven testing comes as default 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 Feature: Data driven testing example Scenario Outline: An &#39;Invalid input request&#39; error is returned if required parameters have incorrect values. * def attribute_name = &#39;&lt;name_attribute&gt;&#39; * xml malformed_request = &lt;method_call&gt; * json activate_request = malformed_request * def activate_response = call read(&#39;activate.feature&#39;) activate_request * match activate_response.contentType == &#39;text/xml;charset=ISO-8859-1&#39; * match activate_response.gas_version == &#39;5.2.7&#39; * match activate_response.error_code == &#39;1000&#39; Examples: | name_attribute | method_call | | auth_method | Java.type(&#39;com.example.StringUtil&#39;).removeNodeByAttribute(xml_req, attribute_name) | | app_url | Java.type(&#39;com.example.StringUtil&#39;).removeNodeByAttribute(xml_req, attribute_name) | The example above utilizes Cucumber’s Scenario Outline and Examples keywords to create data-driven tests. To read each parameter, we use the angle brackets &lt;&gt; Call Java from a feature file 1 2 3 4 5 6 7 8 package com.example; public class StringUtil { public static String getNumberFromString(String text) { return text.replaceAll(&quot;\\D+&quot;, &quot;&quot;); } } 1 2 3 4 5 6 7 8 9 Feature: Call java demo Scenario: Get number from text Given url &#39;https://preview.putsbox.com/p/david/last.json&#39; When method GET * def emailText = response.text * def otpCode = Java.type(&#39;com.example.StringUtil&#39;).getNumberFromString(emailText) * print otpCode The above feature file calls a Java method in the class called StringUtil. Then saves the response of that call to otpCode variable. https://www.testingexcellence.com/set-multiple-headers-http-request-karate/" />
 <link rel="canonical" href="http://localhost:4000/karate-api-testing-tool-cheat-sheet/" />
 <meta property="og:url" content="http://localhost:4000/karate-api-testing-tool-cheat-sheet/" />
 <meta property="og:site_name" content="Testing Excellence" />
-<meta property="og:image" content="http://localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:image" content="http://localhost:4000/assets/images/karate-api-testing-tool.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-05-30T00:00:00+01:00" />
 <script type="application/ld+json">
-{"description":"Karate is an opensource API testing tool developed by Peter Thomas from Intuit. Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"http://localhost:4000/karate-api-testing-tool-cheat-sheet/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"http://localhost:4000/assets/images/coming-soon.jpg","headline":"Karate API Testing Tool Cheat Sheet","dateModified":"2018-05-30T00:00:00+01:00","datePublished":"2018-05-30T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/karate-api-testing-tool-cheat-sheet/"},"@context":"http://schema.org"}</script>
+{"description":"Karate is an opensource API testing tool developed by Peter Thomas from Intuit. Karate is built on top of HttpClient and Cucumber and has its own DSL to make API testing very easy. Although been around for almost a year, it has matured very quickly and has all the capabilities expected from an API testing tool. Because Karate sits on top of cucumber, it inherits all the functionalities of cucumber, so you can write your API tests in simple Given When Then format and utilize all the cucumber keywords such as Feature, Scenario Outline, Scenario, Examples, Feature tagging. I’ve created this cheat sheet to help anyone who is involved in testing APIs, giving examples of how to use the Karate tool. Please note, this cheat sheet is just the tip of the iceberg. Karate has many other features that are not mentioned here. This list is just the most common operations typically used when testing APIs. Add the dependencies (pom.xml) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 &lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;maven.compiler.plugin&gt;3.7.0&lt;/maven.compiler.plugin&gt; &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt; &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;karate.version&gt;0.8.0.RC4&lt;/karate.version&gt; &lt;cucumber.reporting.version&gt;3.13.0&lt;/cucumber.reporting.version&gt; &lt;/properties&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt; &lt;artifactId&gt;karate-core&lt;/artifactId&gt; &lt;version&gt;${karate.version}&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt; &lt;artifactId&gt;karate-apache&lt;/artifactId&gt; &lt;version&gt;${karate.version}&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt; &lt;artifactId&gt;karate-testng&lt;/artifactId&gt; &lt;version&gt;${karate.version}&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;net.masterthought&lt;/groupId&gt; &lt;artifactId&gt;cucumber-reporting&lt;/artifactId&gt; &lt;version&gt;${cucumber.reporting.version}&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt; Project Structure You can organize and structure your maven project like this: karate-config.js This is where you can create variables which have a global scope. Karate reads this file before executing any scenario. This comes in very handy when switching environments which specific variables are used for different environments 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 function() { var env = karate.env; // get java system property &#39;karate.env&#39; karate.log(&#39;karate.env selected environment was:&#39;, env); karate.configure(&quot;ssl&quot;, true) if (!env) { env = &#39;dev&#39;; //env can be anything: dev, qa, staging, etc. } var config = { env: env, AM_USERNAME: &#39;devuser&#39;, AM_PASSWORD: &#39;devpass&#39;, AM_HOST: &#39;https://am.&#39;+env+&#39;.example.net&#39;, AM_AUTHENTICATE_PATH: &#39;/am/json/realms/root/authenticate&#39;, IDM_USERNAME: &#39;devuser&#39;, IDM_PASSWORD: &#39;devpass&#39;, IDM_HOST: &#39;https://idm.&#39;+env+&#39;.example.net&#39;, IDM_MANAGED_USER_PATH: &#39;/idm/managed/user&#39;, }; if(env == &#39;qa&#39;) { config.AM_USERNAME: &#39;myUserName&#39; config.AM_PASSWORD: &#39;myPa55word&#39; } if(env == &#39;live&#39;) { config.AM_USERNAME: &#39;admin&#39; config.AM_PASSWORD: &#39;secret&#39; } karate.log(&#39;OpenAM Host:&#39;, config.AM_HOST); karate.configure(&#39;connectTimeout&#39;, 60000); karate.configure(&#39;readTimeout&#39;, 60000); return config; } How to send an HTTP Request (Get, Post, Put, Delete, Patch) 1 2 3 4 5 6 7 8 9 10 11 12 13 @FR Feature: AM Admin Login Scenario: Login as Admin to AM and get token Given header X-OpenAM-Username = AM_USERNAME Given header X-OpenAM-Password = AM_PASSWORD Given url AM_HOST + AM_AUTHENTICATE_PATH And request &#39;&#39; When method POST Then status 200 * assert response.tokenId != null * def tokenId = response.tokenId In the above example, AM_USERNAME, AM_PASSWORD, AM_HOST, and AM_AUTHENTICATE_PATH come from the karate-config.js file. ‘’ can be interpreted as any of Given, When, Then, And, but when an action doesn’t serve a context, we can use ‘’. ’+’ acts as a concatenate operator The above example sends an empty post body request. We can just use ‘ ‘ The method can be any valid HTTP verb (Get, Post, Put, Patch, Delete) ‘def’ is used to store a value in a variable. header, url, request, method, status, response are all karate’s keywords forming the DSL. For the full list of keywords, visit Intuit. In the above example, the response is JSON format, so we can use karate’s builtin JsonPath notation to parse the response. Request Chaining with multiple API calls 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 Feature: request chaining with multiple api calls Scenario: chain request demo * json req = read(&#39;classpath:com/example/templates/idm/create-user-template.json&#39;) * def user = req.givenName Given header X-Username = &#39;anonymous&#39; Given header X-Password = &#39;anonymous&#39; Given url AM_HOST + &#39;/some/endpoint And request &#39;&#39; When method POST * def authId = response.authId * def payload1 = &quot;&quot;&quot; {&quot;authId&quot;:&quot;${authId}&quot;,&quot;callbacks&quot;:[{&quot;type&quot;:&quot;NameCallback&quot;,&quot;output&quot;:[{&quot;name&quot;:&quot;prompt&quot;,&quot;value&quot;:&quot;Email Address&quot;}],&quot;input&quot;:[{&quot;name&quot;:&quot;IDToken0&quot;,&quot;value&quot;:&quot;${user}@putsbox.com&quot;}]}]} &quot;&quot;&quot; * replace payload1 | token | value | | ${authId} | authId | | ${user} | user | * json mypayload1 = payload1 Given header X-Username = &#39;anonymous&#39; Given header X-Password = &#39;anonymous&#39; Given url AM_HOST + &#39;/openam/some-other-endpoint And request mypayload1 When method POST In the above example, the first call is made and the authId is parsed from the response and saved in a variable called authId. We then replace the second payload with the authId retrieved in the first call. We then use the new payload to send to the next API call. How to read request templates and call other feature files We can make our scenarios reusable and call them from other feature files. In this example, we can create a “generic” create-user.feature file where we can send the create user request but with a different request body 1 2 3 4 5 6 7 8 9 10 11 Feature: Create User in IDM Scenario: Create user in IDM with given guid Given header X-Requested-With = &#39;Swagger-UI&#39; Given header X-OpenIDM-Username = IDM_USERNAME Given header X-OpenIDM-Password = IDM_PASSWORD Given url IDM_HOST + IDM_MANAGED_USER_PATH And request __arg When method POST Then status 201 Note, in the above example, we are using ‘__arg’ as the post body request. We can then call the above feature file and pass in the required post body, which in turn we can read from a template 1 2 3 4 5 6 Feature: Create a user Scenario: Create user in IDM * json myReq = read(&#39;classpath:com/example/templates/idm/idm-create-user-template.json&#39;) * call read(&#39;classpath:com/example/idm/idm-create-user.feature&#39;) myReq The above code reads a template which is in location com/example/templates/idm/idm-create-user-template.json and stores it as a JSON variable called myReq Then we can send the JSON variable to the other feature file using the call method. The template looks like 1 2 3 4 5 6 7 8 { &quot;mail&quot; : &quot;david@putsbox.com&quot;, &quot;givenName&quot; : &quot;david&quot;, &quot;sn&quot; : &quot;putsbox&quot;, &quot;jobRole&quot; : &quot;developer&quot;, &quot;telephoneNumber&quot; : &quot;91234567890&quot;, &quot;dob&quot; : &quot;01/02/2010&quot;, } How to read other feature files - example 2 We can read a specific variable in the called feature file which is passed from a calling feature file 1 2 3 4 5 6 7 8 9 10 11 Feature: Create User in IDM Scenario: Create user in IDM with given guid Given header X-Requested-With = &#39;Swagger-UI&#39; Given header X-OpenIDM-Username = IDM_USERNAME Given header X-OpenIDM-Password = IDM_PASSWORD Given url IDM_HOST + IDM_MANAGED_USER_PATH And request __arg.emailAddress When method POST Then status 201 Note, in the above example, we are using ‘__arg.emailAddress’ as the post body request. We are only interested in sending the email address as the request We can then call the above feature file and pass in the required post body, which in turn we can read from a template 1 2 3 4 5 6 7 Feature: Create a user Scenario: Create user in IDM * json myReq = read(&#39;classpath:com/example/templates/idm/idm-create-user-template.json&#39;) * json emailAddress = &#39;{&quot;emailAddress&quot;: &quot;&#39; +myReq.mail+ &#39;&quot;}&#39; * call read(&#39;classpath:com/example/fr/idm/idm-create-user.feature&#39;) emailAddress The above code extracts the mail field from the JSON template. When we pass a variable to another feature file, it must be of type JSON, so the variable emailAddress must be a valid JSON. Then we can send the JSON variable to the other feature file using the call method and be sending the JSON variable, in this case, emailAddress. Create a Test Runner class We can execute the scenarios in the feature file using maven (which is useful to run the tests in a CI environment) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 import com.intuit.karate.cucumber.CucumberRunner; import com.intuit.karate.cucumber.KarateStats; import cucumber.api.CucumberOptions; import net.masterthought.cucumber.Configuration; import net.masterthought.cucumber.ReportBuilder; import org.apache.commons.io.FileUtils; import org.testng.annotations.Test; import java.io.File; import java.util.ArrayList; import java.util.Collection; import java.util.List; import static org.testng.AssertJUnit.assertTrue; @CucumberOptions(tags = {&quot;@FR&quot;, &quot;~@ignore&quot;}) public class TestRunner_FR { @Test public void testParallel() { String karateOutputPath = &quot;target/cucumber-html-reports&quot;; KarateStats stats = CucumberRunner.parallel(getClass(), 1, karateOutputPath); generateReport(karateOutputPath); assertTrue(&quot;there are scenario failures&quot;, stats.getFailCount() == 0); } private static void generateReport(String karateOutputPath) { Collection jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {&quot;json&quot;}, true); List jsonPaths = new ArrayList(jsonFiles.size()); for (File file : jsonFiles) { jsonPaths.add(file.getAbsolutePath()); } Configuration config = new Configuration(new File(&quot;target&quot;), &quot;YOUR PROJECT NAME&quot;); config.addClassifications(&quot;Environment&quot;, System.getProperty(&quot;karate.env&quot;)); ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config); reportBuilder.generateReports(); } } The above code runs all the feature files which are tagged as “@FR” but ignores all the tests which are tagged as “@ignore”. It also creates a cucumber report for visualizing the results of the test runs. Run the tests from a command line or CI 1 mvn clean test -DargLine=&quot;-Dkarate.env=staging&quot; -Dtest=TestRunner_FR Here, we are running the TestRunner_FR class and setting the environment as staging. Execute JavaScript in the Feature file In a feature file, we have the capability to execute javascript as well 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Feature: Generate a random session id Scenario: generate random session id * def random_string = &quot;&quot;&quot; function(s) { var text = &quot;&quot;; var possible = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&quot;; for (var i = 0; i &lt; s; i++) text += possible.charAt(Math.floor(Math.random() * possible.length)); return text; } &quot;&quot;&quot; * def sessionId = random_string(10) The above code generates a random string of length 10 and saves it in a variable called sessionId. Data Driven Tests Since Karate sits on top of cucumber, data-driven testing comes as default 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 Feature: Data driven testing example Scenario Outline: An &#39;Invalid input request&#39; error is returned if required parameters have incorrect values. * def attribute_name = &#39;&lt;name_attribute&gt;&#39; * xml malformed_request = &lt;method_call&gt; * json activate_request = malformed_request * def activate_response = call read(&#39;activate.feature&#39;) activate_request * match activate_response.contentType == &#39;text/xml;charset=ISO-8859-1&#39; * match activate_response.gas_version == &#39;5.2.7&#39; * match activate_response.error_code == &#39;1000&#39; Examples: | name_attribute | method_call | | auth_method | Java.type(&#39;com.example.StringUtil&#39;).removeNodeByAttribute(xml_req, attribute_name) | | app_url | Java.type(&#39;com.example.StringUtil&#39;).removeNodeByAttribute(xml_req, attribute_name) | The example above utilizes Cucumber’s Scenario Outline and Examples keywords to create data-driven tests. To read each parameter, we use the angle brackets &lt;&gt; Call Java from a feature file 1 2 3 4 5 6 7 8 package com.example; public class StringUtil { public static String getNumberFromString(String text) { return text.replaceAll(&quot;\\\\D+&quot;, &quot;&quot;); } } 1 2 3 4 5 6 7 8 9 Feature: Call java demo Scenario: Get number from text Given url &#39;https://preview.putsbox.com/p/david/last.json&#39; When method GET * def emailText = response.text * def otpCode = Java.type(&#39;com.example.StringUtil&#39;).getNumberFromString(emailText) * print otpCode The above feature file calls a Java method in the class called StringUtil. Then saves the response of that call to otpCode variable. https://www.testingexcellence.com/set-multiple-headers-http-request-karate/","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"http://localhost:4000/karate-api-testing-tool-cheat-sheet/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"http://localhost:4000/assets/images/karate-api-testing-tool.png","headline":"Karate API Testing Tool Cheat Sheet","dateModified":"2018-05-30T00:00:00+01:00","datePublished":"2018-05-30T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/karate-api-testing-tool-cheat-sheet/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -168,7 +168,7 @@
                             <span class="text-muted d-block mt-1">May 30, 2018 · <span class="reading-time">
   
   
-    11 mins read
+    14 mins read
   
 </span>
     </span>
@@ -192,7 +192,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Karate API Testing Tool Cheat Sheet">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/karate-api-testing-tool.png" alt="Karate API Testing Tool Cheat Sheet">
             
 
             
@@ -214,7 +214,7 @@
 
 <h3 id="add-the-dependencies-pomxml">Add the dependencies (pom.xml)</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -248,53 +248,52 @@
 32
 33
 34
-</pre></td><td class="rouge-code"><pre>&lt;properties&gt;
-    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-    &lt;maven.compiler.plugin&gt;3.7.0&lt;/maven.compiler.plugin&gt;
-    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
-    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
-    &lt;java.version&gt;1.8&lt;/java.version&gt;
-    &lt;karate.version&gt;0.8.0.RC4&lt;/karate.version&gt;
-    &lt;cucumber.reporting.version&gt;3.13.0&lt;/cucumber.reporting.version&gt;
-&lt;/properties&gt;
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+    <span class="nt">&lt;maven.compiler.plugin&gt;</span>3.7.0<span class="nt">&lt;/maven.compiler.plugin&gt;</span>
+    <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+    <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+    <span class="nt">&lt;java.version&gt;</span>1.8<span class="nt">&lt;/java.version&gt;</span>
+    <span class="nt">&lt;karate.version&gt;</span>0.8.0.RC4<span class="nt">&lt;/karate.version&gt;</span>
+    <span class="nt">&lt;cucumber.reporting.version&gt;</span>3.13.0<span class="nt">&lt;/cucumber.reporting.version&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
 
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt;
-        &lt;artifactId&gt;karate-core&lt;/artifactId&gt;
-        &lt;version&gt;${karate.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt;
-        &lt;artifactId&gt;karate-apache&lt;/artifactId&gt;
-        &lt;version&gt;${karate.version}&lt;/version&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;com.intuit.karate&lt;/groupId&gt;
-        &lt;artifactId&gt;karate-testng&lt;/artifactId&gt;
-        &lt;version&gt;${karate.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;net.masterthought&lt;/groupId&gt;
-        &lt;artifactId&gt;cucumber-reporting&lt;/artifactId&gt;
-        &lt;version&gt;${cucumber.reporting.version}&lt;/version&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;
+<span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.intuit.karate<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>karate-core<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${karate.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.intuit.karate<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>karate-apache<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${karate.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.intuit.karate<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>karate-testng<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${karate.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>net.masterthought<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>cucumber-reporting<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${cucumber.reporting.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
-
 <h3 id="project-structure">Project Structure</h3>
 
 <p>You can organize and structure your maven project like this:</p>
 
-<p><a href="https://www.testingexcellence.com/wp-content/uploads/2018/05/Screen-Shot-2018-05-30-at-23.34.57.png"><img src="https://www.testingexcellence.com/wp-content/uploads/2018/05/Screen-Shot-2018-05-30-at-23.34.57.png" alt="" /></a></p>
+<p><a href="/assets/images/karate-api-testing-project-setup.png"><img src="/assets/images/karate-api-testing-project-setup.png" alt="Karate API Testing project setup" /></a></p>
 
 <h3 id="karate-configjs">karate-config.js</h3>
 
 <p>This is where you can create variables which have a global scope. Karate reads this file before executing any scenario. This comes in very handy when switching environments which specific variables are used for different environments</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -335,52 +334,52 @@
 39
 40
 41
-</pre></td><td class="rouge-code"><pre>function() {
-  var env = karate.env; // get java system property 'karate.env'
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nx">karate</span><span class="p">.</span><span class="nx">env</span><span class="p">;</span> <span class="c1">// get java system property 'karate.env'</span>
 
-  karate.log('karate.env selected environment was:', env);
-  karate.configure("ssl", true)
+    <span class="nx">karate</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'karate.env selected environment was:'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
+    <span class="nx">karate</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="s2">"ssl"</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
 
-  if (!env) {
-    env = 'dev'; //env can be anything: dev, qa, staging, etc.
-  }
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">env</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="s1">'dev'</span><span class="p">;</span> <span class="c1">//env can be anything: dev, qa, staging, etc.</span>
+    <span class="p">}</span>
 
-  var config = {
-    env: env,
+    <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">env</span><span class="p">:</span> <span class="nx">env</span><span class="p">,</span>
 
-    AM_USERNAME: 'devuser',
-    AM_PASSWORD: 'devpass',
-    AM_HOST: 'https://am.'+env+'.example.net',
-    AM_AUTHENTICATE_PATH: '/am/json/realms/root/authenticate',
+    <span class="na">AM_USERNAME</span><span class="p">:</span> <span class="s1">'devuser'</span><span class="p">,</span>
+    <span class="na">AM_PASSWORD</span><span class="p">:</span> <span class="s1">'devpass'</span><span class="p">,</span>
+    <span class="na">AM_HOST</span><span class="p">:</span> <span class="s1">'https://am.'</span><span class="o">+</span><span class="nx">env</span><span class="o">+</span><span class="s1">'.example.net'</span><span class="p">,</span>
+    <span class="na">AM_AUTHENTICATE_PATH</span><span class="p">:</span> <span class="s1">'/am/json/realms/root/authenticate'</span><span class="p">,</span>
 
-    IDM_USERNAME: 'devuser',
-    IDM_PASSWORD: 'devpass',
-    IDM_HOST: 'https://idm.'+env+'.example.net',
-    IDM_MANAGED_USER_PATH: '/idm/managed/user',
-  };
+    <span class="na">IDM_USERNAME</span><span class="p">:</span> <span class="s1">'devuser'</span><span class="p">,</span>
+    <span class="na">IDM_PASSWORD</span><span class="p">:</span> <span class="s1">'devpass'</span><span class="p">,</span>
+    <span class="na">IDM_HOST</span><span class="p">:</span> <span class="s1">'https://idm.'</span><span class="o">+</span><span class="nx">env</span><span class="o">+</span><span class="s1">'.example.net'</span><span class="p">,</span>
+    <span class="na">IDM_MANAGED_USER_PATH</span><span class="p">:</span> <span class="s1">'/idm/managed/user'</span><span class="p">,</span>
+    <span class="p">};</span>
 
-  if(env == 'qa') {
-    config.AM_USERNAME: 'myUserName'
-    config.AM_PASSWORD: 'myPa55word'
-  }
+    <span class="k">if</span><span class="p">(</span><span class="nx">env</span> <span class="o">==</span> <span class="s1">'qa'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">config</span><span class="p">.</span><span class="nx">AM_USERNAME</span><span class="p">:</span> <span class="s1">'myUserName'</span>
+    <span class="nx">config</span><span class="p">.</span><span class="nx">AM_PASSWORD</span><span class="p">:</span> <span class="s1">'myPa55word'</span>
+    <span class="p">}</span>
 
-  if(env == 'live') {
-     config.AM_USERNAME: 'admin'
-     config.AM_PASSWORD: 'secret'
-  }
+    <span class="k">if</span><span class="p">(</span><span class="nx">env</span> <span class="o">==</span> <span class="s1">'live'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">config</span><span class="p">.</span><span class="nx">AM_USERNAME</span><span class="p">:</span> <span class="s1">'admin'</span>
+        <span class="nx">config</span><span class="p">.</span><span class="nx">AM_PASSWORD</span><span class="p">:</span> <span class="s1">'secret'</span>
+    <span class="p">}</span>
 
-  karate.log('OpenAM Host:', config.AM_HOST);
+    <span class="nx">karate</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'OpenAM Host:'</span><span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">AM_HOST</span><span class="p">);</span>
 
-  karate.configure('connectTimeout', 60000);
-  karate.configure('readTimeout', 60000);
+    <span class="nx">karate</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="s1">'connectTimeout'</span><span class="p">,</span> <span class="mi">60000</span><span class="p">);</span>
+    <span class="nx">karate</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="s1">'readTimeout'</span><span class="p">,</span> <span class="mi">60000</span><span class="p">);</span>
 
-  return config;
-}
+    <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="how-to-send-an-http-request-get-post-put-delete-patch">How to send an HTTP Request (Get, Post, Put, Delete, Patch)</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -393,26 +392,25 @@
 11
 12
 13
-</pre></td><td class="rouge-code"><pre>@FR
-Feature: AM Admin Login
+</pre></td><td class="rouge-code"><pre><span class="nt">@FR</span>
+<span class="kd">Feature</span><span class="p">:</span> AM Admin Login
 
-  Scenario: Login as Admin to AM and get token
-    Given header X-OpenAM-Username = AM_USERNAME
-    Given header X-OpenAM-Password = AM_PASSWORD
-    Given url AM_HOST + AM_AUTHENTICATE_PATH
-    And request ''
-    When method POST
-    Then status 200
+    <span class="kn">Scenario</span><span class="p">:</span> Login as Admin to AM and get token
+    <span class="nf">Given </span>header X-OpenAM-Username = AM_USERNAME
+    <span class="nf">Given </span>header X-OpenAM-Password = AM_PASSWORD
+    <span class="nf">Given </span>url AM_HOST + AM_AUTHENTICATE_PATH
+    <span class="nf">And </span>request ''
+    <span class="nf">When </span>method POST
+    <span class="nf">Then </span>status 200
 
-    * assert response.tokenId != null
-    * def tokenId = response.tokenId
+    <span class="nf">* </span>assert response.tokenId != null
+    <span class="nf">* </span>def tokenId = response.tokenId
 </pre></td></tr></tbody></table></code></pre></div></div>
+<p>In the above example, AM_USERNAME, AM_PASSWORD, AM_HOST, and AM_AUTHENTICATE_PATH come from the <code class="highlighter-rouge">karate-config.js</code> file.</p>
 
-<p>In the above example, AM_USERNAME, AM_PASSWORD, AM_HOST, and AM_AUTHENTICATE_PATH come from the karate-config.js file.</p>
+<p>‘<em>’ can be interpreted as any of Given, When, Then, And, but when an action doesn’t serve a context, we can use ‘</em>’.</p>
 
-<p>‘<em>****’ can be interpreted as any of Given, When, Then, And, but when an action doesn’t serve a context, we can use ‘</em>’.</p>
-
-<p>‘<strong>+</strong>’ acts as a concatenate operator</p>
+<p>’+’ acts as a concatenate operator</p>
 
 <p>The above example sends an empty post body request. We can just use ‘ ‘</p>
 
@@ -426,7 +424,7 @@ Feature: AM Admin Login
 
 <h3 id="request-chaining-with-multiple-api-calls">Request Chaining with multiple API calls</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -458,38 +456,38 @@ Feature: AM Admin Login
 30
 31
 32
-</pre></td><td class="rouge-code"><pre>Feature: request chaining with multiple api calls
+</pre></td><td class="rouge-code"><pre><span class="kd">Feature</span><span class="p">:</span> request chaining with multiple api calls
 
-Scenario: chain request demo
+<span class="kn">Scenario</span><span class="p">:</span> chain request demo
 
-    * json req = read('classpath:com/example/templates/idm/create-user-template.json')
-    * def user = req.givenName
+    <span class="err">* json req = read('classpath</span><span class="p">:</span><span class="err">com/example/templates/idm/create-user-template.json')</span>
+    <span class="nf">* </span>def user = req.givenName
 
-    Given header X-Username = 'anonymous'
-    Given header X-Password = 'anonymous'
-    Given url AM_HOST + '/some/endpoint
-    And request ''
-    When method POST
+    <span class="nf">Given </span>header X-Username = 'anonymous'
+    <span class="nf">Given </span>header X-Password = 'anonymous'
+    <span class="nf">Given </span>url AM_HOST + '/some/endpoint
+    <span class="nf">And </span>request ''
+    <span class="nf">When </span>method POST
 
-    * def authId = response.authId
+    <span class="nf">* </span>def authId = response.authId
 
-    * def payload1 =
-    """
+    <span class="nf">* </span>def payload1 =
+    <span class="s">"""
     {"authId":"${authId}","callbacks":[{"type":"NameCallback","output":[{"name":"prompt","value":"Email Address"}],"input":[{"name":"IDToken0","value":"${user}@putsbox.com"}]}]}
-    """
+    """</span>
 
-    * replace payload1
-    | token     | value  |
-    | ${authId} | authId |
-    | ${user}   | user   |
+    <span class="nf">* </span>replace payload1
+    <span class="p">|</span> <span class="nv">token</span>     <span class="p">|</span> <span class="nv">value</span>  <span class="p">|</span>
+    <span class="p">|</span> <span class="n">${authId}</span> <span class="p">|</span> <span class="n">authId</span> <span class="p">|</span>
+    <span class="p">|</span> <span class="n">${user}</span>   <span class="p">|</span> <span class="n">user</span>   <span class="p">|</span>
 
-    * json mypayload1 = payload1
+    <span class="nf">* </span>json mypayload1 = payload1
 
-    Given header X-Username = 'anonymous'
-    Given header X-Password = 'anonymous'
-    Given url AM_HOST + '/openam/some-other-endpoint
-    And request mypayload1
-    When method POST
+    <span class="nf">Given </span>header X-Username = 'anonymous'
+    <span class="nf">Given </span>header X-Password = 'anonymous'
+    <span class="nf">Given </span>url AM_HOST + '/openam/some-other-endpoint
+    <span class="nf">And </span>request mypayload1
+    <span class="nf">When </span>method POST
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>In the above example, the first call is made and the authId is parsed from the response and saved in a variable called authId. We then replace the second payload with the authId retrieved in the first call. We then use the new payload to send to the next API call.</p>
@@ -498,7 +496,7 @@ Scenario: chain request demo
 
 <p>We can make our scenarios reusable and call them from other feature files. In this example, we can create a “generic” create-user.feature file where we can send the create user request but with a different request body</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -509,35 +507,35 @@ Scenario: chain request demo
 9
 10
 11
-</pre></td><td class="rouge-code"><pre>Feature: Create User in IDM
+</pre></td><td class="rouge-code"><pre><span class="kd">Feature</span><span class="p">:</span> Create User in IDM
 
-  Scenario: Create user in IDM with given guid
+    <span class="kn">Scenario</span><span class="p">:</span> Create user in IDM with given guid
 
-    Given header X-Requested-With = 'Swagger-UI'
-    Given header X-OpenIDM-Username = IDM_USERNAME
-    Given header X-OpenIDM-Password = IDM_PASSWORD
-    Given url IDM_HOST + IDM_MANAGED_USER_PATH
-    And request __arg
-    When method POST
-    Then status 201
+    <span class="nf">Given </span>header X-Requested-With = 'Swagger-UI'
+    <span class="nf">Given </span>header X-OpenIDM-Username = IDM_USERNAME
+    <span class="nf">Given </span>header X-OpenIDM-Password = IDM_PASSWORD
+    <span class="nf">Given </span>url IDM_HOST + IDM_MANAGED_USER_PATH
+    <span class="nf">And </span>request __arg
+    <span class="nf">When </span>method POST
+    <span class="nf">Then </span>status 201
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Note, in the above example, we are using ‘__arg’ as the post body request.</p>
 
 <p>We can then call the above feature file and pass in the required post body, which in turn we can read from a template</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-</pre></td><td class="rouge-code"><pre>Feature: Create a user
+</pre></td><td class="rouge-code"><pre><span class="kd">Feature</span><span class="p">:</span> Create a user
 
-  Scenario: Create user in IDM 
+    <span class="kn">Scenario</span><span class="p">:</span> Create user in IDM 
 
-    * json myReq = read('classpath:com/example/templates/idm/idm-create-user-template.json')
-    * call read('classpath:com/example/idm/idm-create-user.feature') myReq
+    <span class="err">* json myReq = read('classpath</span><span class="p">:</span><span class="err">com/example/templates/idm/idm-create-user-template.json')</span>
+    <span class="err">* call read('classpath</span><span class="p">:</span><span class="err">com/example/idm/idm-create-user.feature')</span> <span class="err">myReq</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>The above code reads a template which is in location <code class="highlighter-rouge">com/example/templates/idm/idm-create-user-template.json</code> and stores it as a JSON variable called myReq</p>
@@ -546,7 +544,7 @@ Scenario: chain request demo
 
 <p>The template looks like</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -554,21 +552,21 @@ Scenario: chain request demo
 6
 7
 8
-</pre></td><td class="rouge-code"><pre>{
-  "mail" : "david@putsbox.com",
-  "givenName" : "david",
-  "sn" : "putsbox",
-  "jobRole" : "developer",
-  "telephoneNumber" : "91234567890",
-  "dob" : "01/02/2010",
-}
-</pre></td></tr></tbody></table></code></pre></div></div>
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+    </span><span class="s2">"mail"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"david@putsbox.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"givenName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"david"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sn"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"putsbox"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"jobRole"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"developer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"telephoneNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"91234567890"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dob"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"01/02/2010"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="how-to-read-other-feature-files---example-2">How to read other feature files - example 2</h3>
 
 <p>We can read a specific variable in the called feature file which is passed from a calling feature file</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -579,37 +577,37 @@ Scenario: chain request demo
 9
 10
 11
-</pre></td><td class="rouge-code"><pre>Feature: Create User in IDM
+</pre></td><td class="rouge-code"><pre><span class="kd">Feature</span><span class="p">:</span> Create User in IDM
 
-  Scenario: Create user in IDM with given guid
+    <span class="kn">Scenario</span><span class="p">:</span> Create user in IDM with given guid
 
-    Given header X-Requested-With = 'Swagger-UI'
-    Given header X-OpenIDM-Username = IDM_USERNAME
-    Given header X-OpenIDM-Password = IDM_PASSWORD
-    Given url IDM_HOST + IDM_MANAGED_USER_PATH
-    And request __arg.emailAddress
-    When method POST
-    Then status 201
+    <span class="nf">Given </span>header X-Requested-With = 'Swagger-UI'
+    <span class="nf">Given </span>header X-OpenIDM-Username = IDM_USERNAME
+    <span class="nf">Given </span>header X-OpenIDM-Password = IDM_PASSWORD
+    <span class="nf">Given </span>url IDM_HOST + IDM_MANAGED_USER_PATH
+    <span class="nf">And </span>request __arg.emailAddress
+    <span class="nf">When </span>method POST
+    <span class="nf">Then </span>status 201
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Note, in the above example, we are using ‘__arg.emailAddress’ as the post body request. We are only interested in sending the email address as the request</p>
 
 <p>We can then call the above feature file and pass in the required post body, which in turn we can read from a template</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="rouge-code"><pre>Feature: Create a user
+</pre></td><td class="rouge-code"><pre><span class="kd">Feature</span><span class="p">:</span> Create a user
 
-  Scenario: Create user in IDM 
+    <span class="kn">Scenario</span><span class="p">:</span> Create user in IDM 
 
-    * json myReq = read('classpath:com/example/templates/idm/idm-create-user-template.json')
-    * json emailAddress = '{"emailAddress": "' +myReq.mail+ '"}'
-    * call read('classpath:com/example/fr/idm/idm-create-user.feature') emailAddress
+    <span class="err">* json myReq = read('classpath</span><span class="p">:</span><span class="err">com/example/templates/idm/idm-create-user-template.json')</span>
+    <span class="err">* json emailAddress = '{"emailAddress"</span><span class="p">:</span> <span class="err">"'</span> <span class="err">+myReq.mail+</span> <span class="err">'"}'</span>
+    <span class="err">* call read('classpath</span><span class="p">:</span><span class="err">com/example/fr/idm/idm-create-user.feature')</span> <span class="err">emailAddress</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>The above code extracts the mail field from the JSON template. When we pass a variable to another feature file, it must be of type JSON, so the variable emailAddress must be a valid JSON.</p>
@@ -620,7 +618,7 @@ Scenario: chain request demo
 
 <p>We can execute the scenarios in the feature file using maven (which is useful to run the tests in a CI environment)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -658,44 +656,44 @@ Scenario: chain request demo
 36
 37
 38
-</pre></td><td class="rouge-code"><pre>import com.intuit.karate.cucumber.CucumberRunner;
-import com.intuit.karate.cucumber.KarateStats;
-import cucumber.api.CucumberOptions;
-import net.masterthought.cucumber.Configuration;
-import net.masterthought.cucumber.ReportBuilder;
-import org.apache.commons.io.FileUtils;
-import org.testng.annotations.Test;
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">com.intuit.karate.cucumber.CucumberRunner</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.intuit.karate.cucumber.KarateStats</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">cucumber.api.CucumberOptions</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.masterthought.cucumber.Configuration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.masterthought.cucumber.ReportBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.commons.io.FileUtils</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.testng.annotations.Test</span><span class="o">;</span>
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
-import static org.testng.AssertJUnit.assertTrue;
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">testng</span><span class="o">.</span><span class="na">AssertJUnit</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">;</span>
 
-@CucumberOptions(tags = {"@FR", "~@ignore"})
-public class TestRunner_FR {
+<span class="nd">@CucumberOptions</span><span class="o">(</span><span class="n">tags</span> <span class="o">=</span> <span class="o">{</span><span class="s">"@FR"</span><span class="o">,</span> <span class="s">"~@ignore"</span><span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestRunner_FR</span> <span class="o">{</span>
 
-    @Test
-    public void testParallel() {
-        String karateOutputPath = "target/cucumber-html-reports";
-        KarateStats stats = CucumberRunner.parallel(getClass(), 1, karateOutputPath);
-        generateReport(karateOutputPath);
-        assertTrue("there are scenario failures", stats.getFailCount() == 0);
-    }
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testParallel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">karateOutputPath</span> <span class="o">=</span> <span class="s">"target/cucumber-html-reports"</span><span class="o">;</span>
+        <span class="n">KarateStats</span> <span class="n">stats</span> <span class="o">=</span> <span class="n">CucumberRunner</span><span class="o">.</span><span class="na">parallel</span><span class="o">(</span><span class="n">getClass</span><span class="o">(),</span> <span class="mi">1</span><span class="o">,</span> <span class="n">karateOutputPath</span><span class="o">);</span>
+        <span class="n">generateReport</span><span class="o">(</span><span class="n">karateOutputPath</span><span class="o">);</span>
+        <span class="n">assertTrue</span><span class="o">(</span><span class="s">"there are scenario failures"</span><span class="o">,</span> <span class="n">stats</span><span class="o">.</span><span class="na">getFailCount</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    private static void generateReport(String karateOutputPath) {
-        Collection jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);
-        List jsonPaths = new ArrayList(jsonFiles.size());
-        for (File file : jsonFiles) {
-            jsonPaths.add(file.getAbsolutePath());
-        }
-        Configuration config = new Configuration(new File("target"), "YOUR PROJECT NAME");
-        config.addClassifications("Environment", System.getProperty("karate.env"));
-        ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
-        reportBuilder.generateReports();
-    }
-}
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">generateReport</span><span class="o">(</span><span class="n">String</span> <span class="n">karateOutputPath</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Collection</span> <span class="n">jsonFiles</span> <span class="o">=</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">listFiles</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">karateOutputPath</span><span class="o">),</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">"json"</span><span class="o">},</span> <span class="kc">true</span><span class="o">);</span>
+        <span class="n">List</span> <span class="n">jsonPaths</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">(</span><span class="n">jsonFiles</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">File</span> <span class="n">file</span> <span class="o">:</span> <span class="n">jsonFiles</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">jsonPaths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">getAbsolutePath</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="n">Configuration</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Configuration</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"target"</span><span class="o">),</span> <span class="s">"YOUR PROJECT NAME"</span><span class="o">);</span>
+        <span class="n">config</span><span class="o">.</span><span class="na">addClassifications</span><span class="o">(</span><span class="s">"Environment"</span><span class="o">,</span> <span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"karate.env"</span><span class="o">));</span>
+        <span class="n">ReportBuilder</span> <span class="n">reportBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReportBuilder</span><span class="o">(</span><span class="n">jsonPaths</span><span class="o">,</span> <span class="n">config</span><span class="o">);</span>
+        <span class="n">reportBuilder</span><span class="o">.</span><span class="na">generateReports</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>The above code runs all the feature files which are tagged as “@FR” but ignores all the tests which are tagged as “@ignore”.</p>
@@ -704,8 +702,8 @@ public class TestRunner_FR {
 
 <h3 id="run-the-tests-from-a-command-line-or-ci">Run the tests from a command line or CI</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>mvn clean test -DargLine="-Dkarate.env=staging" -Dtest=TestRunner_FR
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>mvn clean <span class="nb">test</span> <span class="nt">-DargLine</span><span class="o">=</span><span class="s2">"-Dkarate.env=staging"</span> <span class="nt">-Dtest</span><span class="o">=</span>TestRunner_FR
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Here, we are running the TestRunner_FR class and setting the environment as staging.</p>
@@ -714,7 +712,7 @@ public class TestRunner_FR {
 
 <p>In a feature file, we have the capability to execute javascript as well</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -728,20 +726,20 @@ public class TestRunner_FR {
 12
 13
 14
-</pre></td><td class="rouge-code"><pre>Feature: Generate a random session id
+</pre></td><td class="rouge-code"><pre><span class="kd">Feature</span><span class="p">:</span> Generate a random session id
 
-  Scenario: generate random session id
-    * def random_string =
-    """
+    <span class="kn">Scenario</span><span class="p">:</span> generate random session id
+    <span class="nf">* </span>def random_string =
+    <span class="s">"""
     function(s) {
-      var text = "";
-      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-      for (var i = 0; i &lt; s; i++)
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        for (var i = 0; i &lt; s; i++)
         text += possible.charAt(Math.floor(Math.random() * possible.length));
-      return text;
+        return text;
     }
-    """
-    * def sessionId =  random_string(10)
+    """</span>
+    <span class="nf">* </span>def sessionId =  random_string(10)
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>The above code generates a random string of length 10 and saves it in a variable called sessionId.</p>
@@ -750,7 +748,7 @@ public class TestRunner_FR {
 
 <p>Since Karate sits on top of cucumber, data-driven testing comes as default</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -768,31 +766,48 @@ public class TestRunner_FR {
 16
 17
 18
-</pre></td><td class="rouge-code"><pre>Feature: Data driven testing example
+</pre></td><td class="rouge-code"><pre><span class="kd">Feature</span><span class="p">:</span> Data driven testing example
 
-Scenario Outline: An 'Invalid input request' error is returned if required parameters have incorrect values.
+<span class="kn">Scenario Outline</span><span class="p">:</span> An 'Invalid input request' error is returned if required parameters have incorrect values.
 
-    * def attribute_name = '&lt;name_attribute&gt;'
-    * xml malformed_request = &lt;method_call&gt;
-    * json activate_request = malformed_request
+    <span class="nf">* </span>def attribute_name = '&lt;name_attribute&gt;'
+    <span class="nf">* </span>xml malformed_request = <span class="nv">&lt;method_call&gt;</span>
+    <span class="nf">* </span>json activate_request = malformed_request
 
-    * def activate_response = call read('activate.feature') activate_request
+    <span class="nf">* </span>def activate_response = call read('activate.feature') activate_request
 
-    * match activate_response.contentType == 'text/xml;charset=ISO-8859-1'
-    * match activate_response.gas_version == '5.2.7'
-    * match activate_response.error_code == '1000'
+    <span class="nf">* </span>match activate_response.contentType == 'text/xml;charset=ISO-8859-1'
+    <span class="nf">* </span>match activate_response.gas_version == '5.2.7'
+    <span class="nf">* </span>match activate_response.error_code == '1000'
 
-    Examples:
-      | name_attribute  | method_call                                                                        |
-      | auth_method     | Java.type('com.example.StringUtil').removeNodeByAttribute(xml_req, attribute_name) |
-      | app_url         | Java.type('com.example.StringUtil').removeNodeByAttribute(xml_req, attribute_name) |
+    <span class="nn">Examples</span><span class="p">:</span>
+        <span class="p">|</span> <span class="nv">name_attribute</span>  <span class="p">|</span> <span class="nv">method_call</span>                                                                        <span class="p">|</span>
+        <span class="p">|</span> <span class="n">auth_method</span>     <span class="p">|</span> <span class="n">Java.type('com.example.StringUtil').removeNodeByAttribute(xml_req,</span> <span class="n">attribute_name)</span> <span class="p">|</span>
+        <span class="p">|</span> <span class="n">app_url</span>         <span class="p">|</span> <span class="n">Java.type('com.example.StringUtil').removeNodeByAttribute(xml_req,</span> <span class="n">attribute_name)</span> <span class="p">|</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>The example above utilizes Cucumber’s Scenario Outline and Examples keywords to create data-driven tests. To read each parameter, we use the angle brackets &lt;&gt;</p>
 
 <h3 id="call-java-from-a-feature-file">Call Java from a feature file</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringUtil</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getNumberFromString</span><span class="o">(</span><span class="n">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">"\\D+"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-gherkin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -801,36 +816,18 @@ Scenario Outline: An 'Invalid input request' error is returned if required param
 7
 8
 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="n">com</span><span class="p">.</span><span class="n">example</span><span class="p">;</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">Feature</span><span class="p">:</span> Call java demo
 
-<span class="k">public</span> <span class="n">class</span> <span class="n">StringUtil</span> <span class="p">{</span>
+<span class="kn">Scenario</span><span class="p">:</span> Get number from text
 
-    <span class="k">public</span> <span class="n">static</span> <span class="k">String</span> <span class="n">getNumberFromString</span><span class="p">(</span><span class="k">String</span> <span class="n">text</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">return</span> <span class="n">text</span><span class="p">.</span><span class="n">replaceAll</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">D+"</span><span class="p">,</span> <span class="s2">""</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">Feature</span><span class="p">:</span> <span class="n">Call</span> <span class="n">java</span> <span class="n">demo</span>
-
-<span class="n">Scenario</span><span class="p">:</span> <span class="n">Get</span> <span class="n">number</span> <span class="k">from</span> <span class="n">text</span>
-
-    <span class="n">Given</span> <span class="n">url</span> <span class="s1">'https://preview.putsbox.com/p/david/last.json'</span>
-    <span class="n">When</span> <span class="n">method</span> <span class="n">GET</span>
-    <span class="p">*</span> <span class="n">def</span> <span class="n">emailText</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="n">text</span>
-    <span class="p">*</span> <span class="n">def</span> <span class="n">otpCode</span> <span class="p">=</span> <span class="n">Java</span><span class="p">.</span><span class="n">type</span><span class="p">(</span><span class="s1">'com.example.StringUtil'</span><span class="p">).</span><span class="n">getNumberFromString</span><span class="p">(</span><span class="n">emailText</span><span class="p">)</span>
-    <span class="p">*</span> <span class="n">print</span> <span class="n">otpCode</span>
+    <span class="err">Given url 'https</span><span class="p">:</span><span class="err">//preview.putsbox.com/p/david/last.json'</span>
+    <span class="nf">When </span>method GET
+    <span class="nf">* </span>def emailText = response.text
+    <span class="nf">* </span>def otpCode = Java.type('com.example.StringUtil').getNumberFromString(emailText)
+    <span class="nf">* </span>print otpCode
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The above feature file calls a Java method in the class called StringUtil. Then saves the response of that call to otpCode variable.</p>
+<p>The above feature file calls a Java method in the class called <code class="highlighter-rouge">StringUtil</code>. Then saves the response of that call to otpCode variable.</p>
 
 <p>https://www.testingexcellence.com/set-multiple-headers-http-request-karate/</p>
 
@@ -841,10 +838,6 @@ Scenario Outline: An 'Invalid input request' error is returned if required param
                 <ul class="tags mb-4">
                     
                     
-                    <li>
-                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
-                    </li>
-                    
                 </ul>
             </div>
             <!-- End Categories -->
@@ -854,10 +847,463 @@ Scenario Outline: An 'Invalid input request' error is returned if required param
                 <ul class="tags">
                     
                     
+                    <li>
+                        <a class="smoothscroll" href="/tags#api-testing">#api testing</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#karate">#karate</a>
+                    </li>
+                    
                 </ul>
             </div>
             <!-- End Tags -->
+            <!-- <div class="rect">
+
+        
+        
+        
+      
+      
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+      
+                <a href="/rest-assured-post-request/">
+                    <div class="rel">
+                        <h5>How to Submit Form Data With REST-assured Post Request</h5>
+                        <img width="100%" src="/assets/images/rest-assured-post-request.png">
+                    </div>
+                </a>
+      
             
+            
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+      
+                <a href="/parse-json-response-rest-assured/">
+                    <div class="rel">
+                        <h5>How to Parse JSON Response with REST-assured</h5>
+                        <img width="100%" src="/assets/images/parse-json-response-rest-assured.jpg">
+                    </div>
+                </a>
+      
+            
+            
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+      
+                <a href="/difference-put-patch-requests/">
+                    <div class="rel">
+                        <h5>Difference Between PUT and PATCH Requests</h5>
+                        <img width="100%" src="/assets/images/http-put-vs-patch.jpg">
+                    </div>
+                </a>
+      
+            
+            
+              
+      </div> -->
             <!-- Mailchimp Subscribe Form -->
             
 			<div class="border p-5 bg-lightblue">

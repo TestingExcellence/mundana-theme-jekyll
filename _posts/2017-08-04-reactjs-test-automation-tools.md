@@ -3,10 +3,10 @@ layout: post
 title: "Test Automation Tools for Testing ReactJS Applications"
 author: Amir
 categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+image: assets/images/react-js-test-tools-automation.jpg
 ---
 
-_<span style="font-size: 1rem;">I am planning to test a ReactJS application and wanted to find out what is the best tool out there in the market to carry out end-to-end tests? After doing a little research I found that there are many tools available to test ReactJS applications but what is the best one to use for end-to-end tests?</span>_
+_I am planning to test a ReactJS application and wanted to find out what is the best tool out there in the market to carry out end-to-end tests? After doing a little research I found that there are many tools available to test ReactJS applications but what is the best one to use for end-to-end tests?_
 
 **Answer:**
 
@@ -50,14 +50,14 @@ Jest is used by Facebook to test all JavaScript code including React application
 
 ### Mocha
 
-While Jest is popular amongst Facebook developers to write automated tests for ReactJS applications, it has some issues (slow, mocking is confusing). Mocha has become a popular alternative. It's more painful to set up but may be worth a look. I expect it to become more popular in the future unless Jest overcomes some of those main issues. See <span class="qlink_container">[Testing React Web Apps with Mocha](http://www.hammerlab.org/2015/02/14/testing-react-web-apps-with-mocha/)</span> to get started.
+While Jest is popular amongst Facebook developers to write automated tests for ReactJS applications, it has some issues (slow, mocking is confusing). Mocha has become a popular alternative. It's more painful to set up but may be worth a look. I expect it to become more popular in the future unless Jest overcomes some of those main issues. See [Testing React Web Apps with Mocha](http://www.hammerlab.org/2015/02/14/testing-react-web-apps-with-mocha/) to get started.
 
 ### Protractor
 
-For acceptance testing, you can consider Protector. It's primarily an Angular tool built on top of Selenium and it comes with a nicer API. Fortunately, it's possible to configure it to work with React. See <span class="qlink_container">[Testing React apps with Protractor](http://joelotter.com/2015/04/18/protractor-reactjs.html)</span>. The nice thing about this approach is that this will allow you to test your application against a wide variety of browsers.
+For acceptance testing, you can consider Protector. It's primarily an Angular tool built on top of Selenium and it comes with a nicer API. Fortunately, it's possible to configure it to work with React. See [Testing React apps with Protractor](http://joelotter.com/2015/04/18/protractor-reactjs.html). The nice thing about this approach is that this will allow you to test your application against a wide variety of browsers.
 
-### **Enzyme**
+### Enzyme
 
-Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output. Originally developed by Airbnb, is getting more and more popular. You can use it with any test runner (mocha, jasmine,...) and there is a helpful <span class="qlink_container">[chai-enzyme](https://github.com/producthunt/chai-enzyme)</span> plugin.
+Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output. Originally developed by Airbnb, is getting more and more popular. You can use it with any test runner (mocha, jasmine,...) and there is a helpful [chai-enzyme](https://github.com/producthunt/chai-enzyme) plugin.
 
 Enzyme + Mocha seems to be the best combination to test web applications written in ReactJS. It is relatively easy to learn, even for someone new to ReactJS and Mocha can easily cope with these tools in a short time.

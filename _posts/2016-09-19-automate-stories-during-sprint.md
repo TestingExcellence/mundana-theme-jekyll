@@ -2,22 +2,19 @@
 layout: post
 title: "Is it Possible to Automate Stories During the Sprint?"
 author: Amir
-categories: [ software testing ]
-tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+tags: [ agile, qa ]
+image: assets/images/automate-stories-during-sprint.jpg
 ---
 
 ### Test Automation During Sprint
 
 **Question**
 
-My team uses **[scrum agile methodology](http://www.testingexcellence.com/scrum/)** to develop a web application. As an Automation Tester in the team, I’m often asked to automate the stories within the sprint, even when the developer hasn’t even finished the story.
+My team uses Scrum to develop a web application. As an Automation Tester in the team, I’m often asked to automate the stories within the sprint, even when the developer hasn’t even finished the story.
 
 If it’s at the beginning of the sprint, I have time to automate the story during the sprint, but towards the end of the sprint, I don’t get enough time to automate the last stories.
 
 Any suggestions on how I can complete the automation of the stories within the current sprint?
-
-* * *
 
 **Answer**
 
@@ -33,9 +30,8 @@ The last layer is your scenarios. These should just call the functions in your p
 
 In this way even when you have a short time at the end of the sprint, you can quickly create automated scenarios if you have a solid foundation.
 
-
 Automating regression tests during the sprint requires discipline.
 
-The scope of the regression tests increases and so the maintenance also increases. You need to be aware that **[not all tests require to be automated](http://www.testingexcellence.com/why-would-you-want-to-automate-a-test/)**.
+The scope of the regression tests increases and so the maintenance also increases. You need to be aware that [not all tests require to be automated](/why-would-you-want-to-automate-a-test/).
 
 You should only automate the tests that provide value for the business.

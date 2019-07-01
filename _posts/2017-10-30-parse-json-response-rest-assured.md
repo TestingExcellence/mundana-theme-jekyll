@@ -2,8 +2,9 @@
 layout: post
 title: "How to Parse JSON Response with REST-assured"
 author: Amir
-categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+categories: [ technical testing ]
+tags: [api testing, rest-assured, json]
+image: assets/images/parse-json-response-rest-assured.jpg
 ---
 
 In this API Testing tutorial, we take a look at how to parse JSON response and extract information using the REST-assured library.
@@ -12,7 +13,7 @@ When testing an API, you typically make a request to a resource, (e.g. via a GET
 
 **Related:**
 
-**[How to send a POST request with REST-assured](https://www.testingexcellence.com/rest-assured-post-request/)**
+[How to send a POST request with REST-assured](/rest-assured-post-request/)
 
 ## How to Parse JSON Response
 
@@ -24,119 +25,152 @@ More specifically, I will be using the users endpoint [https://jsonplaceholder.
 *   [**HTTP Basics for Software Testers**](https://www.testingexcellence.com/http-basics/)
 *   **[How to encode and decode JSON Byte Array](https://www.testingexcellence.com/encode-decode-json-byte-array/)**
 
-### **Request and Response**
+### Request and Response
 
 When we make a GET request to the above resource, we get a JSON response which contains a list of users. This list is represented as a JSON Array. Each array has a structure like this:
 
-    {
-      id: 1,
-      name: "Leanne Graham",
-      username: "Bret",
-      email: "Sincere@april.biz",
-      address: {
-        street: "Kulas Light",
-        suite: "Apt. 556",
-        city: "Gwenborough",
-        zipcode: "92998-3874",
-        geo: {
-          lat: "-37.3159",
-          lng: "81.1496"
-        }
-      },
-      phone: "1-770-736-8031 x56442",
-      website: "hildegard.org",
-      company: {
-        name: "Romaguera-Crona",
-        catchPhrase: "Multi-layered client-server neural-net",
-        bs: "harness real-time e-markets"
-      }
+```json
+{
+    id: 1,
+    name: "Leanne Graham",
+    username: "Bret",
+    email: "Sincere@april.biz",
+    address: {
+    street: "Kulas Light",
+    suite: "Apt. 556",
+    city: "Gwenborough",
+    zipcode: "92998-3874",
+    geo: {
+        lat: "-37.3159",
+        lng: "81.1496"
     }
-
+    },
+    phone: "1-770-736-8031 x56442",
+    website: "hildegard.org",
+    company: {
+    name: "Romaguera-Crona",
+    catchPhrase: "Multi-layered client-server neural-net",
+    bs: "harness real-time e-markets"
+    }
+}
+```
 Therefore, in the full response, there will be ten records in the array, each having the same JSON structure, but with different values.
 
 Now, let's start by parsing and extracting some values from the JSON.
 
 The first test would typically be to count the number of records in the array, so let's start with that.
 
-    import io.restassured.RestAssured;
-    import io.restassured.http.ContentType;
-    import io.restassured.parsing.Parser;
-    import io.restassured.response.Response;
+```java
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.parsing.Parser;
+import io.restassured.response.Response;
 
-    import java.util.List;
+import java.util.List;
 
-    import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
 
-    public class RestTest {
+public class RestTest {
 
-        public static Response doGetRequest(String endpoint) {
-            RestAssured.defaultParser = Parser.JSON;
+    public static Response doGetRequest(String endpoint) {
+        RestAssured.defaultParser = Parser.JSON;
 
-            return
-                    given().headers("Content-Type", ContentType.JSON, "Accept", ContentType.JSON).
-                            when().get(endpoint).
-                            then().contentType(ContentType.JSON).extract().response();
-        }
-
-        public static void main(String[] args) {
-            Response response = doGetRequest("https://jsonplaceholder.typicode.com/users");
-
-            List<String> jsonResponse = response.jsonPath().getList("$");
-
-            System.out.println(jsonResponse.size());
-
-        }
+        return
+                given().headers("Content-Type", ContentType.JSON, "Accept", ContentType.JSON).
+                        when().get(endpoint).
+                        then().contentType(ContentType.JSON).extract().response();
     }
+
+    public static void main(String[] args) {
+        Response response = doGetRequest("https://jsonplaceholder.typicode.com/users");
+
+        List<String> jsonResponse = response.jsonPath().getList("$");
+
+        System.out.println(jsonResponse.size());
+
+    }
+}
+```
 
 The result of the above call would print <span class="lang:default decode:true crayon-inline ">10</span>. Note the `$` notation which means the root element.
 
-### **Parsing JSON Arrays and Lists**
+### Parsing JSON Arrays and Lists
 
-In the above example, if we wanted to get the username of all entries, we could use
+In the above example, if we wanted to get the username of all entries, we could use:
 
-    String usernames = response.jsonPath().getString("username");
-    System.out.println(usernames);
+```java
+String usernames = response.jsonPath().getString("username");
+System.out.println(usernames);
+```
 
 This would print the array like:
 
-    [Bret, Antonette, Samantha, Karianne, Kamren, Leopoldo_Corkery, Elwyn.Skiles, Maxime_Nienow, Delphine, Moriah.Stanton]
+```bash
+[Bret, Antonette, Samantha, Karianne, Kamren, Leopoldo_Corkery, Elwyn.Skiles, Maxime_Nienow, Delphine, Moriah.Stanton]
+```
 
-If we then want to get the username of the first entry we could use
+If we then want to get the username of the first entry we could use:
 
-    String usernames = response.jsonPath().getString("username[0]");
+```java
+String usernames = response.jsonPath().getString("username[0]");
+```
 
-This would print the first username: Bret
+This would print the first username: 
 
-Using a List we can use
+```bash
+Bret
+```
 
-    List<String> jsonResponse = response.jsonPath().getList("username");
-    System.out.println(jsonResponse.get(0));
+Using a List we can use:
 
-This would print the first username: Bret
+```java
+List<String> jsonResponse = response.jsonPath().getList("username");
+System.out.println(jsonResponse.get(0));
+```
 
-### **Parsing JSON ArrayList and HashMap**
+This would print the first username: 
 
-Looking at the above JSON structure, the company is actually a map. If we only had one record, we could use
+```bash
+Bret
+```
 
-    Response response = doGetRequest("https://jsonplaceholder.typicode.com/users/1");
+### Parsing JSON ArrayList and HashMap
 
-            Map<String, String> company = response.jsonPath().getMap("company");
-            System.out.println(company.get("name"));
+Looking at the above JSON structure, the company is actually a map. If we only had one record, we could use:
 
-which would print Romaguera-Crona
+```java
+Response response = doGetRequest("https://jsonplaceholder.typicode.com/users/1");
+
+Map<String, String> company = response.jsonPath().getMap("company");
+System.out.println(company.get("name"));
+```
+
+which would print: 
+
+```bash
+Romaguera-Crona
+```
 
 But if the response returns an array and we want to extract the first company name, we could use:
 
-    Response response = doGetRequest("https://jsonplaceholder.typicode.com/users/");
+```java
+Response response = doGetRequest("https://jsonplaceholder.typicode.com/users/");
 
-            Map<String, String> company = response.jsonPath().getMap("company[0]");
-            System.out.println(company.get("name"));
+Map<String, String> company = response.jsonPath().getMap("company[0]");
+System.out.println(company.get("name"));
+```
 
 Alternatively, we could use:
 
-    Response response = doGetRequest("https://jsonplaceholder.typicode.com/users/");
+```java
+Response response = doGetRequest("https://jsonplaceholder.typicode.com/users/");
 
-            List<Map<String, String>> companies = response.jsonPath().getList("company");
-            System.out.println(companies.get(0).get("name"));
+List<Map<String, String>> companies = response.jsonPath().getList("company");
+System.out.println(companies.get(0).get("name"));
+```
 
-both of which will print Romaguera-Crona.
+both of which will print: 
+
+```bash
+Romaguera-Crona
+```

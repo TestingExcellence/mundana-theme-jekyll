@@ -8,6 +8,8 @@ image: assets/images/java-random-number-generation.jpg
 
 Generating random numbers in Java is a common task. For example, you might want to execute tests with random values each time. In this post, we look at different ways we can generate random numbers in Java.
 
+<!--more-->
+
 ## Random Number Generation
 
 In Java, we can generate random numbers by using the `java.util.Random` class.

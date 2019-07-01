@@ -12,16 +12,16 @@
 <meta property="og:title" content="How to Parameterize Gatling Variables" />
 <meta name="author" content="Amir" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How can we parameterize Gatling variables and pass parameters from the command line to Gatling? On most occasions, when you create a performance script, you want to run the simulation with a different set of parameters, such as users, ramp-up time and duration, or even different environment." />
-<meta property="og:description" content="How can we parameterize Gatling variables and pass parameters from the command line to Gatling? On most occasions, when you create a performance script, you want to run the simulation with a different set of parameters, such as users, ramp-up time and duration, or even different environment." />
+<meta name="description" content="How can we parameterize Gatling variables and pass parameters from the command line to Gatling? On most occasions, when you create a performance script, you want to run the simulation with a different set of parameters, such as users, ramp-up time and duration, or even different environment. In this Gatling tutorial, we will be using Maven as the build tool and show how to parameterize the test so that we can pass different values from command line or a CI tool such as Jenkins to our simulation class. Create a Gatling project with Maven How to send post request in Gatling Parameterize Gatling Variables First, we have to have the following in the build section of the pom.xml file 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 &lt;build&gt; &lt;plugins&gt; &lt;!-- Gatling Maven plugin that runs the load-simulation. --&gt; &lt;plugin&gt; &lt;groupId&gt;io.gatling&lt;/groupId&gt; &lt;artifactId&gt;gatling-maven-plugin&lt;/artifactId&gt; &lt;version&gt;${gatling-plugin.version}&lt;/version&gt; &lt;configuration&gt; &lt;simulationClass&gt;simulations.LoginSimulation&lt;/simulationClass&gt; &lt;jvmArgs&gt; &lt;jvmArg&gt;-Denv=stable&lt;/jvmArg&gt; &lt;jvmArg&gt;-Dusers=${users}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Drampup=${rampup}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Dduration=${duration}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Dthroughput=${throughput}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Xms2g&lt;/jvmArg&gt; &lt;jvmArg&gt;-Xmx5g&lt;/jvmArg&gt; &lt;/jvmArgs&gt; &lt;!--&lt;fork&gt;true&lt;/fork&gt;--&gt; &lt;propagateSystemProperties&gt;true&lt;/propagateSystemProperties&gt; &lt;/configuration&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/build&gt; Then in a Configuration object, we can reference the above variables to inject values passed from the command line: 1 2 3 4 5 6 7 8 object Configuration { val t_concurrency = Integer.getInteger(&quot;users&quot;, 10).toInt val t_rampUp = Integer.getInteger(&quot;rampup&quot;, 1).toInt val t_holdFor = Integer.getInteger(&quot;duration&quot;, 60).toInt val t_throughput = Integer.getInteger(&quot;throughput&quot;, 100).toInt } If the user doesn’t provide any value for the variables, then default values are used. For example, the default value for users is 10. Once we have the above setup, we can then use the command line or from a CI tool to pass in parameters to the pom.xml file which in turn injects them into the simulation class. 1 mvn clean gatling:execute -Dusers=20 -Drampup=2 -Dduration=60 -Dthroughput=100" />
+<meta property="og:description" content="How can we parameterize Gatling variables and pass parameters from the command line to Gatling? On most occasions, when you create a performance script, you want to run the simulation with a different set of parameters, such as users, ramp-up time and duration, or even different environment. In this Gatling tutorial, we will be using Maven as the build tool and show how to parameterize the test so that we can pass different values from command line or a CI tool such as Jenkins to our simulation class. Create a Gatling project with Maven How to send post request in Gatling Parameterize Gatling Variables First, we have to have the following in the build section of the pom.xml file 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 &lt;build&gt; &lt;plugins&gt; &lt;!-- Gatling Maven plugin that runs the load-simulation. --&gt; &lt;plugin&gt; &lt;groupId&gt;io.gatling&lt;/groupId&gt; &lt;artifactId&gt;gatling-maven-plugin&lt;/artifactId&gt; &lt;version&gt;${gatling-plugin.version}&lt;/version&gt; &lt;configuration&gt; &lt;simulationClass&gt;simulations.LoginSimulation&lt;/simulationClass&gt; &lt;jvmArgs&gt; &lt;jvmArg&gt;-Denv=stable&lt;/jvmArg&gt; &lt;jvmArg&gt;-Dusers=${users}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Drampup=${rampup}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Dduration=${duration}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Dthroughput=${throughput}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Xms2g&lt;/jvmArg&gt; &lt;jvmArg&gt;-Xmx5g&lt;/jvmArg&gt; &lt;/jvmArgs&gt; &lt;!--&lt;fork&gt;true&lt;/fork&gt;--&gt; &lt;propagateSystemProperties&gt;true&lt;/propagateSystemProperties&gt; &lt;/configuration&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/build&gt; Then in a Configuration object, we can reference the above variables to inject values passed from the command line: 1 2 3 4 5 6 7 8 object Configuration { val t_concurrency = Integer.getInteger(&quot;users&quot;, 10).toInt val t_rampUp = Integer.getInteger(&quot;rampup&quot;, 1).toInt val t_holdFor = Integer.getInteger(&quot;duration&quot;, 60).toInt val t_throughput = Integer.getInteger(&quot;throughput&quot;, 100).toInt } If the user doesn’t provide any value for the variables, then default values are used. For example, the default value for users is 10. Once we have the above setup, we can then use the command line or from a CI tool to pass in parameters to the pom.xml file which in turn injects them into the simulation class. 1 mvn clean gatling:execute -Dusers=20 -Drampup=2 -Dduration=60 -Dthroughput=100" />
 <link rel="canonical" href="http://localhost:4000/parameterize-gatling-variables/" />
 <meta property="og:url" content="http://localhost:4000/parameterize-gatling-variables/" />
 <meta property="og:site_name" content="Testing Excellence" />
-<meta property="og:image" content="http://localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:image" content="http://localhost:4000/assets/images/gatling-parameterize-variables.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-04-05T00:00:00+01:00" />
 <script type="application/ld+json">
-{"description":"How can we parameterize Gatling variables and pass parameters from the command line to Gatling? On most occasions, when you create a performance script, you want to run the simulation with a different set of parameters, such as users, ramp-up time and duration, or even different environment.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"http://localhost:4000/parameterize-gatling-variables/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"http://localhost:4000/assets/images/coming-soon.jpg","headline":"How to Parameterize Gatling Variables","dateModified":"2018-04-05T00:00:00+01:00","datePublished":"2018-04-05T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/parameterize-gatling-variables/"},"@context":"http://schema.org"}</script>
+{"description":"How can we parameterize Gatling variables and pass parameters from the command line to Gatling? On most occasions, when you create a performance script, you want to run the simulation with a different set of parameters, such as users, ramp-up time and duration, or even different environment. In this Gatling tutorial, we will be using Maven as the build tool and show how to parameterize the test so that we can pass different values from command line or a CI tool such as Jenkins to our simulation class. Create a Gatling project with Maven How to send post request in Gatling Parameterize Gatling Variables First, we have to have the following in the build section of the pom.xml file 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 &lt;build&gt; &lt;plugins&gt; &lt;!-- Gatling Maven plugin that runs the load-simulation. --&gt; &lt;plugin&gt; &lt;groupId&gt;io.gatling&lt;/groupId&gt; &lt;artifactId&gt;gatling-maven-plugin&lt;/artifactId&gt; &lt;version&gt;${gatling-plugin.version}&lt;/version&gt; &lt;configuration&gt; &lt;simulationClass&gt;simulations.LoginSimulation&lt;/simulationClass&gt; &lt;jvmArgs&gt; &lt;jvmArg&gt;-Denv=stable&lt;/jvmArg&gt; &lt;jvmArg&gt;-Dusers=${users}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Drampup=${rampup}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Dduration=${duration}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Dthroughput=${throughput}&lt;/jvmArg&gt; &lt;jvmArg&gt;-Xms2g&lt;/jvmArg&gt; &lt;jvmArg&gt;-Xmx5g&lt;/jvmArg&gt; &lt;/jvmArgs&gt; &lt;!--&lt;fork&gt;true&lt;/fork&gt;--&gt; &lt;propagateSystemProperties&gt;true&lt;/propagateSystemProperties&gt; &lt;/configuration&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/build&gt; Then in a Configuration object, we can reference the above variables to inject values passed from the command line: 1 2 3 4 5 6 7 8 object Configuration { val t_concurrency = Integer.getInteger(&quot;users&quot;, 10).toInt val t_rampUp = Integer.getInteger(&quot;rampup&quot;, 1).toInt val t_holdFor = Integer.getInteger(&quot;duration&quot;, 60).toInt val t_throughput = Integer.getInteger(&quot;throughput&quot;, 100).toInt } If the user doesn’t provide any value for the variables, then default values are used. For example, the default value for users is 10. Once we have the above setup, we can then use the command line or from a CI tool to pass in parameters to the pom.xml file which in turn injects them into the simulation class. 1 mvn clean gatling:execute -Dusers=20 -Drampup=2 -Dduration=60 -Dthroughput=100","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"http://localhost:4000/parameterize-gatling-variables/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"http://localhost:4000/assets/images/gatling-parameterize-variables.png","headline":"How to Parameterize Gatling Variables","dateModified":"2018-04-05T00:00:00+01:00","datePublished":"2018-04-05T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/parameterize-gatling-variables/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -168,7 +168,7 @@
                             <span class="text-muted d-block mt-1">Apr 05, 2018 · <span class="reading-time">
   
   
-    1 min read
+    2 mins read
   
 </span>
     </span>
@@ -192,7 +192,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="How to Parameterize Gatling Variables">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/gatling-parameterize-variables.png" alt="How to Parameterize Gatling Variables">
             
 
             
@@ -209,15 +209,15 @@
 <p>In this Gatling tutorial, we will be using Maven as the build tool and show how to parameterize the test so that we can pass different values from command line or a CI tool such as Jenkins to our simulation class.</p>
 
 <ul>
-  <li><strong><a href="https://www.testingexcellence.com/performance-testing-gatling-maven-scala/">Create a Gatling project with Maven</a></strong></li>
-  <li><strong><a href="https://www.testingexcellence.com/gatling-random-post-request/">How to send post request in Gatling</a></strong></li>
+  <li><a href="/performance-testing-gatling-maven-scala/">Create a Gatling project with Maven</a></li>
+  <li><a href="/gatling-random-post-request/">How to send post request in Gatling</a></li>
 </ul>
 
 <h2 id="parameterize-gatling-variables">Parameterize Gatling Variables</h2>
 
 <p>First, we have to have the following in the build section of the pom.xml file</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -241,35 +241,35 @@
 22
 23
 24
-</pre></td><td class="rouge-code"><pre>&lt;build&gt;
-  &lt;plugins&gt;
-    &lt;!-- Gatling Maven plugin that runs the load-simulation. --&gt;
-    &lt;plugin&gt;
-      &lt;groupId&gt;io.gatling&lt;/groupId&gt;
-      &lt;artifactId&gt;gatling-maven-plugin&lt;/artifactId&gt;
-      &lt;version&gt;${gatling-plugin.version}&lt;/version&gt;
-      &lt;configuration&gt;
-        &lt;simulationClass&gt;simulations.LoginSimulation&lt;/simulationClass&gt;
-        &lt;jvmArgs&gt;
-          &lt;jvmArg&gt;-Denv=stable&lt;/jvmArg&gt;
-          &lt;jvmArg&gt;-Dusers=${users}&lt;/jvmArg&gt;
-          &lt;jvmArg&gt;-Drampup=${rampup}&lt;/jvmArg&gt;
-          &lt;jvmArg&gt;-Dduration=${duration}&lt;/jvmArg&gt;
-          &lt;jvmArg&gt;-Dthroughput=${throughput}&lt;/jvmArg&gt;
-          &lt;jvmArg&gt;-Xms2g&lt;/jvmArg&gt;
-          &lt;jvmArg&gt;-Xmx5g&lt;/jvmArg&gt;
-        &lt;/jvmArgs&gt;
-        &lt;!--&lt;fork&gt;true&lt;/fork&gt;--&gt;
-        &lt;propagateSystemProperties&gt;true&lt;/propagateSystemProperties&gt;
-      &lt;/configuration&gt;
-    &lt;/plugin&gt;
-  &lt;/plugins&gt;
-&lt;/build&gt;
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;build&gt;</span>
+  <span class="nt">&lt;plugins&gt;</span>
+    <span class="c">&lt;!-- Gatling Maven plugin that runs the load-simulation. --&gt;</span>
+    <span class="nt">&lt;plugin&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>io.gatling<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>gatling-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${gatling-plugin.version}<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;simulationClass&gt;</span>simulations.LoginSimulation<span class="nt">&lt;/simulationClass&gt;</span>
+        <span class="nt">&lt;jvmArgs&gt;</span>
+          <span class="nt">&lt;jvmArg&gt;</span>-Denv=stable<span class="nt">&lt;/jvmArg&gt;</span>
+          <span class="nt">&lt;jvmArg&gt;</span>-Dusers=${users}<span class="nt">&lt;/jvmArg&gt;</span>
+          <span class="nt">&lt;jvmArg&gt;</span>-Drampup=${rampup}<span class="nt">&lt;/jvmArg&gt;</span>
+          <span class="nt">&lt;jvmArg&gt;</span>-Dduration=${duration}<span class="nt">&lt;/jvmArg&gt;</span>
+          <span class="nt">&lt;jvmArg&gt;</span>-Dthroughput=${throughput}<span class="nt">&lt;/jvmArg&gt;</span>
+          <span class="nt">&lt;jvmArg&gt;</span>-Xms2g<span class="nt">&lt;/jvmArg&gt;</span>
+          <span class="nt">&lt;jvmArg&gt;</span>-Xmx5g<span class="nt">&lt;/jvmArg&gt;</span>
+        <span class="nt">&lt;/jvmArgs&gt;</span>
+        <span class="c">&lt;!--&lt;fork&gt;true&lt;/fork&gt;--&gt;</span>
+        <span class="nt">&lt;propagateSystemProperties&gt;</span>true<span class="nt">&lt;/propagateSystemProperties&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/plugin&gt;</span>
+  <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Then in a Configuration object, we can reference the above variables to inject values passed from the command line:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -277,22 +277,22 @@
 6
 7
 8
-</pre></td><td class="rouge-code"><pre>object Configuration {
+</pre></td><td class="rouge-code"><pre><span class="k">object</span> <span class="nc">Configuration</span> <span class="o">{</span>
 
-  val t_concurrency = Integer.getInteger("users", 10).toInt
-  val t_rampUp = Integer.getInteger("rampup", 1).toInt
-  val t_holdFor = Integer.getInteger("duration", 60).toInt
-  val t_throughput = Integer.getInteger("throughput", 100).toInt
+  <span class="k">val</span> <span class="n">t_concurrency</span> <span class="k">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="n">getInteger</span><span class="o">(</span><span class="s">"users"</span><span class="o">,</span> <span class="mi">10</span><span class="o">).</span><span class="n">toInt</span>
+  <span class="k">val</span> <span class="n">t_rampUp</span> <span class="k">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="n">getInteger</span><span class="o">(</span><span class="s">"rampup"</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">toInt</span>
+  <span class="k">val</span> <span class="n">t_holdFor</span> <span class="k">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="n">getInteger</span><span class="o">(</span><span class="s">"duration"</span><span class="o">,</span> <span class="mi">60</span><span class="o">).</span><span class="n">toInt</span>
+  <span class="k">val</span> <span class="n">t_throughput</span> <span class="k">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="n">getInteger</span><span class="o">(</span><span class="s">"throughput"</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="n">toInt</span>
 
-}
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>If the user doesn’t provide any value for the variables, then default values are used. For example, the default value for users is 10.</p>
 
 <p>Once we have the above setup, we can then use the command line or from a CI tool to pass in parameters to the pom.xml file which in turn injects them into the simulation class.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>mvn clean gatling:execute -Dusers=20 -Drampup=2 -Dduration=60 -Dthroughput=100
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>mvn clean gatling:execute <span class="nt">-Dusers</span><span class="o">=</span>20 <span class="nt">-Drampup</span><span class="o">=</span>2 <span class="nt">-Dduration</span><span class="o">=</span>60 <span class="nt">-Dthroughput</span><span class="o">=</span>100
 </pre></td></tr></tbody></table></code></pre></div></div>
 
             </div>
@@ -301,10 +301,6 @@
             <div class="after-post-cats">
                 <ul class="tags mb-4">
                     
-                    
-                    <li>
-                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
-                    </li>
                     
                 </ul>
             </div>
@@ -315,10 +311,193 @@
                 <ul class="tags">
                     
                     
+                    <li>
+                        <a class="smoothscroll" href="/tags#gatling">#gatling</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#performance-testing">#performance testing</a>
+                    </li>
+                    
                 </ul>
             </div>
             <!-- End Tags -->
+            <!-- <div class="rect">
+
+        
+        
+        
+      
+      
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+      
+                <a href="/gatling-quick-reference/">
+                    <div class="rel">
+                        <h5>Gatling Quick Reference - Common Gatling Functions</h5>
+                        <img width="100%" src="/assets/images/gatling-quick-reference-guide.jpg">
+                    </div>
+                </a>
+      
             
+            
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+      
+                <a href="/soak-testing-gatling-example/">
+                    <div class="rel">
+                        <h5>Soak Testing With Gatling Example</h5>
+                        <img width="100%" src="/assets/images/soak-testing-gatling.jpg">
+                    </div>
+                </a>
+      
+            
+            
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+      
+                <a href="/top-10-open-source-performance-testing-tools/">
+                    <div class="rel">
+                        <h5>Top 10 Open Source Performance Testing Tools</h5>
+                        <img width="100%" src="/assets/images/open-source-performance-testing-tools.png">
+                    </div>
+                </a>
+      
+            
+            
+              
+      </div> -->
             <!-- Mailchimp Subscribe Form -->
             
 			<div class="border p-5 bg-lightblue">

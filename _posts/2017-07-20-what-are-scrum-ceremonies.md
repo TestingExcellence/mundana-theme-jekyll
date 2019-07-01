@@ -2,8 +2,8 @@
 layout: post
 title: "What Are Scrum Ceremonies?"
 author: Amir
-categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+tags: [ agile ]
+image: assets/images/agile-ceremonies.jpeg
 ---
 
 Scrum has four main ceremonies that bring structure to each sprint:

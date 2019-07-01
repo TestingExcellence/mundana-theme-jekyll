@@ -3,7 +3,8 @@ layout: post
 title: "What are Test Oracles and Test Heuristics?"
 author: Amir
 categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+tags: [ exploratory testing ]
+image: assets/images/oracles-heuristics.jpg
 ---
 
 Within the world of testing and quality assurance, we often hear the words Test Oracles and Test Heuristics, but what are they and how we can implement them into our daily testing activities?
@@ -24,7 +25,7 @@ Heuristics are simply experience-based techniques for problem-solving, learning,
 
 Example:
 
-Suppose you are testing an e-commerce website. Most e-commerce websites' search results page contains filters and sort functionalities. Through years of experience **[testing e-commerce websites](http://www.testingexcellence.com/testing-e-commerce-websites/)**, I have come to learn that combining filters and sort options are likely to reveal interesting bugs, as this has been the case many times, therefore, on my next project, I intuitively will test some scenarios related to combining filters and sort options.
+Suppose you are testing an e-commerce website. Most e-commerce websites' search results page contains filters and sort functionalities. Through years of experience [testing e-commerce websites](/testing-e-commerce-websites/), I have come to learn that combining filters and sort options are likely to reveal interesting bugs, as this has been the case many times, therefore, on my next project, I intuitively will test some scenarios related to combining filters and sort options.
 
 ## Test Oracles
 

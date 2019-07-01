@@ -2,8 +2,8 @@
 layout: post
 title: "Software Testing Interview Questions and Answers - Ultimate List"
 author: Amir
-categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+tags: [ interview questions ]
+image: assets/images/software-testing-interview-questions.jpg
 ---
 
 This post is a large collection of Software Testing Interview Questions and Answers. The list covers foundations of Software Testing, Technical Testing, Test Automation, API Testing, Agile Testing, Web Testing and Selenium WebDriver Interview Questions and Answers.
@@ -23,7 +23,7 @@ In this section, we will look at some common Software Testing Interview Question
 
 The answers to these interview questions are for guidance only. You may want to expand on the answers at the interview if you are asked any of these Software Testing Interview Questions.
 
-If you are preparing for a Software Testing Interview, or you are interviewing candidates for QA roles, you will find this mind map very useful: **[30+ Essential Software Testing Questions to Prepare for Interview](https://www.testingexcellence.com/software-testing-interview-questions-preparation-checklist/)**
+If you are preparing for a Software Testing Interview, or you are interviewing candidates for QA roles, you will find this mind map very useful: [30+ Essential Software Testing Questions to Prepare for Interview](/software-testing-interview-questions-preparation-checklist/)
 
 ### What is Exploratory Testing and when should it be performed?
 
@@ -39,9 +39,9 @@ Exploratory Testing is usually performed as the product is evolving (agile) or a
 
 Test Techniques are primarily used for two purposes: a) To help identify defects, b) To reduce the number of test cases.
 
-*   [Equivalence partitioning](https://www.testingexcellence.com/equivalence-partitioning/) is mainly used to reduce the number of test cases by identifying different sets of data that are not the same and only executing one test from each set of data
-*   [Boundary Value Analysis](https://www.testingexcellence.com/boundary-value-analysis/) is used to check the behavior of the system at the boundaries of allowed data.
-*   [State Transition Testing](https://www.testingexcellence.com/state-transition-testing/) is used to validate allowed and disallowed states and transitions from one state to another by various input data
+*   [Equivalence partitioning](/equivalence-partitioning/) is mainly used to reduce the number of test cases by identifying different sets of data that are not the same and only executing one test from each set of data
+*   [Boundary Value Analysis](/boundary-value-analysis/) is used to check the behavior of the system at the boundaries of allowed data.
+*   [State Transition Testing](/state-transition-testing/) is used to validate allowed and disallowed states and transitions from one state to another by various input data
 *   Pair-wise or All-Pairs Testing is a very powerful test technique and is mainly used to reduce the number of test cases while increasing the coverage of feature combinations.
 
 ### Why is Testing Necessary?
@@ -79,7 +79,7 @@ The following questions contain short answers to provide quick hints to some IST
 5.  Pesticide Paradox
 6.  Testing is context dependent
 
-[Read more on seven principles of testing](https://www.testingexcellence.com/seven-principles-of-software-testing/)
+[Read more on seven principles of testing](/seven-principles-of-software-testing/)
 
 ### What is the Fundamental Test Process?
 
@@ -89,7 +89,7 @@ The following questions contain short answers to provide quick hints to some IST
 *   Evaluating exit criteria and reporting
 *   Test closure activities
 
-[Read more about fundamental test process](https://www.testingexcellence.com/fundamental-test-process-software-testing/)
+[Read more about fundamental test process](/fundamental-test-process-software-testing/)
 
 ### What are the different Test Levels?
 
@@ -233,12 +233,13 @@ Cons:
 *   Find more bugs?
 *   Replace manual testers?
 
-This is a common test automation interview question and answer to this is quite straightforward. Although some of the above reasons seem plausible, the **main reason** why you would want to automate a test is that you want to [**repeat the same test many times**](https://www.testingexcellence.com/why-would-you-want-to-automate-a-test/ "Why Would You Want To Automate a Test?").  
+This is a common test automation interview question and answer to this is quite straightforward. Although some of the above reasons seem plausible, the **main reason** why you would want to automate a test is that you want to [**repeat the same test many times**](/why-would-you-want-to-automate-a-test/ "Why Would You Want To Automate a Test?").  
+
 <a id="web_testing_interview_questions"></a>
 
 ## Web Testing Interview Questions
 
-In this section, we discuss some common Web Testing Interview Questions and Answers. These questions are specific to **[web testing](https://www.testingexcellence.com/web-testing-tips-how-to-test-web-applications/)**.
+In this section, we discuss some common Web Testing Interview Questions and Answers. These questions are specific to [web testing](/web-testing-tips-how-to-test-web-applications/).
 
 ### How do you test the login feature of a web application?
 
@@ -263,11 +264,11 @@ Although you would do functional testing, usability testing, accessibility testi
 
 Two types of testing which are very important for testing web applications are Performance Testing and Security Testing. The difference between a web application and desktop application is that web applications are open to the world, with potentially many users accessing the application simultaneously at various times, so load testing and stress testing are important.
 
-Web applications are also vulnerable to all forms of attacks, mostly DDOS, so security testing is also very important to consider when **[testing web applications](https://www.testingexcellence.com/web-testing-tips-how-to-test-web-applications/)**.
+Web applications are also vulnerable to all forms of attacks, mostly DDOS, so security testing is also very important to consider when [testing web applications](/web-testing-tips-how-to-test-web-applications/).
 
 ### How do You Verify the Results of Your Search on Search Results Page?
 
-This is another common Software Testing Interview Question for **[e-commerce testing](https://www.testingexcellence.com/testing-e-commerce-websites/)** roles. This question refers to verifying the results are what we expect to see.
+This is another common Software Testing Interview Question for [e-commerce testing](/testing-e-commerce-websites/) roles. This question refers to verifying the results are what we expect to see.
 
 Suppose you search for a product on Amazon.com website. On the search results page, you will see a list of items related to your search. How can you verify that the results that you see are really the ones that you are supposed to see?
 
@@ -291,7 +292,7 @@ Also, we should not forget about Javascript, CSS, Cookies, W3C standards, traffi
 
 The testing of web applications that communicate with a web service can be broken down into two parts:
 
-*   **Testing of the Web Service in isolation.** Each web service has one or more functions which can be tested by sending appropriate requests and analyzing the response and verifying correct data is returned in the response. We can use tools such as **[SoapUI](http://www.soapui.org/) **to test a Soap Service or Rest Client to test a RESTful web service.
+*   **Testing of the Web Service in isolation.** Each web service has one or more functions which can be tested by sending appropriate requests and analyzing the response and verifying correct data is returned in the response. We can use tools such as [SoapUI](http://www.soapui.org/) to test a Soap Service or Rest Client to test a RESTful web service.
 *   **Integration Testing of Web Service with the Front End.** The integration testing is also important as it can highlight issues with data in the request and display of the response.
 
 The reason for this separation is to be able to identify issues in the web service much quicker and easier to debug.
@@ -367,7 +368,7 @@ In API Testing, we make a request to the API with known data and we then analyze
 
 ### What tools are typically used for API Testing?
 
-**[Postman](https://www.getpostman.com/)** is a rest client that started off as a Chrome browser plugin but recently came out with native versions for both Mac and Windows.
+[Postman](https://www.getpostman.com/) is a rest client that started off as a Chrome browser plugin but recently came out with native versions for both Mac and Windows.
 
 *   Can be used for both automated and exploratory testing
 *   Can be run on Mac, Windows, Linux &Chrome Apps
@@ -375,7 +376,7 @@ In API Testing, we make a request to the API with known data and we then analyze
 *   Has Run, Test, Document and Monitoring Features
 *   Doesn’t require learning a new language
 
-[**SoapUI** ](https://www.soapui.org/)is a headless functional testing tool from SmartBear software. It comes in two flavors: Free open source version and Pro Version.
+[SoapUI](https://www.soapui.org/)is a headless functional testing tool from SmartBear software. It comes in two flavors: Free open source version and Pro Version.
 
 *   Can easily create custom code using Groovy
 *   Drag and Drop Test Creating
@@ -383,7 +384,7 @@ In API Testing, we make a request to the API with known data and we then analyze
 *   Asynchronous Testing
 *   SoapUI’s Mock Service lets you mimic web services before they are implemented
 
-**[Rest-Assured](http://rest-assured.io/)** is an open-source Java Domain-specific language (DSL) that makes testing REST service simple. It simplifies things by eliminating the need to use boiler-plate code to test and validate complex responses. It also supports XML and JSON Request/Responses.
+[Rest-Assured](http://rest-assured.io/) is an open-source Java Domain-specific language (DSL) that makes testing REST service simple. It simplifies things by eliminating the need to use boiler-plate code to test and validate complex responses. It also supports XML and JSON Request/Responses.
 
 *   Removes need to create boilerplate code required to interact with a rest service
 *   Support BDD Given/When/Then syntax
@@ -410,7 +411,7 @@ Here, we will cover some common selenium interview questions. Selenium WebDriver
 
 When you apply for a job as an automation tester, you are most likely be expected to have experience working with Selenium WebDriver, so there will be questions at the interview to assess your knowledge of the selenium tool.
 
-Previously, we covered some **[Test Automation Interview Questions](https://www.testingexcellence.com/test-automation-interview-questions-and-answers/) **which are focused on the approach to test automation, here the main focus is on selenium tool and what questions you are likely to be asked at an interview.
+Previously, we covered some [Test Automation Interview Questions](https://www.testingexcellence.com/test-automation-interview-questions-and-answers/) **which are focused on the approach to test automation, here the main focus is on selenium tool and what questions you are likely to be asked at an interview.
 
 These selenium interview questions are based on the **[selenium tutorials.](https://www.testingexcellence.com/selenium-webdriver-tutorials/)**
 
@@ -425,6 +426,7 @@ Selenium Webdriver has many language bindings, which means you can write your te
 A: We can select an item from the drop-down menu by Value, by Index or by Visible Text.
 
 Example:
+
 
     <select id="cars">
         <option value="vo">Volvo</option>

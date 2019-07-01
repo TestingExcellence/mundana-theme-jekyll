@@ -2,8 +2,8 @@
 layout: post
 title: "HTTP Basics for Software Testers"
 author: Amir
-categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+tags: [ http ]
+image: assets/images/http-basics.png
 ---
 
 If you are a technical tester or you are involved in testing APIs then you need to be familiar with the HTTP basics and terminologies. Without knowing the basics of HTTP, you cannot develop good API tests. In this article, we’ll examine some of the most common HTTP terminologies and their meanings for API testing.
@@ -28,18 +28,20 @@ An HTTP request is sent to a specific URL and consists of a VERB, a set of HTTP 
 
 An example HTTP request is:
 
-    GET https://www.testingexcellence.com/ HTTP/1.1
-    Accept-Encoding: gzip,deflate
-    Content-Type: text/plain
-    Host: testingexcellence.com
-    User-Agent: Apache-HttpClient/4.5.4 (Java/1.8.0_144)
-    Accept: text/html,application/xhtml+xml
+```bash
+GET https://www.testingexcellence.com/ HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Type: text/plain
+Host: testingexcellence.com
+User-Agent: Apache-HttpClient/4.5.4 (Java/1.8.0_144)
+Accept: text/html,application/xhtml+xml
+```
 
 ### URL
 
 URL is a Uniform Resource Locator and is the address we use to access websites and web applications. URLs occur most commonly to reference web pages (http), but are also used for file transfer (ftp), email (mailto), and other applications.
 
-Most web browsers display the URL of a web page above the page in an address bar. A typical URL could have the form [https://www.testingexcellence.com/index.html](https://www.testingexcellence.com), which indicates a protocol `http`, a hostname [www.testingexcellence.com](https://www.testingexcellence.com/), and a file name `index.html`.
+Most web browsers display the URL of a web page above the page in an address bar. A typical URL could have the form `https://www.testingexcellence.com/index.html`, which indicates a protocol `http`, a hostname `www.testingexcellence.com`, and a file name `index.html`.
 
 ### Request Verbs
 
@@ -63,8 +65,10 @@ Request headers specify information such as the type of Browser, type of content
 
 Example Request headers:
 
-    Content-Type: text/plain
-    User-Agent: Apache-HttpClient/4.5.4 (Java/1.8.0_144)
+```bash
+Content-Type: text/plain
+User-Agent: Apache-HttpClient/4.5.4 (Java/1.8.0_144)
+```
 
 ### Request Body / Payload
 
@@ -86,11 +90,13 @@ An HTTP response method is made up of three components: Response status code, re
 
 Example response:
 
-    HTTP/1.1 200 OK
-    Content-Length: 859
-    Content-Type: text/html; charset=utf-8
-    Date: Fri, 23 Feb 2018 14:38:21 GMT
-    Server: Werkzeug/0.14.1 Python/3.6.3
+```bash
+HTTP/1.1 200 OK
+Content-Length: 859
+Content-Type: text/html; charset=utf-8
+Date: Fri, 23 Feb 2018 14:38:21 GMT
+Server: Werkzeug/0.14.1 Python/3.6.3
+```
 
 Line 1 is the status code and response message, lines 2-5 are response headers and the XML is the response body.
 
@@ -117,30 +123,32 @@ Applications which are accessed via HTTP APIs are often called Web Services. In 
 
 JSON stands for JavaScript Object Notation and is a text representation that is also valid JavaScript code.
 
-    {
-       "employers":{
-          "employee":[
-             {
-                "id":1,
-                "name":"Dan Brown",
-                "position":"Director",
-                "status":"active",
-             }
-          ]
-       }
+```json
+{
+    "employers":{
+        "employee":[
+            {
+            "id":1,
+            "name":"Dan Brown",
+            "position":"Director",
+            "status":"active",
+            }
+        ]
     }
+}
+```
 
 JSON can be thought of as a hierarchical set of key/value pairs where the value can be:
 
-*   Object - delimited by { and }
-*   Array - delimited by [ and ]
-*   String - delimited by " and "
-*   Integer
+* Object - delimited by { and }
+* Array - delimited by [ and ]
+* String - delimited by " and "
+* Integer
 
 An array is a list of objects or key/value pairs. The keys are String values e.g. “employee”, “id”, “name”, etc.
 
 **Further Reading:**
 
-*   **[HTTP Status Codes With Explanations](https://www.testingexcellence.com/http-status-codes/)**
-*   **[How to get Response Status Code with Selenium WebDriver](https://www.testingexcellence.com/how-to-get-response-status-code-with-selenium-webdriver/)**
-*   **[Difference Between PUT and PATCH Requests](https://www.testingexcellence.com/difference-put-patch-requests/)**
+* [HTTP Status Codes With Explanations](/http-status-codes/)
+* [How to get Response Status Code with Selenium WebDriver](/how-to-get-response-status-code-with-selenium-webdriver/)
+* [Difference Between PUT and PATCH Requests](/difference-put-patch-requests/)

@@ -2,8 +2,9 @@
 layout: post
 title: "How to Make Testing and Quality Everyone's Responsibility?"
 author: Amir
-categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+categories: [ Agile ]
+tags: [ QA ]
+image: assets/images/qa-everyones-responsibility.jpg
 ---
 
 I want to work in a properly cross-functional team. I've heard they exist. I've never seen one, but I've heard that they exist.
@@ -26,7 +27,7 @@ To be blunt, I don't think it's possible to contribute to delivery without contr
 
 Putting a plaster on the developer's knee when they fall of their skateboard because no one taught them how to skate in the first place is reactive, rather pro-active.
 
-**[Automated Testing - Setting the Right Expectations](https://www.testingexcellence.com/automated-testing-setting-right-expectations/)**
+[Automated Testing - Setting the Right Expectations](/automated-testing-setting-right-expectations/)
 
 I’m not one of those “do, do, do” guys. But testing is a negative activity. It doesn’t add tangible business value. And by that, I mean that the testing is what most businesses attempt to negotiate on when they want something done quickly. I accept that it’s possible to make testing more visible and valuable to a business owner. I don’t get the feeling that this is a practice in general use. I understand the value that good testing contributes to a project. I also understand the lack of value that bad testing contributes to a project.
 
@@ -36,7 +37,7 @@ Well, as I mentioned at the start, I haven’t worked with a team like this befo
 
 Does testing add value to a delivery cycle? Yes. Absolutely. At the very least it gives a safety net that allows me to confidently add or amend features if of course it's done “right". At most, it “proves” that my application works.
 
-**[Does a tester add value to a delivery cycle?](http://www.testingexcellence.com/can-testers-add-value-agile-projects/)** It depends.
+[Does a tester add value to a delivery cycle?](/can-testers-add-value-agile-projects/) It depends.
 
 It depends on two things.
 

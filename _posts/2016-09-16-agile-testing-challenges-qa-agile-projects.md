@@ -2,22 +2,19 @@
 layout: post
 title: "How to Overcome Agile Testing Challenges"
 author: Amir
-categories: [ software testing ]
-tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+tags: [ featured, qa, agile ]
+image: assets/images/agile-testing-challenges.png
 ---
 
-![agile testing challenges](http://69.164.212.71/wp-content/uploads/2016/01/overcoming-common-agile-testing-challenges.png "agile testing challenges")
+What are the most common agile testing challenges faced by software testers or QA in agile projects? What is it like to be a QA in a [scrum team](/overview-of-scrum-agile-development-methodology/)?
 
-What are the most common agile testing challenges faced by software testers or QA in agile projects? What is it like to be a QA in a **[scrum team](http://www.testingexcellence.com/overview-of-scrum-agile-development-methodology/)**?
+Ever since agile development methodologies were introduced in software development, the role of QA in agile projects has changed considerably. There is [no longer a team of QA](/there-is-no-qa-team-in-agile/) sitting in a corner, away from the developers and designers, waiting for the development team to handover a piece of work for testing.
 
-Ever since agile development methodologies were introduced in software development, the role of QA in agile projects has changed considerably. There is **[no longer a team of QA](http://www.testingexcellence.com/there-is-no-qa-team-in-agile/)** sitting in a corner, away from the developers and designers, waiting for the development team to handover a piece of work for testing.
-
-One of the most important elements for QA in agile projects is having a good understanding of the agile development methodologies and processes. Many agile companies follow the Scrum framework for delivering quality software, so ensure you are familiar with **[Scrum](http://www.testingexcellence.com/overview-of-scrum-agile-development-methodology/)**.
+One of the most important elements for QA in agile projects is having a good understanding of the agile development methodologies and processes. Many agile companies follow the Scrum framework for delivering quality software, so ensure you are familiar with [Scrum](/overview-of-scrum-agile-development-methodology/).
 
 ### Agile Testing Challenges
 
-The very essence of agile development is **[delivering working software frequently](http://www.testingexcellence.com/best-practices-for-continuous-testing-in-agile/)**, each time adding or enhancing a small feature which is of value to the customer. That itself poses a lot of challenge not only for testers but also developers and anyone else involved in the delivery of application.
+The very essence of agile development is [delivering working software frequently](/best-practices-for-continuous-testing-in-agile/), each time adding or enhancing a small feature which is of value to the customer. That itself poses a lot of challenge not only for testers but also developers and anyone else involved in the delivery of application.
 
 In this article I list some of the most common agile testing challenges for QA in agile projects and how to overcome them.
 
@@ -29,13 +26,13 @@ These requirement changes and last minute requests can affect the scope of testi
 
 **How to overcome:**
 
-Testers should be able to respond to change, knowing that in agile projects, change is inevitable. When requirements change especially towards the end of the sprint **[when there is not enough time to test adequately](http://www.testingexcellence.com/what-if-there-isnt-enough-time-for-thorough-testing/)**, testers should provide as much information as possible about what tests have been run and which part of the application hasn't been tested well so that the team can make an informed decision (possibly based on risk) whether to release the feature or not.
+Testers should be able to respond to change, knowing that in agile projects, change is inevitable. When requirements change especially towards the end of the sprint [when there is not enough time to test adequately](/what-if-there-isnt-enough-time-for-thorough-testing/), testers should provide as much information as possible about what tests have been run and which part of the application hasn't been tested well so that the team can make an informed decision (possibly based on risk) whether to release the feature or not.
 
 Try getting the developers involved in testing as well, as testing and quality should be the whole team responsibility.
 
 ### Not Enough Information on the Story
 
-There will be times when a product owner who writes user stories, has some idea about a new feature but doesn't have all the details to write a good set of **[acceptance criteria](http://www.testingexcellence.com/acceptance-criteria-vs-acceptance-tests/)** to fully define the behaviour of the feature. They ask the development team to create a **[prototype](http://www.testingexcellence.com/prototyping-model-software-development/)** so they can get more ideas about the functionality and behaviour of the feature.
+There will be times when a product owner who writes user stories, has some idea about a new feature but doesn't have all the details to write a good set of [acceptance criteria](/acceptance-criteria-vs-acceptance-tests/) to fully define the behaviour of the feature. They ask the development team to create a [prototype](/prototyping-model-software-development/) so they can get more ideas about the functionality and behaviour of the feature.
 
 This creates a challenge for testers because there is a lack of understanding and requirements, so proper test cases can't be constructed.
 
@@ -79,7 +76,7 @@ Selenium tool is the most popular browser automation testing tool, so if the pro
 
 Jmeter is also another great tool to have knowledge of. It is an open source performance testing tool and relatively easy to learn, so download it and start playing around with some of its features.
 
-You can read more about the **[tools useful for technical testers](http://www.testingexcellence.com/opensource-tools-for-technical-testers-in-agile-projects/)**.
+You can read more about the [tools useful for technical testers](/opensource-tools-for-technical-testers-in-agile-projects/).
 
 ### Multiple Browsers / Multiple Devices
 
@@ -91,9 +88,9 @@ Ensuring that a website functions as expected in all major browsers and popular 
 
 Automation is key here. Writing a test and running it on multiple browsers is what automation does best.
 
-You can use Selenium Grid with **[Docker](http://www.docker.com)** to manage and run your automated tests in parallel on multiple browsers.
+You can use Selenium Grid with [Docker](http://www.docker.com) to manage and run your automated tests in parallel on multiple browsers.
 
-Another great tool out there for multi-browser testing is **[BrowserSync](https://www.browsersync.io/)**.
+Another great tool out there for multi-browser testing is [BrowserSync](https://www.browsersync.io/).
 
 ### Communication
 

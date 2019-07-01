@@ -4,12 +4,12 @@ title: "12 Qualities of a Good Agile Leader"
 author: Amir
 categories: [ software testing ]
 tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+image: assets/images/agile-leader.jpg
 ---
 
 How do you spot a good Agile leader?
 
-Agile development methodology has been around for a number of years now and has become the norm for many tech companies. But why is it that some organisations really succeed in Agile, while others struggle? Even worse is when some teams think they are Agile because they practice agile concepts like **[daily stand-ups](http://www.testingexcellence.com/what-is-daily-stand-up-in-scrum/)** and retrospectives, but in reality are far from being Agile.
+Agile development methodology has been around for a number of years now and has become the norm for many tech companies. But why is it that some organisations really succeed in Agile, while others struggle? Even worse is when some teams think they are Agile because they practice agile concepts like [daily stand-ups](/what-is-daily-stand-up-in-scrum/) and retrospectives, but in reality are far from being Agile.
 
 I believe the difference is all about the leaders, be it the ScrumMaster, Delivery Manager or the CTO who have the authority to lay the foundations of an Agile working culture in the organisation and in this post we look at 12 qualities of a good Agile leader.
 
@@ -35,7 +35,7 @@ The agile leader should ensure that the items in the backlog are maintained and 
 
 Keep a track of the teams' velocity so that scope of sprints can be forecasted. Any constraints or changes in priorities should be communicated to everyone.
 
-**[Role of QA Manager in Agile Project](http://www.testingexcellence.com/role-of-qa-manager-in-agile-project/)**
+[Role of QA Manager in Agile Project](/role-of-qa-manager-in-agile-project/)
 
 ### 4\. Short Feedback Loop
 
@@ -47,7 +47,7 @@ Ensure that progress is based on actual value delivered for the business rather 
 
 Ensure that knowledge from different team members are shared across different parts of the organisation and that small improvements to any process happens continuously. Retrospectives and "Scrum of Scrums" is usually a good opportunity to learn about the impediments and difficulties faced during the sprint so an action plan can be put together to address the obstacles.
 
-**[Best Practices for Continuous Testing in Agile](http://www.testingexcellence.com/best-practices-for-continuous-testing-in-agile/)**
+[Best Practices for Continuous Testing in Agile](/best-practices-for-continuous-testing-in-agile/)
 
 ### 6\. Fail Fast
 
@@ -57,7 +57,7 @@ A good agile leader should ensure that teams have courage to try out new techno
 
 Create a friendly environment which facilitates good face-to-face communication and minimises the need for unnecessary documents, emails, and other forms of low-bandwidth communication. For example, it is much more effective to have a physical kanban board where face-to-face discussions happen between the team members rather than Jira or similar tools.
 
-**[There is NO QA Team in Agile](http://www.testingexcellence.com/there-is-no-qa-team-in-agile/)**
+[There is NO QA Team in Agile](/there-is-no-qa-team-in-agile/)
 
 ### 8\. Focus and Aligned
 
@@ -77,7 +77,7 @@ Look for bottlenecks and queues, and apply systems thinking and lean principles 
 
 Ensure that everyone in the business has clear visibility of the progress and that everyone can see the "big picture". Can use dashboards on screens which clearly shows the progress at a high level and is visible at all times.
 
-**[How to Build a QA Function From Scratch for Agile Startups](http://www.testingexcellence.com/how-to-setup-a-qa-function-from-scratch-for-agile-projects/)**
+[How to Build a QA Function From Scratch for Agile Startups](/how-to-setup-a-qa-function-from-scratch-for-agile-projects/)
 
 ### 11\. Self-organisation and Autonomy
 

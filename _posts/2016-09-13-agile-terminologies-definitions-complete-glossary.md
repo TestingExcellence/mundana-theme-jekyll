@@ -4,12 +4,8 @@ title: "Agile Terminologies and Definitions - Complete Glossary"
 author: Amir
 categories: [ software testing ]
 tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+image: assets/images/agile-terminologies.jpg
 ---
-
-![agile-terminologies-glossary](http://69.164.212.71/wp-content/uploads/2016/02/agile-terminologies-glossary-e1454535259602.jpg)
-
-### Complete Glossary of Agile Terminologies and Definitions
 
 **Acceptance Testing**
 

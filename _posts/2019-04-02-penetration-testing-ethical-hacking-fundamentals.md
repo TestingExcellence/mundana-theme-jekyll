@@ -9,6 +9,8 @@ image: assets/images/ethical-hacking-penetration-testing.jpg
 
 This blog post is an introduction to Penetration Testing and Ethical Hacking. We'll cover the basics of Pen testing and explain why penetration testing is important to organizations.
 
+<!--more-->
+
 We will also cover the stages of penetration testing and explain what happens at each phase.
 
 Finally, we'll take a look at some of the tools commonly used in Penetration Testing.

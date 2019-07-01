@@ -4,10 +4,10 @@ title: "Roles and Responsibilities of a Product Owner in Agile"
 author: Amir
 categories: [ software testing ]
 tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+image: assets/images/product-owner-role-responsibilities.png
 ---
 
-![Product owner roles responsibilities](http://69.164.212.71/wp-content/uploads/2016/04/Product-owner-role-responsibilities.png)
+![Product owner roles responsibilities](roduct-owner-role-responsibilities.png)
 
 ## Product Owner Roles and Responsibilities
 
@@ -18,7 +18,7 @@ The Product Owner is the voice of the customer in the Scrum Team. The Product Ow
 Here, we list some common responsibilities of a PO in Agile.
 
 *   **Single person responsible for maximizing the return on investment**
-*   **(ROI) of the development effort**
+*   **ROI of the development effort**
 *   **Responsible for product vision**
 *   **Constantly re-prioritizes the Product Backlog**
 *   **Clarifies questions on requirements**
@@ -42,4 +42,4 @@ The Product Owner should also engage in User Acceptance Testing as the product i
 
 In reality, the term Technical Product Owner describes a person, not a role.  Specifically, it describes a person who has a technical background and works on a technology product.  It does _not_ mean that the Product Owner will actually need to perform any technical tasks, such as software architecting and coding. They are not actually developing the product—they are performing a Product Management role in close coordination with a Software Development Team, the Scrum Team.
 
-For a company to get the most value from the role, Product Owner must focus on product management, not development. But some Product Owners need <span class="sumo_twilighter_highlighted twilighter-6ea19193">to understand the company’s technology at a deep level and interface with the Development Team in order to successfully lead the strategy for the product.</span>
+For a company to get the most value from the role, Product Owner must focus on product management, not development. But some Product Owners need to understand the company’s technology at a deep level and interface with the Development Team in order to successfully lead the strategy for the product.

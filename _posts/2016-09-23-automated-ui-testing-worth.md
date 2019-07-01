@@ -2,9 +2,8 @@
 layout: post
 title: "Is Automated Testing on the UI Worth the Effort?"
 author: Amir
-categories: [ software testing ]
-tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+tags: [ agile, automation ]
+image: assets/images/is-ui-automation-worth-the-effort.jpg
 ---
 
 ## Automated UI Testing
@@ -37,7 +36,7 @@ Many have thrown away the tests at that point and effectively lost all the effor
 
 We should either avoid UI level test automation or at least keep them to the bare minimum. But if you really _have to do_ significant Automated UI Testing, then here is how to do it right to keep the cost of maintenance low.
 
-### **Three Levels of Automated UI Testing**
+### Three Levels of Automated UI Testing
 
 A very good idea when designing UI level functional tests is to think about describing the test at these three levels:
 
@@ -47,17 +46,17 @@ A very good idea when designing UI level functional tests is to think about desc
 
 *   **Technical activity level:** what are the technical steps required to exercise the functionality? For example, open the shop homepage, log in with “test_user” and “test_password”, go to the “/book” page, click on the first image with the “book” CSS class, wait for the relative page to load, click on the “Buy now” link… and so on.
 
-**[Why would you automate a test?](https://www.testingexcellence.com/why-would-you-want-to-automate-a-test/)**
+[Why would you automate a test?](/why-would-you-want-to-automate-a-test/)
 
-### **Test Automation Pyramid**
+### Test Automation Pyramid
 
 I would use the “Inversion of the test automation pyramid” principle, where you focus the majority of your tests at the unit layer.
 
-If you have **[web services](https://www.testingexcellence.com/what-is-a-web-service/)** you can test the application logic at that layer. Then, there would only be a handful of automated end-to-end tests on the UI.
+If you have [web services](https://www.testingexcellence.com/what-is-a-web-service/) you can test the application logic at that layer. Then, there would only be a handful of automated end-to-end tests on the UI.
 
 That way you have the majority of your tests automated with minimum maintenance as there is no UI involved and they run much quicker.
 
-*   [**Test Automation Tips and Best Practices**](https://www.testingexcellence.com/test-automation-tips-best-practices/)
+* [Test Automation Tips and Best Practices](/test-automation-tips-best-practices/)
 
 The problem with running automated tests through the UI is you have to wait for the browser to launch.
 

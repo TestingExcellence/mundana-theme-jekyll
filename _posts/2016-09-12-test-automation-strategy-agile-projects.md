@@ -25,15 +25,15 @@ This requires “inverting the test automation pyramid” by pushing down GUI te
 
 **Related:**
 
-*   **[How to choose which tests to automate?](https://www.testingexcellence.com/choose-tests-automate/)**
-*   **[Where to start test automation for existing website](https://www.testingexcellence.com/start-test-automation-existing-website/)**
-*   **[Should Test Automation be Done by Separate Dedicated Team?](https://www.testingexcellence.com/test-automation-done-separate-dedicated-team/)**
+* [How to choose which tests to automate?](/choose-tests-automate/)
+* [Where to start test automation for existing website](/start-test-automation-existing-website/)
+* [Should Test Automation be Done by Separate Dedicated Team?](/test-automation-done-separate-dedicated-team/)
 
 ### Test Automation Strategy Overview
 
 Prevention rather than detection – while every effort should be spent on preventing the introduction of defects in the application in the first place, the techniques and methods for that are outside of the scope of this post. Here, the methodologies are defined to allow for quick detection of bugs when they are introduced into the system and feedback to development.
 
-Quality should be favored over quantity. In most cases, it is better to release with one feature that is rock solid rather than multiple features that are flaky. As a minimum release criterion, any newly developed feature should not have introduced any **[regression defects](http://www.testingexcellence.com/best-practices-for-regression-testing/)**.
+Quality should be favored over quantity. In most cases, it is better to release with one feature that is rock solid rather than multiple features that are flaky. As a minimum release criterion, any newly developed feature should not have introduced any [regression defects](/best-practices-for-regression-testing/).
 
 As already mentioned, quick feedback on the health of the application is of huge importance to support continuous delivery, therefore, a process and a mechanism by which we can obtain feedback quickly is formulated.
 
@@ -41,7 +41,7 @@ One way of getting quick feedback is by increasing the number of unit tests, in
 
 Unit Tests form the foundations for test automation at higher levels.
 
-The second element of improvement is running the regression tests more frequently and aligned with the process of Continuous Integration, see later. Automation Testing should not be seen as an isolated task, but rather as a coherent activity embedded in the **[SDLC](http://www.testingexcellence.com/software-development-life-cycle-sdlc-phases/)**.
+The second element of improvement is running the regression tests more frequently and aligned with the process of Continuous Integration, see later. Automation Testing should not be seen as an isolated task, but rather as a coherent activity embedded in the [SDLC](/software-development-life-cycle-sdlc-phases/).
 
 ### Definition of Regression Packs
 
@@ -69,7 +69,7 @@ These tests are mainly executed through the GUI, as they are checking how users 
 
 ### Test Automation Strategy for Multiple Agile Teams
 
-![test_automation_strategy_agile](http://69.164.212.71/wp-content/uploads/2016/02/Screen-Shot-2016-02-14-at-20.11.05-e1455481231673.png "test_automation_strategy_agile")
+![test_automation_strategy_agile](/assets/images/test-automation-strategy-agile-teams.png "test_automation_strategy_agile")
 
 ** Automated Unit Tests**
 

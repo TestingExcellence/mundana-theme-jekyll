@@ -1,10 +1,9 @@
 ---
 layout: post
-title: "WebDriver - How to Restore Cookies in New Browser Window"
+title: "Selenium - How to Restore Cookies in New Browser Window"
 author: Amir
-categories: [ software testing ]
-tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+tags: [ selenium, automation ]
+image: assets/images/selenium-cookiesjpg
 ---
 
 Suppose we have to test for the following scenario:
@@ -17,49 +16,51 @@ On the first login, cookies are stored in the browser. In WebDriver, when the br
 
 Luckily, WebDriver has functionality to read the cookies from the browser before closing it and then restore the cookies in the new browser window.
 
-    package com.testingexcellence.webdriver
-    import org.openqa.selenium.By;
-    import org.openqa.selenium.Cookie;
-    import org.openqa.selenium.WebDriver;
-    import org.openqa.selenium.firefox.FirefoxDriver;
-    import org.testng.Assert;
+```java
+package com.testingexcellence.webdriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 
-    import java.util.Set;
+import java.util.Set;
 
-    public class CookieTest {
-        WebDriver driver;
+public class CookieTest {
+    WebDriver driver;
 
-        @Test
-        public void login_state_should_be_restored() {
-            driver = new FirefoxDriver();
+    @Test
+    public void login_state_should_be_restored() {
+        driver = new FirefoxDriver();
 
-            driver.get("http://www.example.com/login");
-            driver.findElement(By.id("username")).sendKeys("admin");
-            driver.findElement(By.id("password")).sendKeys("12345");
-            driver.findElement(By.id("login")).click();
+        driver.get("http://www.example.com/login");
+        driver.findElement(By.id("username")).sendKeys("admin");
+        driver.findElement(By.id("password")).sendKeys("12345");
+        driver.findElement(By.id("login")).click();
 
-            Assert.assertTrue(
-                    driver.findElement(By.id("welcome")).isDisplayed());
+        Assert.assertTrue(
+                driver.findElement(By.id("welcome")).isDisplayed());
 
-            //Before closing the browser, read the cookies
-            Set allCookies = driver.manage().getCookies();
+        //Before closing the browser, read the cookies
+        Set allCookies = driver.manage().getCookies();
 
-            driver.close();
+        driver.close();
 
-            //open a new browser window
-            driver = new FirefoxDriver();
+        //open a new browser window
+        driver = new FirefoxDriver();
 
-            //restore all cookies from previous session
-            for(Cookie cookie : allCookies) {
-                driver.manage().addCookie(cookie);
-            }
-
-            driver.get("http://www.example.com/login");
-
-    //Login page should not be disaplyed
-            Assert.assertTrue(
-                    driver.findElement(By.id("welcome")).isDisplayed());
-
-            driver.close();
+        //restore all cookies from previous session
+        for(Cookie cookie : allCookies) {
+            driver.manage().addCookie(cookie);
         }
+
+        driver.get("http://www.example.com/login");
+
+//Login page should not be disaplyed
+        Assert.assertTrue(
+                driver.findElement(By.id("welcome")).isDisplayed());
+
+        driver.close();
     }
+}
+```

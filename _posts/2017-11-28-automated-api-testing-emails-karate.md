@@ -3,7 +3,7 @@ layout: post
 title: "Automated Testing of Emails Using Karate"
 author: Amir
 categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+image: assets/images/karate-automated-api-testing.png
 ---
 
 <div class="columnLayout single" data-layout="single">

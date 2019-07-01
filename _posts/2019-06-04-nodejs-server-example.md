@@ -6,7 +6,9 @@ categories: [ node.js, tutorials ]
 image: assets/images/nodejs-server-hello-world.png
 ---
 
-In this example we'll create an HTTP server listening on port 1337, which sends `Hello, World!` to the browser.
+In this example we'll show how to create an HTTP server using Node.js. The server will listen on port 1337, and will send `Hello, World!` to the browser upon a GET request.
+
+<!--more-->
 
 Note that, instead of using port 1337, you can use any port number of your choice which is currently not in use by any other service.
 

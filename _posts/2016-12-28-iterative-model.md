@@ -4,16 +4,16 @@ title: "Iterative Model"
 author: Amir
 categories: [ software testing ]
 tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+image: assets/images/iterative-model.png
 ---
 
 ## What is the Iterative Model?
 
-[caption id="attachment_10210" align="aligncenter" width="600"]![iterative-model](http://69.164.212.71/wp-content/uploads/2008/11/iterative-model.jpg) iterative-model[/caption]
-
 An iterative life cycle model does not attempt to start with a full specification of requirements. Instead, development begins by specifying and implementing just part of the software, which can then be reviewed in order to identify further requirements. This process is then repeated, producing a new version of the software for each cycle of the model.
 
 Consider an iterative life cycle model which consists of repeating the following four phases in sequence:
+
+![iterative model](/assets/images/iterative-model.png "iterative model")
 
 **A Requirements phase,** in which the requirements for the software are gathered and analysed. Iteration should eventually result in a requirements phase that produces a complete and final specification of requirements.
 
@@ -29,7 +29,7 @@ The iterative life cycle model can be likened to producing software by successiv
 
 The key to successful use of an iterative software development life cycle is rigorous validation of requirements, and verification (including testing) of each version of the software against those requirements within each cycle of the model.
 
-The first three phases of the example iterative model is in fact an abbreviated form of a sequential **[V Model](http://www.testingexcellence.com/v-model/ "V Model")** or **[waterfall Model](http://www.testingexcellence.com/waterfall-model/ "Waterfall Model in Software Testing")** of development. Each cycle of the model produces software that requires testing at the unit level, for software integration, for system integration and for acceptance. As the software evolves through successive cycles, tests have to be repeated and extended to verify each version of the software.
+The first three phases of the example iterative model is in fact an abbreviated form of a sequential **[V Model](/v-model-in-software-testing/ "V Model")** or **[waterfall Model](/waterfall-model/ "Waterfall Model in Software Testing")** of development. Each cycle of the model produces software that requires testing at the unit level, for software integration, for system integration and for acceptance. As the software evolves through successive cycles, tests have to be repeated and extended to verify each version of the software.
 
 ### **Advantages of Iterative Model**
 

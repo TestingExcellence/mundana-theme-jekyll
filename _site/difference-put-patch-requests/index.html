@@ -12,16 +12,16 @@
 <meta property="og:title" content="Difference Between PUT and PATCH Requests" />
 <meta name="author" content="Amir" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="What is the main difference between PUT and PATCH requests, and when should we use one over the other?" />
-<meta property="og:description" content="What is the main difference between PUT and PATCH requests, and when should we use one over the other?" />
+<meta name="description" content="What is the main difference between PUT and PATCH requests, and when should we use one over the other? PUT and PATCH are HTTP verbs and they both relate to updating a resource. Main Difference Between PUT and PATCH Requests The main difference between PUT and PATCH requests are in the way the server processes the enclosed entity to modify the resource identified by the Request-URI. https://www.testingexcellence.com/http-basics/ In a PUT request, the enclosed entity is considered to be a modified version of the resource stored on the origin server, and the client is requesting that the stored version be replaced. With PATCH, however, the enclosed entity contains a set of instructions describing how a resource currently residing on the origin server should be modified to produce a new version. Also, another difference is that when you want to update a resource with PUT request, you have to send the full payload as the request whereas with PATCH, you only send the parameters which you want to update. Gatling - How to send post requests with randomized data Suppose we have a resource that holds the first name and last name of a person. If we want to change the first name then we send a PUT request for Update 1 { &quot;first&quot;: &quot;Michael&quot;, &quot;last&quot;: &quot;Angelo&quot; } Here, although we are only changing the first name, with PUT request we have to send both parameters first and last. In other words, it is mandatory to send all values again, the full payload. When we send a PATCH request, however, we only send the data which we want to update. In other words, we only send the first name to update, no need to send the last name. For this reason, PATCH request requires less bandwidth." />
+<meta property="og:description" content="What is the main difference between PUT and PATCH requests, and when should we use one over the other? PUT and PATCH are HTTP verbs and they both relate to updating a resource. Main Difference Between PUT and PATCH Requests The main difference between PUT and PATCH requests are in the way the server processes the enclosed entity to modify the resource identified by the Request-URI. https://www.testingexcellence.com/http-basics/ In a PUT request, the enclosed entity is considered to be a modified version of the resource stored on the origin server, and the client is requesting that the stored version be replaced. With PATCH, however, the enclosed entity contains a set of instructions describing how a resource currently residing on the origin server should be modified to produce a new version. Also, another difference is that when you want to update a resource with PUT request, you have to send the full payload as the request whereas with PATCH, you only send the parameters which you want to update. Gatling - How to send post requests with randomized data Suppose we have a resource that holds the first name and last name of a person. If we want to change the first name then we send a PUT request for Update 1 { &quot;first&quot;: &quot;Michael&quot;, &quot;last&quot;: &quot;Angelo&quot; } Here, although we are only changing the first name, with PUT request we have to send both parameters first and last. In other words, it is mandatory to send all values again, the full payload. When we send a PATCH request, however, we only send the data which we want to update. In other words, we only send the first name to update, no need to send the last name. For this reason, PATCH request requires less bandwidth." />
 <link rel="canonical" href="http://localhost:4000/difference-put-patch-requests/" />
 <meta property="og:url" content="http://localhost:4000/difference-put-patch-requests/" />
 <meta property="og:site_name" content="Testing Excellence" />
-<meta property="og:image" content="http://localhost:4000/assets/images/coming-soon.jpg" />
+<meta property="og:image" content="http://localhost:4000/assets/images/http-put-vs-patch.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-10-29T00:00:00+01:00" />
 <script type="application/ld+json">
-{"description":"What is the main difference between PUT and PATCH requests, and when should we use one over the other?","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"http://localhost:4000/difference-put-patch-requests/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"http://localhost:4000/assets/images/coming-soon.jpg","headline":"Difference Between PUT and PATCH Requests","dateModified":"2017-10-29T00:00:00+01:00","datePublished":"2017-10-29T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/difference-put-patch-requests/"},"@context":"http://schema.org"}</script>
+{"description":"What is the main difference between PUT and PATCH requests, and when should we use one over the other? PUT and PATCH are HTTP verbs and they both relate to updating a resource. Main Difference Between PUT and PATCH Requests The main difference between PUT and PATCH requests are in the way the server processes the enclosed entity to modify the resource identified by the Request-URI. https://www.testingexcellence.com/http-basics/ In a PUT request, the enclosed entity is considered to be a modified version of the resource stored on the origin server, and the client is requesting that the stored version be replaced. With PATCH, however, the enclosed entity contains a set of instructions describing how a resource currently residing on the origin server should be modified to produce a new version. Also, another difference is that when you want to update a resource with PUT request, you have to send the full payload as the request whereas with PATCH, you only send the parameters which you want to update. Gatling - How to send post requests with randomized data Suppose we have a resource that holds the first name and last name of a person. If we want to change the first name then we send a PUT request for Update 1 { &quot;first&quot;: &quot;Michael&quot;, &quot;last&quot;: &quot;Angelo&quot; } Here, although we are only changing the first name, with PUT request we have to send both parameters first and last. In other words, it is mandatory to send all values again, the full payload. When we send a PATCH request, however, we only send the data which we want to update. In other words, we only send the first name to update, no need to send the last name. For this reason, PATCH request requires less bandwidth.","author":{"@type":"Person","name":"Amir"},"@type":"BlogPosting","url":"http://localhost:4000/difference-put-patch-requests/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"Amir"},"image":"http://localhost:4000/assets/images/http-put-vs-patch.jpg","headline":"Difference Between PUT and PATCH Requests","dateModified":"2017-10-29T00:00:00+01:00","datePublished":"2017-10-29T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/difference-put-patch-requests/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -192,7 +192,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/coming-soon.jpg" alt="Difference Between PUT and PATCH Requests">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/http-put-vs-patch.jpg" alt="Difference Between PUT and PATCH Requests">
             
 
             
@@ -204,7 +204,7 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>What is the main difference between <span class="lang:default decode:true crayon-inline">PUT </span>and <span class="lang:default decode:true crayon-inline">PATCH </span>requests, and when should we use one over the other?</p>
+                <p>What is the main difference between <code class="highlighter-rouge">PUT</code> and <code class="highlighter-rouge">PATCH</code> requests, and when should we use one over the other?</p>
 
 <p>PUT and PATCH are HTTP verbs and they both relate to updating a resource.</p>
 
@@ -214,11 +214,11 @@
 
 <p>https://www.testingexcellence.com/http-basics/</p>
 
-<p>In a PUT request, the enclosed entity is considered to be a modified version of the resource stored on the origin server, and the client is requesting that the stored version be replaced.</p>
+<p>In a <code class="highlighter-rouge">PUT</code> request, the enclosed entity is considered to be a modified version of the resource stored on the origin server, and the client is requesting that the stored version be replaced.</p>
 
-<p>With PATCH, however, the enclosed entity contains a set of instructions describing how a resource currently residing on the origin server should be modified to produce a new version.</p>
+<p>With <code class="highlighter-rouge">PATCH</code>, however, the enclosed entity contains a set of instructions describing how a resource currently residing on the origin server should be modified to produce a new version.</p>
 
-<p>Also, another difference is that when you want to update a resource with PUT request, you have to send the full payload as the request whereas with PATCH, you only send the parameters which you want to update.</p>
+<p>Also, another difference is that when you want to update a resource with <code class="highlighter-rouge">PUT</code> request, you have to send the full payload as the request whereas with <code class="highlighter-rouge">PATCH</code>, you only send the parameters which you want to update.</p>
 
 <ul>
   <li><strong><a href="https://www.testingexcellence.com/gatling-random-post-request/">Gatling - How to send post requests with randomized data</a></strong></li>
@@ -226,18 +226,17 @@
 
 <p>Suppose we have a resource that holds the first name and last name of a person.</p>
 
-<p>If we want to change the <span class="lang:default decode:true crayon-inline ">first</span> name then we send a <strong>put</strong> request for Update</p>
+<p>If we want to change the first name then we send a <code class="highlighter-rouge">PUT</code> request for Update</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>{ "first": "Michael", "last": "Angelo" }
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Here, although we are only changing the first name, with PUT request we have to send both parameters <span class="lang:default decode:true crayon-inline ">first</span> and <span class="lang:default decode:true crayon-inline">last</span>.<br />
-In other words, it is mandatory to send all values again, the full payload.</p>
+<p>Here, although we are only changing the first name, with <code class="highlighter-rouge">PUT</code> request we have to send both parameters first and last. In other words, it is mandatory to send all values again, the full payload.</p>
 
-<p>When we send a PATCH request, however, we only send the data which we want to update. In other words, we only send the <span class="lang:default decode:true crayon-inline ">first</span> name to update, no need to send the <span class="lang:default decode:true crayon-inline ">last</span> name.</p>
+<p>When we send a <code class="highlighter-rouge">PATCH</code> request, however, we only send the data which we want to update. In other words, we only send the first name to update, no need to send the last name.</p>
 
-<p>For this reason, PATCH request requires less bandwidth.</p>
+<p>For this reason, <code class="highlighter-rouge">PATCH</code> request requires less bandwidth.</p>
 
             </div>
 
@@ -247,7 +246,7 @@ In other words, it is mandatory to send all values again, the full payload.</p>
                     
                     
                     <li>
-                        <a class="smoothscroll" href="/categories#software-testing">software testing</a>
+                        <a class="smoothscroll" href="/categories#technical-testing">technical testing</a>
                     </li>
                     
                 </ul>
@@ -259,10 +258,346 @@ In other words, it is mandatory to send all values again, the full payload.</p>
                 <ul class="tags">
                     
                     
+                    <li>
+                        <a class="smoothscroll" href="/tags#api-testing">#api testing</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#http">#http</a>
+                    </li>
+                    
                 </ul>
             </div>
             <!-- End Tags -->
+            <!-- <div class="rect">
+
+        
+        
+        
+      
+      
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+      
+                <a href="/http-status-codes/">
+                    <div class="rel">
+                        <h5>HTTP Status Codes With Explanations</h5>
+                        <img width="100%" src="/assets/images/http-status-codes.png">
+                    </div>
+                </a>
+      
             
+            
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+      
+                <a href="/rest-assured-post-request/">
+                    <div class="rel">
+                        <h5>How to Submit Form Data With REST-assured Post Request</h5>
+                        <img width="100%" src="/assets/images/rest-assured-post-request.png">
+                    </div>
+                </a>
+      
+            
+            
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+        
+      
+      
+          
+          
+      
+          
+      
+          
+      
+                <a href="/karate-api-testing-tool-cheat-sheet/">
+                    <div class="rel">
+                        <h5>Karate API Testing Tool Cheat Sheet</h5>
+                        <img width="100%" src="/assets/images/karate-api-testing-tool.png">
+                    </div>
+                </a>
+      
+            
+            
+              
+      </div> -->
             <!-- Mailchimp Subscribe Form -->
             
 			<div class="border p-5 bg-lightblue">

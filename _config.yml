@@ -14,6 +14,8 @@ include: ["_pages"]
 permalink: /:title/
 lazyimages: "enabled"
 
+excerpt_separator: <!--more-->
+
 algolia:
   application_id: MXVECYJVXO
   search_only_api_key: 65a34308cb09a0897ab9e0880c498379

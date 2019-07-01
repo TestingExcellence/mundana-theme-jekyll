@@ -2,16 +2,16 @@
 layout: post
 title: "Agile Test Strategy Example Template"
 author: Amir
-categories: [ software testing ]
-tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+categories: [ agile ]
+tags: [ strategy ]
+image: assets/images/agile-test-strategy.jpg
 ---
 
 ## Agile Test Strategy
 
 In an agile environment, where we work in short sprints or iterations, each sprint is focused on only a few requirements or user stories, so it is natural that documentation may not be as extensive, in terms of both number and content.
 
-Previously we concluded that we may not need to have an **[extensive test plan in agile projects](http://www.testingexcellence.com/agile-test-plan-do-we-really-need-one/ "Agile Test Plan – Do We Really Need One?")** for each sprint due to time constraints, but we do require a high-level agile test strategy as a guideline for the agile teams.
+Previously we concluded that we may not need to have an [extensive test plan in agile projects](/agile-test-plan-do-we-really-need-one/ "Agile Test Plan – Do We Really Need One?") for each sprint due to time constraints, but we do require a high-level agile test strategy as a guideline for the agile teams.
 
 The purpose of the agile test strategy document is to list best practices and some form of structure that the teams can follow. Remember, agile does not mean unstructured.
 
@@ -52,7 +52,7 @@ In the Agile Test Strategy document, I would also include a reminder to everyone
 
 **WHEN:** As soon as new code is written
 
-**WHERE: **Local Dev + CI (part of the build)
+**WHERE:** Local Dev + CI (part of the build)
 
 **HOW:** Automated, Junit, TestNG, PHPUnit
 
@@ -181,7 +181,7 @@ Any commit to the code repository should trigger an execution of the unit tests 
 
 Unit tests ensure that the system works at a technical level and that there are no errors in the logic.
 
-## **Developer Testing**
+## Developer Testing
 
 As a developer, behave as if you don't have any QA in the team or organization. It is true that QAs have different mindset but you should test to the best of your ability.
 
@@ -189,13 +189,13 @@ You think you are saving time by quickly moving on to the next story, but in rea
 
 Any new code and/or refactoring of legacy code should have appropriate unit tests that will be part of the unit regression test.
 
-## **Automated Acceptance Tests and Non-functional Testing**
+## Automated Acceptance Tests and Non-functional Testing
 
 The automated acceptance tests include Integration Tests and Service Tests and UI tests which aim to prove the software works at a functional level and that it meets user’s requirements and specifications.
 
 Automated acceptance tests are usually written in Gherkin language and executed using a BDD tool such as cucumber.
 
-**[Remember: Not all tests need to be automated!](http://www.testingexcellence.com/test-automation-tips-best-practices/ "Test Automation Tips and Best Practices")**
+[**Remember**: Not all tests need to be automated!](/test-automation-tips-best-practices/ "Test Automation Tips and Best Practices")
 
 Because these tests typically require communication over `HTTP`, they need to be executed on a deployed application, rather than run as part of the build.
 
@@ -203,7 +203,7 @@ Because these tests typically require communication over `HTTP`, they need to be
 
 Performance Tests should check performance metrics on each deploy to ensure no performance degradation.
 
-Security Tests should check for basic security vulnerabilities derived from **[OWASP](https://www.owasp.org/index.php/Main_Page)**
+Security Tests should check for basic security vulnerabilities derived from [OWASP](https://www.owasp.org/index.php/Main_Page)
 
 It is vital that this should be a completely automated process with very little maintenance to get the most benefit out of automated deployments. This means there should be no intermittent test failures, test script issues, and broken environment.
 

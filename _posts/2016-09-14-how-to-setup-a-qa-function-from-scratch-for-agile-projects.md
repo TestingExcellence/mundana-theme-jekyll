@@ -1,13 +1,10 @@
 ---
 layout: post
-title: "How To Setup a QA Function From Scratch For Agile Startups"
+title: "How To Setup a QA Function From Scratch"
 author: Amir
-categories: [ software testing ]
-tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+tags: [ featured, automation, agile]
+image: assets/images/setup-qa-function-from-scratch.jpg
 ---
-
-## How to setup a QA function from scratch?
 
 It is a usual scenario: a startup company has a new idea and hires a number of developers to build a working model of the idea.
 
@@ -45,7 +42,7 @@ There is not enough time to write regression tests as well as keeping up with te
 
 Usually, during the first few days of the sprint, developers are busy coding and so the new features won't be ready to test for a while. Here is a good chance to start working on the regression tests.
 
-There are **[best practices for regression testing](http://www.testingexcellence.com/best-practices-for-regression-testing/)**, but generally, the approach would be to identify the main core user journeys throughout the website, so that on each new release of the website, we can be confident that the application is still usable by majority of its users.
+There are [best practices for regression testing](/best-practices-for-regression-testing/), but generally, the approach would be to identify the main core user journeys throughout the website, so that on each new release of the website, we can be confident that the application is still usable by majority of its users.
 
 There doesn't need to be an exhaustive list of these scenarios, just the main and most important ones will be sufficient to start a small regression pack that can be executed on every build. Later, as the regression pack matures, we can begin to add more scenarios.
 
@@ -81,7 +78,7 @@ Certainly each new piece of functionality should be well unit tested. On top of 
 
 Peer code reviews or "buddy testing" can put a second eye on the work of the developer. A tester can help in reviewing the unit tests and well as the API tests to ensure correct tests have been written, as well as helping to write the high-level automated UI tests.
 
-Read more on **[Best Practices for Continuous Testing](http://www.testingexcellence.com/best-practices-for-continuous-testing-in-agile/)** in Agile projects.
+Read more on [Best Practices for Continuous Testing](/best-practices-for-continuous-testing-in-agile/) in Agile projects.
 
 ### Continuous Integration / Test Environments
 

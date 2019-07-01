@@ -2,12 +2,10 @@
 layout: post
 title: "Is it Possible to do Sufficient Testing Without QA Resource?"
 author: Amir
-categories: [ software testing ]
-tags: [ testing fundamentals ]
-image: assets/images/coming-soon.jpg
+tags: [ qa, agile ]
+image: assets/images/sufficient-testing-without-qa.jpg
 ---
 
-![sufficient-testing-no-qa](http://69.164.212.71/wp-content/uploads/2016/02/sufficient-testing-no-qa-1.png)
 
 A while back, Yahoo decided to **[get rid of their entire test and quality assurance team](http://spectrum.ieee.org/view-from-the-valley/computing/software/yahoos-engineers-move-to-coding-without-a-net)** and instead handing the responsibility of testing to the developers. The move was part of project Warp to move closer to continuous delivery model.
 

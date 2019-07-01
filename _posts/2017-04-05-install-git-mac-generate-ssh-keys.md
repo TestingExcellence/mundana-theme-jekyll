@@ -2,39 +2,41 @@
 layout: post
 title: "How to Install Git on Mac and Generate SSH Keys"
 author: Amir
-categories: [ software testing ]
-image: assets/images/coming-soon.jpg
+tags: [ git, mac ]
+image: assets/images/install-git-mac-generate-ssh-keys.jpg
 ---
 
 In this step-by-step Git Tutorial, we will go through how to install Git on a Mac machine, how to generate SSH keys and upload your public SSH key to your GitHub account for authorization.
 
 ## How to Install Git on Mac
 
-<span style="font-weight: 400;">Open a terminal and type</span>
+Open a terminal and type
 
-    $ brew install git
+```bash
+$ brew install git
+```
 
 This will install Git on your system. To confirm the installation, type
 
-    $ git --version
+```bash
+$ git --version
+```
 
 This will print the version of Git installed on your machine.
 
-## **How to generate SSH key for GitHub authorization**
+## How to generate SSH key for GitHub authorization
 
-1.  <span style="font-weight: 400;">Open a terminal</span>
-2.  <span style="font-weight: 400;">Go to your home directory by typing cd ~/</span>
-3.  <span style="font-weight: 400;"><span style="font-weight: 400;">Type the following command</span></span>
+1. Open a terminal
+2. Go to your home directory by typing `cd ~/`
+3. Type the following command `$ ssh-keygen -t rsa`
 
-        $ ssh-keygen -t rsa
-
-    *   <span style="font-weight: 400;">This will prompt you to enter a filename to store the key</span>
-    *   <span style="font-weight: 400;">Just press enter to accept the default filename (/Users/you/.ssh/id_rsa)</span>
-    *   <span style="font-weight: 400;">Then it will ask you to create a passphrase. This is optional, either create a passphrase or press enter for no passphrase</span>
-4.  <span style="font-weight: 400;">When you press enter, two files will be created</span>
-    *   <span style="font-weight: 400;">`~/.ssh/id_rsa`</span>
-    *   <span style="font-weight: 400;">`~/.ssh/id_rsa.pub`</span>
-5.  <span style="font-weight: 400;">Your public key is stored in the file ending with .pub, i.e. `~/.ssh/id_rsa.pub`</span>
+    *   This will prompt you to enter a filename to store the key
+    *   Just press enter to accept the default filename (/Users/you/.ssh/id_rsa)
+    *   Then it will ask you to create a passphrase. This is optional, either create a passphrase or press enter for no passphrase
+4.  When you press enter, two files will be created
+    *   `~/.ssh/id_rsa`
+    *   `~/.ssh/id_rsa.pub`
+5.  Your public key is stored in the file ending with .pub, i.e. `~/.ssh/id_rsa.pub`
 
 ## How to access and copy public SSH key
 
@@ -44,14 +46,16 @@ In order to authenticate yourself and your device with GitHub, you need to uploa
 
 Open a terminal and type
 
-    $ pbcopy < ~/.ssh/id_rsa.pub
+```bash
+$ pbcopy < ~/.ssh/id_rsa.pub
+```
 
 This will copy the contents of the id_rsa.pub file to your clipboard.
 
-## **How to upload your public SSH key to GitHub**
+## How to upload your public SSH key to GitHub
 
 1.  Once you have copied your public SSH key, login to your GitHub account and go to
-2.  [<span style="font-weight: 400;">https://github.com/settings/profile</span>](https://github.com/settings/profile)
+2.  [https://github.com/settings/profile](https://github.com/settings/profile)
 3.  On the left-hand side menu, you will see a link "SSH and GPG keys"
 4.  Click on that link which will take you to a page where you can enter your public SSH key that you copied earlier.
 5.  Click the button which says ‘New SSH key’
@@ -63,14 +67,16 @@ This will copy the contents of the id_rsa.pub file to your clipboard.
 
 Open a terminal and type
 
+```bash
     $ git clone git@github.com:AmirGhahrai/Rima.git
+```
 
 1.  It will ask you if you want to continue to connect, type yes
 2.  If you created a passphrase when you were generating the public key, then it will ask you to enter it.
 3.  Enter your passphrase and press enter.
 4.  It will then start to clone the project to your directory.
 
-<span style="font-weight: 400;">You are all now set up to use Git and GitHub.</span>
+You are all now set up to use Git and GitHub.
 
 **Further reading:**
 
